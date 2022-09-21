@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>민다</title>
+  <style type="text/css">
+    /* CSS Reset */
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    div,
+    ul,
+    li,
+    dl,
+    dt,
+    dd {
+      margin: 0;
+      padding: 0
+    }
+
+    body {
+      font-family: "나눔고딕";
+      font-size: 14px;
+      line-height: 1.5
+    }
+
+    div,
+    header,
+    ul,
+    input {
+      box-sizing: border-box;
+    }
+
+    ul,
+    li {
+      list-style: none
+    }
+
+    a {
+      text-decoration: none;
+      color: #000
+    }
+
+    address {
+      font-style: normal
+    }
+
+    /* 공통클래스 */
+    .hide {
+      position: absolute;
+      left: -9999px;
+      top: -9999px
+    }
+
+    .indent {
+      text-indent: -9999px;
+    }
+
+    .clearfix {
+      clear: both;
+    }
+
+    .shadow {
+      box-shadow: 0 5px 10px -7px rgba(0, 0, 0, 1);
+    }
+
+    .footer {
+      display: none;
+    }
+
+    /* header */
+    .header {
+      height: 200px;
+      padding-top: 1px;
+      position: relative;
+    }
+
+    /* logo */
+    .logo {
+      width: 190px;
+      height: 60px;
+      margin: 75px auto 0;
+    }
+
+    .logo a {
+      display: block;
+      width: 190px;
+      height: 60px;
+      background: url(images/logo.png) no-repeat;
+    }
+
+    /* top menu */
+    .top_menu {
+      width: 100%;
+      height: 59px;
+      border-bottom: 1px solid #d7d7d7;
+      position: absolute;
+      top: 0;
+      padding: 20px;
+    }
+
+    .top_menu ul {
+      float: right;
+    }
+
+    .top_menu li {
+      float: left
+    }
+
+    .top_bar::after {
+      content: "|";
+      margin: 0 10px;
+    }
+
+    /* gnd */
+    .gnb {
+      border-bottom: 1px solid #8c8c8c;
+      position: relative;
+    }
+
+    .gnb>ul {
+      width: 1200px;
+      margin: 14px auto 0;
+      height: 50px;
+    }
+
+    .menu1 {
+      float: left;
+      margin-right: 20px;
+    }
+
+    .menu1>a {
+      width: 100px;
+      height: 50px;
+      background: url(images/menu01.jpg) no-repeat;
+      display: block;
+    }
+
+    .menu2 {
+      float: left;
+      margin-right: 20px;
+    }
+
+    .menu2>a {
+      width: 100px;
+      height: 50px;
+      background: url(images/menu02.jpg) no-repeat;
+      display: block;
+    }
+
+    .menu3 {
+      float: left;
+      margin-right: 20px;
+    }
+
+    .menu3>a {
+      width: 160px;
+      height: 50px;
+      background: url(images/menu03.jpg) no-repeat;
+      display: block;
+    }
+
+    .menu4 {
+      float: left;
+      margin-right: 20px;
+    }
+
+    .menu4>a {
+      width: 140px;
+      height: 50px;
+      background: url(images/menu04.jpg) no-repeat;
+      display: block;
+    }
+
+    /* 서브메뉴 display:none */
+    .menu4_sub_wrap {
+      width: 100%;
+      position: absolute;
+      left: 0;
+      display: none;
+    }
+
+    .menu4_sub_wrap ul {
+      width: 1200px;
+      margin: 1px auto 0;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .menu4_sub1 a {
+      width: 130px;
+      height: 60px;
+      background: url(images/submenu4_image1.jpg) no-repeat;
+      display: block;
+    }
+
+    .menu4_sub2 a {
+      width: 100px;
+      height: 60px;
+      background: url(images/submenu4_image2.jpg) no-repeat;
+      display: block;
+    }
+
+    .menu5 {
+      float: left;
+      margin-right: 20px;
+    }
+
+    .menu5>a {
+      width: 180px;
+      height: 50px;
+      background: url(images/menu05.jpg) no-repeat;
+      display: block;
+    }
+
+
+    /* 서브메뉴 dispaly : none */
+    .menu5_sub_wrap {
+      width: 100%;
+      position: absolute;
+      left: 0;
+      display: none;
+    }
+
+    .menu5_sub_wrap ul {
+      width: 1200px;
+      margin: 1px auto 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .menu5_sub1 a {
+      width: 150px;
+      height: 60px;
+      background: url(images/submenu5_image1.jpg) no-repeat;
+      display: block;
+    }
+
+    .menu5_sub2 a {
+      width: 150px;
+      height: 60px;
+      background: url(images/submenu5_image2.jpg) no-repeat;
+      display: block;
+    }
+
+    .menu5_sub3 a {
+      width: 150px;
+      height: 60px;
+      background: url(images/submenu5_image3.jpg) no-repeat;
+      display: block;
+    }
+
+    .menu5_sub4 a {
+      width: 150px;
+      height: 60px;
+      background: url(images/submenu5_image4.jpg) no-repeat;
+      display: block;
+    }
+
+    .menu5_sub5 a {
+      width: 150px;
+      height: 60px;
+      background: url(images/submenu5_image5.jpg) no-repeat;
+      display: block;
+    }
+
+    .menu6 {
+      float: left;
+      margin-right: 20px;
+    }
+
+    .menu6>a {
+      width: 150px;
+      height: 50px;
+      background: url(images/menu06.jpg) no-repeat;
+      display: block;
+    }
+
+    .menu7 {
+      float: left;
+      margin-right: 20px;
+    }
+
+    .menu7>a {
+      width: 140px;
+      height: 50px;
+      background: url(images/menu07.jpg) no-repeat;
+      display: block;
+    }
+
+    /* 서브메뉴 dispaly : none */
+    .menu7_sub_wrap {
+      width: 100%;
+      position: absolute;
+      left: 0;
+      display: none;
+    }
+
+    .menu7_sub_wrap ul {
+      width: 1200px;
+      margin: 1px auto 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .menu7_sub1 a {
+      width: 150px;
+      height: 60px;
+      background: url(images/submenu7_image1.jpg) no-repeat;
+      display: block;
+    }
+
+    .menu7_sub2 a {
+      width: 150px;
+      height: 60px;
+      background: url(images/submenu7_image2.jpg) no-repeat;
+      display: block;
+    }
+
+    .menu8 {
+      float: left;
+    }
+
+    .menu8>a {
+      width: 54px;
+      height: 50px;
+      background: url(images/menu08.jpg) no-repeat;
+      display: block;
+    }
+
+    /* main banner */
+    .mb_wrap {
+      height: 500px;
+      background-color: #f2f5ef;
+    }
+
+    .mb {
+      width: 1200px;
+      height: 500px;
+      margin: auto;
+    }
+
+    .mb_search {
+      float: left;
+      margin: 110px 100px 0 120px;
+    }
+
+    .mb_reco {
+      float: left;
+      margin-top: 35px;
+      position: relative;
+    }
+
+    .mb_search h3 {
+      width: 219px;
+      height: 38px;
+      background: url(images/main_search_title.png) no-repeat;
+      margin-bottom: 30px;
+    }
+
+    .mb_search_list {
+      height: 35px;
+    }
+
+    .mb_search_room {
+      float: left;
+    }
+
+    .mb_search_room a {
+      width: 126px;
+      height: 32px;
+      background: url(images/main_search_room.jpg) no-repeat;
+      display: block;
+    }
+
+    .mb_search_tour {
+      float: left;
+    }
+
+    .mb_search_tour a {
+      width: 126px;
+      height: 32px;
+      background: url(images/main_search_tour.jpg) no-repeat;
+      display: block;
+    }
+
+    .mb_search_bar {
+      width: 250px;
+      height: 4px;
+      background: url(images/main_search_room_bar.png) no-repeat;
+    }
+
+    .mb_search input {
+      width: 250px;
+      height: 40px;
+      border: none;
+      font-size: 15px;
+      padding: 10px;
+    }
+
+    .mb_search_input1 {
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    .mb_search_input2 {
+      margin-bottom: 20px;
+    }
+
+    .mb_search_room_btn {
+      width: 260px;
+      height: 50px;
+      background: black;
+      border-radius: 10px;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .mb_search_tour_btn {
+      width: 261px;
+      height: 51px;
+      background: url(images/main_search_tour_btn.png) no-repeat;
+      display: block;
+    }
+
+    .mb_reco_cont1 {
+      width: 611px;
+      height: 411px;
+      background: url(images/main_image1.png) no-repeat;
+    }
+
+    /* .mb_reco_cont2 {
+      width: 611px;
+      height: 411px;
+      background: url(images/main_image2.png) no-repeat;
+    }
+
+    .mb_reco_cont3 {
+      width: 611px;
+      height: 411px;
+      background: url(images/main_image3.png) no-repeat;
+    } */
+
+    .movemsg {
+      color: #8c8c8c;
+      position: absolute;
+      right: 30px;
+    }
+
+    /* content */
+    .best_room h2 {
+      width: 192px;
+      height: 27px;
+      background: url(images/bestroom_title.png) no-repeat;
+    }
+
+    .best_tour h2 {
+      width: 136px;
+      height: 27px;
+      background: url(images/besttour_title.png) no-repeat;
+    }
+
+    .trv_info h2 {
+      width: 154px;
+      height: 27px;
+      background: url(images/travelinfo_title.png) no-repeat;
+    }
+
+    .card {
+      width: 250px;
+      height: 350px;
+      border: 1px solid #b7b7b7;
+      border-radius: 4px;
+    }
+
+    .card_cont {
+      width: 250px;
+      height: 150px;
+      padding: 0 15px 15px;
+    }
+
+    .card_like {
+      width: 17px;
+      height: 14px;
+      background: url(images/heart.png) no-repeat;
+      text-indent: -9999px;
+      display: inline-block;
+    }
+
+    .card_review {
+      width: 77px;
+      height: 14px;
+      background: url(images/star.png) no-repeat;
+      text-indent: -9999px;
+      display: inline-block;
+    }
+
+    .prev {
+      width: 40px;
+      height: 40px;
+      background: url(images/content_prev.png) no-repeat;
+      text-indent: -9999px;
+      display: inline-block;
+    }
+
+    .next {
+      width: 40px;
+      height: 40px;
+      background: url(images/content_next.png) no-repeat;
+      text-indent: -9999px;
+      display: inline-block;
+    }
+
+    /* sale banner */
+    .sale_cont1 a {
+      width: 1600px;
+      height: 250px;
+      background: url(images/sale_image01.jpg) no-repeat;
+      display: block;
+    }
+
+    /* .sale_cont2 a{
+      width: 1600px;
+      height: 250px;
+      background: url(images/sale_image02.jpg) no-repeat;
+      display: block;
+    } */
+
+    /* community */
+    .cmnt h2 {
+      width: 104px;
+      height: 28px;
+      background: url(images/community_title.png) no-repeat;
+    }
+
+    .cmnt_more {
+      width: 16px;
+      height: 17px;
+      background: url(images/community_more.jpg) no-repeat;
+      display: block;
+    }
+
+    /* event */
+    .evnt h2 {
+      width: 104px;
+      height: 28px;
+      background: url(images/event_title.png) no-repeat;
+    }
+
+    .evnt_cont1 a {
+      width: 500px;
+      height: 200px;
+      background: url(images/event_image01.jpg) no-repeat;
+      display: block;
+    }
+
+    /* .evnt_cont2 a{
+      width: 500px;
+      height: 200px;
+      background: url(images/event_image02.jpg) no-repeat;
+      display: block;
+    } */
+
+    /* app download */
+    .app p {
+      width: 535px;
+      height: 19px;
+      background: url(images/app_title.png) no-repeat;
+    }
+
+    .app_apple {
+      width: 153px;
+      height: 61px;
+      background: url(images/app_ios.png) no-repeat;
+      display: block;
+    }
+
+    .app_gogle {
+      width: 153px;
+      height: 61px;
+      background: url(images/app_playstorepng.png) no-repeat;
+      display: block;
+    }
+
+    /* award */
+    .award_img1 {
+      width: 284px;
+      height: 50px;
+      background: url(images/award01.png) no-repeat;
+    }
+
+    .award_img2 {
+      width: 265px;
+      height: 54px;
+      background: url(images/award02.png) no-repeat;
+    }
+
+    .award_img3 {
+      width: 288px;
+      height: 50px;
+      background: url(images/award03.png) no-repeat;
+    }
+
+    /* footer */
+    .footer_qna {
+      width: 120px;
+      height: 30px;
+      background: url(images/footer_QnA.png) no-repeat;
+      display: block;
+    }
+
+    .footer_sns_fb a {
+      width: 29px;
+      height: 30px;
+      background: url(images/footer_facebook.png) no-repeat;
+      display: block;
+    }
+
+    .footer_sns_blog a {
+      width: 29px;
+      height: 30px;
+      background: url(images/footer_blog.png) no-repeat;
+      display: block;
+    }
+
+    .footer_sns_instar a {
+      width: 29px;
+      height: 30px;
+      background: url(images/footer_instargram.png) no-repeat;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header id="header" class="header">
+    <h1 class="logo indent"><a href="#">민다</a></h1>
+
+    <div class="top_menu">
+      <h2 class="hide">사용자 메뉴</h2>
+      <ul>
+        <li class="top_bar"><a href="#">로그인</a></li>
+        <li class="top_bar"><a href="#">회원가입</a></li>
+        <li><a href="#">고객센터</a></li>
+      </ul>
+    </div>
+
+    <nav class="gnb">
+      <h2 class="hide">주요 메뉴</h2>
+      <ul>
+        <li class="menu1 indent"><a href="#">숙소</a></li>
+        <li class="menu2 indent"><a href="#">투어</a></li>
+        <li class="menu3 indent"><a href="#">해외렌터카</a></li>
+        <li class="menu4"><a href="#" class="indent">여행편의</a>
+          <div class="menu4_sub_wrap shadow indent">
+            <ul>
+              <li class="menu4_sub1"><a href="#">해외유심</a></li>
+              <li class="menu4_sub2"><a href="#">공항픽업</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="menu5"><a href="#" class="indent">할인&이벤트</a>
+          <div class="menu5_sub_wrap shadow indent">
+            <ul ul class="menu5_sub">
+              <li class="menu5_sub1"><a href="#">땡처리할인</a></li>
+              <li class="menu5_sub2"><a href="#">비수기할인</a></li>
+              <li class="menu5_sub3"><a href="#">민다 이벤트</a></li>
+              <li class="menu5_sub4"><a href="#">숙소 이벤트</a></li>
+              <li class="menu5_sub5"><a href="#">숙소쿠폰</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="menu6 indent"><a href="#">여행정보</a></li>
+        <li class="menu7"><a href="#" class="indent">커뮤니티</a>
+          <div class="menu7_sub_wrap shadow indent">
+            <ul ul class="menu7_sub">
+              <li class="menu7_sub1"><a href="#">구인·구직</a></li>
+              <li class="menu7_sub2"><a href="#">사고·팔고</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="menu8 indent"><a href="#">검색</a></li>
+      </ul>
+      <div class="gnb_sub"></div>
+    </nav>
+  </header>
+
+
+  <main id="content" class="content">
+    <div class="mb_wrap">
+      <section class="mb">
+        <h2 class="hide">메인배너</h2>
+        <div class="mb_search">
+          <h3 class="indent">숙소 및 투어 검색</h3>
+          <div class="mb_search_list indent">
+            <ul>
+              <li class="mb_search_room"><a href="#">숙박</a></li>
+              <li class="mb_search_tour"><a href="#">투어</a></li>
+            </ul>
+            <div class="mb_search_bar clearfix"></div>
+          </div>
+          <div class="mb_search_form"></div>
+          <form>
+            <input type="text" class="mb_search_input1" placeholder="도시명 또는 숙소명을 입력해주세요"><br>
+            <input type="date" class="mb_search_input2" placeholder="체크인 - 체크아웃"><br>
+            <button class="mb_search_room_btn shadow">숙소 검색</button>
+          </form>
+        </div>
+
+    <div class="mb_reco">
+      <h3 class="hide">추천 여행지</h3>
+      <dl class="mb_reco_cont1 indent">
+        <dt>이탈리아</dt>
+        <dd>역사가 살아 숨쉬는 이탈리아
+          문화유산의 천국! 이탈리아로 떠나요</dd>
+      </dl>
+      <!-- <dl class="mb_reco_cont2 indent">
+          <dt>미국</dt>
+          <dd>어디에도 없는 매력 미국으로 떠나요
+          가장 힙하고, 아름답고, 신나는 여행</dd>
+        </dl>
+        <dl class="mb_reco_cont3 indent">
+          <dt>프랑스</dt>
+          <dd>당신의 로맨스를 찾을 곳, 파리
+          낭만적인 파리를 즐겨보세요</dd>
+        </dl> -->
+      <p class="movemsg">※ 클릭 시 해당 도시 숙소 검색 페이지로 이동합니다.</p>
+    </div>
+    </section>
+    </div>
+
+
+    <section class="best_room">
+      <h2 class="indent">베스트 한인민박</h2>
+
+      <div class="card">
+        <img src="images/bestroom_image01.jpg" alt="영국런던런던스테이">
+        <div class="card_cont">
+          <div class="card_top">
+            <span class="card_category">영국·런던</span>
+            <span class="card_like">좋아요</span><span>132</span>
+          </div>
+          <h3 class="card_title">런던스테이</h3>
+          <div class="card_bot">
+            <p>
+              <span class="card_review">리뷰5.0</span><span>11개</span>
+            </p>
+            <p class="card_price">72,500원 / 1박</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/bestroom_image02.jpg" alt="미국뉴욕앳홈스테이">
+        <div class="card_cont">
+          <div class="card_top">
+            <span class="card_category">미국·뉴욕</span>
+            <span class="card_like">좋아요</span><span>593</span>
+          </div>
+          <h3 class="card_title">앳홈스테이</h3>
+          <div class="card_bot">
+            <p>
+              <span class="card_review">리뷰5.0</span><span>26개</span>
+            </p>
+            <p class="card_price">109,700원 / 1박</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/bestroom_image03.jpg" alt="프랑스파리하이파리민박">
+        <div class="card_cont">
+          <div class="card_top">
+            <span class="card_category">프랑스·파리</span>
+            <span class="card_like">좋아요</span><span>2134</span>
+          </div>
+          <h3 class="card_title">하이파리민박</h3>
+          <div class="card_bot">
+            <p>
+              <span class="card_review">리뷰5.0</span><span>41개</span>
+            </p>
+            <p class="card_price">55,500원 / 1박</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/bestroom_image04.jpg" alt="이탈리아로마로마골뱅이호텔">
+        <div class="card_cont">
+          <div class="card_top">
+            <span class="card_category">이탈리아·로마</span>
+            <span class="card_like">좋아요</span><span>1051</span>
+          </div>
+          <h3 class="card_title">로마골뱅이호텔</h3>
+          <div class="card_bot">
+            <p>
+              <span class="card_review">리뷰5.0</span><span>204개</span>
+            </p>
+            <p class="card_price">10,000원 / 1박</p>
+          </div>
+        </div>
+      </div>
+
+      <a href="#" class="prev">이전</a>
+      <a href="#" class="next">다음</a>
+    </section>
+
+
+    <section class="best_tour">
+      <h2 class="indent">베스트 투어</h2>
+
+      <div class="card">
+        <img src="images/bestour_image01.jpg" alt="프랑스파리몽생미셸야경투어">
+        <div class="card_cont">
+          <div class="card_top">
+            <span class="card_category">프랑스·파리</span>
+            <span class="card_like">좋아요</span><span>107</span>
+          </div>
+          <h3 class="card_title">몽생미셸 야경투어 + 지베르니 모네 정원</h3>
+          <div class="card_bot">
+            <p>
+              <span class="card_review">리뷰5.0</span><span>11개</span>
+            </p>
+            <p class="card_price">210,000원 / 1인</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/bestour_image02.jpg" alt="오스트리아할슈타트투어">
+        <div class="card_cont">
+          <div class="card_top">
+            <span class="card_category">오스트리아·할슈타트</span>
+            <span class="card_like">좋아요</span><span>1</span>
+          </div>
+          <h3 class="card_title">하루 만에 만나는 할슈타트 투어</h3>
+          <div class="card_bot">
+            <p>
+              <span class="card_review">리뷰5.0</span><span>6개</span>
+            </p>
+            <p class="card_price">86,544원 / 1인</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/bestour_image03.jpg" alt="이탈리아로마시내워킹투어">
+        <div class="card_cont">
+          <div class="card_top">
+            <span class="card_category">이탈리아·로마</span>
+            <span class="card_like">좋아요</span><span>63</span>
+          </div>
+          <h3 class="card_title">로마 시내 워킹투어 (반나절) 알고봐야 감탄하는 로마여행</h3>
+          <div class="card_bot">
+            <p>
+              <span class="card_review">리뷰5.0</span><span>21개</span>
+            </p>
+            <p class="card_price">30,000원 / 1인</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/bestour_image04.jpg" alt="미국라스베가스1박2일캠핑6대캐년투어">
+        <div class="card_cont">
+          <div class="card_top">
+            <span class="card_category">미국·라스베가스</span>
+            <span class="card_like">좋아요</span><span>64</span>
+          </div>
+          <h3 class="card_title">럭셔리 1박 2일 캠핑 6대캐년투어(그랜드, 브라이스)</h3>
+          <div class="card_bot">
+            <p>
+              <span class="card_review">리뷰5.0</span><span>25개</span>
+            </p>
+            <p class="card_price">310,000원 / 1인</p>
+          </div>
+        </div>
+      </div>
+
+      <a href="#" class="prev">이전</a>
+      <a href="#" class="next">다음</a>
+    </section>
+
+
+    <section class="trv_info">
+      <h2 class="indent">여행 정보 팁</h2>
+
+      <div class="card">
+        <img src="images/travelinfo_image01.jpg" alt="프랑스파리로맨틱박물관">
+        <div class="card_cont">
+          <div class="card_top">
+            <span class="card_category">프랑스·파리</span>
+            <span class="card_like">좋아요</span><span>132</span>
+          </div>
+          <h3 class="card_title">로맨틱 박물관</h3>
+          <p>낭만적인 파리에서 로맨틱 박물관을 체험해보세요</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/travelinfo_image02.jpg" alt="체코프라하마리오네트체험공방">
+        <div class="card_cont">
+          <div class="card_top">
+            <span class="card_category">체코·프라하</span>
+            <span class="card_like">좋아요</span><span>1</span>
+          </div>
+          <h3 class="card_title">마리오네트 체험공방</h3>
+          <p>프라하에서 즐기는 공방체험!
+            마리오네트 인형을 직접 만들어봐요!</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/travelinfo_image03.jpg" alt="미국뉴욕슬립노모어">
+        <div class="card_cont">
+          <div class="card_top">
+            <span class="card_category">미국·뉴욕</span>
+            <span class="card_like">좋아요</span><span>2134</span>
+          </div>
+          <h3 class="card_title">슬립 노 모어</h3>
+          <p>보기만하는 공연이 나닌 관객이
+            직접 참여할 수 있는 이색적인 공연!
+            특별한 경험을 원한다면 추천</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/travelinfo_image04.jpg" alt="헝가리부다페스트국회의사당">
+        <div class="card_cont">
+          <div class="card_top">
+            <span class="card_category">헝가리·부다페스트</span>
+            <span class="card_like">좋아요</span><span>10</span>
+          </div>
+          <h3 class="card_title">부다페스트 국회의사당</h3>
+          <p>부다페스트의 상징적 건물
+            유럽 최고의 야경 포인트!</p>
+        </div>
+      </div>
+
+      <a href="#" class="prev">이전</a>
+      <a href="#" class="next">다음</a>
+    </section>
+
+    <div class="sale">
+      <h2 class="hide">할인 정보</h2>
+      <ul>
+        <li class="sale_cont1 indent"><a href="#">비수기 할인</a>
+          <p>일반 시즌 외 비수기에는 더 싸다! '비수기 할인가'로 저렴하게 예약하세요</p>
+        </li>
+        <!-- <li class="sale_cont2 indent"><a href="#">땡처리 할인</a>
+          <p>최대30%
+            한달 이내에 급하게 남은 할인객실 땡처리!!
+            땡처리 할인객실로 저렴하게 예약하세요</p>
+        </li> -->
+      </ul>
+    </div>
+
+
+    <div class="cmnt">
+      <h2 class="indent">커뮤니티</h2>
+      <a href="#" class="cmnt_more indent">더보기</a>
+      <div class="cmnt_job">
+        <h3>구인·구직</h3>
+        <ul>
+          <li><a href="#">게시글 1</a></li>
+          <li><a href="#">게시글 2</a></li>
+          <li><a href="#">게시글 3</a></li>
+          <li><a href="#">게시글 4</a></li>
+          <li><a href="#">게시글 5</a></li>
+        </ul>
+      </div>
+
+      <div class="cmnt_deal">
+        <h3>사고·팔고</h3>
+        <ul>
+          <li><a href="#">게시글 1</a></li>
+          <li><a href="#">게시글 2</a></li>
+          <li><a href="#">게시글 3</a></li>
+          <li><a href="#">게시글 4</a></li>
+          <li><a href="#">게시글 5</a></li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="evnt indent">
+      <h2>이벤트</h2>
+      <ul>
+        <li class="evnt_cont1"><a href="#">숙소이벤트</a>
+          <p>여러 숙소에서 진행하는 다양한 이벤트를 확인해보세요</p>
+        </li>
+        <!-- <li class="evnt_cont2"><a href="#">숙소쿠폰</a>
+          <p>숙소에서 제공하는 다양한 쿠폰을 확인해보세요!
+            해당 숙소 예약시 사용 가능</p>
+        </li> -->
+      </ul>
+    </div>
+
+
+    <div class="app indent">
+      <h2 class="hide">앱 다운로드</h2>
+      <p>여행중에도 민다앱을 통해 언제 어디서든지 정보를 쉽게 찾아보세요.</p>
+      <a href="#" class="app_apple">애플 앱스토어 바로가기</a>
+      <a href="#" class="app_gogle">구글 플레이스토어 바로가기 </a>
+    </div>
+
+
+    <div class="award indent">
+      <h2 class="hide">수상 내역</h2>
+      <p class="award_img1">
+        2016 스마트웹 어워드 코리아
+        인터넷서비스분야 대상 수상
+      </p>
+
+      <p class="award_img2">
+        2017 한국소비자 평가 1위
+        해외여행부문
+      </p>
+
+      <p class="award_img3">
+        2018 스마트앱 어워드 코리아
+        여행/관광분야 최우수상
+      </p>
+    </div>
+
+
+    <footer id="footer" class="footer">
+      <h2>사이트 이용 안내</h2>
+
+      <a href="#">숙소파트너홈 바로가기</a>
+      <a href="#" class="footer_qna indent">고객센터문의</a>
+
+      <div class="footer_info">
+        <h3>INFORMATION</h3>
+        <p>㈜민다 대표 : 김윤희 사업자등록번호 : 101-86-28116 관광사업등록증 : 제 2020-000054호 통신판매업신고 : 제 2020-서울마포-3698호</p>
+        <p>고객센터 : 1661-2892 FAX : 02-722-3478 운영시간 : 평일 10시~12시/13시~18시(주말, 공휴일 휴무)</p>
+        <p>이메일 : help@theminda.com(일반문의), biz@theminda.com(사업제휴)</p>
+        <address>서울특별시 마포구 성산로2길 55, 샤인빌딩 602호 (성산동)</address>
+        <p>Copyright © Minda Co., Ltd. All rights reserved.</p>
+      </div>
+
+      <div class="footer_term">
+        <h3 class="hide">약관 및 정책</h3>
+        <ul>
+          <li><a href="#">회사소개</a></li>
+          <li><a href="#">파트너 가입</a></li>
+          <li><a href="#">취소환불규정</a></li>
+          <li><a href="#">고객센터</a></li>
+          <li><a href="#">공지사항</a></li>
+          <li><a href="#">이용약관개인정보처리방침</a></li>
+          <li><a href="#">사업자정보확인</a></li>
+        </ul>
+      </div>
+
+      <div class="footer_sns indent">
+        <h3 class="hide">SNS</h3>
+        <ul>
+          <li class="footer_sns_fb"><a href="#">페이스북</a></li>
+          <li class="footer_sns_blog"><a href="#">블로그</a></li>
+          <li class="footer_sns_instar"><a href="#">인스타그램</a></li>
+        </ul>
+      </div>
+
+      <p>(주)민다의 사전 서면동의 없이 민다 사이트(PC, 모바일, 앱)의 일체의 정보, 콘텐츠 및 UI 등을 상업적 목적으로 전재, 전송, 스크래핑 등 무단 사용할 수 없습니다.</p>
+
+      <p>(주)민다는 통신판매중개자이며 통신판매의 당사자가 아닙니다.<br>
+        따라서 (주)민다는 상품·거래정보 및 거래와 관련하여 판매자의 고의 또는 과실로 소비자에게 발생하는 손해에 대해 일체 책임을 지지 않습니다.</p>
+    </footer>
+</body>
+
+</html>

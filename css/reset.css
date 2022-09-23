@@ -1,0 +1,43 @@
+/* CSS Reset */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+div,
+ul,
+li,
+dl,
+dt,
+dd {
+  margin: 0;
+  padding: 0
+}
+
+body {
+  font-family: "나눔바른고딕", "맑은고딕";
+  font-size: 14px;
+  line-height: 1.5
+}
+
+div,
+header,
+ul,
+input {
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  list-style: none
+}
+
+a {
+  text-decoration: none;
+  color: #000
+}
+
+address {
+  font-style: normal
+}

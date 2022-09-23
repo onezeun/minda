@@ -21,6 +21,10 @@
   min-width: 1200px;
 }
 
+.block {
+  display: block;
+}
+
 /* header */
 .header {
   height: 200px;
@@ -171,7 +175,7 @@
 }
 
 
-/* 서브메뉴 dispaly : none */
+/* 서브메뉴 display : none */
 .menu5_sub_wrap {
   width: 100%;
   margin-top: 1px;
@@ -179,6 +183,7 @@
   z-index: 1;
   position: absolute;
   left: 0;
+  display: none;
 }
 
 .menu5_sub_wrap ul {
@@ -247,7 +252,7 @@
   display: block;
 }
 
-/* 서브메뉴 dispaly : none */
+/* 서브메뉴 display : none */
 .menu7_sub_wrap {
   width: 100%;
   margin-top: 1px;
@@ -390,6 +395,11 @@
 }
 
 .mb_reco_cont1 {
+  width: 611px;
+  height: 411px;
+}
+
+.mb_reco_cont1 a {
   width: 611px;
   height: 411px;
   background: url(../images/main_image1.png) no-repeat;

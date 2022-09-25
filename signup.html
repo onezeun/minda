@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/signup.css">
+</head>
+
+<body>
+  <div class="wrap">
+    <header id="header" class="header">
+      <h1 class="logo indent"><a href="#">민다</a></h1>
+
+      <div class="top_menu">
+        <h2 class="hide">사용자 메뉴</h2>
+        <ul>
+          <li class="top_bar"><a href="#">로그인</a></li>
+          <li class="top_bar"><a href="#">회원가입</a></li>
+          <li><a href="#">고객센터</a></li>
+        </ul>
+      </div>
+
+      <nav class="gnb">
+        <h2 class="hide">주요 메뉴</h2>
+        <ul>
+          <li class="menu1 indent"><a href="#">숙소</a></li>
+          <li class="menu2 indent"><a href="#">투어</a></li>
+          <li class="menu3 indent"><a href="#">해외렌터카</a></li>
+          <li class="menu4"><a href="#" class="indent">여행편의</a>
+            <div class="menu4_sub_wrap shadow indent">
+              <ul>
+                <li class="menu4_sub1"><a href="#">해외유심</a></li>
+                <li class="menu4_sub2"><a href="#">공항픽업</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="menu5"><a href="#" class="indent">할인&이벤트</a>
+            <div class="menu5_sub_wrap shadow indent">
+              <ul ul class="menu5_sub">
+                <li class="menu5_sub1"><a href="#">땡처리할인</a></li>
+                <li class="menu5_sub2"><a href="#">비수기할인</a></li>
+                <li class="menu5_sub3"><a href="#">민다 이벤트</a></li>
+                <li class="menu5_sub4"><a href="#">숙소 이벤트</a></li>
+                <li class="menu5_sub5"><a href="#">숙소쿠폰</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="menu6 indent"><a href="#">여행정보</a></li>
+          <li class="menu7"><a href="#" class="indent">커뮤니티</a>
+            <div class="menu7_sub_wrap shadow indent">
+              <ul ul class="menu7_sub">
+                <li class="menu7_sub1"><a href="#">구인·구직</a></li>
+                <li class="menu7_sub2"><a href="#">사고·팔고</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="menu8 indent"><a href="#">검색</a></li>
+        </ul>
+        <div class="gnb_sub"></div>
+      </nav>
+    </header>
+
+    <!-- content -->
+    <main id="content" class="content">
+      <div class="signup_wrap">
+        <div class="signup_title_wrap">
+          <h2 class="signup_title indent">회원가입</h2>
+        </div>
+        <div class="minda_signup_wrap">
+          <form name="signup" action="success_signup" method="get">
+            <div class="userinfo">
+              <div class="email">
+                <input type="text" class="email_input" placeholder="이메일">
+                <input type="text" class="email_list" list="list_items" placeholder="직접입력">
+                <datalist id="list_items">
+                  <option>@naver.com</option>
+                  <option>@gmail.com</option>
+                  <option>@kakao.com</option>
+                </datalist>
+                <div class="email_check">
+                  <span class="email_warning">본인 소유의 이메일이 계정이 아닐 경우 임의로 삭제될 수 있습니다.</span>
+                  <button type="button" class="email_check_btn">중복확인</button>
+                </div>
+              </div>
+              <div class="signup_rest">
+                <input type="password" placeholder="비밀번호 (영문 숫자 특수문자 조합, 8~16자리)">
+                <input type="password" placeholder="비밀번호 확인">
+                <input type="text" placeholder="이름(실명)">
+                <input type="text" placeholder="닉네임">
+                <input type="text" placeholder="휴대폰번호(숫자만 입력)">
+              </div>
+            </div>
+
+            <fieldset class="term">
+              <legend>약관 동의</legend>
+              <p>민다 회원으로 가입하셔서 포인트 적립, 베스트 평가회원 선정 등 민다가 제공하는 서비스 혜택을 받으세요.</p>
+              <div class="term_wrap">
+                <div class="checkbox_wrap">
+                  <input type="checkbox" class="checkbox01" id="checkbox01"> 
+                  <label for="checkbox01">(필수) 민다 서비스 이용약관 동의</label>
+                  <a href="#" class="viewall">전체보기</a>
+                </div>
+                <div class="checkbox_wrap">
+                  <input type="checkbox" class="checkbox02" id="checkbox02"> 
+                  <label for="checkbox02">(필수) 민다 개인정보 수집 이용 및 동의</label>
+                  <a href="#" class="viewall">전체보기</a>
+                </div>
+                <div class="checkbox_wrap">
+                  <input type="checkbox" class="checkbox03" id="checkbox03"> 
+                  <label for="checkbox03">(선택) 마케팅 정보 수신 동의</label>
+                </div>
+              </div>
+            </fieldset>
+
+            <button type="submit" class="submit_btn">가입 완료</button>
+          </form>
+        </div>
+
+        <div class="social_signup">
+          <h3 class="social_signup_title indent">SNS 계정 회원가입</h3>
+          <a href="#" class="naver_signup indent">네이버계정으로 회원가입</a>
+          <a href="#" class="kakao_signup indent">카카오계정으로 회원가입</a>
+
+          <div class="login">
+            <p>이미 민다 회원이신가요?</p>
+            <a href="#">로그인하러가기</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+
+    <footer id="footer" class="footer">
+      <h2 class="hide">사이트 이용 안내</h2>
+
+      <div class="footer_term">
+        <h3 class="hide">약관 및 정책</h3>
+        <ul>
+          <li><a href="#">회사소개</a></li>
+          <li><a href="#">파트너 가입</a></li>
+          <li><a href="#">취소환불규정</a></li>
+          <li><a href="#">고객센터</a></li>
+          <li><a href="#" class="notice">공지사항</a></li>
+          <li><a href="#">이용약관개인정보처리방침</a></li>
+          <li><a href="#">사업자정보확인</a></li>
+        </ul>
+      </div>
+
+      <a href="#" class="footer_gopatner">숙소 파트너홈 바로가기</a>
+
+      <div class="footer_info">
+        <h3>INFORMATION</h3>
+        <div class="footer_info_txt1">
+          <p class="footer_txt">㈜민다 대표 : 김윤희 </p>
+          <p class="footer_txt">사업자등록번호 : 101-86-28116 </p>
+          <p class="footer_txt">관광사업등록증 : 제 2020-000054호 </p>
+          <p>통신판매업신고 : 제 2020-서울마포-3698호</p>
+        </div>
+        <div class="footer_info_txt2">
+          <p class="footer_txt">고객센터 : 1661-2892 </p>
+          <p class="footer_txt">FAX : 02-722-3478 </p>
+          <p>운영시간 : 평일 10시~12시/13시~18시(주말, 공휴일 휴무)</p>
+        </div>
+        <div class="footer_info_txt3">
+          <p class="footer_txt">이메일 : help@theminda.com(일반문의), biz@theminda.com(사업제휴)</p>
+          <address>서울특별시 마포구 성산로2길 55, 샤인빌딩 602호 (성산동)</address>
+        </div>
+        <p>Copyright © Minda Co., Ltd. All rights reserved.</p>
+      </div>
+
+      <div class="footer_side indent">
+        <h3 class="hide">SNS</h3>
+        <ul>
+          <li class="footer_sns_fb"><a href="#">페이스북</a></li>
+          <li class="footer_sns_blog"><a href="#">블로그</a></li>
+          <li class="footer_sns_instar"><a href="#">인스타그램</a></li>
+        </ul>
+        <a href="#" class="footer_qna indent">고객센터문의</a>
+      </div>
+
+      <div class="footer_bot_warp">
+        <div class="footer_bot">
+          <p>(주)민다의 사전 서면동의 없이 민다 사이트(PC, 모바일, 앱)의 일체의 정보, 콘텐츠 및 UI 등을 상업적 목적으로 전재, 전송, 스크래핑 등 무단 사용할 수 없습니다.</p>
+
+          <p>(주)민다는 통신판매중개자이며 통신판매의 당사자가 아닙니다.<br>
+            따라서 (주)민다는 상품·거래정보 및 거래와 관련하여 판매자의 고의 또는 과실로 소비자에게 발생하는 손해에 대해 일체 책임을 지지 않습니다.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+</body>
+
+</html>

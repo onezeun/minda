@@ -424,16 +424,205 @@
 }
 
 /* content */
+fieldset {
+  border: none;
+}
+
+.content {
+  height: 1200px;
+  margin-bottom: 300px;
+}
+
+.reservation_wrap {
+  width: 1200px;
+  height: 1200px;
+  margin: auto;
+}
 
 
+.reservation_title {
+  width: 144px;
+  height: 33px;
+  background: url(../images/reservation_title.jpg) no-repeat;
+  margin: 50px auto 100px;
+}
 
+.form_left {
+  float: left;
+}
 
+.form_right{
+  width: 370px;
+  height: 750px;
+  border: 1px solid #8c8c8c;
+  float: left;
+  margin-left: 30px;
+  padding: 20px;
+}
 
+.room_info {
+  width: 770px;
+  height: 240px;
+}
 
+.room_info_title {
+  width: 88px;
+  height: 21px;
+  background: url(../images/reservation_room.jpg) no-repeat;
+  margin-bottom: 20px;
+}
 
+.room_info_cont {
+  width: 770px;
+  height: 200px;
+  border-top: 2px solid #8c8c8c;
+  padding-top: 20px;
+}
 
+.reservation_roomphoto {
+  width: 180px;
+  height: 130px;
+  float: left;
+  margin: 0 20px;
+}
 
+.room_info_country {
+  color: #8b8b8b;
+  font-size: 12px;
+}
 
+.room_info_name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.room_info_type {
+  margin-bottom: 40px;
+}
+
+.user_info_title {
+  width: 118px;
+  height: 22px;
+  background: url(../images/reservation_user.jpg) no-repeat;
+  margin-bottom: 20px;
+}
+
+.user_info_cont {
+  width: 770px;
+  height: 350px;
+  border-top: 2px solid #8c8c8c;
+}
+
+.user_info_wrap {
+  margin: 20px 0;
+}
+
+.user_info_cont p {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.user_info_cont input {
+  width: 400px;
+  height: 30px;
+  border: 1px solid #8c8c8c;
+}
+.user_info_warning_wrap {
+  width: 770px;
+  height: 100px;
+  background: #f2f5ef;
+  display: flex;
+  align-items: center;
+}
+
+.user_info_warning_icon {
+  width: 51px;
+  height: 53px;
+  background: url(../images/warning.png) no-repeat;
+  display: inline-block;
+  margin: 0 15px;
+}
+.user_info_warning_msg {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.user_info_warning_msg01 {
+  text-indent: 9px;
+  margin-bottom: 10px;
+}
+
+.pay {
+  width: 770px;
+  height: 200px;
+  margin-top: 50px;
+}
+
+.pay_title {
+  width: 93px;
+  height: 21px;
+  background: url(../images/reservation_pay.jpg) no-repeat;
+  margin-bottom: 20px;
+}
+
+.pay_cont {
+  width: 770px;
+  height: 200px;
+  border-top: 2px solid #8c8c8c;
+  padding: 20px;
+}
+
+.pay_cont label {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.pay_cont div {
+  margin-bottom: 20px;
+}
+
+/* right */
+
+.payment_title {
+  width: 95px;
+  height: 21px;
+  background: url(../images/reservation_form_right_title01.jpg) no-repeat;
+  margin-bottom: 20px;
+}
+
+.payment_wrap1 {
+  border-top: 2px solid #8c8c8c;
+  padding-top: 20px;
+}
+
+.selectroom {
+  height: 15px;
+  font-size: 15px;
+}
+
+.selectroom_title {
+  float: left;
+}
+
+.selectroom_account {
+  float: right;
+}
+
+.oneday {
+  height: 13px;
+  font-size: 13px;
+  color: #8c8c8c;
+}
+
+.oneday_title {
+  float: left;
+}
+
+.oneday_account {
+  float: right;
+}
 
 
 /* footer */

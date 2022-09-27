@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  
+
   <div class="wrap">
     <header id="header" class="header">
       <h1 class="logo indent"><a href="#">민다</a></h1>
@@ -64,101 +64,154 @@
         <div class="gnb_sub"></div>
       </nav>
     </header>
-  <main id="content" class="content">
-    <div>
-      <h1>숙소 예약</h1>
-      <hr>
-      <form>
-        <fieldset>
-          <legend>숙박자 정보</legend>
-          <b>이름</b><br>
-          <input type="text"><br>
-          <b>연락처</b><br>
-          <input type="text"><br>
-          <b>이메일</b><br>
-          <input type="text"><br>
-          <b>체크인예정시간</b><br>
-          <input type="text"><br>
-        </fieldset>
-        <fieldset>
-          <legend>결제 방법</legend>
-          <input type="radio" name="pay" id="card"> 신용/체크카드<br>
-          <input type="radio" name="pay" id="2"> 실시간 계좌이체<br>
-          <input type="radio" name="pay" id="3"> 가상계좌<br>
-        </fieldset>
-        <fieldset>
-          <legend>약관 안내</legend>
-          <input type="checkbox"><b>전체 약관 동의</b>
-          <div>
-            <input type="checkbox"> 제3자 제공 동의
-            <input type="checkbox"> 민다 취소 환불규정 동의
+
+    <main id="content" class="content">
+      <div class="reservation_wrap">
+        <h2 class="reservation_title indent">숙소 예약</h2>
+        <form>
+          <div class="form_left">
+            <fieldset class="room_info">
+              <legend class="room_info_title indent">예약 정보</legend>
+              <div class="room_info_cont">
+                <img src="./images/reservation_roomphoto.jpg" alt="숙소 대표 사진" class="reservation_roomphoto">
+                <p class="room_info_country">영국 · 런던</p>
+                <p class="room_info_name">런던스테이</p>
+                <p class="room_info_type">2인여성도미토리</p>
+                <p class="room_info_date">2023-04-22 ~ 2023-04-28 / 6박</p>
+              </div>
+            </fieldset>
+
+            <fieldset class="user_info">
+              <legend class="user_info_title indent">숙박자 정보</legend>
+              <div class="user_info_cont">
+                <div class="user_info_wrap">
+                  <p>이름</p>
+                  <input type="text">
+                </div>
+                <div class="user_info_wrap">
+                  <p>연락처</p>
+                  <input type="text">
+                </div>
+                <div class="user_info_wrap">
+                  <p>이메일</p>
+                  <input type="text">
+                </div>
+                <div class="user_info_wrap">
+                  <p>체크인예정시간</p>
+                  <input type="text">
+                </div>
+              </div>
+              <div class="user_info_warning_wrap">
+                <p class="user_info_warning_icon indent">경고</p>
+                <div class="user_info_warning_msg">
+                  <p>- 숙박자 정보를 꼭 정확하게 기재해주세요.<br>
+                  <p class="user_info_warning_msg01">(허위정보로 확인될 경우, 통보 없이 모든 예약취소 및 민다 서비스 이용이 차단될 수 있습니다.)</p>
+                  </p>
+                  <p>- '체크인 예정시간'이 변경될 경우, 바우처에 기재된 숙소 연락처로 변경된 시간을 꼭 연락 주시기 바랍니다.</p>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="pay">
+              <legend class="pay_title indent">결제 방법</legend>
+              <div class="pay_cont">
+                <div class="pay1"><input type="radio" name="pay" id="pay1"> <label for="pay1">신용/체크카드</label></div>
+                <div class="pay2"><input type="radio" name="pay" id="pay2"> <label for="pay2">실시간 계좌이체</label></div>
+                <div class="pay3"><input type="radio" name="pay" id="pay3"> <label for="pay3">가상계좌</label></div>
+              </div>
+            </fieldset>
           </div>
-        </fieldset>
-        <button type="submit">결제하기</button>
-      </form>
+
+          <div class="form_right">
+            <fieldset class="payment">
+              <legend class="payment_title indent">결제 정보</legend>
+              <div class="payment_wrap1">
+                <div class="selectroom">
+                  <p class="selectroom_title">객실 1개 X 6박</p>
+                  <p class="selectroom_account">546,200 (￡342)</p>
+                </div>
+                <div class="clearfix"></div>
+                <div class="oneday">
+                  <p class="oneday_title">1박 평균 요금</p>
+                  <p class="oneday_account">91,000원 (￡57)</p>
+                </div>
+              </div>
+              <div class="payment_wrap2">
+                <p>총 결제 금액</p>
+                <p>546,200원</p>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>약관 안내</legend>
+              <input type="checkbox" id="all"><label for="all">전체 약관 동의</label>
+              <div>
+                <input type="checkbox" id="term1"> <label for="term1">제3자 제공 동의</label>
+                <input type="checkbox" id="term2"> <label for="term2">민다 취소 환불규정 동의</label>
+              </div>
+            </fieldset>
+            <button type="submit">결제하기</button>
+        </form>
+      </div>
+  </div>
+  </main>
+
+  <footer id="footer" class="footer">
+    <h2 class="hide">사이트 이용 안내</h2>
+
+    <div class="footer_term">
+      <h3 class="hide">약관 및 정책</h3>
+      <ul>
+        <li><a href="#">회사소개</a></li>
+        <li><a href="#">파트너 가입</a></li>
+        <li><a href="#">취소환불규정</a></li>
+        <li><a href="#">고객센터</a></li>
+        <li><a href="#" class="notice">공지사항</a></li>
+        <li><a href="#">이용약관개인정보처리방침</a></li>
+        <li><a href="#">사업자정보확인</a></li>
+      </ul>
     </div>
 
+    <a href="#" class="footer_gopatner">숙소 파트너홈 바로가기</a>
 
-
-
-  </main>
-    <footer id="footer" class="footer">
-      <h2 class="hide">사이트 이용 안내</h2>
-
-      <div class="footer_term">
-        <h3 class="hide">약관 및 정책</h3>
-        <ul>
-          <li><a href="#">회사소개</a></li>
-          <li><a href="#">파트너 가입</a></li>
-          <li><a href="#">취소환불규정</a></li>
-          <li><a href="#">고객센터</a></li>
-          <li><a href="#" class="notice">공지사항</a></li>
-          <li><a href="#">이용약관개인정보처리방침</a></li>
-          <li><a href="#">사업자정보확인</a></li>
-        </ul>
+    <div class="footer_info">
+      <h3>INFORMATION</h3>
+      <div class="footer_info_txt1">
+        <p class="footer_txt">㈜민다 대표 : 김윤희 </p>
+        <p class="footer_txt">사업자등록번호 : 101-86-28116 </p>
+        <p class="footer_txt">관광사업등록증 : 제 2020-000054호 </p>
+        <p>통신판매업신고 : 제 2020-서울마포-3698호</p>
       </div>
-
-      <a href="#" class="footer_gopatner">숙소 파트너홈 바로가기</a>
-
-      <div class="footer_info">
-        <h3>INFORMATION</h3>
-        <div class="footer_info_txt1">
-          <p class="footer_txt">㈜민다 대표 : 김윤희 </p>
-          <p class="footer_txt">사업자등록번호 : 101-86-28116 </p>
-          <p class="footer_txt">관광사업등록증 : 제 2020-000054호 </p>
-          <p>통신판매업신고 : 제 2020-서울마포-3698호</p>
-        </div>
-        <div class="footer_info_txt2">
-          <p class="footer_txt">고객센터 : 1661-2892 </p>
-          <p class="footer_txt">FAX : 02-722-3478 </p>
-          <p>운영시간 : 평일 10시~12시/13시~18시(주말, 공휴일 휴무)</p>
-        </div>
-        <div class="footer_info_txt3">
-          <p class="footer_txt">이메일 : help@theminda.com(일반문의), biz@theminda.com(사업제휴)</p>
-          <address>서울특별시 마포구 성산로2길 55, 샤인빌딩 602호 (성산동)</address>
-        </div>
-        <p>Copyright © Minda Co., Ltd. All rights reserved.</p>
+      <div class="footer_info_txt2">
+        <p class="footer_txt">고객센터 : 1661-2892 </p>
+        <p class="footer_txt">FAX : 02-722-3478 </p>
+        <p>운영시간 : 평일 10시~12시/13시~18시(주말, 공휴일 휴무)</p>
       </div>
-
-      <div class="footer_side indent">
-        <h3 class="hide">SNS</h3>
-        <ul>
-          <li class="footer_sns_fb"><a href="#">페이스북</a></li>
-          <li class="footer_sns_blog"><a href="#">블로그</a></li>
-          <li class="footer_sns_instar"><a href="#">인스타그램</a></li>
-        </ul>
-        <a href="#" class="footer_qna indent">고객센터문의</a>
+      <div class="footer_info_txt3">
+        <p class="footer_txt">이메일 : help@theminda.com(일반문의), biz@theminda.com(사업제휴)</p>
+        <address>서울특별시 마포구 성산로2길 55, 샤인빌딩 602호 (성산동)</address>
       </div>
+      <p>Copyright © Minda Co., Ltd. All rights reserved.</p>
+    </div>
 
-      <div class="footer_bot_warp">
-        <div class="footer_bot">
-          <p>(주)민다의 사전 서면동의 없이 민다 사이트(PC, 모바일, 앱)의 일체의 정보, 콘텐츠 및 UI 등을 상업적 목적으로 전재, 전송, 스크래핑 등 무단 사용할 수 없습니다.</p>
+    <div class="footer_side indent">
+      <h3 class="hide">SNS</h3>
+      <ul>
+        <li class="footer_sns_fb"><a href="#">페이스북</a></li>
+        <li class="footer_sns_blog"><a href="#">블로그</a></li>
+        <li class="footer_sns_instar"><a href="#">인스타그램</a></li>
+      </ul>
+      <a href="#" class="footer_qna indent">고객센터문의</a>
+    </div>
 
-          <p>(주)민다는 통신판매중개자이며 통신판매의 당사자가 아닙니다.<br>
-            따라서 (주)민다는 상품·거래정보 및 거래와 관련하여 판매자의 고의 또는 과실로 소비자에게 발생하는 손해에 대해 일체 책임을 지지 않습니다.</p>
-        </div>
+    <div class="footer_bot_warp">
+      <div class="footer_bot">
+        <p>(주)민다의 사전 서면동의 없이 민다 사이트(PC, 모바일, 앱)의 일체의 정보, 콘텐츠 및 UI 등을 상업적 목적으로 전재, 전송, 스크래핑 등 무단 사용할 수 없습니다.</p>
+
+        <p>(주)민다는 통신판매중개자이며 통신판매의 당사자가 아닙니다.<br>
+          따라서 (주)민다는 상품·거래정보 및 거래와 관련하여 판매자의 고의 또는 과실로 소비자에게 발생하는 손해에 대해 일체 책임을 지지 않습니다.</p>
       </div>
-    </footer>
+    </div>
+  </footer>
   </div>
 
 </body>

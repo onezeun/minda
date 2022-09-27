@@ -10,7 +10,8 @@ ul,
 li,
 dl,
 dt,
-dd {
+dd,
+fieldset {
   margin: 0;
   padding: 0
 }

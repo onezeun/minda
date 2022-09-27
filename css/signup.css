@@ -482,6 +482,7 @@
 
 .email_warning {
   color: red;
+  font-size: 13px;
 }
 
 .email_check_btn {

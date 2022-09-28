@@ -429,13 +429,13 @@ fieldset {
 }
 
 .content {
-  height: 1200px;
-  margin-bottom: 300px;
+  height: 1100px;
+  margin-bottom: 200px;
 }
 
 .reservation_wrap {
   width: 1200px;
-  height: 1200px;
+  height: 1100px;
   margin: auto;
 }
 
@@ -447,17 +447,9 @@ fieldset {
   margin: 50px auto 100px;
 }
 
+/* left */
 .form_left {
   float: left;
-}
-
-.form_right{
-  width: 370px;
-  height: 750px;
-  border: 1px solid #8c8c8c;
-  float: left;
-  margin-left: 30px;
-  padding: 20px;
 }
 
 .room_info {
@@ -585,20 +577,30 @@ fieldset {
 
 /* right */
 
+.form_right{
+  width: 370px;
+  height: 750px;
+  border: 1px solid #8c8c8c;
+  float: left;
+  margin-left: 30px;
+  padding-top: 20px;
+}
+
 .payment_title {
   width: 95px;
   height: 21px;
   background: url(../images/reservation_form_right_title01.jpg) no-repeat;
-  margin-bottom: 20px;
+  margin: 0 0 20px 20px;
 }
 
 .payment_wrap1 {
   border-top: 2px solid #8c8c8c;
   padding-top: 20px;
+  margin:0 20px;
 }
 
 .selectroom {
-  height: 15px;
+  height: 25px;
   font-size: 15px;
 }
 
@@ -611,7 +613,7 @@ fieldset {
 }
 
 .oneday {
-  height: 13px;
+  height: 20px;
   font-size: 13px;
   color: #8c8c8c;
 }
@@ -623,6 +625,121 @@ fieldset {
 .oneday_account {
   float: right;
 }
+
+.payment_wrap2 {
+  width: 368px;
+  height: 80px;
+  background: #fefaf0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px 0;
+}
+
+.payment_wrap2 p {
+  color: #eeb72f;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.totle_title {
+  margin-left:20px;
+}
+
+.totle_account {
+  margin-right: 20px;
+}
+
+.term {
+  margin: 20px;
+}
+
+.term_title{ 
+  width: 93px;
+  height: 21px;
+  background: url(../images/reservation_form_right_title02.jpg) no-repeat;
+}
+
+.term_wrap {
+  border-top: 2px solid #8c8c8c;
+  margin: 20px 0 ;
+}
+
+.term_wrap label{
+  font-weight: bold;
+}
+
+.checkall_wrap {
+  margin: 10px 0;
+  font-size: 15px;
+}
+
+.checkterm_wrap {
+  width: 330px;
+  border: 1px solid #b7b7b7;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+.checkterm_wrap button {
+  background: white;
+  color: #eeb72f;
+  border: 1px solid #eeb72f;
+  border-radius: 2px;
+  font-weight: bold;
+  float: right;
+}
+
+.term1 {
+  height:22px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.term2 {
+  height:22px;
+  display: block;
+}
+
+.payment_warning {
+  width: 330px;
+  height: 150px;
+  background: #f2f5ef;
+  display: flex;
+  align-items: center;
+  margin: 0 20px;
+}
+
+.payment_warning_icon {
+  width: 51px;
+  height: 53px;
+  background: url(../images/warning.png) no-repeat;
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.payment_warning_msg {
+  width: 250px;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.payment_warning_msg01 {
+  margin-bottom: 5px;
+}
+.submit_btn {
+  width: 330px;
+  height: 50px;
+  background: #eeb72f;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 20px 20px;
+}
+
 
 
 /* footer */

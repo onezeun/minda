@@ -25,7 +25,8 @@ body {
 div,
 header,
 ul,
-input {
+input,
+button {
   box-sizing: border-box;
 }
 

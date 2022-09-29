@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/lodging.css">
+</head>
+
+<body>
+  <div class="wrap">
+    <header id="header" class="header">
+      <h1 class="logo indent"><a href="#">민다</a></h1>
+
+      <div class="top_menu">
+        <h2 class="hide">사용자 메뉴</h2>
+        <ul>
+          <li class="top_bar"><a href="#">로그인</a></li>
+          <li class="top_bar"><a href="#">회원가입</a></li>
+          <li><a href="#">고객센터</a></li>
+        </ul>
+      </div>
+
+      <nav class="gnb">
+        <h2 class="hide">주요 메뉴</h2>
+        <ul>
+          <li class="menu1 indent"><a href="#">숙소</a></li>
+          <li class="menu2 indent"><a href="#">투어</a></li>
+          <li class="menu3 indent"><a href="#">해외렌터카</a></li>
+          <li class="menu4"><a href="#" class="indent">여행편의</a>
+            <div class="menu4_sub_wrap shadow indent">
+              <ul>
+                <li class="menu4_sub1"><a href="#">해외유심</a></li>
+                <li class="menu4_sub2"><a href="#">공항픽업</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="menu5"><a href="#" class="indent">할인&이벤트</a>
+            <div class="menu5_sub_wrap shadow indent">
+              <ul ul class="menu5_sub">
+                <li class="menu5_sub1"><a href="#">땡처리할인</a></li>
+                <li class="menu5_sub2"><a href="#">비수기할인</a></li>
+                <li class="menu5_sub3"><a href="#">민다 이벤트</a></li>
+                <li class="menu5_sub4"><a href="#">숙소 이벤트</a></li>
+                <li class="menu5_sub5"><a href="#">숙소쿠폰</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="menu6 indent"><a href="#">여행정보</a></li>
+          <li class="menu7"><a href="#" class="indent">커뮤니티</a>
+            <div class="menu7_sub_wrap shadow indent">
+              <ul ul class="menu7_sub">
+                <li class="menu7_sub1"><a href="#">구인·구직</a></li>
+                <li class="menu7_sub2"><a href="#">사고·팔고</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="menu8 indent"><a href="#">검색</a></li>
+        </ul>
+        <div class="gnb_sub"></div>
+      </nav>
+    </header>
+
+    <!-- content -->
+    <main id="content" class="content">
+      <h2 class="indent">숙소상세페이지</h2>
+      <div class="main_cont">
+        <div class="main_cont_left">
+          <p class="main_ldg_img indent">숙소대표이미지</p>
+          <div class="carousel">
+            <ul>
+              <li><a href="#" class="ldg_img01 indent">숙소이미지1</a></li>
+              <li><a href="#" class="ldg_img02 indent">숙소이미지2</a></li>
+              <li><a href="#" class="ldg_img03 indent">숙소이미지3</a></li>
+              <li><a href="#" class="ldg_img04 indent">숙소이미지4</a></li>
+            </ul>
+            <a href="#" class="ldg_prev indent">이전</a>
+            <a href="#" class="ldg_next indent">다음</a>
+          </div>
+        </div>
+        <div class="main_cont_right">
+          <h3>런던스테이</h3>
+          <p class="ldg_price">90,800원 ~</p>
+          <div class="ldg_btn">
+            <a href="#" class="ldg_share indent">공유</a>
+            <a href="#" class="ldg_like indent">좋아요</a>
+          </div>
+          <div class="relike_wrap">
+            <div class="main_cont_review">
+              <span class="star_icon indent">별아이콘</span>
+              <span class="gpa">5.0</span>
+              <a href="#">리뷰보기</a>
+            </div>
+            <div class="main_cont_like">
+              <p>이 숙소를 좋아하는 <span class="like_color_txt">132</span>명</p>
+            </div>
+          </div>
+          <div class="pictogram">
+            <ul>
+              <li><span class="picto_img01 indent">이미지</span>
+                <p>도미토리</p>
+              </li>
+              <li><span class="picto_img02 indent">이미지</span>
+                <p>개인실</p>
+              </li>
+              <li><span class="picto_img03 indent">이미지</span>
+                <p>최대 5명</p>
+              </li>
+              <li><span class="picto_img04 indent">이미지</span>
+                <p>화장실 1개</p>
+              </li>
+              <li><span class="picto_img05 indent">이미지</span>
+                <p>샤워실 1개</p>
+              </li>
+            </ul>
+          </div>
+          <div class="other_info">
+            <div class="public">
+              <h4>공용시설</h4>
+              <p>Wifi, 헤어드라이기, 전자렌지, 커피포트, 토스트기, 엘리베이터</p>
+            </div>
+            <div class="location">
+              <h4>위치</h4>
+              <p>까탈루냐광장에서 도보 7분</p>
+              <button type="button" class="location_btn">지도보기</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="room_cont">
+        <div class="user_info">
+          <h3>객실 예약</h3>
+          <div class="date">
+            <input type="date" class="checkin_box"><label class="checkin_box_label">체크인</label>
+            <img src="./images/date_arrow.png" alt="화살표아이콘" class="date_arrow">
+            <input type="date" class="checkout_box"><label class="checkout_box_label">체크아웃</label>
+          </div>
+          <input type="number" placeholder="인원" class="prs_box">
+        </div>
+        <div class="room_list">
+          <div class="room_list_txt">
+            <p>총 <span>4</span>개의 객실이 있습니다.</p>
+          </div>
+          <div class="room">
+            <img src="./images/ldg_room_img01.jpg" alt="방 이미지">
+            <div class="room_left">
+              <p class="room_type">2인 여성도미토리</p>
+              <p class="room_left_txt01">여성도미토리<span>객실정원 1~2</span></p>
+              <p class="room_left_txt02">최소예약 1박이상</p>
+            </div>
+            <div class="room_right">
+              <div class="room_right_txt_wrap">
+                <p class="room_right_txt01">1인 1박</p>
+                <p class="room_right_txt02">90,800원 (￡57)</p>
+              </div>
+              <button type="submit" class="room_right_btn">예약</button>
+            </div>
+          </div>
+          <div class="room">
+            <img src="./images/ldg_room_img02.jpg" alt="방 이미지">
+            <div class="room_left">
+              <p class="room_type">2인 남성도미토리</p>
+              <p class="room_left_txt01">남성도미토리<span>객실정원 1~2</span></p>
+              <p class="room_left_txt02">최소예약 1박이상</p>
+            </div>
+            <div class="room_right">
+              <div class="room_right_txt_wrap">
+                <p class="room_right_txt01">1인 1박</p>
+                <p class="room_right_txt02">90,800원 (￡57)</p>
+              </div>
+              <button type="submit" class="room_right_btn">예약</button>
+            </div>
+          </div>
+          <div class="room">
+            <img src="./images/ldg_room_img03.jpg" alt="방 이미지">
+            <div class="room_left">
+              <p class="room_type">베이지룸 전체 (최대 2인)</p>
+              <p class="room_left_txt01">개인실<span>객실정원 1~2</span></p>
+              <p class="room_left_txt02">최소예약 2박이상</p>
+            </div>
+            <div class="room_right">
+              <div class="room_right_txt_wrap">
+                <p class="room_right_txt01">2인 1박</p>
+                <p class="room_right_txt02">181,600원 (￡114)</p>
+              </div>
+              <button type="submit" class="room_right_btn">예약</button>
+            </div>
+          </div>
+          <div class="room">
+            <img src="./images/ldg_room_img04.jpg" alt="방 이미지">
+            <div class="room_left">
+              <p class="room_type">블루룸 전체 (최대 2인)</p>
+              <p class="room_left_txt01">개인실<span>객실정원 1~2</span></p>
+              <p class="room_left_txt02">최소예약 2박이상</p>
+            </div>
+            <div class="room_right">
+              <div class="room_right_txt_wrap">
+                <p class="room_right_txt01">2인 1박</p>
+                <p class="room_right_txt02">181,600원 (￡114)</p>
+              </div>
+              <button type="submit" class="room_right_btn">예약</button>
+            </div>
+          </div>
+        </div>
+        <div class="room_intro">
+          <h3>숙소 소개</h3>
+          <div class="intro_txt">
+            <p>*3박 미만 숙박을 원하시는 경우 사전 문의 부탁드립니다!</p>
+
+            <p>안녕하세요. 쾌적하고 프라이빗한 여행 공간을 지향하는 런던스테이 입니다.<br>
+              30대 한국인 부부가 직접 운영하는 소규모 숙소로 총 2개의 방(블루룸, 베이지룸)으로 구성되어 있습니다.<br>
+              안전하고 프라이빗한 여행이 되실 수 있도록 편안하게 모시겠습니다:)</p>
+
+            <p>
+              <주요 특징>
+            </p>
+            <p>- 1존 런던 중심부에 위치한 숙소로 리젠트파크 옆 주거지역에 위치하여 안전하고 조용한 휴식 공간을 제공합니다.</p>
+
+            <p>- 평일 아침 한식조식(꼬리곰탕, 육개장, 김치찌개, 소불고기 등)을 무료 제공해드리며, 컵라면(무료)이 구비되어 있습니다.</p>
+
+            <p>- 특정시간 출입 제한 등의 번거로운 규칙이 없으며 지내시는 동안 개별 키를 드려 24시간 자유로운 왕래가 가능합니다.</p>
+
+            <p>- 모든 방에 시스템 이중창이 설치되어 있어 채광, 단열, 소음에 좋습니다.</p>
+
+            <p>- 각 침대마다 개인 옷장 및 노트북 스탠드를 제공하여 쾌적한 휴식과 여행준비가 가능합니다.</p>
+
+            <p>- 욕실(1)과 화장실(1)가 분리되어 바쁜 아침 시간 유연한 이용이 가능합니다.</p>
+
+            <p>- 엘리베이터가 있어 케리어와 함께 편리한 이동이 가능합니다.</p>
+
+            <p>- 주인 부부가 함께 거주하여 안전하고 빠른 피드백이 가능합니다. 그 외 런던꿀팁은 덤</p>
+          </div>
+        </div>
+        <div class="review">
+          <div class="review_wrap01">
+            <h3>리뷰</h3>
+            <p class="review_txt">리뷰의 신뢰도를 위해 실제로 숙박하신 분들만 작성 가능합니다.</p>
+            <div class="star_wrap">
+              <p class="star_title">추천해요</p>
+              <p><span class="star_img indent">별이미지</span><span class="star_gpa">5.0</span></p>
+              <p class="review_cnt">전체리뷰 6개</p>
+            </div>
+          </div>
+          <ul>
+            <li>
+              <p class="comment_name">이름</p>
+              <p class="comment_star"><span class="comment_star_img indent">별이미지</span><span class="comment_star_gpa">5.0</span></p>
+              <p class="comment_txt">내용</p>
+            </li>
+            <li>
+              <p class="comment_name">이름</p>
+              <p class="comment_star"><span class="comment_star_img indent">별이미지</span><span class="comment_star_gpa">5.0</span></p>
+              <p class="comment_txt">내용</p>
+            </li>
+            <li>
+              <p class="comment_name">이름</p>
+              <p class="comment_star"><span class="comment_star_img indent">별이미지</span><span class="comment_star_gpa">5.0</span></p>
+              <p class="comment_txt">내용</p>
+            </li>
+          </ul>
+          <div class="pagenation indent">
+            <a href="#" class="pagenation_btn01">1페이지</a>
+            <a href="#" class="pagenation_btn02">2페이지</a>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+
+    <!-- footer -->
+    <footer id="footer" class="footer">
+      <h2 class="hide">사이트 이용 안내</h2>
+
+      <div class="footer_term">
+        <h3 class="hide">약관 및 정책</h3>
+        <ul>
+          <li><a href="#">회사소개</a></li>
+          <li><a href="#">파트너 가입</a></li>
+          <li><a href="#">취소환불규정</a></li>
+          <li><a href="#">고객센터</a></li>
+          <li><a href="#" class="notice">공지사항</a></li>
+          <li><a href="#">이용약관개인정보처리방침</a></li>
+          <li><a href="#">사업자정보확인</a></li>
+        </ul>
+      </div>
+
+      <a href="#" class="footer_gopatner">숙소 파트너홈 바로가기</a>
+
+      <div class="footer_info">
+        <h3>INFORMATION</h3>
+        <div class="footer_info_txt1">
+          <p class="footer_txt">㈜민다 대표 : 김윤희 </p>
+          <p class="footer_txt">사업자등록번호 : 101-86-28116 </p>
+          <p class="footer_txt">관광사업등록증 : 제 2020-000054호 </p>
+          <p>통신판매업신고 : 제 2020-서울마포-3698호</p>
+        </div>
+        <div class="footer_info_txt2">
+          <p class="footer_txt">고객센터 : 1661-2892 </p>
+          <p class="footer_txt">FAX : 02-722-3478 </p>
+          <p>운영시간 : 평일 10시~12시/13시~18시(주말, 공휴일 휴무)</p>
+        </div>
+        <div class="footer_info_txt3">
+          <p class="footer_txt">이메일 : help@theminda.com(일반문의), biz@theminda.com(사업제휴)</p>
+          <address>서울특별시 마포구 성산로2길 55, 샤인빌딩 602호 (성산동)</address>
+        </div>
+        <p>Copyright © Minda Co., Ltd. All rights reserved.</p>
+      </div>
+
+      <div class="footer_side indent">
+        <h3 class="hide">SNS</h3>
+        <ul>
+          <li class="footer_sns_fb"><a href="#">페이스북</a></li>
+          <li class="footer_sns_blog"><a href="#">블로그</a></li>
+          <li class="footer_sns_instar"><a href="#">인스타그램</a></li>
+        </ul>
+        <a href="#" class="footer_qna indent">고객센터문의</a>
+      </div>
+
+      <div class="footer_bot_warp">
+        <div class="footer_bot">
+          <p>(주)민다의 사전 서면동의 없이 민다 사이트(PC, 모바일, 앱)의 일체의 정보, 콘텐츠 및 UI 등을 상업적 목적으로 전재, 전송, 스크래핑 등 무단 사용할 수 없습니다.</p>
+
+          <p>(주)민다는 통신판매중개자이며 통신판매의 당사자가 아닙니다.<br>
+            따라서 (주)민다는 상품·거래정보 및 거래와 관련하여 판매자의 고의 또는 과실로 소비자에게 발생하는 손해에 대해 일체 책임을 지지 않습니다.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+</body>
+
+</html>

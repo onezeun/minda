@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/header.css">
+  <link rel="stylesheet" type="text/css" href="css/lodging.css">
+  <link rel="stylesheet" type="text/css" href="css/footer.css">
+</head>
+
+<body>
+  <div class="wrap">
+    <header id="header" class="header">
+      <h1 class="logo indent"><a href="#">민다</a></h1>
+
+      <div class="top_menu">
+        <h2 class="hide">사용자 메뉴</h2>
+        <ul>
+          <li class="top_bar"><a href="#">로그인</a></li>
+          <li class="top_bar"><a href="#">회원가입</a></li>
+          <li><a href="#">고객센터</a></li>
+        </ul>
+      </div>
+
+      <nav class="gnb">
+        <h2 class="hide">주요 메뉴</h2>
+        <ul>
+          <li class="menu1 indent"><a href="#">숙소</a></li>
+          <li class="menu2 indent"><a href="#">투어</a></li>
+          <li class="menu3 indent"><a href="#">해외렌터카</a></li>
+          <li class="menu4"><a href="#" class="indent">여행편의</a>
+            <div class="menu4_sub_wrap shadow indent">
+              <ul>
+                <li class="menu4_sub1"><a href="#">해외유심</a></li>
+                <li class="menu4_sub2"><a href="#">공항픽업</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="menu5"><a href="#" class="indent">할인&이벤트</a>
+            <div class="menu5_sub_wrap shadow indent">
+              <ul ul class="menu5_sub">
+                <li class="menu5_sub1"><a href="#">땡처리할인</a></li>
+                <li class="menu5_sub2"><a href="#">비수기할인</a></li>
+                <li class="menu5_sub3"><a href="#">민다 이벤트</a></li>
+                <li class="menu5_sub4"><a href="#">숙소 이벤트</a></li>
+                <li class="menu5_sub5"><a href="#">숙소쿠폰</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="menu6 indent"><a href="#">여행정보</a></li>
+          <li class="menu7"><a href="#" class="indent">커뮤니티</a>
+            <div class="menu7_sub_wrap shadow indent">
+              <ul ul class="menu7_sub">
+                <li class="menu7_sub1"><a href="#">구인·구직</a></li>
+                <li class="menu7_sub2"><a href="#">사고·팔고</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="menu8 indent"><a href="#">검색</a></li>
+        </ul>
+        <div class="gnb_sub"></div>
+      </nav>
+    </header>
+
+    <!-- content -->
+    <main id="content" class="content">
+      <div class="search_wrap">
+        <div class="search">
+          <form>
+            <input type="text" class="search_keyword" placeholder="도시명 또는 숙소명을 검색해보세요">
+            <div class="search_date">
+              <div class="search_checkin">
+                <input type="date"><label>체크인</label>
+              </div>
+              <div class="search_checkout">
+                <input type="date"><label>체크아웃</label>
+              </div>
+            </div>
+            <div class="search_count">
+              <input type="text"><label>객실 및 인원</label>
+            </div>
+            <button type="submit" class="search_btn">검색</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="reco_city">
+        <div class="reco_city_title">
+          <h2>어디로 떠나세요?</h2>
+          <p>민다 추천 도시</p>
+        </div>
+        <div class="reco_city_card_wrap">
+        <div class="reco_city_card">
+          <a href="#" class="reco_city01">
+            <img src="images/ldg_recocity_img01.png" alt="민다추천도시1">
+            <h3>뉴욕</h3>
+          </a>
+        </div>
+        <div class="reco_city_card">
+          <a href="#" class="reco_city02">
+            <img src="images/ldg_recocity_img02.png" alt="민다추천도시2">
+            <h3>로마</h3>
+          </a>
+        </div>
+        <div class="reco_city_card">
+          <a href="#" class="reco_city03">
+            <img src="images/ldg_recocity_img03.png" alt="민다추천도시3">
+            <h3>파리</h3>
+          </a>
+        </div>
+        <div class="reco_city_card">
+          <a href="#" class="reco_city04">
+            <img src="images/ldg_recocity_img04.png" alt="민다추천도시4">
+            <h3>부다페스트</h3>
+          </a>
+        </div>
+      </div>
+      </div>
+
+      <div class="new_lodging card_wrap">
+        <h2 class="title">민다 해외 신상 숙소</h2>
+
+        <div class="card room1">
+          <a href="#" class="block">
+            <img src="images/ldg_newroom_img01.png" alt="프랑스파리화이트에펠콘도점">
+            <div class="card_cont_wrap">
+              <div class="card_top">
+                <span class="card_category">프랑스·파리</span>
+                <div class="card_like">
+                  <span class="card_like_sign">좋아요</span><span class="card_like_count">13</span>
+                </div>
+              </div>
+              <h3 class="card_title">파리 화이트 에펠 콘도점</h3>
+              <div class="card_bot">
+                <div class="card_review">
+                  <span class="card_review_sign">리뷰5.0</span><span class="card_review_count">2</span>
+                </div>
+                <div>
+                  <span class="card_price">220,600 원</span><span class="card_price_std">1박</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="card room2">
+          <a href="#" class="block">
+            <img src="images/ldg_newroom_img02.png" alt="스페인바르셀로나올레바르셀로나">
+            <div class="card_cont_wrap">
+              <div class="card_top">
+                <span class="card_category">스페인·바르셀로나</span>
+                <div class="card_like">
+                  <span class="card_like_sign">좋아요</span><span class="card_like_count">19</span>
+                </div>
+              </div>
+              <h3 class="card_title">올레바르셀로나</h3>
+              <div class="card_bot">
+                <div class="card_review">
+                  <span class="card_review_sign">리뷰5.0</span><span class="card_review_count">3</span>
+                </div>
+                <div>
+                  <span class="card_price">75,800 원</span><span class="card_price_std">1박</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="card room3">
+          <a href="#" class="block">
+            <img src="images/ldg_newroom_img03.png" alt="아일랜드더블린더블린인포아일랜드">
+            <div class="card_cont_wrap">
+              <div class="card_top">
+                <span class="card_category">아일랜드·더블린</span>
+                <div class="card_like">
+                  <span class="card_like_sign">좋아요</span><span class="card_like_count">0</span>
+                </div>
+              </div>
+              <h3 class="card_title">더블린 인포 아일랜드</h3>
+              <div class="card_bot">
+                <div class="card_review">
+                  <span class="card_review_sign">리뷰5.0</span><span class="card_review_count">1</span>
+                </div>
+                <div>
+                  <span class="card_price">82,700 원</span><span class="card_price_std">1박</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="card room4">
+          <a href="#" class="block">
+            <img src="images/ldg_newroom_img04.png" alt="미국세도나해피하우스">
+            <div class="card_cont_wrap">
+              <div class="card_top">
+                <span class="card_category">미국·세도나</span>
+                <div class="card_like">
+                  <span class="card_like_sign">좋아요</span><span class="card_like_count">1</span>
+                </div>
+              </div>
+              <h3 class="card_title">세도나 해피하우스</h3>
+              <div class="card_bot">
+                <div class="card_review">
+                  <span class="card_review_sign">리뷰5.0</span><span class="card_review_count">0</span>
+                </div>
+                <div>
+                  <span class="card_price">207,900 원</span><span class="card_price_std">1박</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <a href="#" class="prev room_btn1">이전</a>
+        <a href="#" class="next room_btn2">다음</a>
+      </div>
+
+      <div class="pop_lodging card_wrap">
+        <h2 class="title">민다 슈퍼루키 숙소</h2>
+
+        <div class="card room1">
+          <a href="#" class="block">
+            <img src="images/bestroom_image01.jpg" alt="영국런던런던스테이">
+            <div class="card_cont_wrap">
+              <div class="card_top">
+                <span class="card_category">영국·런던</span>
+                <div class="card_like">
+                  <span class="card_like_sign">좋아요</span><span class="card_like_count">132</span>
+                </div>
+              </div>
+              <h3 class="card_title">런던스테이</h3>
+              <div class="card_bot">
+                <div class="card_review">
+                  <span class="card_review_sign">리뷰5.0</span><span class="card_review_count">11</span>
+                </div>
+                <div>
+                  <span class="card_price">72,500 원</span><span class="card_price_std">1박</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="card room2">
+          <a href="#" class="block">
+            <img src="images/bestroom_image02.jpg" alt="미국뉴욕앳홈스테이">
+            <div class="card_cont_wrap">
+              <div class="card_top">
+                <span class="card_category">미국·뉴욕</span>
+                <div class="card_like">
+                  <span class="card_like_sign">좋아요</span><span class="card_like_count">593</span>
+                </div>
+              </div>
+              <h3 class="card_title">앳홈스테이</h3>
+              <div class="card_bot">
+                <div class="card_review">
+                  <span class="card_review_sign">리뷰5.0</span><span class="card_review_count">26</span>
+                </div>
+                <div>
+                  <span class="card_price">109,700 원</span><span class="card_price_std">1박</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="card room3">
+          <a href="#" class="block">
+            <img src="images/bestroom_image03.jpg" alt="프랑스파리하이파리민박">
+            <div class="card_cont_wrap">
+              <div class="card_top">
+                <span class="card_category">프랑스·파리</span>
+                <div class="card_like">
+                  <span class="card_like_sign">좋아요</span><span class="card_like_count">2134</span>
+                </div>
+              </div>
+              <h3 class="card_title">하이파리민박</h3>
+              <div class="card_bot">
+                <div class="card_review">
+                  <span class="card_review_sign">리뷰5.0</span><span class="card_review_count">41</span>
+                </div>
+                <div>
+                  <span class="card_price">55,500 원</span><span class="card_price_std">1박</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="card room4">
+          <a href="#" class="block">
+            <img src="images/bestroom_image04.jpg" alt="이탈리아로마로마골뱅이호텔">
+            <div class="card_cont_wrap">
+              <div class="card_top">
+                <span class="card_category">이탈리아·로마</span>
+                <div class="card_like">
+                  <span class="card_like_sign">좋아요</span><span class="card_like_count">1051</span>
+                </div>
+              </div>
+              <h3 class="card_title">로마골뱅이호텔</h3>
+              <div class="card_bot">
+                <div class="card_review">
+                  <span class="card_review_sign">리뷰5.0</span><span class="card_review_count">204</span>
+                </div>
+                <div>
+                  <span class="card_price">10,000 원</span><span class="card_price_std">1박</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <a href="#" class="prev room_btn1">이전</a>
+        <a href="#" class="next room_btn2">다음</a>
+      </div>
+    </main>
+
+
+    <!-- footer -->
+    <footer id="footer" class="footer">
+      <h2 class="hide">사이트 이용 안내</h2>
+
+      <div class="footer_term">
+        <h3 class="hide">약관 및 정책</h3>
+        <ul>
+          <li><a href="#">회사소개</a></li>
+          <li><a href="#">파트너 가입</a></li>
+          <li><a href="#">취소환불규정</a></li>
+          <li><a href="#">고객센터</a></li>
+          <li><a href="#" class="notice">공지사항</a></li>
+          <li><a href="#">이용약관개인정보처리방침</a></li>
+          <li><a href="#">사업자정보확인</a></li>
+        </ul>
+      </div>
+
+      <a href="#" class="footer_gopatner">숙소 파트너홈 바로가기</a>
+
+      <div class="footer_info">
+        <h3>INFORMATION</h3>
+        <div class="footer_info_txt1">
+          <p class="footer_txt">㈜민다 대표 : 김윤희 </p>
+          <p class="footer_txt">사업자등록번호 : 101-86-28116 </p>
+          <p class="footer_txt">관광사업등록증 : 제 2020-000054호 </p>
+          <p>통신판매업신고 : 제 2020-서울마포-3698호</p>
+        </div>
+        <div class="footer_info_txt2">
+          <p class="footer_txt">고객센터 : 1661-2892 </p>
+          <p class="footer_txt">FAX : 02-722-3478 </p>
+          <p>운영시간 : 평일 10시~12시/13시~18시(주말, 공휴일 휴무)</p>
+        </div>
+        <div class="footer_info_txt3">
+          <p class="footer_txt">이메일 : help@theminda.com(일반문의), biz@theminda.com(사업제휴)</p>
+          <address>서울특별시 마포구 성산로2길 55, 샤인빌딩 602호 (성산동)</address>
+        </div>
+        <p>Copyright © Minda Co., Ltd. All rights reserved.</p>
+      </div>
+
+      <div class="footer_side indent">
+        <h3 class="hide">SNS</h3>
+        <ul>
+          <li class="footer_sns_fb"><a href="#">페이스북</a></li>
+          <li class="footer_sns_blog"><a href="#">블로그</a></li>
+          <li class="footer_sns_instar"><a href="#">인스타그램</a></li>
+        </ul>
+        <a href="#" class="footer_qna indent">고객센터문의</a>
+      </div>
+
+      <div class="footer_bot_warp">
+        <div class="footer_bot">
+          <p>(주)민다의 사전 서면동의 없이 민다 사이트(PC, 모바일, 앱)의 일체의 정보, 콘텐츠 및 UI 등을 상업적 목적으로 전재, 전송, 스크래핑 등 무단 사용할 수 없습니다.</p>
+
+          <p>(주)민다는 통신판매중개자이며 통신판매의 당사자가 아닙니다.<br>
+            따라서 (주)민다는 상품·거래정보 및 거래와 관련하여 판매자의 고의 또는 과실로 소비자에게 발생하는 손해에 대해 일체 책임을 지지 않습니다.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+</body>
+
+</html>

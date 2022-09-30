@@ -43,3 +43,30 @@ a {
 address {
   font-style: normal
 }
+
+/* 공통클래스 */
+.hide {
+  position: absolute;
+  left: -9999px;
+  top: -9999px
+}
+
+.indent {
+  text-indent: -9999px;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.shadow {
+  box-shadow: 0 5px 10px -7px rgba(0, 0, 0, 1);
+}
+
+.wrap {
+  min-width: 1200px;
+}
+
+.block {
+  display: block;
+}

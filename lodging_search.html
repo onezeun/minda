@@ -94,7 +94,7 @@
           <a href="#" class="search_filter_map indent">지도에서 숙소보기</a>
 
           <div class="filter_price_range">
-            <p class="filter_price_range_title">가격범위(1박 기준)</p>
+            <p class="filter_title">가격범위(1박 기준)</p>
             <div class="multi_range_slider">
               <!-- 진짜 슬라이더 -->
               <input type="range" id="input_left" min="0" max="100" value="25" />
@@ -108,9 +108,9 @@
                 <div class="thumb right"></div>
               </div>
               <div class="range_value_wrap">
-              <p class="range_value1"><span id="value1"></span><span>만원</span></p>
-              <p class="range_value2"><span id="value2"></span><span>만원</span></p>
-            </div>
+                <p class="range_value1"><span id="value1"></span><span>만원</span></p>
+                <p class="range_value2"><span id="value2"></span><span>만원</span></p>
+              </div>
             </div>
           </div>
 
@@ -165,7 +165,7 @@
           </script>
 
           <div class="filter_room_type">
-            <p>객실 유형</p>
+            <p class="filter_title">객실 유형</p>
             <div class="checkbox_wrap">
               <div class="room_type1">
                 <input type="checkbox" id="room_type1"><label for="room_type1">도미토리</label>
@@ -183,7 +183,7 @@
           </div>
 
           <div class="filter_meal">
-            <p>식사</p>
+            <p class="filter_title">식사</p>
             <div class="checkbox_wrap">
               <div class="meal1">
                 <input type="checkbox" id="meal1"><label for="meal1">조식</label>
@@ -197,67 +197,74 @@
             </div>
           </div>
           <div class="filter_public">
-            <p>공용시설</p>
-            <div class="public1">
-              <input type="checkbox" id="public1"><label for="public1">Wifi</label>
-            </div>
-            <div class="public2">
-              <input type="checkbox" id="public2"><label for="public2">게스트 부엌</label>
-            </div>
-            <div class="public3">
-              <input type="checkbox" id="public3"><label for="public3">엘리베이터</label>
-            </div>
-            <div class="public4">
-              <input type="checkbox" id="public4"><label for="public4">개인사물함</label>
-            </div>
-            <div class="public5">
-              <input type="checkbox" id="public5"><label for="public5">주차가능</label>
+            <p class="filter_title">공용시설</p>
+            <div class="checkbox_wrap">
+              <div class="public1">
+                <input type="checkbox" id="public1"><label for="public1">Wifi</label>
+              </div>
+              <div class="public2">
+                <input type="checkbox" id="public2"><label for="public2">게스트 부엌</label>
+              </div>
+              <div class="public3">
+                <input type="checkbox" id="public3"><label for="public3">엘리베이터</label>
+              </div>
+              <div class="public4">
+                <input type="checkbox" id="public4"><label for="public4">개인사물함</label>
+              </div>
+              <div class="public5">
+                <input type="checkbox" id="public5"><label for="public5">주차가능</label>
+              </div>
             </div>
           </div>
+
           <div class="filter_benefit">
-            <p>혜택/추천 숙소</p>
-            <div class="benefit1">
-              <input type="checkbox" id="benefit1"><label for="benefit1">한달살기특가</label>
-            </div>
-            <div class="benefit2">
-              <input type="checkbox" id="benefit2"><label for="benefit2">할인</label>
-            </div>
-            <div class="benefit3">
-              <input type="checkbox" id="benefit3"><label for="benefit3">프리미엄숙소</label>
-            </div>
-            <div class="benefit4">
-              <input type="checkbox" id="benefit4"><label for="benefit4">숙소제공쿠폰</label>
-            </div>
-            <div class="benefit5">
-              <input type="checkbox" id="benefit5"><label for="benefit5">숙소이벤트</label>
+            <p class="filter_title">혜택/추천 숙소</p>
+            <div class="checkbox_wrap">
+              <div class="benefit1">
+                <input type="checkbox" id="benefit1"><label for="benefit1">한달살기특가</label>
+              </div>
+              <div class="benefit2">
+                <input type="checkbox" id="benefit2"><label for="benefit2">할인</label>
+              </div>
+              <div class="benefit3">
+                <input type="checkbox" id="benefit3"><label for="benefit3">프리미엄숙소</label>
+              </div>
+              <div class="benefit4">
+                <input type="checkbox" id="benefit4"><label for="benefit4">숙소제공쿠폰</label>
+              </div>
+              <div class="benefit5">
+                <input type="checkbox" id="benefit5"><label for="benefit5">숙소이벤트</label>
+              </div>
             </div>
           </div>
         </div>
 
 
         <div class="search_result">
-          <p>검색된 한인민박 <span>4</span>개</p>
+          <p class="search_result_title">검색된 한인민박 <span>4</span>개</p>
           <div class="result_room">
             <img src="images/search_room_img01.png" alt="검색된숙소이미지1">
-            <div class="result_room_top">
-              <p>런던스테이</p>
-              <p>도미토리 · 개인실</p>
-            </div>
-            <div class="result_room_bot">
-              <p>조식, 석식 제공 · Wifi · 개인사물함</p>
-              <div class="result_room_review">
-                <span class="review_star">리뷰점수</span>
-                <span class="review_count">5.0</span>
-                <span class="review_comment">6개의 이용 후기</span>
+            <div class="result_room_left">
+              <div class="result_room_top">
+                <p class="lodging_name">런던스테이</p>
+                <p class="room_type">도미토리 · 개인실</p>
               </div>
-              <div class="result_room_like">
-                <span class="like_icon">좋아요</span>
-                <span class="like_count">132</span>
+              <div class="result_room_bot">
+                <p class="room_service">조식, 석식 제공 · Wifi · 개인사물함</p>
+                <div class="result_room_review">
+                  <span class="review_star">리뷰점수</span>
+                  <span class="review_count">5.0</span>
+                  <span class="review_comment">6개의 이용후기</span>
+                </div>
+                <div class="result_room_like">
+                  <span class="like_sign">좋아요</span>
+                  <span class="like_count">132</span>
+                </div>
               </div>
             </div>
             <div class="result_room_right">
-              <p class="result_room_day">1박</p>
-              <p class="result_room_price">90,900 ~</p>
+              <p class="result_room_day indent">1박</p>
+              <p class="result_room_price">90,900 원~</p>
             </div>
           </div>
           <div class="pagenation indent">

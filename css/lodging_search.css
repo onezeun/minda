@@ -29,7 +29,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   margin-bottom: 200px;
 }
 
-/* search */
+/* search bar */
 .search_bar_wrap {
   height: 100px;
   background: #f2f5ef;
@@ -137,16 +137,19 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .search_filter {
   width: 300px;
   float: left;
+  margin-right: 50px;
 }
 
 .search_result {
-  float: right;
+  float: left;
+  margin-top: 65px;
 }
 
 .search_filter_title {
   font-weight: bold;
   font-size: 16px;
   margin: 20px 0;
+  height: 25px;
 }
 
 .search_filter_map {
@@ -163,14 +166,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   position: relative;
   width: 100%;
   max-width: 300px;
+  margin-bottom: 40px;
 }
 
-.filter_price_range_title {
+.filter_title {
   font-weight: bold;
   font-size: 16px;
-  margin: 10px 0;
+  margin-bottom: 10px
 }
-
 
 .multi_range_slider {
   margin-top: 10px;
@@ -261,6 +264,119 @@ input[type="range"]::-webkit-slider-thumb {
 
 .range_value2 {
   float: right;
+}
+
+.checkbox_wrap {
+  margin-bottom: 40px;
+}
+
+.checkbox_wrap label{
+  color: #8c8c8c;
+  font-size: 15px;
+  margin: 0 0 5px 5px;
+}
+
+
+/* search result */
+.search_result_title {
+  width: 850px;
+  font-size: 16px;
+  border-bottom: 2px solid #b7b7b7;
+}
+
+.search_result_title span {
+  font-weight: bold;
+  color: #eeb72f
+}
+
+.result_room {
+  width: 850px;
+  height: 190px;
+  border-bottom: 2px solid #b7b7b7;
+  padding: 20px 0;
+  position: relative;
+  display: flex;
+}
+
+
+.result_room_left {
+  width: 480px;
+  margin-left: 20px;
+  position: relative;
+}
+
+/* .result_room_right {
+  position: absolute;
+  right: 0;
+}  */
+
+.lodging_name {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.room_type {
+  color: #8c8c8c;
+}
+
+.result_room_bot {
+  position: absolute;
+  bottom: 0;
+  color: #8c8c8c;
+}
+
+.result_room_review {
+display: inline-block;
+margin-right: 20px;
+}
+
+.review_star {
+  width: 77px;
+  height: 14px;
+  background: url(../images/star.png) no-repeat;
+  text-indent: -9999px;
+  display: inline-block;
+}
+
+.review_count {
+  color: black;
+  font-size: 16px;
+  margin-right: 5px;
+}
+
+.result_room_like {
+  display: inline-block;
+}
+
+.like_sign {
+  width: 17px;
+  height: 14px;
+  background: url(../images/heart.png) no-repeat;
+  text-indent: -9999px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.like_count {
+  vertical-align: middle;
+}
+.result_room_right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.result_room_day {
+  width: 48px;
+  height: 23px;
+  background: url(../images/oneday.png) no-repeat;
+  margin-bottom: 5px;
+}
+
+.result_room_price {
+  font-size: 25px;
+  font-weight: bold;
 }
 
 

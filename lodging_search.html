@@ -68,8 +68,8 @@
 
     <!-- content -->
     <main id="content" class="content">
-      <div class="search_wrap">
-        <div class="search">
+      <div class="search_bar_wrap">
+        <div class="search_bar">
           <form>
             <input type="text" class="search_keyword" placeholder="도시명 또는 숙소명을 검색해보세요">
             <div class="search_date">
@@ -88,154 +88,245 @@
         </div>
       </div>
 
-      <div class="search_filter">
-        <p>원하시는 숙소를 찾아보세요</p>
-        <a href="#">지도에서 숙소보기</a>
+      <div class="search_wrap">
+        <div class="search_filter">
+          <p class="search_filter_title">원하시는 숙소를 찾아보세요</p>
+          <a href="#" class="search_filter_map indent">지도에서 숙소보기</a>
 
-        <div class="filter_price_range">
-          <p>가격범위(1박 기준)</p>
+          <div class="filter_price_range">
+            <p class="filter_price_range_title">가격범위(1박 기준)</p>
+            <div class="multi_range_slider">
+              <!-- 진짜 슬라이더 -->
+              <input type="range" id="input_left" min="0" max="100" value="25" />
+              <input type="range" id="input_right" min="0" max="100" value="75" />
+
+              <!-- 커스텀 슬라이더 -->
+              <div class="slider">
+                <div class="track"></div>
+                <div class="range"></div>
+                <div class="thumb left"></div>
+                <div class="thumb right"></div>
+              </div>
+              <div class="range_value_wrap">
+              <p class="range_value1"><span id="value1"></span><span>만원</span></p>
+              <p class="range_value2"><span id="value2"></span><span>만원</span></p>
+            </div>
+            </div>
+          </div>
+
+          <script>
+            const inputLeft = document.getElementById("input_left");
+            const inputRight = document.getElementById("input_right");
+
+            const thumbLeft = document.querySelector(".slider > .thumb.left");
+            const thumbRight = document.querySelector(".slider > .thumb.right");
+            const range = document.querySelector(".slider > .range");
+
+            const value1 = document.getElementById("value1")
+            const value2 = document.getElementById("value2")
+
+            const setLeftValue = () => {
+              const _this = inputLeft;
+              const [min, max] = [parseInt(_this.min), parseInt(_this.max)];
+
+              // 교차되지 않게
+              _this.value = Math.min(parseInt(_this.value), parseInt(inputRight.value) - 10);
+
+              // input, thumb 같이 움직이도록
+              thumbLeft.style.left = _this.value + "%";
+              range.style.left = _this.value + "%";
+            };
+
+            const setRightValue = () => {
+              const _this = inputRight;
+              const [min, max] = [parseInt(_this.min), parseInt(_this.max)];
+
+              // 교차되지 않게
+              _this.value = Math.max(parseInt(_this.value), parseInt(inputLeft.value) + 10);
+
+              // input, thumb 같이 움직이도록
+              thumbRight.style.right = 100 - _this.value + "%";
+              range.style.right = 100 - _this.value + "%";
+            };
+
+            inputLeft.addEventListener("input", setLeftValue);
+            inputRight.addEventListener("input", setRightValue);
+
+            value1.innerHTML = `${inputLeft.value}`
+            value2.innerHTML = `${inputRight.value}`
+
+            inputLeft.addEventListener("input", e => {
+              value1.innerHTML = e.target.value;
+            });
+
+            inputRight.addEventListener("input", e => {
+              value2.innerHTML = e.target.value;
+            });
+          </script>
+
+          <div class="filter_room_type">
+            <p>객실 유형</p>
+            <div class="checkbox_wrap">
+              <div class="room_type1">
+                <input type="checkbox" id="room_type1"><label for="room_type1">도미토리</label>
+              </div>
+              <div class="room_type2">
+                <input type="checkbox" id="room_type2"><label for="room_type2">개인실</label>
+              </div>
+              <div class="room_type3">
+                <input type="checkbox" id="room_type3"><label for="room_type3">콘도형</label>
+              </div>
+              <div class="room_type4">
+                <input type="checkbox" id="room_type4"><label for="room_type4">여성전용</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="filter_meal">
+            <p>식사</p>
+            <div class="checkbox_wrap">
+              <div class="meal1">
+                <input type="checkbox" id="meal1"><label for="meal1">조식</label>
+              </div>
+              <div class="meal2">
+                <input type="checkbox" id="meal2"><label for="meal2">중식</label>
+              </div>
+              <div class="meal3">
+                <input type="checkbox" id="meal3"><label for="meal3">석식</label>
+              </div>
+            </div>
+          </div>
+          <div class="filter_public">
+            <p>공용시설</p>
+            <div class="public1">
+              <input type="checkbox" id="public1"><label for="public1">Wifi</label>
+            </div>
+            <div class="public2">
+              <input type="checkbox" id="public2"><label for="public2">게스트 부엌</label>
+            </div>
+            <div class="public3">
+              <input type="checkbox" id="public3"><label for="public3">엘리베이터</label>
+            </div>
+            <div class="public4">
+              <input type="checkbox" id="public4"><label for="public4">개인사물함</label>
+            </div>
+            <div class="public5">
+              <input type="checkbox" id="public5"><label for="public5">주차가능</label>
+            </div>
+          </div>
+          <div class="filter_benefit">
+            <p>혜택/추천 숙소</p>
+            <div class="benefit1">
+              <input type="checkbox" id="benefit1"><label for="benefit1">한달살기특가</label>
+            </div>
+            <div class="benefit2">
+              <input type="checkbox" id="benefit2"><label for="benefit2">할인</label>
+            </div>
+            <div class="benefit3">
+              <input type="checkbox" id="benefit3"><label for="benefit3">프리미엄숙소</label>
+            </div>
+            <div class="benefit4">
+              <input type="checkbox" id="benefit4"><label for="benefit4">숙소제공쿠폰</label>
+            </div>
+            <div class="benefit5">
+              <input type="checkbox" id="benefit5"><label for="benefit5">숙소이벤트</label>
+            </div>
+          </div>
         </div>
 
-        <div class="filter_room_type">
-          <p>객실 유형</p>
-          <div class="checkbox_wrap">
-            <div class="room_type1">
-              <input type="checkbox" id="room_type1"><label for="room_type1">도미토리</label>
-            </div>
-            <div class="room_type2">
-              <input type="checkbox" id="room_type2"><label for="room_type2">개인실</label>
-            </div>
-            <div class="room_type3">
-              <input type="checkbox" id="room_type3"><label for="room_type3">콘도형</label>
-            </div>
-            <div class="room_type4">
-              <input type="checkbox" id="room_type4"><label for="room_type4">여성전용</label>
-            </div>
-          </div>
-        </div>
 
-        <div class="filter_meal">
-          <p>식사</p>
-          <div class="checkbox_wrap">
-            <div class="meal1">
-              <input type="checkbox" id="meal1"><label for="meal1">조식</label>
+        <div class="search_result">
+          <p>검색된 한인민박 <span>4</span>개</p>
+          <div class="result_room">
+            <img src="images/search_room_img01.png" alt="검색된숙소이미지1">
+            <div class="result_room_top">
+              <p>런던스테이</p>
+              <p>도미토리 · 개인실</p>
             </div>
-            <div class="meal2">
-              <input type="checkbox" id="meal2"><label for="meal2">중식</label>
+            <div class="result_room_bot">
+              <p>조식, 석식 제공 · Wifi · 개인사물함</p>
+              <div class="result_room_review">
+                <span class="review_star">리뷰점수</span>
+                <span class="review_count">5.0</span>
+                <span class="review_comment">6개의 이용 후기</span>
+              </div>
+              <div class="result_room_like">
+                <span class="like_icon">좋아요</span>
+                <span class="like_count">132</span>
+              </div>
             </div>
-            <div class="meal3">
-              <input type="checkbox" id="meal3"><label for="meal3">석식</label>
+            <div class="result_room_right">
+              <p class="result_room_day">1박</p>
+              <p class="result_room_price">90,900 ~</p>
             </div>
           </div>
-        </div>
-        <div class="filter_public">
-          <p>공용시설</p>
-          <div class="public1">
-            <input type="checkbox" id="public1"><label for="public1">Wifi</label>
-          </div>
-          <div class="public2">
-            <input type="checkbox" id="public2"><label for="public2">게스트 부엌</label>
-          </div>
-          <div class="public3">
-            <input type="checkbox" id="public3"><label for="public3">엘리베이터</label>
-          </div>
-          <div class="public4">
-            <input type="checkbox" id="public4"><label for="public4">개인사물함</label>
-          </div>
-          <div class="public5">
-            <input type="checkbox" id="public5"><label for="public5">주차가능</label>
-          </div>
-        </div>
-        <div class="filter_benefit">
-          <p>혜택/추천 숙소</p>
-          <div class="benefit1">
-            <input type="checkbox" id="benefit1"><label for="benefit1">한달살기특가</label>
-          </div>
-          <div class="benefit2">
-            <input type="checkbox" id="benefit2"><label for="benefit2">할인</label>
-          </div>
-          <div class="benefit3">
-            <input type="checkbox" id="benefit3"><label for="benefit3">프리미엄숙소</label>
-          </div>
-          <div class="benefit4">
-            <input type="checkbox" id="benefit4"><label for="benefit4">숙소제공쿠폰</label>
-          </div>
-          <div class="benefit5">
-            <input type="checkbox" id="benefit5"><label for="benefit5">숙소이벤트</label>
+          <div class="pagenation indent">
+            <a href="#" class="pagenation_btn01">1페이지</a>
+            <a href="#" class="pagenation_btn02">2페이지</a>
           </div>
         </div>
       </div>
+    </main>
 
 
-      <div class="search_result">
-        <p>검색된 한인민박 <span>4</span>개</p>
-        <div class="result_room">
-          <img src="images/search_room_img01.png" alt="검색된숙소이미지1">
-          <p>런던스테이</p>
-          <p><span>도미토리</span> · <span>개인실</span></p>
-          <p>조식</p>
-        </div>
+    <!-- footer -->
+    <footer id="footer" class="footer">
+      <h2 class="hide">사이트 이용 안내</h2>
+
+      <div class="footer_term">
+        <h3 class="hide">약관 및 정책</h3>
+        <ul>
+          <li><a href="#">회사소개</a></li>
+          <li><a href="#">파트너 가입</a></li>
+          <li><a href="#">취소환불규정</a></li>
+          <li><a href="#">고객센터</a></li>
+          <li><a href="#" class="notice">공지사항</a></li>
+          <li><a href="#">이용약관개인정보처리방침</a></li>
+          <li><a href="#">사업자정보확인</a></li>
+        </ul>
       </div>
 
+      <a href="#" class="footer_gopatner">숙소 파트너홈 바로가기</a>
 
-      <!-- footer -->
-      <footer id="footer" class="footer">
-        <h2 class="hide">사이트 이용 안내</h2>
-
-        <div class="footer_term">
-          <h3 class="hide">약관 및 정책</h3>
-          <ul>
-            <li><a href="#">회사소개</a></li>
-            <li><a href="#">파트너 가입</a></li>
-            <li><a href="#">취소환불규정</a></li>
-            <li><a href="#">고객센터</a></li>
-            <li><a href="#" class="notice">공지사항</a></li>
-            <li><a href="#">이용약관개인정보처리방침</a></li>
-            <li><a href="#">사업자정보확인</a></li>
-          </ul>
+      <div class="footer_info">
+        <h3>INFORMATION</h3>
+        <div class="footer_info_txt1">
+          <p class="footer_txt">㈜민다 대표 : 김윤희 </p>
+          <p class="footer_txt">사업자등록번호 : 101-86-28116 </p>
+          <p class="footer_txt">관광사업등록증 : 제 2020-000054호 </p>
+          <p>통신판매업신고 : 제 2020-서울마포-3698호</p>
         </div>
-
-        <a href="#" class="footer_gopatner">숙소 파트너홈 바로가기</a>
-
-        <div class="footer_info">
-          <h3>INFORMATION</h3>
-          <div class="footer_info_txt1">
-            <p class="footer_txt">㈜민다 대표 : 김윤희 </p>
-            <p class="footer_txt">사업자등록번호 : 101-86-28116 </p>
-            <p class="footer_txt">관광사업등록증 : 제 2020-000054호 </p>
-            <p>통신판매업신고 : 제 2020-서울마포-3698호</p>
-          </div>
-          <div class="footer_info_txt2">
-            <p class="footer_txt">고객센터 : 1661-2892 </p>
-            <p class="footer_txt">FAX : 02-722-3478 </p>
-            <p>운영시간 : 평일 10시~12시/13시~18시(주말, 공휴일 휴무)</p>
-          </div>
-          <div class="footer_info_txt3">
-            <p class="footer_txt">이메일 : help@theminda.com(일반문의), biz@theminda.com(사업제휴)</p>
-            <address>서울특별시 마포구 성산로2길 55, 샤인빌딩 602호 (성산동)</address>
-          </div>
-          <p>Copyright © Minda Co., Ltd. All rights reserved.</p>
+        <div class="footer_info_txt2">
+          <p class="footer_txt">고객센터 : 1661-2892 </p>
+          <p class="footer_txt">FAX : 02-722-3478 </p>
+          <p>운영시간 : 평일 10시~12시/13시~18시(주말, 공휴일 휴무)</p>
         </div>
-
-        <div class="footer_side indent">
-          <h3 class="hide">SNS</h3>
-          <ul>
-            <li class="footer_sns_fb"><a href="#">페이스북</a></li>
-            <li class="footer_sns_blog"><a href="#">블로그</a></li>
-            <li class="footer_sns_instar"><a href="#">인스타그램</a></li>
-          </ul>
-          <a href="#" class="footer_qna indent">고객센터문의</a>
+        <div class="footer_info_txt3">
+          <p class="footer_txt">이메일 : help@theminda.com(일반문의), biz@theminda.com(사업제휴)</p>
+          <address>서울특별시 마포구 성산로2길 55, 샤인빌딩 602호 (성산동)</address>
         </div>
+        <p>Copyright © Minda Co., Ltd. All rights reserved.</p>
+      </div>
 
-        <div class="footer_bot_warp">
-          <div class="footer_bot">
-            <p>(주)민다의 사전 서면동의 없이 민다 사이트(PC, 모바일, 앱)의 일체의 정보, 콘텐츠 및 UI 등을 상업적 목적으로 전재, 전송, 스크래핑 등 무단 사용할 수 없습니다.</p>
+      <div class="footer_side indent">
+        <h3 class="hide">SNS</h3>
+        <ul>
+          <li class="footer_sns_fb"><a href="#">페이스북</a></li>
+          <li class="footer_sns_blog"><a href="#">블로그</a></li>
+          <li class="footer_sns_instar"><a href="#">인스타그램</a></li>
+        </ul>
+        <a href="#" class="footer_qna indent">고객센터문의</a>
+      </div>
 
-            <p>(주)민다는 통신판매중개자이며 통신판매의 당사자가 아닙니다.<br>
-              따라서 (주)민다는 상품·거래정보 및 거래와 관련하여 판매자의 고의 또는 과실로 소비자에게 발생하는 손해에 대해 일체 책임을 지지 않습니다.</p>
-          </div>
+      <div class="footer_bot_warp">
+        <div class="footer_bot">
+          <p>(주)민다의 사전 서면동의 없이 민다 사이트(PC, 모바일, 앱)의 일체의 정보, 콘텐츠 및 UI 등을 상업적 목적으로 전재, 전송, 스크래핑 등 무단 사용할 수 없습니다.</p>
+
+          <p>(주)민다는 통신판매중개자이며 통신판매의 당사자가 아닙니다.<br>
+            따라서 (주)민다는 상품·거래정보 및 거래와 관련하여 판매자의 고의 또는 과실로 소비자에게 발생하는 손해에 대해 일체 책임을 지지 않습니다.</p>
         </div>
-      </footer>
+      </div>
+    </footer>
   </div>
 
 </body>

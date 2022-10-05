@@ -66,6 +66,11 @@
   height: 20px;
   margin: auto;
   color: #8c8c8c;
+  vertical-align: middle;
+}
+
+.save_password_label {
+  margin-left: 15px;
 }
 
 .lock{

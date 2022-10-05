@@ -73,6 +73,8 @@ fieldset {
   position: absolute;
   right: 20px;
   top: 20px;
+  width: 60px;
+  height: 30px;
   background: white;
   color: #eeb72f;
   border: 1px solid #eeb72f;
@@ -84,6 +86,7 @@ fieldset {
   width: 130px;
   font-size: 16px;
   font-weight: bold;
+  vertical-align: center;
 }
 
 .change_info_wrap input[type="text"] {
@@ -122,7 +125,7 @@ fieldset {
   margin-left: 85px;
 }
 
-.mk_checkbox {
+.mk_radio {
   margin-left: 32px;
   display: inline-block;
 }

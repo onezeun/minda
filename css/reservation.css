@@ -256,6 +256,8 @@ fieldset {
 }
 
 .checkterm_wrap button {
+  width: 70px;
+  height: 22px;
   background: white;
   color: #eeb72f;
   border: 1px solid #eeb72f;

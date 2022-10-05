@@ -15,10 +15,10 @@ fieldset {
 
 
 .reservation_title {
-  width: 144px;
-  height: 33px;
-  background: url(../images/reservation_title.jpg) no-repeat;
+  width: 200px;
+  font-size: 40px;
   margin: 50px auto 100px;
+  text-align: center;
 }
 
 /* left */
@@ -32,10 +32,11 @@ fieldset {
 }
 
 .room_info_title {
-  width: 88px;
-  height: 21px;
-  background: url(../images/reservation_room.jpg) no-repeat;
-  margin-bottom: 20px;
+  width: 100px;
+  font-size: 23px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: left;
 }
 
 .room_info_cont {
@@ -67,10 +68,11 @@ fieldset {
 }
 
 .user_info_title {
-  width: 118px;
-  height: 22px;
-  background: url(../images/reservation_user.jpg) no-repeat;
-  margin-bottom: 20px;
+  width: 150px;
+  font-size: 23px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: left;
 }
 
 .user_info_cont {
@@ -127,10 +129,11 @@ fieldset {
 }
 
 .pay_title {
-  width: 93px;
-  height: 21px;
-  background: url(../images/reservation_pay.jpg) no-repeat;
-  margin-bottom: 20px;
+  width: 150px;
+  font-size: 23px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: left;
 }
 
 .pay_cont {
@@ -161,10 +164,11 @@ fieldset {
 }
 
 .payment_title {
-  width: 95px;
-  height: 21px;
-  background: url(../images/reservation_form_right_title01.jpg) no-repeat;
-  margin: 0 0 20px 20px;
+  width: 150px;
+  font-size: 23px;
+  font-weight: bold;
+  text-align: left;
+  margin: 0 0 10px 20px;
 }
 
 .payment_wrap1 {
@@ -229,14 +233,14 @@ fieldset {
 }
 
 .term_title{ 
-  width: 93px;
-  height: 21px;
-  background: url(../images/reservation_form_right_title02.jpg) no-repeat;
+  width: 150px;
+  font-size: 23px;
+  font-weight: bold;
 }
 
 .term_wrap {
   border-top: 2px solid #8c8c8c;
-  margin: 20px 0 ;
+  margin: 10px 0 ;
 }
 
 .term_wrap label{
@@ -244,7 +248,7 @@ fieldset {
 }
 
 .checkall_wrap {
-  margin: 10px 0;
+  margin: 15px 0 10px 0;
   font-size: 15px;
 }
 

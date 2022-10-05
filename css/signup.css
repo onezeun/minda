@@ -5,14 +5,14 @@
 
 .signup_wrap {
   width: 1000px;
-  height: 800px;
+  height: 900px;
   margin: auto;
 }
 .signup_title {
-  width: 172px;
-  height: 44px;
-  background: url(../images/signup_title.jpg) no-repeat;
+  width: 190px;
   margin: 100px auto 50px;
+  font-size: 40px;
+  text-align: center;
 }
 
 .signup_title_wrap {
@@ -141,9 +141,11 @@
 }
 
 .social_signup_title {
-  width: 187px;
-  height: 21px;
-  background: url(../images/sns_signup_title.jpg) no-repeat;
+  width: 180px;
+  margin: auto;
+  margin-bottom: 30px;
+  font-size: 22px;
+  text-align: center;
   margin: 0 auto 30px;
 }
 .naver_signup {
@@ -159,7 +161,7 @@
   height: 50px;
   background: url(../images/signup_kakao.jpg) no-repeat;
   display: block;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .login {
@@ -169,6 +171,7 @@
 .login p {
   font-weight: bold;
   font-size: 16px;
+  margin-bottom: 10px;
 }
 
 .login a {

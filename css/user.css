@@ -14,10 +14,10 @@ fieldset {
 }
 
 .myminda {
-  width: 133px;
-  height: 33px;
-  background: url(../images/myminda.jpg) no-repeat;
+  width: 150px;
+  font-size: 40px;
   margin: 100px auto 50px;
+  text-align: center;
 }
 
 .profile_wrap {

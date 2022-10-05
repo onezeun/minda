@@ -404,7 +404,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   border: none;
   border-radius: 5px;
   color: white;
-  font-weight: bold;
   font-size: 17px;
   margin-left: 20px;
 }

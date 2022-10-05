@@ -15,10 +15,12 @@
 }
 
 .success_txt1 {
-  width: 446px;
-  height: 33px;
-  background: url(../images/reservation_success.jpg) no-repeat;
+  width: 435px;
   margin: 30px auto;
+  font-size: 35px;
+  font-weight: bold;
+  text-align: center;
+  color: black;
 }
 
 .success_txt2 {

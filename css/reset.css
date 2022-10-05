@@ -18,8 +18,15 @@ button {
   padding: 0
 }
 
+@font-face {
+  font-family: 'InfinitySans-RegularA1';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/InfinitySans-RegularA1.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
-  font-family:  "12LotteMartDreamMedium", "NanumGothic Eco", "맑은고딕";
+  font-family: 'InfinitySans-RegularA1';
   font-size: 14px;
   line-height: 1.5
 }
@@ -28,7 +35,8 @@ div,
 header,
 ul,
 input,
-button {
+button,
+a {
   box-sizing: border-box;
 }
 

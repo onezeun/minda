@@ -22,12 +22,9 @@
 }
 
 .mb_search h3 {
-  /* font-size: 30px;
+  font-size: 30px;
   font-weight: bold;
-  text-shadow: 2px 2px 2px #8c8c8c; */
-  width: 219px;
-  height: 38px;
-  background: url(../images/main_search_title.png) no-repeat;
+  text-shadow: 2px 2px 2px #8c8c8c;
   margin-bottom: 30px;
 }
 
@@ -37,24 +34,30 @@
 
 .mb_search_room {
   float: left;
+  text-align: center;
 }
 
 .mb_search_room a {
   width: 126px;
   height: 32px;
-  background: url(../images/main_search_room.jpg) no-repeat;
+  font-size: 20px;
+  /* background: url(../images/main_search_room.jpg) no-repeat; */
   display: block;
+  margin-bottom: 5px;
 }
 
 .mb_search_tour {
   float: left;
+  text-align: center;
 }
 
 .mb_search_tour a {
   width: 126px;
   height: 32px;
-  background: url(../images/main_search_tour.jpg) no-repeat;
+  font-size: 20px;
+  /* background: url(../images/main_search_tour.jpg) no-repeat; */
   display: block;
+  margin-bottom: 5px;
 }
 
 .mb_search_bar {
@@ -79,7 +82,7 @@
 
 .mb_search_input2 {
   margin-bottom: 20px;
-  font-family: "나눔고딕";
+  font-family: 'InfinitySans-RegularA1';
   color: #8c8c8c;
 }
 
@@ -90,14 +93,7 @@
   border-radius: 10px;
   color: white;
   font-size: 18px;
-  font-weight: bold;
-}
-
-.mb_search_tour_btn {
-  width: 261px;
-  height: 51px;
-  background: url(../images/main_search_tour_btn.png) no-repeat;
-  display: block;
+  font-family: 'InfinitySans-RegularA1';
 }
 
 .mb_reco_cont1 {
@@ -196,7 +192,7 @@
   margin-left: 5px;
   color: #8c8c8c;
   font-size: 12px;
-  vertical-align: middle;
+  vertical-align: top;
 }
 
 .card_price {
@@ -434,6 +430,10 @@
   right: 0;
 }
 
+.cmnt_menu li:hover {
+  border-bottom: 4px solid rgb(20, 20, 20);
+}
+
 .cmnt_job {
   float: left;
   margin-right: 30px;
@@ -481,6 +481,10 @@
 .cmnt_list_date {
   color: #8c8c8c;
   font-size: 14px;
+}
+
+.cmnt_list li a:hover {
+  color: #eeb72e
 }
 
 /* event */

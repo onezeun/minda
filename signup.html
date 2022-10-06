@@ -10,6 +10,7 @@
   <link rel="stylesheet" type="text/css" href="css/header.css">
   <link rel="stylesheet" type="text/css" href="css/signup.css">
   <link rel="stylesheet" type="text/css" href="css/footer.css">
+  <script type="text/javascript" src="js/signup.js"></script>
 </head>
 
 <body>
@@ -75,30 +76,27 @@
         <div class="minda_signup_wrap">
           <form name="signup" action="signup_success.html" method="get">
             <div class="userinfo">
-              <div class="email">
-                <input type="text" class="email_input" placeholder="이메일">
-                <input type="text" class="email_list" list="list_items" placeholder="직접입력">
-                <datalist id="list_items">
-                  <option>@naver.com</option>
-                  <option>@gmail.com</option>
-                  <option>@kakao.com</option>
-                </datalist>
-                <div class="email_check">
-                  <span class="email_warning">본인 소유의 이메일이 계정이 아닐 경우 임의로 삭제될 수 있습니다.</span>
-                  <button type="button" class="email_check_btn">중복확인</button>
-                </div>
+              <div class="email_wrap">
+                <input type="text" id="email" class="email_input" title="Email" placeholder="Email">
+                <button type="button" class="email_check_btn">중복확인</button>
+                <br><span id="err_email" class="err_txt"></span>
               </div>
               <div class="signup_rest">
-                <input type="password" placeholder="비밀번호 (영문 숫자 특수문자 조합, 8~16자리)">
-                <input type="password" placeholder="비밀번호 확인">
-                <input type="text" placeholder="이름(실명)">
-                <input type="text" placeholder="닉네임">
-                <input type="text" placeholder="휴대폰번호(숫자만 입력)">
+                <input type="password" id="pwd" class="signup_input" title="비밀번호" placeholder="비밀번호">
+                <br><span id="err_pwd" class="err_txt"></span>
+                <input type="password" id="repwd" class="signup_input" title="비밀번호 확인" placeholder="비밀번호 확인">
+                <br><span id="err_repwd" class="err_txt"></span>
+                <input type="text" id="name" class="signup_input" title="이름(실명)" placeholder="이름(실명)">
+                <br><span id="err_name" class="err_txt"></span>
+                <input type="text" id="nickname" class="signup_input" title="닉네임" placeholder="닉네임">
+                <br><span id="err_nickname" class="err_txt"></span>
+                <input type="text" id="mobile" class="signup_input" title="휴태폰번호(숫자만 입력)" placeholder="휴대폰번호(숫자만 입력)">
+                <br><span id="err_mobile" class="err_txt"></span>
               </div>
             </div>
 
             <fieldset class="term">
-              <legend>약관 동의</legend>
+              <legend class="term_title">약관 동의</legend>
               <p>회원가입 후 포인트 적립, 베스트 평가회원 선정 등 민다가 제공하는 서비스 혜택을 받으세요.</p>
               <div class="term_wrap">
                 <div class="checkbox_wrap">

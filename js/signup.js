@@ -13,13 +13,22 @@ window.onload = function () {
   var err_nickname = document.getElementById('err_nickname');
   var err_mobile = document.getElementById('err_mobile');
 
+  var regEmail = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+
   const emailCheck = () => {
     if (!email.value) {
       err_email.style.display = 'block';
       email.setAttribute('class', "err_email_input")
       err_email.innerHTML = '이메일을 입력해주세요';
       email.focus();
-    } else {
+      return false;
+    } else if(!regEmail.test(email.value)) { 
+      err_email.style.display = 'block';
+      email.setAttribute('class', "err_email_input")
+      err_email.innerHTML = '올바른 이메일 형식이 아닙니다.';
+      email.focus();
+      return false;
+    }else {
       email.removeAttribute('class', "err_email_input")
       email.setAttribute('class', "email_input")
       err_email.style.display = 'none';
@@ -34,6 +43,7 @@ window.onload = function () {
       pwd.setAttribute('class', "err_input")
       err_pwd.innerHTML = '비밀번호를 입력해주세요';
       pwd.focus();
+      return false;
     } else {
       err_pwd.style.display = 'none';
       pwd.removeAttribute('class', "err_input")
@@ -49,9 +59,12 @@ window.onload = function () {
       repwd.setAttribute('class', "err_input")
       err_repwd.innerHTML = '비밀번호 확인을 입력해주세요';
       repwd.focus();
+      return false;
     } else if(pwd.value != repwd.value) {
       err_repwd.style.display = 'block';
+      repwd.setAttribute('class', "err_input")
       err_repwd.innerHTML = '비밀번호가 일치하지 않습니다.';
+      return false;
     } else {
       err_repwd.style.display = 'none';
       repwd.removeAttribute('class', "err_input")
@@ -65,8 +78,9 @@ window.onload = function () {
     if (!name.value) {
       err_name.style.display = 'block';
       name.setAttribute('class', "err_input")
-      err_name.innerHTML = '이메일을 입력해주세요';
+      err_name.innerHTML = '이름을 입력해주세요';
       name.focus();
+      return false;
     } else {
       err_name.style.display = 'none';
       name.removeAttribute('class', "err_input")

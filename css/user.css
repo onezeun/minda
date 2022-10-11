@@ -102,14 +102,20 @@ fieldset {
 
 .user_name_input {
   margin-left: 114px;
+  border-radius: 5px;
+  padding-left: 15px;
 }
 
 .user_nickname_input {
   margin-left: 100px;
+  border-radius: 5px;
+  padding-left: 15px;
 }
 
 .user_phone_input {
   margin-left: 100px;
+  border-radius: 5px;
+  padding-left: 15px;
 }
 
 .user_password {

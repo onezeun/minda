@@ -44,8 +44,9 @@
 .login_form_wrap input {
   width: 500px;
   height: 40px;
+  padding-left: 15px;
   margin-bottom: 10px;
-  border-radius: 0px;
+  border-radius: 5px;
   border: 1px solid #b7b7b7;
 }
 

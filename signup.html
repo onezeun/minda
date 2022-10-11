@@ -10,6 +10,9 @@
   <link rel="stylesheet" type="text/css" href="css/header.css">
   <link rel="stylesheet" type="text/css" href="css/signup.css">
   <link rel="stylesheet" type="text/css" href="css/footer.css">
+  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous">
+    </script>
   <script type="text/javascript" src="js/signup.js"></script>
 </head>
 
@@ -74,10 +77,10 @@
           <h2 class="signup_title">회원가입</h2>
         </div>
         <div class="minda_signup_wrap">
-          <form name="signup" action="signup_success.html" method="get">
+          <form name="signup_form" id="signup_form" action="signup_success.html" method="get">
             <div class="userinfo">
               <div class="email_wrap">
-                <input type="text" id="email" class="email_input" title="Email" placeholder="Email">
+                <input type="text" name="email" id="email" class="email_input" title="Email" placeholder="Email">
                 <button type="button" class="email_check_btn">중복확인</button>
                 <br><span id="err_email" class="err_txt"></span>
               </div>
@@ -100,20 +103,21 @@
               <p>회원가입 후 포인트 적립, 베스트 평가회원 선정 등 민다가 제공하는 서비스 혜택을 받으세요.</p>
               <div class="term_wrap">
                 <div class="checkbox_wrap">
-                  <input type="checkbox" class="checkbox01" id="checkbox01"> 
+                  <input type="checkbox" class="checkbox01" id="checkbox01">
                   <label for="checkbox01">(필수) 민다 서비스 이용약관 동의</label>
                   <a href="#" class="viewall">전체보기</a>
                 </div>
                 <div class="checkbox_wrap">
-                  <input type="checkbox" class="checkbox02" id="checkbox02"> 
+                  <input type="checkbox" class="checkbox02" id="checkbox02">
                   <label for="checkbox02">(필수) 민다 개인정보 수집 이용 및 동의</label>
                   <a href="#" class="viewall">전체보기</a>
                 </div>
                 <div class="checkbox_wrap">
-                  <input type="checkbox" class="checkbox03" id="checkbox03"> 
+                  <input type="checkbox" class="checkbox03" id="checkbox03">
                   <label for="checkbox03">(선택) 마케팅 정보 수신 동의</label>
                 </div>
               </div>
+              <br><span id="err_apply" class="err_txt"></span>
             </fieldset>
 
             <button type="submit" class="submit_btn">가입 완료</button>

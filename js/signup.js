@@ -19,7 +19,7 @@ $(document).ready(function() {
   /* 정규식 */
   var regEmail = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
   var regPwd = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
-  var regMobile = /^[0-9]+$/g;
+  var regMobile = /^[0-9]+$/;
 
   const emailCheck = () => {
     if (!email.value) {
@@ -149,7 +149,7 @@ $(document).ready(function() {
       return true;
     }
   };
-  mobile.addEventListener('change', mobileCheck);
+  mobile.addEventListener('input', mobileCheck);
 
   // const applyCheck = () => {
   //   if (!chackbox01.checked) {
@@ -167,12 +167,13 @@ $(document).ready(function() {
 
 
   $("#signup_form").on("submit", function() {
-    if(emailCheck() == false);
-    if(pwdCheck() == false);
-    if(repwdCheck() == false);
-    if(nameCheck() == false);
-    if(nicknameCheck() == false);
-    if(mobileCheck() == false);
-    return false;
+    if(emailCheck() == true);
+    if(pwdCheck() == true);
+    if(repwdCheck() == true);
+    if(nameCheck() == true);
+    if(nicknameCheck() == true);
+    if(mobileCheck() == true) return true;
+    
+    else return false;
   })
 });

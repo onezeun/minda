@@ -91,11 +91,30 @@ fieldset {
   margin-bottom: 5px;
 }
 
-.user_info_cont input {
-  width: 400px;
+.user_input {
+  width: 300px;
   height: 30px;
-  border: 1px solid #8c8c8c;
+  padding-left: 15px;
+  border: 1px solid #d7d7d7;
+  border-radius: 5px;
 }
+
+.err_input {
+  width: 300px;
+  height: 30px;
+  padding-left: 15px;
+  border-radius: 5px;
+  border: 1px solid #eeb72f;
+}
+
+.err_txt {
+  margin-left: 10px;
+  font-size: 12px;
+  color: #eeb72f;
+  display: inline-block;
+}
+
+
 .user_info_warning_wrap {
   width: 770px;
   height: 100px;

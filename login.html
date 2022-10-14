@@ -19,20 +19,12 @@
         if (!$("#email_input").val()) {
           $("#email_input").addClass("err_input").focus();
           $("#err_email").css({ display: "block"}).text("이메일주소를 입력해주세요");
-          return false;
-        } else {
-          return true;
-        }
-      }
+        }}
       const pwdCheck = () => {
         if (!$("#pwd_input").val()) {
           $("#pwd_input").addClass("err_input").focus();
           $("#err_pwd").css({ display: "block"}).text("비밀번호를 입력해주세요");
-          return false;
-        } else {
-          return true;
-        }
-      }
+        }}
 
       $("#email_input").on("keyup", function() {
         $("#email_input").removeClass("err_input");
@@ -43,12 +35,12 @@
         $("#pwd_input").removeClass("err_input");
         $("#err_pwd").css({ display: "none"});
       })
-
-      $("#login_form").on("submit", function() {
-        if(emailCheck() == true);
-        if(pwdCheck() == true) return true;
-        
-        else return false;
+      $("#login_btn").on("click", function() {
+        if(emailCheck(), pwdCheck()) {
+          $("#login_form").submit();
+        } else {
+          return false;
+        } 
       })
     });
   </script>
@@ -135,8 +127,7 @@
               </div>
             </div>
 
-
-            <button type="submit" id="login_btn" class="submit_btn">로그인</button>
+            <button type="button" id="login_btn" class="submit_btn">로그인</button>
           </form>
         </div>
 

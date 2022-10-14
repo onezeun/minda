@@ -167,13 +167,13 @@ $(document).ready(function() {
 
 
   $("#signup_form").on("submit", function() {
-    if(emailCheck() == true);
-    if(pwdCheck() == true);
-    if(repwdCheck() == true);
-    if(nameCheck() == true);
-    if(nicknameCheck() == true);
-    if(mobileCheck() == true) return true;
-    
+    // if(emailCheck() == true);
+    // if(pwdCheck() == true);
+    // if(repwdCheck() == true);
+    // if(nameCheck() == true);
+    // if(nicknameCheck() == true);
+    // if(mobileCheck() == true) return true;
+    if(emailCheck(), pwdCheck(), repwdCheck(), nameCheck(), nicknameCheck(), mobileCheck()) return true;
     else return false;
   })
 });

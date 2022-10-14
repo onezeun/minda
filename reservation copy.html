@@ -15,7 +15,7 @@
     </script>
   <script type="text/javascript">
     $(document).ready(function () {
-      const formCheck = () => {
+      $("#reservation_form").on("submit", function () {
         if (!$("#name_input").val()) {
           $("#name_input").addClass("err_input").focus();
           $("#err_name").css({ display: "inline-block" }).text("이름을 입력해주세요");
@@ -34,12 +34,9 @@
           return false;
         } else {
           return true;
-        }};
-      
-      $("#reservation_btn").on("click", function () {
-        if(!formCheck()) return false;
-        else $("#reservation_form").submit();
+        };
       });
+      
 
       $("#name_input").on("keyup", function () {
         $("#name_input").removeClass("err_input");
@@ -60,7 +57,7 @@
         $("#checkin_input").removeClass("err_input");
         $("#err_checkin").css({ display: "none" });
       });
-  });
+    });
   </script>
 </head>
 
@@ -229,7 +226,7 @@
                 </p>
               </div>
             </div>
-            <button type="button" id="reservation_btn" class="submit_btn">결제하기</button>
+            <button type="submit" class="submit_btn">결제하기</button>
         </form>
       </div>
     </main>

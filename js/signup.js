@@ -34,7 +34,7 @@ $(document).ready(function() {
       err_email.innerHTML = '올바른 이메일 형식이 아닙니다';
       email.focus();
       return false;
-    }else {
+    } else {
       email.removeAttribute('class', "err_email_input");
       email.setAttribute('class', "email_input");
       err_email.style.display = 'none';
@@ -99,6 +99,7 @@ $(document).ready(function() {
       name.setAttribute('class', "err_input");
       err_name.innerHTML = '두 글자 이상 입력해주세요';
       name.focus();
+      return false;
     } else {
       err_name.style.display = 'none';
       name.removeAttribute('class', "err_input");
@@ -121,6 +122,7 @@ $(document).ready(function() {
       nickname.setAttribute('class', "err_input");
       err_nickname.innerHTML = '두 글자 이상 입력해주세요';
       nickname.focus();
+      return false;
     } else {
       err_nickname.style.display = 'none';
       nickname.removeAttribute('class', "err_input");
@@ -142,6 +144,7 @@ $(document).ready(function() {
       mobile.setAttribute('class', "err_input");
       err_mobile.innerHTML = '"-"없이 숫자만 입력해주세요';
       mobile.focus();
+      return false;
     } else {
       err_mobile.style.display = 'none';
       mobile.removeAttribute('class', "err_input");
@@ -166,14 +169,15 @@ $(document).ready(function() {
   // chackbox02.addEventListener('change', applyCheck);
 
 
-  $("#signup_form").on("submit", function() {
-    // if(emailCheck() == true);
-    // if(pwdCheck() == true);
-    // if(repwdCheck() == true);
-    // if(nameCheck() == true);
-    // if(nicknameCheck() == true);
-    // if(mobileCheck() == true) return true;
-    if(emailCheck(), pwdCheck(), repwdCheck(), nameCheck(), nicknameCheck(), mobileCheck()) return true;
-    else return false;
+  $("#signup_btn").on("click", function() {
+    if(!emailCheck() || !pwdCheck() || !repwdCheck() || !nameCheck() || !nicknameCheck() || !mobileCheck()) {
+      emailCheck();
+      pwdCheck();
+      repwdCheck();
+      nameCheck();
+      nicknameCheck();
+      mobileCheck();
+      return false;
+    }else $("#signup_form").submit();
   })
 });

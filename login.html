@@ -18,29 +18,34 @@
       const emailCheck = () => {
         if (!$("#email_input").val()) {
           $("#email_input").addClass("err_input").focus();
-          $("#err_email").css({ display: "block"}).text("이메일주소를 입력해주세요");
-        }}
+          $("#err_email").css({ display: "block" }).text("이메일주소를 입력해주세요");
+          return false;
+        } else return true;
+      }
       const pwdCheck = () => {
         if (!$("#pwd_input").val()) {
           $("#pwd_input").addClass("err_input").focus();
-          $("#err_pwd").css({ display: "block"}).text("비밀번호를 입력해주세요");
-        }}
-
-      $("#email_input").on("keyup", function() {
-        $("#email_input").removeClass("err_input");
-        $("#err_email").css({ display: "none"});
-      })
-
-      $("#pwd_input").on("keyup", function() {
-        $("#pwd_input").removeClass("err_input");
-        $("#err_pwd").css({ display: "none"});
-      })
-      $("#login_btn").on("click", function() {
-        if(emailCheck(), pwdCheck()) {
-          $("#login_form").submit();
-        } else {
+          $("#err_pwd").css({ display: "block" }).text("비밀번호를 입력해주세요");
           return false;
-        } 
+        } else return true;
+      }
+
+      $("#email_input").on("keyup", function () {
+        $("#email_input").removeClass("err_input");
+        $("#err_email").css({ display: "none" });
+      })
+
+      $("#pwd_input").on("keyup", function () {
+        $("#pwd_input").removeClass("err_input");
+        $("#err_pwd").css({ display: "none" });
+      })
+
+      $("#login_btn").on("click", function () {
+        if (!emailCheck() || !pwdCheck()) {
+          emailCheck();
+          pwdCheck();
+          return false;
+        } else $("#login_form").submit();
       })
     });
   </script>
@@ -107,7 +112,7 @@
           <h2 class="login_title">로그인</h2>
         </div>
         <div class="minda_login_wrap">
-          <form name="login" id="login_form" action="success_login" method="get">
+          <form name="login" id="login_form" action="success_login.html" method="get">
             <div class="login_form_wrap">
               <h3 class="minda_login">민다 아이디 로그인</h3>
               <input type="text" id="email_input" class="login_input" placeholder="이메일 주소" title="이메일 주소">
@@ -127,7 +132,7 @@
               </div>
             </div>
 
-            <button type="button" id="login_btn" class="submit_btn">로그인</button>
+            <button type="click" id="login_btn" class="submit_btn">로그인</button>
           </form>
         </div>
 

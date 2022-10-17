@@ -15,31 +15,38 @@
     </script>
   <script type="text/javascript">
     $(document).ready(function () {
-      const formCheck = () => {
+      const nameCheck = () => {
         if (!$("#name_input").val()) {
           $("#name_input").addClass("err_input").focus();
           $("#err_name").css({ display: "inline-block" }).text("이름을 입력해주세요");
           return false;
-        } else if (!$("#mobile_input").val()) {
+        } else return true;
+      }
+
+      const mobileCheck = () => {
+        if (!$("#mobile_input").val()) {
           $("#mobile_input").addClass("err_input").focus();
           $("#err_mobile").css({ display: "inline-block" }).text("연락처를 입력해주세요");
           return false;
-        } else if (!$("#email_input").val()) {
+        } else return true;
+      }
+
+      const emailCheck = () => {
+        if (!$("#email_input").val()) {
           $("#email_input").addClass("err_input").focus();
           $("#err_email").css({ display: "inline-block" }).text("이메일주소를 입력해주세요");
           return false;
-        } else if (!$("#checkin_input").val()) {
+        } else return true;
+      }
+
+      const TimeCheck = () => {
+        if (!$("#checkin_input").val()) {
           $("#checkin_input").addClass("err_input").focus();
           $("#err_checkin").css({ display: "inline-block" }).text("체크인예정시간을 입력해주세요");
           return false;
-        } else {
-          return true;
-        }};
-      
-      $("#reservation_btn").on("click", function () {
-        if(!formCheck()) return false;
-        else $("#reservation_form").submit();
-      });
+        } else return true;
+      }
+
 
       $("#name_input").on("keyup", function () {
         $("#name_input").removeClass("err_input");
@@ -60,7 +67,18 @@
         $("#checkin_input").removeClass("err_input");
         $("#err_checkin").css({ display: "none" });
       });
-  });
+
+
+      $("#reservation_btn").on("click", function () {
+        if (!nameCheck() || !mobileCheck() || !emailCheck() || !TimeCheck()) {
+          nameCheck();
+          mobileCheck();
+          emailCheck();
+          TimeCheck();
+          return false;
+        } else $("#reservation_form").submit();
+      });
+    });
   </script>
 </head>
 

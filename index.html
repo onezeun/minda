@@ -10,6 +10,12 @@
   <link rel="stylesheet" type="text/css" href="css/header.css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
   <link rel="stylesheet" type="text/css" href="css/footer.css">
+  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous">
+    </script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 </head>
 
 <body>
@@ -91,23 +97,40 @@
 
           <div class="mb_reco">
             <h3 class="hide">추천 여행지</h3>
-            <div class="mb_reco_cont1 indent">
-              <a href="lodging_search.html" class="block">
-                <p>역사가 살아 숨쉬는 이탈리아
-                  문화유산의 천국! 이탈리아로 떠나요</p>
-              </a>
+            <ul class="mb_reco_slide">
+              <li class="mb_reco_cont1">
+                <a href="lodging_search.html" class="block">
+                  <div class="mb_reco_txt_wrap">
+                    <p class="mb_reco_txt1">역사가 살아 숨쉬는 이탈리아</p>
+                    <p class="mb_reco_txt2">문화유산의 천국! 이탈리아로 떠나요</p>
+                  </div>
+                </a>
+              </li>
+              <li class="mb_reco_cont2">
+                <a href="lodging_search.html" class="block">
+                  <div class="mb_reco_txt_wrap">
+                    <p class="mb_reco_txt1">어디에도 없는 매력 미국으로 떠나요</p>
+                    <p class="mb_reco_txt2">가장 힙하고, 아름답고, 신나는 여행</p>
+                  </div>
+                </a>
+              </li>
+              <li class="mb_reco_cont3">
+                <a href="lodging_search.html" class="block">
+                  <div class="mb_reco_txt_wrap">
+                    <p class="mb_reco_txt1">당신의 로맨스를 찾을 곳, 파리</p>
+                    <p class="mb_reco_txt2">낭만적인 파리를 즐겨보세요</p>
+                  </div>
+                </a>
+              </li>
+            </ul>
+            <div class="carousel">
+              <span id="carousel_page_bg" class="carousel_page_bg"><span id="carousel_page" class="carousel_page"><span
+                    id="now_page"></span>/<span id="total_page"></span></span></span>
+              <a href="#" id="carousel_prev" class="carousel_prev indent">이전</a>
+              <a href="#" id="carousel_next" class="carousel_next indent">다음</a>
+              <a href="#" id="carousel_play" class="carousel_play indent">재생</a>
+              <a href="#" id="carousel_stop" class="carousel_stop indent">일시정지</a>
             </div>
-            <!-- <div class="mb_reco_cont2 indent">
-              <a href="#" class="block">
-                <p>어디에도 없는 매력 미국으로 떠나요
-                  가장 힙하고, 아름답고, 신나는 여행</p>
-            </div>
-            <div class="mb_reco_cont3 indent">
-              <a href="#" class="block">
-                <p>당신의 로맨스를 찾을 곳, 파리
-                  낭만적인 파리를 즐겨보세요</p>
-              </a>
-            </div> -->
             <p class="movemsg">※ 클릭 시 해당 도시 숙소 검색 페이지로 이동합니다.</p>
           </div>
         </section>
@@ -389,18 +412,24 @@
         <a href="#" class="next info_btn2">다음</a>
       </section>
 
-      <div class="sale">
-        <h2 class="hide">할인 정보</h2>
-        <ul>
-          <li class="sale_cont1 indent"><a href="#">비수기 할인</a>
-            <p>일반 시즌 외 비수기에는 더 싸다! '비수기 할인가'로 저렴하게 예약하세요</p>
-          </li>
-          <!-- <li class="sale_cont2 indent"><a href="#">땡처리 할인</a>
-          <p>최대30%
-            한달 이내에 급하게 남은 할인객실 땡처리!!
-            땡처리 할인객실로 저렴하게 예약하세요</p>
-        </li> -->
-        </ul>
+      <div class="sale_wrap">
+        <div class="sale">
+          <h2 class="hide">할인 정보</h2>
+          <ul class="sale_slide">
+            <li class="sale_cont1 indent"><a href="#">비수기 할인</a>
+              <p>일반 시즌 외 비수기에는 더 싸다! '비수기 할인가'로 저렴하게 예약하세요</p>
+            </li>
+            <li class="sale_cont2 indent"><a href="#">땡처리 할인</a>
+              <p>최대30%
+                한달 이내에 급하게 남은 할인객실 땡처리!!
+                땡처리 할인객실로 저렴하게 예약하세요</p>
+            </li>
+          </ul>
+        </div>
+        <div class="sale_slide_btn_wrap">
+          <button type="button" id="sale_slide_btn1" class="sale_slide_btn1"></button>
+          <button type="button" id="sale_slide_btn2" class="sale_slide_btn2"></button>
+        </div>
       </div>
 
 
@@ -437,14 +466,14 @@
             <a href="#" class="evnt_next">다음</a>
             <a href="#" class="evnt_stop">일시정지</a>
           </div>
-          <ul>
+          <ul class="event_slide">
             <li class="evnt_cont1 indent"><a href="#">숙소이벤트</a>
               <p>여러 숙소에서 진행하는 다양한 이벤트를 확인해보세요</p>
             </li>
-            <!-- <li class="evnt_cont2"><a href="#">숙소쿠폰</a>
-          <p>숙소에서 제공하는 다양한 쿠폰을 확인해보세요!
-            해당 숙소 예약시 사용 가능</p>
-        </li> -->
+            <li class="evnt_cont2 indent"><a href="#">숙소쿠폰</a>
+              <p>숙소에서 제공하는 다양한 쿠폰을 확인해보세요!
+                해당 숙소 예약시 사용 가능</p>
+            </li>
           </ul>
         </div>
       </div>

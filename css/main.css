@@ -96,28 +96,148 @@
   font-family: 'InfinitySans-RegularA1';
 }
 
-.mb_reco_cont1 {
-  width: 611px;
-  height: 411px;
+.mb_reco{
+  width: 600px;
+  height: 400px;
+  position: relative;
+}
+
+.mb_reco_wrap {
+  display: flex;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.mb_reco_cont1{
+  position: relative;
 }
 
 .mb_reco_cont1 a {
-  width: 611px;
-  height: 411px;
+  width: 600px;
+  height: 400px;
   background: url(../images/main_image1.png) no-repeat;
 }
 
-/* .mb_reco_cont2 {
-      width: 611px;
-      height: 411px;
-      background: url(../images/main_image2.png) no-repeat;
-    }
+.mb_reco_cont2 {
+  position: relative;
+}
 
-    .mb_reco_cont3 {
-      width: 611px;
-      height: 411px;
-      background: url(../images/main_image3.png) no-repeat;
-    } */
+.mb_reco_cont2 a {
+  width: 600px;
+  height: 400px;
+  background: url(../images/main_image2.png) no-repeat;
+}
+
+.mb_reco_cont3 {
+  position: relative;
+}
+
+.mb_reco_cont3 a {
+  width: 600px;
+  height: 400px;
+  background: url(../images/main_image3.png) no-repeat;
+}
+
+.mb_reco_txt1 {
+  font-size: 26px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 2px 2px 2px black;
+  position: absolute;
+  top: 60px;
+  left: 50px;
+}
+
+.mb_reco_txt2 {
+  font-size: 18px;
+  color: white;
+  text-shadow: 2px 2px 2px black;
+  position: absolute;
+  top: 105px;
+  left: 50px;
+}
+
+.carousel_page_bg {
+  width: 40px;
+  height: 30px;
+  background: url(../images/main_carousel_btn1.png) no-repeat;
+  display: inline-block;
+  position: absolute;
+  bottom: 30px;
+  right: 130px;
+  opacity:60%;
+  text-align: center;
+  line-height: 30px
+}
+
+.carousel_page {
+  width: 40px;
+  height: 20px;
+  font-size: 14px;
+  color: white;
+}
+
+.carousel_prev {
+  width: 33px;
+  height: 30px;
+  background: url(../images/main_carousel_btn2.png) no-repeat;
+  display: inline-block;
+  position: absolute;
+  bottom: 30px;
+  right: 100px;
+  opacity: 70%;
+}
+
+.carousel_prev:hover {
+  opacity: 100%;
+}
+
+.carousel_next {
+  width: 33px;
+  height: 30px;
+  background: url(../images/main_carousel_btn3.png) no-repeat;
+  display: inline-block;
+  position: absolute;
+  bottom: 30px;
+  right: 70px;
+  opacity: 70%;
+}
+
+.carousel_next:hover {
+  opacity: 100%;
+}
+
+.carousel_stop {
+  width: 33px;
+  height: 30px;
+  background: url(../images/main_carousel_btn4.png) no-repeat;
+  display: inline-block;
+  position: absolute;
+  bottom: 30px;
+  right: 40px;
+  opacity: 70%;
+}
+
+.carousel_stop:hover {
+  opacity: 100%;
+}
+
+.carousel_play {
+  width: 33px;
+  height: 30px;
+  background: url(../images/main_carousel_btn5.png) no-repeat;
+  display: inline-block;
+  position: absolute;
+  bottom: 30px;
+  right: 40px;
+  opacity: 70%;
+  display: none;
+}
+
+.carousel_play:hover {
+  opacity: 100%;
+}
+
 
 .movemsg {
   color: #8c8c8c;
@@ -380,9 +500,15 @@
 }
 
 /* sale banner */
+.sale_wrap {
+  height: 250px;
+  background: #7ab7e5;
+  position : relative;
+  margin-bottom: 50px;
+}
 .sale {
   width: 1600px;
-  margin: 0 auto 50px;
+  margin: 0 auto;
 }
 
 .sale_cont1 a {
@@ -392,13 +518,36 @@
   display: block;
 }
 
-/* .sale_cont2 a{
-      width: 1600px;
-      height: 250px;
-      background: url(../images/sale_image02.jpg) no-repeat;
-      display: block;
-    } */
+.sale_cont2 a{
+  width: 1600px;
+  height: 250px;
+  background: url(../images/sale_image02.jpg) no-repeat;
+  display: block;
+}
 
+.sale_slide_btn_wrap {
+  width: 1600px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  margin-top: -10px;
+}
+
+.sale_slide_btn1 {
+  width: 15px;
+  height: 15px;
+  border: none;
+  border-radius: 50px;
+  background: #8c8c8c;
+  margin-right: 5px;
+}
+
+.sale_slide_btn2 {
+  width: 40px;
+  height: 15px;
+  border-radius: 50px;
+  background: black;
+}
 
 .cmnt_evnt_wrap {
   width: 1200px;
@@ -542,12 +691,12 @@
   display: block;
 }
 
-/* .evnt_cont2 a{
-      width: 500px;
-      height: 200px;
-      background: url(../images/event_image02.jpg) no-repeat;
-      display: block;
-    } */
+.evnt_cont2 a{
+  width: 500px;
+  height: 200px;
+  background: url(../images/event_image02.jpg) no-repeat;
+  display: block;
+}
 
 /* app download */
 .app {

@@ -1,11 +1,8 @@
 $(document).ready(function () {
-  var nowPage = $('#now_page');
-  var totalPage = $('#total_page');
-
   /* 메인 배너 이미지 캐러셀 */
   $('.mb_reco_slide').on('init', function (event, slick) {
-    nowPage.text(1);
-    totalPage.text(slick.slideCount);
+    $('#now_page').text(1);
+    $('#total_page').text(slick.slideCount);
   });
 
   $('.mb_reco_slide').slick({
@@ -23,8 +20,8 @@ $(document).ready(function () {
     'afterChange',
     function (event, slick, currentSlide, nextSlide) {
       var i = (currentSlide ? currentSlide : 0) + 1;
-      nowPage.text(i);
-      totalPage.text(slick.slideCount);
+      $('#now_page').text(i);
+      $('#total_page').text(slick.slideCount);
     },
   );
 
@@ -46,23 +43,47 @@ $(document).ready(function () {
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
+    arrows: false,
     dots: true,
-    dotsClass : "sale_slide_btn2",
-    // customPaging: function(slider, i) { 
-    //   return '<button class="sale_slide_btn1">' + $(slider.$slides[i]) + '</button>';
-  // },
   });
 
   /* 이벤트 배너 이미지 캐러셀  */
+  $('.evnt_slide').on('init', function (event, slick) {
+    $("#evnt_now_page").text(1);
+    $("#evnt_total_page").text(slick.slideCount);
+  });
 
-  $('.event_slide').slick({
+  $('.evnt_slide').slick({
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2500,
     arrows: true,
-    prevArrow: $('.event_prev'),
-    nextArrow: $('.event_next'),
+    prevArrow: $('.evnt_prev'),
+    nextArrow: $('.evnt_next'),
+  });
+
+  $('.evnt_slide').on(
+    'afterChange',
+    function (event, slick, currentSlide, nextSlide) {
+      var i = (currentSlide ? currentSlide : 0) + 1;
+      $("#evnt_now_page").text(i);
+      $("#evnt_total_page").text(slick.slideCount);
+    },
+  );
+
+  $('.evnt_play').click(function (e) {
+    e.preventDefault();  // 클릭 시 맨 위로 가지 않게
+    $('.evnt_slide').slick('slickPlay');
+    $('.evnt_stop').show();
+    $('.evnt_play').hide();
+  });
+
+  $('.evnt_stop').click(function (e) {
+    e.preventDefault(); 
+    $('.evnt_slide').slick('slickPause');
+    $('.evnt_play').show();
+    $('.evnt_stop').hide();
   });
 });

@@ -500,53 +500,27 @@
 }
 
 /* sale banner */
-.sale_wrap {
-  height: 250px;
-  background: #7ab7e5;
+.sale {
+  width: 1200px;
+  margin: 0 auto ;
   position : relative;
   margin-bottom: 50px;
 }
-.sale {
-  width: 1600px;
-  margin: 0 auto;
-}
 
 .sale_cont1 a {
-  width: 1600px;
+  width: 1200px;
   height: 250px;
   background: url(../images/sale_image01.jpg) no-repeat;
   display: block;
+  border-radius: 10px;
 }
 
 .sale_cont2 a{
-  width: 1600px;
+  width: 1200px;
   height: 250px;
   background: url(../images/sale_image02.jpg) no-repeat;
   display: block;
-}
-
-.sale_slide_btn_wrap {
-  width: 1600px;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  margin-top: -10px;
-}
-
-.sale_slide_btn1 {
-  width: 15px;
-  height: 15px;
-  border: none;
-  border-radius: 50px;
-  background: #8c8c8c;
-  margin-right: 5px;
-}
-
-.sale_slide_btn2 {
-  width: 40px;
-  height: 15px;
-  border-radius: 50px;
-  background: black;
+  border-radius: 10px;
 }
 
 .cmnt_evnt_wrap {
@@ -650,12 +624,20 @@
 }
 
 .evnt_pagination {
-  width: 100px;
+  width: 180px;
   height: 20px;
   float: left;
   position: absolute;
-  top: 30px;
-  right: -15px;
+  top: 40px;
+  right: -40px;
+  line-height: 20px;
+}
+
+.evnt_page {
+  width: 35px;
+  font-size: 20px;
+  float: left;
+  margin-right: 15px;
 }
 
 .evnt_prev {
@@ -680,7 +662,17 @@
   width: 10px;
   height: 18px;
   background: url(../images/event_stop.png) no-repeat;
+  margin-top: 1px;
   display: block;
+  float: left;
+}
+
+.evnt_play {
+  width: 15px;
+  height: 17px;
+  background: url(../images/event_paly.png) no-repeat;
+  margin-top: 1px;
+  display: none;
   float: left;
 }
 

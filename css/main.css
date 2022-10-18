@@ -261,12 +261,17 @@
   position: relative;
 }
 
+.card_img_wrap {
+  overflow: hidden;
+  width: 248px;
+  height: 200px;
+}
+
 .card:hover {
   transform: translate(-5px,-5px);
   transition-duration: 0.25s;
   box-shadow: 2px 5px 5px #999;
 }
-
 .card_cont_wrap {
   width: 250px;
   height: 150px;
@@ -306,6 +311,7 @@
 .card_bot {
   position: absolute;
   bottom: 10px;
+  background: white;
 }
 
 .card_review_sign {
@@ -606,10 +612,9 @@
 }
 
 .app p {
-  width: 535px;
-  height: 19px;
-  background: url(../images/app_title.png) no-repeat;
   margin-right: 20px;
+  font-size: 20px;
+  color: #898989;
 }
 
 .app_apple {
@@ -627,6 +632,10 @@
   display: block;
 }
 
+.app a:hover {
+  transition-duration: 0.25s;
+  box-shadow: 2px 2px 5px #999;
+}
 /* award */
 .award_wrap {
   background: #f2f5ef;
@@ -637,26 +646,19 @@
   height: 100px;
   margin: auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
-.award_img1 {
-  width: 284px;
-  height: 50px;
-  background: url(../images/award01.png) no-repeat;
-  margin-right: 100px;
+.award_txt_wrap {
+  margin-left: 15px;
+  display: inline-block;
 }
 
-.award_img2 {
-  width: 265px;
-  height: 54px;
-  background: url(../images/award02.png) no-repeat;
-  margin-right: 100px;
+.award_txt1 {
+  font-size: 20px;
 }
 
-.award_img3 {
-  width: 288px;
-  height: 50px;
-  background: url(../images/award03.png) no-repeat;
+.award_txt2 {
+  font-size: 16px; 
 }

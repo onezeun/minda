@@ -1,12 +1,5 @@
 $(document).ready(function () {
   /* 달력 */
-
-  /* 날짜 선택 */
-  // $('#daterange').on('apply.daterangepicker', function (ev, picker) {
-  //   console.log(picker.startDate.format('YYYY-MM-DD'));
-  //   console.log(picker.endDate.format('YYYY-MM-DD'));
-  // });
-
   $('#daterange').daterangepicker({
     autoUpdateInput: false,
     locale: {
@@ -46,6 +39,12 @@ $(document).ready(function () {
         picker.endDate.format('YYYY-MM-DD'),
     );
   });
+
+    /* 날짜 선택 */
+  // $('#daterange').on('apply.daterangepicker', function (ev, picker) {
+  //   console.log(picker.startDate.format('YYYY-MM-DD'));
+  //   console.log(picker.endDate.format('YYYY-MM-DD'));
+  // });
 
   /* 메인 배너 슬라이드 */
   $('.mb_reco_slide').on('init', function (event, slick) {

@@ -1,5 +1,53 @@
 $(document).ready(function () {
-  /* 메인 배너 이미지 캐러셀 */
+  /* 달력 */
+
+  /* 날짜 선택 */
+  // $('#daterange').on('apply.daterangepicker', function (ev, picker) {
+  //   console.log(picker.startDate.format('YYYY-MM-DD'));
+  //   console.log(picker.endDate.format('YYYY-MM-DD'));
+  // });
+
+  $('#daterange').daterangepicker({
+    autoUpdateInput: false,
+    locale: {
+      cancelLabel: 'Clear',
+      format: 'YYYY-MM-DD',
+      separator: ' - ',
+      applyLabel: '확인',
+      cancelLabel: '취소',
+      fromLabel: 'From',
+      toLabel: 'To',
+      customRangeLabel: 'Custom',
+      weekLabel: 'W',
+      daysOfWeek: ['월', '화', '수', '목', '금', '토', '일'],
+      monthNames: [
+        '1월',
+        '2월',
+        '3월',
+        '4월',
+        '5월',
+        '6월',
+        '7월',
+        '8월',
+        '9월',
+        '10월',
+        '11월',
+        '12월',
+      ],
+    },
+    applyButtonClasses: 'datepicker_apply_btn',
+    cancelClass: 'datepicker_cancel_btn',
+  });
+
+  $('#daterange').on('apply.daterangepicker', function (ev, picker) {
+    $(this).val(
+      picker.startDate.format('YYYY-MM-DD') +
+        ' - ' +
+        picker.endDate.format('YYYY-MM-DD'),
+    );
+  });
+
+  /* 메인 배너 슬라이드 */
   $('.mb_reco_slide').on('init', function (event, slick) {
     $('#now_page').text(1);
     $('#total_page').text(slick.slideCount);
@@ -39,7 +87,7 @@ $(document).ready(function () {
     $('.carousel_stop').hide();
   });
 
-  /* 중간 배너 이미지 캐러셀  */
+  /* 중간 배너 슬라이드 */
   $('.sale_slide').slick({
     infinite: true,
     slidesToShow: 1,
@@ -48,7 +96,7 @@ $(document).ready(function () {
     dots: true,
   });
 
-  /* 이벤트 배너 이미지 캐러셀  */
+  /* 이벤트 배너 슬라이드  */
   $('.evnt_slide').on('init', function (event, slick) {
     $('#evnt_now_page').text(1);
     $('#evnt_total_page').text(slick.slideCount);
@@ -75,7 +123,7 @@ $(document).ready(function () {
   );
 
   $('.evnt_play').click(function (e) {
-    e.preventDefault(); 
+    e.preventDefault();
     $('.evnt_slide').slick('slickPlay');
     $('.evnt_stop').show();
     $('.evnt_play').hide();
@@ -88,7 +136,7 @@ $(document).ready(function () {
     $('.evnt_stop').hide();
   });
 
-  /* 메인 카드 */
+  /* 메인 카드 슬라이드*/
   $('#room_slide').slick({
     infinite: false,
     slidesToShow: 4,

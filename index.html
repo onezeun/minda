@@ -15,11 +15,15 @@
   <link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
   <link rel="stylesheet" type="text/css" href="css/jquery-ui.structure.css" />
   <link rel="stylesheet" type="text/css" href="css/jquery-ui.theme.css" />
+  <link rel="stylesheet" type="text/css" href="css/daterangepicker.css" />
   <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
     crossorigin="anonymous">
     </script>
   <script type="text/javascript" src="js/main.js"></script>
   <script type="text/javascript" src="js/jquery-ui.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
   <script type="text/javascript" src="js/slick.js"></script>
 </head>
 
@@ -95,7 +99,7 @@
             <div class="mb_search_form"></div>
             <form>
               <input type="text" class="mb_search_input1" placeholder="도시명 또는 숙소명을 입력해주세요"><br>
-              <input type="date" class="mb_search_input2" placeholder="체크인 - 체크아웃"><br>
+              <input type="text" id="daterange" class="mb_search_input2" placeholder="체크인 - 체크아웃" readonly><br>
               <button type="button" class="mb_search_room_btn shadow">숙소 검색</button>
             </form>
           </div>
@@ -271,8 +275,8 @@
           </li>
         </ul>
 
-        <a href="#" id="room_btn1" class="prev">이전</a>
-        <a href="#" id="room_btn2" class="next">다음</a>
+        <a href="#" id="room_btn1" class="card_prev">이전</a>
+        <a href="#" id="room_btn2" class="card_next">다음</a>
       </section>
 
 
@@ -404,8 +408,8 @@
             </div>
           </li>
         </ul>
-        <a href="#" id="tour_btn1" class="prev">이전</a>
-        <a href="#" id="tour_btn2" class="next">다음</a>
+        <a href="#" id="tour_btn1" class="card_prev">이전</a>
+        <a href="#" id="tour_btn2" class="card_next">다음</a>
       </section>
 
 
@@ -489,8 +493,8 @@
             </div>
           </li>
         </ul>
-        <a href="#" id="info_btn1" class="prev">이전</a>
-        <a href="#" id="info_btn2" class="next">다음</a>
+        <a href="#" id="info_btn1" class="card_prev">이전</a>
+        <a href="#" id="info_btn2" class="card_next">다음</a>
       </section>
 
 

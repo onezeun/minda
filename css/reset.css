@@ -184,3 +184,25 @@ input {
   background-color: #eeb72e;
   border-radius: 50%;
 }
+
+.datepicker_apply_btn {
+  border: 1px solid #eeb72e;
+  border-radius: 3px;
+  color: white;
+  background: #eeb72e;
+}
+
+.datepicker_cancel_btn {
+  border: 1px solid #c7c7c7;
+  border-radius: 3px;
+  color: #5b5b5b;
+  background: #f2f5ef;
+}
+.datepicker_apply_btn:hover {
+  border: 1px solid #d69900;
+  background: #d69900;
+}
+
+.datepicker_cancel_btn:hover {
+  background: #c7c7c7;
+}

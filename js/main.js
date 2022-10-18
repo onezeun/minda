@@ -1,6 +1,6 @@
 $(document).ready(function () {
-  /* 달력 */
-  $('#daterange').daterangepicker({
+  /* 숙소 검색 달력 */
+  $('#daterange_room').daterangepicker({
     autoUpdateInput: false,
     locale: {
       cancelLabel: 'Clear',
@@ -32,7 +32,7 @@ $(document).ready(function () {
     cancelClass: 'datepicker_cancel_btn',
   });
 
-  $('#daterange').on('apply.daterangepicker', function (ev, picker) {
+  $('#daterange_room').on('apply.daterangepicker', function (ev, picker) {
     $(this).val(
       picker.startDate.format('YYYY-MM-DD') +
         ' - ' +
@@ -45,6 +45,62 @@ $(document).ready(function () {
   //   console.log(picker.startDate.format('YYYY-MM-DD'));
   //   console.log(picker.endDate.format('YYYY-MM-DD'));
   // });
+
+  /* 투어 검색 달력 */
+  $('#daterange_tour').daterangepicker({
+    autoUpdateInput: false,
+    singleDatePicker: true,
+    locale: {
+      cancelLabel: 'Clear',
+      format: 'YYYY-MM-DD',
+      applyLabel: '확인',
+      cancelLabel: '취소',
+      fromLabel: 'From',
+      toLabel: 'To',
+      customRangeLabel: 'Custom',
+      weekLabel: 'W',
+      daysOfWeek: ['월', '화', '수', '목', '금', '토', '일'],
+      monthNames: [
+        '1월',
+        '2월',
+        '3월',
+        '4월',
+        '5월',
+        '6월',
+        '7월',
+        '8월',
+        '9월',
+        '10월',
+        '11월',
+        '12월',
+      ],
+    },
+    applyButtonClasses: 'datepicker_apply_btn',
+    cancelClass: 'datepicker_cancel_btn',
+  });
+
+  $('#daterange_tour').on('apply.daterangepicker', function (ev, picker) {
+    $(this).val(
+      picker.startDate.format('YYYY-MM-DD')
+    );
+  });
+
+  /* 숙소, 투어 검색 */
+  $(".mb_search_room").on("click", function(e){
+    e.preventDefault();
+    $("#search_room_form").show()
+    $("#search_tour_form").hide()   
+    $(".mb_search_room").addClass("search_bar_boder")
+    $(".mb_search_tour").removeClass("search_bar_boder")
+  })
+
+  $(".mb_search_tour").on("click", function(e){
+    e.preventDefault();
+    $("#search_tour_form").show()
+    $("#search_room_form").hide()
+    $(".mb_search_tour").addClass("search_bar_boder")
+    $(".mb_search_room").removeClass("search_bar_boder")
+  })
 
   /* 메인 배너 슬라이드 */
   $('.mb_reco_slide').on('init', function (event, slick) {
@@ -163,4 +219,21 @@ $(document).ready(function () {
     prevArrow: $('#info_btn1'),
     nextArrow: $('#info_btn2'),
   });
+
+  /* 커뮤니티 */
+  $(".cmnt_job").on("click", function(e){
+    e.preventDefault();
+    $("#cmnt_job_list").show()
+    $("#cunt_deal_list").hide()   
+    $(".cmnt_job").addClass("cmnt_border")
+    $(".cmnt_deal").removeClass("cmnt_border")
+  });
+
+  $(".cmnt_deal").on("click", function(e){
+    e.preventDefault();
+    $("#cunt_deal_list").show()
+    $("#cmnt_job_list").hide()
+    $(".cmnt_deal").addClass("cmnt_border")
+    $(".cmnt_job").removeClass("cmnt_border")
+  })
 });

@@ -60,10 +60,14 @@
   margin-bottom: 5px;
 }
 
+.search_bar_boder {
+  border-bottom: 3px solid black;
+}
+
 .mb_search_bar {
   width: 250px;
   height: 4px;
-  background: url(../images/main_search_room_bar.png) no-repeat;
+  background: url(../images/main_search_bar.png) no-repeat;
 }
 
 .mb_search input {
@@ -86,7 +90,7 @@
   color: #8c8c8c;
 }
 
-.mb_search_room_btn {
+.mb_search_btn {
   width: 250px;
   height: 50px;
   background: black;
@@ -96,6 +100,9 @@
   font-family: 'InfinitySans-RegularA1';
 }
 
+.search_tour_form {
+  display: none;
+}
 .mb_reco{
   width: 600px;
   height: 400px;
@@ -280,7 +287,7 @@
 
 .card_top {
   height: 20px;
-  margin-bottom: 5px;
+  margin:5px 0 10px 0;
 }
 
 .card_category {
@@ -464,8 +471,8 @@
   right: 0;
 }
 
-.cmnt_menu li:hover {
-  border-bottom: 4px solid rgb(20, 20, 20);
+.cmnt_border {
+  border-bottom: 4px solid black;
 }
 
 .cmnt_job {

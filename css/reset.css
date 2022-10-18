@@ -42,6 +42,10 @@ body, button {
   line-height: 1.5
 }
 
+button {
+  cursor:pointer;
+}
+
 div,
 header,
 ul,
@@ -90,6 +94,10 @@ input {
 
 .wrap {
   min-width: 1200px;
+}
+
+.displaynone {
+  display: none;
 }
 
 .block {

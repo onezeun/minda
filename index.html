@@ -91,16 +91,22 @@
             <h3>어디로 떠날까요?</h3>
             <div class="mb_search_list">
               <ul>
-                <li class="mb_search_room"><a href="#">숙박</a></li>
+                <li class="mb_search_room search_bar_boder"><a href="#">숙박</a></li>
                 <li class="mb_search_tour"><a href="#">투어</a></li>
               </ul>
               <div class="mb_search_bar clearfix"></div>
             </div>
             <div class="mb_search_form"></div>
-            <form>
+            <form name="search_room_form" id="search_room_form" action="lodging_search.html" method="get">
               <input type="text" class="mb_search_input1" placeholder="도시명 또는 숙소명을 입력해주세요"><br>
-              <input type="text" id="daterange" class="mb_search_input2" placeholder="체크인 - 체크아웃" readonly><br>
-              <button type="button" class="mb_search_room_btn shadow">숙소 검색</button>
+              <input type="text" id="daterange_room" class="mb_search_input2" placeholder="체크인 - 체크아웃" readonly><br>
+              <button type="submit" class="mb_search_btn shadow">숙소 검색</button>
+            </form>
+
+            <form name="search_tour_form" id="search_tour_form" class="search_tour_form" action="lodging_search.html" method="get">
+              <input type="text" class="mb_search_input1" placeholder="도시명 또는 투어명을 입력해주세요"><br>
+              <input type="text" id="daterange_tour" class="mb_search_input2" placeholder="투어(시작)날짜" readonly><br>
+              <button type="submit" class="mb_search_btn shadow">투어 검색</button>
             </form>
           </div>
 
@@ -518,12 +524,12 @@
           <h2>커뮤니티</h2>
           <div class="cmnt_menu">
             <ul>
-              <li class="cmnt_job"><a href="#">구인·구직</a></li>
+              <li class="cmnt_job cmnt_border"><a href="#">구인·구직</a></li>
               <li class="cmnt_deal"><a href="#">사고·팔고</a></li>
             </ul>
             <a href="#" class="cmnt_more indent">더보기</a>
           </div>
-          <div class="cmnt_list">
+          <div id="cmnt_job_list" class="cmnt_list">
             <ul>
               <li><a href="#"><span class="cmnt_list_date">2022-09-21</span> [구인] 프랑스 파리 몽통통 파리 한인 민박에서 함께 할 가족을
                   구합니다.</a></li>
@@ -535,6 +541,18 @@
               <li><a href="#"><span class="cmnt_list_date">2022-09-13</span> [구인] 프랑스 파리 넘버투 민박 파트타임 아르바이트 구합니다</a></li>
               <li><a href="#"><span class="cmnt_list_date">2022-09-11</span> [구인] 러브크로아티아에서 유럽에서 함께 일할분을
                   찾습니다.(상시모집중)</a></li>
+            </ul>
+          </div>
+
+          <div id="cunt_deal_list" class="cmnt_list displaynone">
+            <ul>
+              <li><a href="#"><span class="cmnt_list_date">2022-09-21</span> 내용을 길게 쓰자 머라쓰지 내용내용내용내용내용내용내용내용더써야되네</a></li>
+              <li><a href="#"><span class="cmnt_list_date">2022-09-19</span> 내용을 길게 쓰자 머라쓰지 내용내용내용내용내용내용내용내용더써야되네</a></li>
+              <li><a href="#"><span class="cmnt_list_date">2022-09-18</span> 내용을 길게 쓰자 머라쓰지 내용내용내용내용내용내용내용내용더써야되네</a></li>
+              <li><a href="#"><span class="cmnt_list_date">2022-09-14</span> 내용을 길게 쓰자 머라쓰지 내용내용내용내용내용내용내용내용더써야되네</a></li>
+              <li><a href="#"><span class="cmnt_list_date">2022-09-13</span> 내용을 길게 쓰자 머라쓰지 내용내용내용내용내용내용내용내용더써야되네</a></li>
+              <li><a href="#"><span class="cmnt_list_date">2022-09-13</span> 내용을 길게 쓰자 머라쓰지 내용내용내용내용내용내용내용내용더써야되네</a></li>
+              <li><a href="#"><span class="cmnt_list_date">2022-09-11</span> 내용을 길게 쓰자 머라쓰지 내용내용내용내용내용내용내용내용더써야되네</a></li>
             </ul>
           </div>
         </div>

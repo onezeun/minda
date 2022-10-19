@@ -1,0 +1,151 @@
+.content {
+  height: 1100px;
+  margin-bottom: 200px;
+}
+
+.user_rv_tab_wrap {
+  width: 1200px;
+  height: 1100px;
+  margin: auto;
+}
+
+.user_rv_title {
+  width: 200px;
+  font-size: 40px;
+  margin: 150px auto 30px;
+  text-align: center;
+}
+
+.user_rv_tab {
+  width: 900px;
+  margin: 0 auto 30px;
+  display: flex;
+  text-align: center;
+  line-height: 50px;
+}
+
+.user_rv_tab_menu{
+  font-size: 18px;
+  width: 300px;
+  height: 50px;
+  display:table;
+  border: 1px solid #d9d9d9;
+  border-collapse: collapse;
+  color: #5c5c5c;
+}
+
+.click_tab{
+  font-size: 18px;
+  width: 300px;
+  height: 50px;
+  display:table;
+  border: 1px solid #eeb72f;
+  background: #eeb72f;
+  border-collapse: collapse;
+  color: white;
+}
+
+.rv_warning {
+  width: 900px;
+  height: 200px;
+  margin: 0 auto 50px;
+  background: #f2f5ef;
+  display: flex;
+  align-items: center;
+}
+
+.rv_warning_icon {
+  width: 70px;
+  height: 70px;
+  display: inline-block;
+  margin: 0 20px;
+}
+.rv_warning_msg {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 30px;
+}
+
+.rv_data {
+  width: 900px;
+  margin: auto;
+}
+
+.rv_data_title {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.rv_table_wrap {
+  width: 900px;
+  height: 660px;
+  border: 1px solid #d9d9d9;
+  border-collapse: collapse;
+  position: relative;
+}
+
+.rv_data table {
+  border-bottom: 1px solid #d9d9d9;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.rv_data th {
+  font-size: 17px;
+  height: 50px;
+  background: #f2f5ef;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.rv_data th:not(:first-child, :last-child) {
+  border-left: 1px solid #d9d9d9;
+  border-right: 1px solid #d9d9d9;
+}
+
+.rv_data td {
+  font-size: 15px;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.rv_data td:not(:first-child, :last-child) {
+  border-left: 1px solid #d9d9d9;
+  border-right: 1px solid #d9d9d9;
+}
+
+.rv_data tr td a {
+  color: #eeb72f;
+  text-decoration: underline;
+}
+
+.rv_nodata_wrap {
+  width: 900px;
+  position: absolute;
+  top: 220px;
+}
+.rv_nodata {
+  width: 330px;
+  margin: auto;
+  display: flex;
+  flex-direction:column;
+  text-align: center;
+}
+
+.rv_nodata_txt1 {
+  font-size: 30px;
+  margin-bottom: 20px;
+ }
+
+ .rv_nodata_txt2 {
+  font-size: 15px;
+  margin-bottom: 20px;
+ }
+ .search_btn {
+  width: 130px;
+  height: 40px;
+  margin: auto;
+  font-size: 15px;
+  border: 1px solid #eeb72f;
+  border-radius: 5px;
+  background: white;
+  color: #eeb72f;;
+ }

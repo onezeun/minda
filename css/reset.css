@@ -24,10 +24,10 @@ button {
 
 root { scroll-behavior : auto }
 
-body {
+/* body {
   overflow-x: hidden;
   height: 100%;
-}
+} */
 
 @font-face {
   font-family: 'InfinitySans-RegularA1';
@@ -51,7 +51,9 @@ header,
 ul,
 input,
 button,
-a {
+a,
+li,
+form {
   box-sizing: border-box;
 }
 

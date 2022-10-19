@@ -612,7 +612,7 @@
 .app {
   width: 1200px;
   height: 100px;
-  margin: auto;
+  margin: 20px auto 0px;
   display: flex;
   justify-content: center;
   align-items: center;

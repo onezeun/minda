@@ -16,22 +16,29 @@
   <div class="wrap">
     <header id="header" class="header">
       <h1 class="logo indent"><a href="index.html">민다</a></h1>
-
-      <div class="top_menu">
+      <div class="top_menu_wrap">
         <h2 class="hide">사용자 메뉴</h2>
-        <ul>
-          <li class="top_bar"><a href="login.html">로그인</a></li>
-          <li class="top_bar"><a href="signup.html">회원가입</a></li>
-          <li><a href="#">고객센터</a></li>
-        </ul>
+        <div class="top_menu">
+          <ul>
+            <li class="top_bar"><a href="login.html">로그인</a></li>
+            <li class="top_bar"><a href="signup.html">회원가입</a></li>
+            <li class="top_bar"><a href="#">고객센터</a></li>
+            <li class="top_bar_search indent">
+              <form action="">
+                <input name="q" type="search" placeholder="검색어를 입력하세요" />
+                <button class="search-icon"><span></span></button>
+              </form>
+            </li>
+          </ul>
+        </div>
       </div>
 
       <nav class="gnb">
         <h2 class="hide">주요 메뉴</h2>
         <ul>
-          <li class="menu1 "><a href="lodging.html">숙소</a></li>
-          <li class="menu2 "><a href="#">투어</a></li>
-          <li class="menu3 "><a href="#">해외렌터카</a></li>
+          <li class="menu1"><a href="lodging.html">숙소</a></li>
+          <li class="menu2"><a href="#">투어</a></li>
+          <li class="menu3"><a href="#">해외렌터카</a></li>
           <li class="menu4"><a href="#" class="">여행편의</a>
             <div class="menu4_sub_wrap shadow">
               <ul>
@@ -60,7 +67,6 @@
               </ul>
             </div>
           </li>
-          <li class="menu8 indent"><a href="#">검색</a></li>
         </ul>
         <div class="gnb_sub"></div>
       </nav>

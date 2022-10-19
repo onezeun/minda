@@ -13,73 +13,7 @@
   <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
     crossorigin="anonymous">
     </script>
-  <script type="text/javascript">
-    $(document).ready(function () {
-      const nameCheck = () => {
-        if (!$("#name_input").val()) {
-          $("#name_input").addClass("err_input").focus();
-          $("#err_name").css({ display: "inline-block" }).text("이름을 입력해주세요");
-          return false;
-        } else return true;
-      }
-
-      const mobileCheck = () => {
-        if (!$("#mobile_input").val()) {
-          $("#mobile_input").addClass("err_input").focus();
-          $("#err_mobile").css({ display: "inline-block" }).text("연락처를 입력해주세요");
-          return false;
-        } else return true;
-      }
-
-      const emailCheck = () => {
-        if (!$("#email_input").val()) {
-          $("#email_input").addClass("err_input").focus();
-          $("#err_email").css({ display: "inline-block" }).text("이메일주소를 입력해주세요");
-          return false;
-        } else return true;
-      }
-
-      const TimeCheck = () => {
-        if (!$("#checkin_input").val()) {
-          $("#checkin_input").addClass("err_input").focus();
-          $("#err_checkin").css({ display: "inline-block" }).text("체크인예정시간을 입력해주세요");
-          return false;
-        } else return true;
-      }
-
-
-      $("#name_input").on("keyup", function () {
-        $("#name_input").removeClass("err_input");
-        $("#err_name").css({ display: "none" });
-      });
-
-      $("#mobile_input").on("keyup", function () {
-        $("#mobile_input").removeClass("err_input");
-        $("#err_mobile").css({ display: "none" });
-      });
-
-      $("#email_input").on("keyup", function () {
-        $("#email_input").removeClass("err_input");
-        $("#err_email").css({ display: "none" });
-      });
-
-      $("#checkin_input").on("keyup", function () {
-        $("#checkin_input").removeClass("err_input");
-        $("#err_checkin").css({ display: "none" });
-      });
-
-
-      $("#reservation_btn").on("click", function () {
-        if (!nameCheck() || !mobileCheck() || !emailCheck() || !TimeCheck()) {
-          nameCheck();
-          mobileCheck();
-          emailCheck();
-          TimeCheck();
-          return false;
-        } else $("#reservation_form").submit();
-      });
-    });
-  </script>
+  <script type="text/javascript" src="js/reservation.js"></script>
 </head>
 
 <body>
@@ -221,19 +155,19 @@
             </fieldset>
             <fieldset class="term">
               <legend class="term_title">약관 안내</legend>
-              <div class="term_wrap">
+              <div id="checkbox_group" class="term_wrap">
                 <div class="checkall_wrap">
-                  <input type="checkbox" id="all"><label for="all">전체 약관 동의</label>
+                  <input type="checkbox" id="check_all"><label for="check_all">전체 약관 동의</label>
                 </div>
                 <div class="checkterm_wrap">
                   <div class="term1">
-                    <input type="checkbox" id="term1">
-                    <label for="term1">제3자 제공 동의</label>
+                    <input type="checkbox" id="check1" class="nomal">
+                    <label for="check1">제3자 제공 동의</label>
                     <button type="button">약관보기</button>
                   </div>
                   <div class="term2">
-                    <input type="checkbox" id="term2">
-                    <label for="term2">민다 취소 환불규정 동의</label>
+                    <input type="checkbox" id="check2" class="nomal">
+                    <label for="check2">민다 취소 환불규정 동의</label>
                     <button type="button">규정보기</button>
                   </div>
                 </div>

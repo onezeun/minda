@@ -10,6 +10,14 @@
   <link rel="stylesheet" type="text/css" href="css/header.css">
   <link rel="stylesheet" type="text/css" href="css/lodging_detail.css">
   <link rel="stylesheet" type="text/css" href="css/footer.css">
+  <link rel="stylesheet" type="text/css" href="css/daterangepicker.css" />
+  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous">
+    </script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <script type="text/javascript" src="js/lodging_detail.js"></script>
 </head>
 
 <body>
@@ -142,11 +150,19 @@
         <div class="user_info">
           <h3>객실 예약</h3>
           <div class="date">
-            <input type="date" class="checkin_box"><label class="checkin_box_label">체크인</label>
+            <input type="text" id="daterange_check" class="checkin_box" readonly>
+            <span id="checkin_val" class="checkin_box_label">체크인</span>
             <img src="./images/date_arrow.png" alt="화살표아이콘" class="date_arrow">
-            <input type="date" class="checkout_box"><label class="checkout_box_label">체크아웃</label>
+            <span id="checkout_val" class="checkout_box_label">체크아웃</span>
           </div>
-          <input type="number" placeholder="인원" class="prs_box">
+          <div class="prs">
+            <input type="text" placeholder="인원" class="prs_box" min="0" max="10" readonly>
+            <div class="prs_btn_wrap">
+              <button type="button" class="prs_mbtn"></button>
+              <button type="button" class="prs_pbtn"></button>
+            </div>
+            <span class="warning_msg"></span>
+          </div>
         </div>
         <div class="room_list">
           <div class="room_list_txt">

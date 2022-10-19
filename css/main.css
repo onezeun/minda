@@ -88,6 +88,7 @@
   margin-bottom: 20px;
   font-family: 'InfinitySans-RegularA1';
   color: #8c8c8c;
+  cursor: pointer;
 }
 
 .mb_search_btn {

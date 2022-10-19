@@ -245,6 +245,13 @@
   background: white;
 }
 
+.room_right_btn:hover {
+  background: #f0b00e;
+  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+  1px 2px 4px 0px rgba(0,0,0,.1);
+  transition: all 0.3s ease;
+}
+
 /* room content */
 .room_cont h3 {
   font-size: 20px;
@@ -260,49 +267,17 @@
   margin-top: 50px;
 }
 
-/* 기본 달력 아이콘, placeholder 제거 */
-input[type=date]::-webkit-datetime-edit-text {
-  -webkit-appearance: none;
-  display: none;
-}
-input[type=date]::-webkit-datetime-edit-month-field{
-  -webkit-appearance: none;
-  display: none;
-}
-input[type=date]::-webkit-datetime-edit-day-field {
-  -webkit-appearance: none;
-  display: none;
-}
-input[type=date]::-webkit-datetime-edit-year-field {
-  -webkit-appearance: none;
-  display: none;
-}
-
-input[type="date"]::-webkit-calendar-picker-indicator {
-  -webkit-appearance: none;
-  display: none;
-}
-
-
 .date {
   position: relative;
   float: left;
 }
 
 .date input {
-  width: 300px;
+  width: 600px;
   height: 50px;
-}
-
-.checkin_box {
   border: 1px solid #b7b7b7;
-  border-right: none;
-}
-
-.checkout_box {
-  border: 1px solid #b7b7b7;
-  border-left: none; 
-  margin-left: -5px;
+  z-index: 100;
+  cursor: pointer;
 }
 
 .checkin_box_label {
@@ -327,12 +302,61 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   top: 17px;
 }
 
+.prs{
+  width: 300px;
+  height: 50px;
+  float: left;
+  position: relative;
+  margin-left: 20px;
+}
+
 .prs_box {
   width: 300px;
   height: 50px;
   border: 1px solid #b7b7b7;
-  float: left;
-  margin-left: 20px;
+  padding: 20px;
+  color: #8c8c8c;
+  cursor: default;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.prs_btn_wrap {
+  width: 50px;
+  position: absolute;
+  top: 13px;
+  right: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.prs_mbtn {
+  width: 22px;
+  height: 22px;
+  border: none;
+  background: url(../images/minus_btn.png) no-repeat;
+}
+
+.prs_mbtn:active {
+  background: url(../images/minus_btn_click.png) no-repeat;
+}
+
+.prs_pbtn {
+  width: 22px;
+  height: 22px;
+  border: none;
+  background: url(../images/plus_btn.png) no-repeat;
+}
+
+.prs_pbtn:active {
+  background: url(../images/plus_btn_click.png) no-repeat;
+}
+
+.warning_msg {
+  margin-left: 5px;
+  font-size: 12px;
+  color: #eeb72f;
+  display: none;
 }
 
 .room_list {

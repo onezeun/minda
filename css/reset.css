@@ -78,6 +78,9 @@ input {
   font-family: 'InfinitySans-RegularA1';
 }
 
+input::placeholder {color:#8c8c8c;}
+
+
 /* 공통클래스 */
 .hide {
   position: absolute;

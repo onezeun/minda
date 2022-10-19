@@ -66,7 +66,7 @@
   display: block;
 }
 
-.submit_btn {
+.login_btn {
   width: 500px;
   height: 40px;
   margin: 30px 0 0 63px;
@@ -76,6 +76,13 @@
   font-size: 17px;
   border: none;
   border-radius: 5px;
+}
+
+.btn_hover:hover {
+  background: #f0b00e;
+  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+  1px 2px 4px 0px rgba(0,0,0,.1);
+  transition: all 0.3s ease;
 }
 
 .checkbox_wrap {

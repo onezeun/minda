@@ -296,12 +296,6 @@
   position: relative;
 }
 
-.card_img_wrap {
-  overflow: hidden;
-  width: 248px;
-  height: 200px;
-}
-
 .card:hover {
   transform: translate(-5px,-5px);
   transition-duration: 0.25s;

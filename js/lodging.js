@@ -132,4 +132,25 @@ $(document).ready(function () {
       $('#prs_count').text(num);
     }
   });
+
+  /* 카드 슬라이드*/
+  $('#new_slide').slick({
+    infinite: false,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    variableWidth: true,
+    prevArrow: $('#new_btn1'),
+    nextArrow: $('#new_btn2'),
+  });
+
+  $('#pop_slide').slick({
+    infinite: false,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    variableWidth: true,
+    prevArrow: $('#pop_btn1'),
+    nextArrow: $('#pop_btn2'),
+  });
+
 });
+

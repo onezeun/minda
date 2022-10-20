@@ -140,8 +140,7 @@ input::placeholder {color:#8c8c8c;}
   width: 16px;
   height: 16px;
   text-align: center;
-  background: #fff;
-  border: 1px solid #ccc;
+  background: url(../images/check_false.png) center center no-repeat;
   box-sizing: border-box;
 }
 
@@ -152,7 +151,7 @@ input::placeholder {color:#8c8c8c;}
   left: 0;
   width: 16px;
   height: 16px;
-  background-color: #eeb72e;
+  background: url(../images/check_true.png) center center no-repeat;
 }
 
 /* radio */
@@ -184,8 +183,7 @@ input::placeholder {color:#8c8c8c;}
   width: 16px;
   height: 16px;
   text-align: center;
-  background: #fff;
-  border: 1px solid #ccc;
+  background: url(../images/radio_false.png) center center no-repeat;
   border-radius: 50%;
   box-sizing: border-box;
 }
@@ -197,7 +195,7 @@ input::placeholder {color:#8c8c8c;}
   left: 0;
   width: 16px;
   height: 16px;
-  background-color: #eeb72e;
+  background: url(../images/radio_true.png) center center no-repeat;
   border-radius: 50%;
 }
 

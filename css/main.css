@@ -104,9 +104,7 @@
 
   background-image: linear-gradient(
     to right,
-    black,
-    black,
-    black,
+    black 30%,
     rgb(187, 187, 187),
     rgb(65, 65, 65),
     black,
@@ -121,7 +119,7 @@
 
 .mb_search_btn:hover {
   background-position: 100% 0;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.3s ease-in-out;
   box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 1);
 }
 

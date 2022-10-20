@@ -7,6 +7,12 @@ fieldset {
   margin-bottom: 300px;
 }
 
+.btn_hover:hover {
+  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+  1px 2px 4px 0px rgba(0,0,0,.1);
+  transition: all 0.3s ease;
+}
+
 .user_wrap {
   width: 600px;
   height: 800px;
@@ -59,27 +65,33 @@ fieldset {
   margin: auto;
 }
 
-.change_info_wrap {
-  width: 600px;
-  height: 430px;
-  border: 1px solid #b7b7b7;
-  margin-top: 10px;
-  padding: 50px;
-  position: relative;
-}
-
-/* 편집 눌러야 input박스 나타나게 */
 .edit_btn {
   position: absolute;
   right: 20px;
   top: 20px;
   width: 60px;
   height: 30px;
-  background: white;
-  color: #eeb72f;
+  background: #eeb72f;
+  color: white;
   border: 1px solid #eeb72f;
   border-radius: 2px;
   font-weight: bold;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.edit_btn_click {
+  background: white;
+  color: #eeb72f;
+  transition: 0.25s;
+}
+
+.change_info_wrap {
+  width: 600px;
+  border: 1px solid #b7b7b7;
+  margin-top: 10px;
+  padding: 50px;
+  position: relative;
 }
 
 .change_info_wrap span {
@@ -89,15 +101,39 @@ fieldset {
   vertical-align: center;
 }
 
+.user_email {
+  margin-left: 100px;
+}
+
+/* 조회 화면 */
+.user {
+  display: flex;
+  flex-direction: column;
+  line-height: 50px;
+}
+
+.user_name_val {
+  margin-left: 114px;
+}
+
+.user_nickname_val {
+  margin-left: 100px;
+}
+
+.user_phone_val {
+  margin-left: 100px;
+}
+
+
+/* 편집 화면*/
+.edit_cont {
+  display: none;
+}
+
 .change_info_wrap input[type="text"] {
   width: 320px;
   height: 40px;
   border: 1px solid #b7b7b7;
-  margin-top: 10px;
-}
-
-.user_email {
-  margin-left: 100px;
 }
 
 .user_name_input {
@@ -118,12 +154,13 @@ fieldset {
   padding-left: 15px;
 }
 
+
+/* 비밀번호 */
 .user_password {
-  height: 40px;
-  margin-top: 20px;
+  height: 50px;
 }
 
-/* 누르면 팝업창 나오게 바꾸기*/
+/* 누르면 팝업창 나오게 바꾸기 */
 .user_password a {
   color: #eeb72f;
   font-size: 15px;
@@ -131,14 +168,30 @@ fieldset {
   margin-left: 85px;
 }
 
+.marketing{
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
 .mk_radio {
-  margin-left: 32px;
+  margin-left: 18px;
   display: inline-block;
 }
+
+.mk_radio label {
+  font-size: 15px;
+}
+
+.mk_btn1 {
+  margin-right: 20px;
+}
+
 .btn {
   width: 420px;
   height: 40px;
   margin: 30px auto 0;
+  display: none;
 }
 
 .cancel_btn {

@@ -5,11 +5,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>예약 내역</title>
+  <title>내 정보 수정</title>
   <link rel="stylesheet" type="text/css" href="css/reset.css">
   <link rel="stylesheet" type="text/css" href="css/header.css">
   <link rel="stylesheet" type="text/css" href="css/user.css">
   <link rel="stylesheet" type="text/css" href="css/footer.css">
+  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+  crossorigin="anonymous">
+  </script>
+    <script type="text/javascript" src="js/user.js"></script>
 </head>
 
 <body>
@@ -71,7 +75,6 @@
         <div class="gnb_sub"></div>
       </nav>
     </header>
-
     <!-- content -->
     <main id="content" class="content">
       <div class="user_wrap">
@@ -82,14 +85,14 @@
             <fieldset>
               <legend class="indent">프로필 사진 설정</legend>
               <p class="profile_photo indent">프로필 이미지</p>
-              <button class="uplode_photo">이미지 업로드</button>
-              <button class="remove_photo">이미지 제거</button>
+              <button class="uplode_photo btn_hover">이미지 업로드</button>
+              <button class="remove_photo btn_hover">이미지 제거</button>
             </fieldset>
           </div>
 
           <div class="change_info_wrap">
             <button type="button" class="edit_btn">편집</button>
-            <fieldset>
+            <fieldset class="edit_cont">
               <legend class="indent">회원정보 수정</legend>
               <div class="user">
                 <div class="user_id">
@@ -116,13 +119,46 @@
               <div class="marketing">
                 <span>마케팅 수신 동의</span>
                 <div class="mk_radio">
-                  <input type="radio" name="marketing" id="mk_btn1"><label for="mk_btn1">수신</label>
+                  <input type="radio" name="marketing" id="mk_btn1"><label for="mk_btn1" class="mk_btn1">수신</label>
                   <input type="radio" name="marketing" id="mk_btn2"><label for="mk_btn2">수신거부</label>
                 </div>
               </div>
               <div class="btn">
-              <button type="button" class="cancel_btn">취소</button>
-              <button type="submit" class="save_btn">저장</button>
+              <button type="button" class="cancel_btn btn_hover">취소</button>
+              <button type="submit" class="save_btn btn_hover">저장</button>
+              </div>
+            </fieldset>
+
+            <fieldset class="default_cont">
+              <legend class="indent">회원정보 수정</legend>
+              <div class="user">
+                <div class="user_id">
+                  <span>이메일</span>
+                  <span class="user_email">onezeun@kakao.com</span>
+                </div>
+                <div class="user_name">
+                  <span>이름</span>
+                  <span class="user_name_val">한지은</span>
+                </div>
+                <div class="user_nickname">
+                  <span>닉네임</span>
+                  <span class="user_nickname_val">하찌킹</span>
+                </div>
+                <div class="user_phone">
+                  <span>연락처</span>
+                  <span class="user_phone_val">010-6409-7282</span>
+                </div>
+                <div class="user_password">
+                  <span>비밀번호</span>
+                  <a href="#">비밀번호 변경하기</a>
+                </div>
+              </div>
+
+              <div class="marketing">
+                <span>마케팅 수신 동의</span>
+                <div class="mk_radio">
+                  <span>라디오값</span>
+                </div>
               </div>
             </fieldset>
           </div>

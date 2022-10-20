@@ -280,6 +280,10 @@
   cursor: pointer;
 }
 
+.data_placeholder {
+  cursor: pointer;
+}
+
 .checkin_box_label {
   color: #8c8c8c;
   font-weight: bold;

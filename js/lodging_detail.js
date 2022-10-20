@@ -34,34 +34,37 @@ $(document).ready(function () {
 
   /* 값 넣기*/
   $('#daterange_check').on('apply.daterangepicker', function (ev, picker) {
-    $("#checkin_val").text(picker.startDate.format('YYYY-MM-DD'))
-    $("#checkout_val").text(picker.endDate.format('YYYY-MM-DD'))
+    $('#checkin_val').text(picker.startDate.format('YYYY-MM-DD'));
+    $('#checkout_val').text(picker.endDate.format('YYYY-MM-DD'));
+  });
+
+  /* 라벨 클릭해도 달력창 뜨게 */
+  $('.data_placeholder').find('span').on('click', function () {
+    $('#daterange_check').focus();
   });
 
   /* 인원 선택 */
-  $(".prs_mbtn").on('click', function(){
-    var prs_num = Number($(".prs_box").val());
-    if(prs_num == 0) {
+  $('.prs_mbtn').on('click', function () {
+    var prs_num = Number($('.prs_box').val());
+    if (prs_num == 0) {
       prs_num = 0;
-      $(".prs_box").val(prs_num);
+      $('.prs_box').val(prs_num);
     } else {
       prs_num -= 1;
-      $(".prs_box").val(prs_num);
-      $(".warning_msg").hide()
+      $('.prs_box').val(prs_num);
+      $('.warning_msg').hide();
     }
-  })
+  });
 
-  $(".prs_pbtn").on('click', function(){
-    var prs_num = Number($(".prs_box").val()); 
+  $('.prs_pbtn').on('click', function () {
+    var prs_num = Number($('.prs_box').val());
     if (prs_num == 10) {
-      $(".prs_box").val(prs_num);
-      $(".warning_msg").show()
-      $(".warning_msg").text("최대 10명까지만 입력 가능합니다")
+      $('.prs_box').val(prs_num);
+      $('.warning_msg').show();
+      $('.warning_msg').text('최대 10명까지만 입력 가능합니다');
     } else {
       prs_num += 1;
-      $(".prs_box").val(prs_num);
+      $('.prs_box').val(prs_num);
     }
-  })
+  });
 });
-
-

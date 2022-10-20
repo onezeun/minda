@@ -37,6 +37,14 @@ $(document).ready(function () {
     $('#checkout_val').text(picker.endDate.format('YYYY-MM-DD'));
   });
 
+  $('.search_date').find('span').on('click', function () {
+    $('#daterange_search').focus();
+  });
+
+  $('.search_date').find('label').on('click', function () {
+    $('#daterange_search').focus();
+  });
+
   /* count Box */
   $('.search_count').on('click', function () {
     $('.count_box').stop().slideToggle(150);

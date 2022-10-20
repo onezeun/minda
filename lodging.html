@@ -10,6 +10,14 @@
   <link rel="stylesheet" type="text/css" href="css/header.css">
   <link rel="stylesheet" type="text/css" href="css/lodging.css">
   <link rel="stylesheet" type="text/css" href="css/footer.css">
+  <link rel="stylesheet" type="text/css" href="css/daterangepicker.css" />
+  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous">
+    </script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <script type="text/javascript" src="js/lodging.js"></script>
 </head>
 
 <body>
@@ -79,15 +87,45 @@
           <form>
             <input type="text" class="search_keyword" placeholder="도시명 또는 숙소명을 검색해보세요">
             <div class="search_date">
-              <div class="search_checkin">
-                <input type="date"><label>체크인</label>
-              </div>
-              <div class="search_checkout">
-                <input type="date"><label>체크아웃</label>
-              </div>
+              <input type="text" id="daterange_search" readonly>
+              <label class="checkin_label">체크인</label>
+              <span id="checkin_val" class="checkin_val"></span>
+              <img src="./images/date_arrow.png" alt="화살표아이콘" class="date_arrow">
+              <label class="checkout_label">체크아웃</label>
+              <span id="checkout_val" class="checkout_val"></span>
             </div>
-            <div class="search_count">
-              <input type="text"><label>객실 및 인원</label>
+            <div class="search_count_wrap">
+              <a href="#" class="search_count"></a>
+              <span class="search_count_txt">객실 및 인원</span>
+              <input type="text" id="search_count_room" min="0">
+              <input type="text" id="search_count_prs" min="0">
+              <div class="val_txt_wrap">
+                <span>객실</span><span id="room_count_val">0</span> · 
+                <span>인원</span><span id="prs_count_val">0</span>
+              </div>
+              <div class="count_box area">
+                <div class="count_title_wrap area">
+                  <p class="count_title area">객실 및 인원</p>
+                  <span class="warning_msg"></span>
+                  <button type="button" class="cancel_btn indent">닫기</button>
+                </div>
+                <div class="room area">
+                  <p class="sub_title area">객실</p>
+                  <div class="room_btn_wrap">
+                    <button type="button" id="room_mbtn" class="prs_mbtn area"></button>
+                    <span id="room_count" class="area">0</span>
+                    <button type="button" id="room_pbtn" class="prs_pbtn area"></button>
+                  </div>
+                </div>
+                <div class="prs area">
+                  <p class="sub_title area">인원</p>
+                  <div class="prs_btn_wrap">
+                    <button type="button" id="prs_mbtn" class="prs_mbtn area"></button>
+                    <span id="prs_count" class="area">0</span>
+                    <button type="button" id="prs_pbtn" class="prs_pbtn area"></button>
+                  </div>
+                </div>
+              </div>
             </div>
             <button type="submit" class="search_btn">검색</button>
           </form>
@@ -100,31 +138,31 @@
           <p>민다 추천 도시</p>
         </div>
         <div class="reco_city_card_wrap">
-        <div class="reco_city_card">
-          <a href="#" class="reco_city01">
-            <img src="images/ldg_recocity_img01.png" alt="민다추천도시1">
-            <h3>뉴욕</h3>
-          </a>
+          <div class="reco_city_card">
+            <a href="#" class="reco_city01">
+              <img src="images/ldg_recocity_img01.png" alt="민다추천도시1">
+              <h3>뉴욕</h3>
+            </a>
+          </div>
+          <div class="reco_city_card">
+            <a href="#" class="reco_city02">
+              <img src="images/ldg_recocity_img02.png" alt="민다추천도시2">
+              <h3>로마</h3>
+            </a>
+          </div>
+          <div class="reco_city_card">
+            <a href="#" class="reco_city03">
+              <img src="images/ldg_recocity_img03.png" alt="민다추천도시3">
+              <h3>파리</h3>
+            </a>
+          </div>
+          <div class="reco_city_card">
+            <a href="#" class="reco_city04">
+              <img src="images/ldg_recocity_img04.png" alt="민다추천도시4">
+              <h3>부다페스트</h3>
+            </a>
+          </div>
         </div>
-        <div class="reco_city_card">
-          <a href="#" class="reco_city02">
-            <img src="images/ldg_recocity_img02.png" alt="민다추천도시2">
-            <h3>로마</h3>
-          </a>
-        </div>
-        <div class="reco_city_card">
-          <a href="#" class="reco_city03">
-            <img src="images/ldg_recocity_img03.png" alt="민다추천도시3">
-            <h3>파리</h3>
-          </a>
-        </div>
-        <div class="reco_city_card">
-          <a href="#" class="reco_city04">
-            <img src="images/ldg_recocity_img04.png" alt="민다추천도시4">
-            <h3>부다페스트</h3>
-          </a>
-        </div>
-      </div>
       </div>
 
       <div class="new_lodging card_wrap">

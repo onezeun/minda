@@ -327,7 +327,7 @@ fieldset {
 .payment_warning_msg01 {
   margin-bottom: 5px;
 }
-.submit_btn {
+.reservation_btn {
   width: 330px;
   height: 50px;
   background: #eeb72f;
@@ -337,4 +337,11 @@ fieldset {
   font-size: 18px;
   font-weight: bold;
   margin: 20px 20px;
+}
+
+.reservation_btn:hover {
+  background: #f0b00e;
+  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+  1px 2px 4px 0px rgba(0,0,0,.1);
+  transition: all 0.3s ease;
 }

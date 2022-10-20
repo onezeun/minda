@@ -160,19 +160,31 @@ $(document).ready(function () {
     mobileCheck();
   });
 
-  // const applyCheck = () => {
-  //   if (!chackbox01.checked) {
-  //     err_apply.style.display = 'block';
-  //     err_apply.innerHTML = '필수약관에 동의해주세요';
-  //     return false;
-  //   } else {
-  //     err_apply.style.display = "none"
-  //     return true;
-  //   }
-  // };
+  const applyCheck = () => {
+    var check1 = $(".checkbox01").is(":checked")
+    var check2 = $(".checkbox02").is(":checked")
 
-  // chackbox01.addEventListener('change', applyCheck);
-  // chackbox02.addEventListener('change', applyCheck);
+    if (!check1 || !check2) {
+      $('#err_apply')
+        .css({ display: 'inline-block' })
+        .text('필수약관에 동의해주세요');
+      return false;
+    } else {
+      $('#err_apply').css({ display: 'none' });
+      return true;
+    }
+  };
+
+  $('.term').find('input').on('change', function () {
+    var checked = $(this).is(':checked');
+    var check1 = $(".checkbox01").is(":checked")
+    var check2 = $(".checkbox02").is(":checked")
+
+    applyCheck();
+    if(check1 && check2) {
+      $('#err_apply').css({ display: 'none' });
+    };
+  });
 
   $('#signup_btn').on('click', function () {
     if (
@@ -181,7 +193,8 @@ $(document).ready(function () {
       !repwdCheck() ||
       !nameCheck() ||
       !nicknameCheck() ||
-      !mobileCheck()
+      !mobileCheck() || 
+      !applyCheck()
     ) {
       emailCheck();
       pwdCheck();
@@ -189,7 +202,41 @@ $(document).ready(function () {
       nameCheck();
       nicknameCheck();
       mobileCheck();
+      !applyCheck();
       return false;
     } else $('#signup_form').submit();
   });
+
+  /* 약관 동의 체크 */
+    // 체크박스 전체 선택, 해제
+    $("#check_all").on("click", function () {
+      var checked = $(this).is(":checked");
+      if(checked){
+        $(".term_wrap").find('input').prop("checked", true);
+      } else {
+        $(".term_wrap").find('input').prop("checked", false);
+      }
+    });
+  
+    // 하나 체크 해제했을 때 전체선택 해제
+    $(".nomal").on('click', function(){
+      var checked = $(this).is(":checked");
+  
+      if(!checked) {
+        $("#check_all").prop("checked", false);
+      }
+    })
+  
+    // 개별 선택으로 두개 다 체크되었을 때 전체선택에도 체크
+    $(".nomal").on('click', function(){
+      var check1 = $(".checkbox01").is(":checked")
+      var check2 = $(".checkbox02").is(":checked")
+      var check3 = $(".checkbox03").is(":checked")
+  
+      if(check1 && check2 && check3 == true){
+        $("#check_all").prop("checked", true);
+      } 
+    })
+
 });
+

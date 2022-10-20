@@ -109,6 +109,20 @@
   flex-direction:column;
   align-content: center;
 }
+.check_all_wrap{
+  margin: 0 0 5px 10px;
+}
+
+.check_all_txt {
+  font-size: 15px;
+  font-weight: bold;
+  color: #585858;
+}
+
+.check_err_txt {
+  font-size: 12px;
+  color: red;
+}
 
 .checkbox_wrap {
   margin: 15px 0 0 10px

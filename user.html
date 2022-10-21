@@ -86,9 +86,10 @@
             <fieldset class="edit_cont">
               <legend class="indent">회원정보 수정</legend>
               <div class="profile_wrap">
-                <img src="./images/profile.png" class="profile_photo" alt="프로필 이미지">
-                <button class="uplode_photo btn_hover">이미지 업로드</button>
-                <button class="remove_photo btn_hover">이미지 제거</button>
+                <img src="./images/profile.png" id="profile_photo_edit" class="profile_photo" alt="프로필 이미지">
+                <input type="file" id="img_input" class="img_input">
+                <button id="uplode_btn" class="uplode_photo btn_hover">이미지 업로드</button>
+                <button id="remove_btn" class="remove_photo btn_hover">이미지 제거</button>
               </div>
               <div class="line"></div>
               <div class="user">
@@ -131,7 +132,7 @@
             <fieldset class="default_cont">
               <legend class="indent">회원정보 수정</legend>
               <div class="profile_wrap">
-                <img src="./images/profile.png" class="profile_photo" alt="프로필 이미지">
+                <img src="./images/profile.png" id="profile_photo_save" class="profile_photo" alt="프로필 이미지">
               </div>
               <div class="line"></div>
               <div class="user">

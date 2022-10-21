@@ -257,13 +257,13 @@
 }
 
 .daterangepicker select.hourselect, .daterangepicker select.minuteselect, .daterangepicker select.secondselect, .daterangepicker select.ampmselect {
-  width: 50px;
+  width: 70px;
   margin: 0 auto;
-  background: #eee;
-  border: 1px solid #eee;
+  background: #f2f5ef;
+  border: 1px solid #f2f5ef;
   padding: 2px;
   outline: 0;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .daterangepicker .calendar-time {

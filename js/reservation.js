@@ -1,6 +1,8 @@
 $(document).ready(function () {
 
   /* 유효성 검사 */
+  var regEmail = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+
   const nameCheck = () => {
     if (!$("#name_input").val()) {
       $("#name_input").addClass("err_input").focus();
@@ -22,7 +24,19 @@ $(document).ready(function () {
       $("#email_input").addClass("err_input").focus();
       $("#err_email").css({ display: "inline-block" }).text("이메일주소를 입력해주세요");
       return false;
-    } else return true;
+    } else if (!regEmail.test($('#email').val())) {
+      $('#email_input').addClass('err_input').focus();
+      $('#email_input').removeClass('email_input');
+      $('#err_email')
+        .css({ display: 'block' })
+        .text('올바른 이메일 형식이 아닙니다');
+      return false;
+    } else {
+      $('#email_input').addClass('email_input');
+      $('#email_input').removeClass('err_input');
+      $('#err_email').css({ display: 'none' });
+      return true;
+    }
   }
 
   const TimeCheck = () => {
@@ -63,6 +77,47 @@ $(document).ready(function () {
       TimeCheck();
       return false;
     } else $("#reservation_form").submit();
+  });
+
+  /* 체크인예정시간 달력 */
+  $('#checkin_input').daterangepicker({
+    autoUpdateInput: false,
+    singleDatePicker: true,
+    timePicker: true,
+    timePickerIncrement: 10,
+    locale: {
+      cancelLabel: 'Clear',
+      format: 'YYYY-MM-DD',
+      applyLabel: '확인',
+      cancelLabel: '취소',
+      fromLabel: 'From',
+      toLabel: 'To',
+      customRangeLabel: 'Custom',
+      weekLabel: 'W',
+      daysOfWeek: ['월', '화', '수', '목', '금', '토', '일'],
+      monthNames: [
+        '1월',
+        '2월',
+        '3월',
+        '4월',
+        '5월',
+        '6월',
+        '7월',
+        '8월',
+        '9월',
+        '10월',
+        '11월',
+        '12월',
+      ],
+    },
+    applyButtonClasses: 'datepicker_apply_btn',
+    cancelClass: 'datepicker_cancel_btn',
+  });
+
+  $('#checkin_input').on('apply.daterangepicker', function (ev, picker) {
+    $(this).val(
+      picker.startDate.format('YYYY-MM-DD / H:mm')
+    );
   });
   
   /* 체크 박스 */

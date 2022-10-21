@@ -92,32 +92,33 @@
 
           <div class="change_info_wrap">
             <button type="button" class="edit_btn">편집</button>
+            <form name="user_form" id="user_form" action="user.html" method="get">
             <fieldset class="edit_cont">
               <legend class="indent">회원정보 수정</legend>
               <div class="user">
                 <div class="user_id">
-                  <span>이메일</span>
+                  <span class="change_info_title">이메일</span>
                   <span class="user_email">onezeun@kakao.com</span>
                 </div>
-                <div class="user_name">
-                  <span>이름</span>
-                  <input type="text" class="user_name_input">
+                <div class="user_name relative">
+                  <span class="change_info_title">이름</span>
+                  <input type="text" id="user_name_input" class="user_input"><span id="err_name" class="err_txt"></span>
                 </div>
-                <div class="user_nickname">
-                  <span>닉네임</span>
-                  <input type="text" class="user_nickname_input">
+                <div class="user_nickname relative">
+                  <span class="change_info_title">닉네임</span>
+                  <input type="text" id="user_nickname_input" class="user_input"><span id="err_nickname" class="err_txt"></span>
                 </div>
-                <div class="user_phone">
-                  <span>연락처</span>
-                  <input type="text" class="user_phone_input">
+                <div class="user_mobile relative">
+                  <span class="change_info_title">연락처</span>
+                  <input type="text" id="user_mobile_input" class="user_input"><span id="err_mobile" class="err_txt"></span>
                 </div>
                 <div class="user_password">
-                  <span>비밀번호</span>
+                  <span class="change_info_title">비밀번호</span>
                   <a href="#">비밀번호 변경하기</a>
                 </div>
               </div>
               <div class="marketing">
-                <span>마케팅 수신 동의</span>
+                <span class="change_info_title">마케팅 수신 동의</span>
                 <div class="mk_radio">
                   <input type="radio" name="marketing" id="mk_btn1"><label for="mk_btn1" class="mk_btn1">수신</label>
                   <input type="radio" name="marketing" id="mk_btn2"><label for="mk_btn2">수신거부</label>
@@ -125,39 +126,40 @@
               </div>
               <div class="btn">
               <button type="button" class="cancel_btn btn_hover">취소</button>
-              <button type="submit" class="save_btn btn_hover">저장</button>
+              <button type="button" class="save_btn btn_hover">저장</button>
               </div>
             </fieldset>
+            </form>
 
             <fieldset class="default_cont">
               <legend class="indent">회원정보 수정</legend>
               <div class="user">
                 <div class="user_id">
-                  <span>이메일</span>
+                  <span class="change_info_title">이메일</span>
                   <span class="user_email">onezeun@kakao.com</span>
                 </div>
                 <div class="user_name">
-                  <span>이름</span>
+                  <span class="change_info_title">이름</span>
                   <span class="user_name_val">한지은</span>
                 </div>
                 <div class="user_nickname">
-                  <span>닉네임</span>
+                  <span class="change_info_title">닉네임</span>
                   <span class="user_nickname_val">하찌킹</span>
                 </div>
-                <div class="user_phone">
-                  <span>연락처</span>
-                  <span class="user_phone_val">010-6409-7282</span>
+                <div class="user_mobile">
+                  <span class="change_info_title">연락처</span>
+                  <span class="user_mobile_val">010-6409-7282</span>
                 </div>
                 <div class="user_password">
-                  <span>비밀번호</span>
+                  <span class="change_info_title">비밀번호</span>
                   <a href="#">비밀번호 변경하기</a>
                 </div>
               </div>
 
               <div class="marketing">
-                <span>마케팅 수신 동의</span>
+                <span class="change_info_title">마케팅 수신 동의</span>
                 <div class="mk_radio">
-                  <span>라디오값</span>
+                  <span class="mk_txt">수신</span>
                 </div>
               </div>
             </fieldset>

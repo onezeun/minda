@@ -2,6 +2,10 @@ fieldset {
   border: none;
 }
 
+body {
+  font-size: 15px;
+}
+
 .content { 
   height: 800px;
   margin-bottom: 300px;
@@ -46,7 +50,6 @@ fieldset {
   color: white;
   border: 1px solid #eeb72f;
   border-radius: 5px;
-  font-size: 15px;
   font-weight: bold;
   display: block;
   margin: 10px auto;
@@ -59,7 +62,6 @@ fieldset {
   color: #eeb72f;
   border: 1px solid #eeb72f;
   border-radius: 5px;
-  font-size: 15px;
   font-weight: bold;
   display: block;
   margin: auto;
@@ -94,15 +96,12 @@ fieldset {
   position: relative;
 }
 
-.change_info_wrap span {
-  width: 130px;
+.change_info_title {
+  width: 160px;
   font-size: 16px;
   font-weight: bold;
   vertical-align: center;
-}
-
-.user_email {
-  margin-left: 100px;
+  display: inline-block;
 }
 
 /* 조회 화면 */
@@ -112,46 +111,43 @@ fieldset {
   line-height: 50px;
 }
 
-.user_name_val {
-  margin-left: 114px;
-}
-
-.user_nickname_val {
-  margin-left: 100px;
-}
-
-.user_phone_val {
-  margin-left: 100px;
-}
-
-
 /* 편집 화면*/
 .edit_cont {
   display: none;
 }
 
-.change_info_wrap input[type="text"] {
+.user_input {
   width: 320px;
   height: 40px;
   border: 1px solid #b7b7b7;
-}
-
-.user_name_input {
-  margin-left: 114px;
   border-radius: 5px;
   padding-left: 15px;
 }
 
-.user_nickname_input {
-  margin-left: 100px;
-  border-radius: 5px;
-  padding-left: 15px;
+.relative {
+  position: relative;
 }
 
-.user_phone_input {
-  margin-left: 100px;
+.mr {
+  margin-bottom: 18px;
+}
+
+.err_input {
+  width: 320px;
+  height: 40px;
   border-radius: 5px;
   padding-left: 15px;
+  border: 1px solid #eeb72f;
+}
+
+.err_txt {
+  margin-left: 10px;
+  font-size: 12px;
+  color: #eeb72f;
+  display: inline-block;
+  position: absolute;
+  top:33px;
+  left: 160px;
 }
 
 
@@ -163,24 +159,12 @@ fieldset {
 /* 누르면 팝업창 나오게 바꾸기 */
 .user_password a {
   color: #eeb72f;
-  font-size: 15px;
-  font-weight: bold;
-  margin-left: 85px;
 }
 
 .marketing{
   height: 50px;
   display: flex;
   align-items: center;
-}
-
-.mk_radio {
-  margin-left: 18px;
-  display: inline-block;
-}
-
-.mk_radio label {
-  font-size: 15px;
 }
 
 .mk_btn1 {
@@ -201,7 +185,6 @@ fieldset {
   color: #8b8b8b;
   border: 1px solid #f2f5ef;
   border-radius: 5px;
-  font-size: 15px;
   font-weight: bold;
   float: left;
 }
@@ -213,7 +196,6 @@ fieldset {
   color: white;
   border: 1px solid #eeb72f;
   border-radius: 5px;
-  font-size: 15px;
   font-weight: bold;
   float: right;
 }

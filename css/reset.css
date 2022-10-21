@@ -170,7 +170,7 @@ input::placeholder {color:#8c8c8c;}
 .wrap input[type="radio"]+label {
   display: inline-block;
   position: relative;
-  padding-left: 26px;
+  padding-left: 20px;
   cursor: pointer;
   vertical-align: bottom;
 }
@@ -309,4 +309,11 @@ input::placeholder {color:#8c8c8c;}
 
 .custom_btn span:hover:after {
   width: 100%;
+}
+
+.btn_hover:hover {
+  background: #f0b00e;
+  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+  1px 2px 4px 0px rgba(0,0,0,.1);
+  transition: all 0.3s ease;
 }

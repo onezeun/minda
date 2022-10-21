@@ -10,6 +10,17 @@
   <link rel="stylesheet" type="text/css" href="css/header.css">
   <link rel="stylesheet" type="text/css" href="css/lodging_search.css">
   <link rel="stylesheet" type="text/css" href="css/footer.css">
+  <link rel="stylesheet" type="text/css" href="css/slick.css" />
+  <link rel="stylesheet" type="text/css" href="css/slick-theme.css" />
+  <link rel="stylesheet" type="text/css" href="css/daterangepicker.css" />
+  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous">
+    </script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <script type="text/javascript" src="js/slick.js"></script>
+  <script type="text/javascript" src="js/lodging.js"></script>
 </head>
 
 <body>
@@ -79,17 +90,48 @@
           <form>
             <input type="text" class="search_keyword" placeholder="도시명 또는 숙소명을 검색해보세요">
             <div class="search_date">
-              <div class="search_checkin">
-                <input type="date"><label>체크인</label>
+              <input type="text" id="daterange_search" readonly>
+              <label class="checkin_label">체크인</label>
+              <span id="checkin_val" class="checkin_val"></span>
+              <img src="./images/date_arrow.png" alt="화살표아이콘" class="date_arrow">
+              <label class="checkout_label">체크아웃</label>
+              <span id="checkout_val" class="checkout_val"></span>
+            </div>
+
+            <div class="search_count_wrap">
+              <a href="#" class="search_count"></a>
+              <span class="search_count_txt">객실 및 인원</span>
+              <input type="text" id="search_count_room" min="0">
+              <input type="text" id="search_count_prs" min="0">
+              <div class="val_txt_wrap">
+                <span>객실</span><span id="room_count_val">0</span> ·
+                <span>인원</span><span id="prs_count_val">0</span>
               </div>
-              <div class="search_checkout">
-                <input type="date"><label>체크아웃</label>
+              <div class="count_box area">
+                <div class="count_title_wrap area">
+                  <p class="count_title area">객실 및 인원</p>
+                  <span class="warning_msg"></span>
+                  <button type="button" class="cancel_btn indent">닫기</button>
+                </div>
+                <div class="room area">
+                  <p class="sub_title area">객실</p>
+                  <div class="room_btn_wrap">
+                    <button type="button" id="room_mbtn" class="prs_mbtn area"></button>
+                    <span id="room_count" class="area">0</span>
+                    <button type="button" id="room_pbtn" class="prs_pbtn area"></button>
+                  </div>
+                </div>
+                <div class="prs area">
+                  <p class="sub_title area">인원</p>
+                  <div class="prs_btn_wrap">
+                    <button type="button" id="prs_mbtn" class="prs_mbtn area"></button>
+                    <span id="prs_count" class="area">0</span>
+                    <button type="button" id="prs_pbtn" class="prs_pbtn area"></button>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="search_count">
-              <input type="text"><label>객실 및 인원</label>
-            </div>
-            <button type="submit" class="search_btn">검색</button>
+            <button type="submit" class="search_btn btn_hover">검색</button>
           </form>
         </div>
       </div>
@@ -119,56 +161,6 @@
               </div>
             </div>
           </div>
-
-          <script>
-            const inputLeft = document.getElementById("input_left");
-            const inputRight = document.getElementById("input_right");
-
-            const thumbLeft = document.querySelector(".slider > .thumb.left");
-            const thumbRight = document.querySelector(".slider > .thumb.right");
-            const range = document.querySelector(".slider > .range");
-
-            const value1 = document.getElementById("value1")
-            const value2 = document.getElementById("value2")
-
-            const setLeftValue = () => {
-              const _this = inputLeft;
-              const [min, max] = [parseInt(_this.min), parseInt(_this.max)];
-
-              // 교차되지 않게
-              _this.value = Math.min(parseInt(_this.value), parseInt(inputRight.value) - 10);
-
-              // input, thumb 같이 움직이도록
-              thumbLeft.style.left = _this.value + "%";
-              range.style.left = _this.value + "%";
-            };
-
-            const setRightValue = () => {
-              const _this = inputRight;
-              const [min, max] = [parseInt(_this.min), parseInt(_this.max)];
-
-              // 교차되지 않게
-              _this.value = Math.max(parseInt(_this.value), parseInt(inputLeft.value) + 10);
-
-              // input, thumb 같이 움직이도록
-              thumbRight.style.right = 100 - _this.value + "%";
-              range.style.right = 100 - _this.value + "%";
-            };
-
-            inputLeft.addEventListener("input", setLeftValue);
-            inputRight.addEventListener("input", setRightValue);
-
-            value1.innerHTML = `${inputLeft.value}`
-            value2.innerHTML = `${inputRight.value}`
-
-            inputLeft.addEventListener("input", e => {
-              value1.innerHTML = e.target.value;
-            });
-
-            inputRight.addEventListener("input", e => {
-              value2.innerHTML = e.target.value;
-            });
-          </script>
 
           <div class="filter_room_type">
             <p class="filter_title">객실 유형</p>

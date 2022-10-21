@@ -1,30 +1,6 @@
 input {
   border: none;
 }
-
-/* 기본 달력 아이콘, placeholder 제거 */
-input[type=date]::-webkit-datetime-edit-text {
-  -webkit-appearance: none;
-  display: none;
-}
-input[type=date]::-webkit-datetime-edit-month-field{
-  -webkit-appearance: none;
-  display: none;
-}
-input[type=date]::-webkit-datetime-edit-day-field {
-  -webkit-appearance: none;
-  display: none;
-}
-input[type=date]::-webkit-datetime-edit-year-field {
-  -webkit-appearance: none;
-  display: none;
-}
-
-input[type="date"]::-webkit-calendar-picker-indicator {
-  -webkit-appearance: none;
-  display: none;
-}
-
 .content {
   margin-bottom: 200px;
 }
@@ -58,64 +34,180 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   width: 380px;
   display: inline-block;
   margin-right: 5px;
-}
-
-.search_checkin {
   position: relative;
-  display: inline-block;
 }
 
-.search_checkin input{
-  width: 190px;
+.search_date input{
+  width: 380px;
   height: 60px;
   padding-left: 20px;
   margin-right: -5px;
+  cursor: pointer;
 }
 
-.search_checkin label {
+.checkin_label {
   position: absolute;
-  top: 10px;
-  left: 20px;
+  top: 5px;
+  left: 30px;
   color: #8c8c8c;
   font-size: 12px;
 }
 
-.search_checkout {
-  position: relative;
-  display: inline-block;
-}
-
-.search_checkout input{
-  width: 190px;
-  height: 60px;
-  padding-left: 20px;
-}
-
-.search_checkout label {
+.checkin_val{
   position: absolute;
-  top: 10px;
-  left: 20px;
+  top: 25px;
+  left: 30px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.date_arrow {
+  position: absolute;
+  left: 180px;
+  top: 25px;
+}
+
+.checkout_label {
+  position: absolute;
+  top: 5px;
+  left: 260px;
   color: #8c8c8c;
   font-size: 12px;
 }
 
-.search_count {
+.checkout_val{
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.search_count_wrap {
+  width: 155px;
   position: relative;
   display: inline-block;
 }
 
-.search_count input {
+.search_count_wrap input {
+  /* visibility: hidden; */
+  display: none;
+}
+
+.search_count{
   width: 150px;
   height: 60px;
-  margin-right: 5px;
+  background: white;
+  display: block;
 }
 
-.search_count label {
+.search_count_txt {
   position: absolute;
-  top: 10px;
+  top: 5px;
   left: 20px;
   color: #8c8c8c;
   font-size: 12px;
+  cursor: pointer;
+}
+
+.val_txt_wrap {
+  display: none;
+  position: absolute;
+  top: 25px;
+  left: 20px;
+  cursor: pointer;
+}
+
+.val_txt_wrap span {
+  font-size: 18px;
+  margin: 0 2px;
+}
+
+.count_box {
+  width: 270px;
+  height: 160px;
+  border: #d7d7d7;
+  border-radius: 5px;
+  background: white;
+  box-shadow: 0px 2px 5px #999;
+  position: absolute;
+  top: 65px;
+  z-index: 1;
+  padding: 15px;
+  display: none;
+}
+.count_title_wrap {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.count_title {
+  font-size: 18px;
+}
+
+.cancel_btn {
+  width: 15px; 
+  height: 15px; 
+  background: url(../images/pop_cancelbtn.png) center center no-repeat;
+  cursor: pointer;
+  border: none;
+}
+
+.warning_msg {
+  font-size: 12px;
+  position: absolute;
+  top: 30px;
+  color: #eeb72f;
+}
+
+.sub_title {
+  font-size: 18px;
+}
+
+.room, .prs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.room_btn_wrap, .prs_btn_wrap {
+  width: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.room {
+  margin-bottom: 20px;
+}
+
+.room span, .prs span {
+  font-size: 18px;
+  margin: 0 10px 0 10px 0;
+}
+
+.prs_mbtn {
+  width: 22px;
+  height: 22px;
+  border: none;
+  background: url(../images/minus_btn.png) no-repeat;
+}
+
+.prs_mbtn:active {
+  background: url(../images/minus_btn_click.png) no-repeat;
+}
+
+.prs_pbtn {
+  width: 22px;
+  height: 22px;
+  border: none;
+  background: url(../images/plus_btn.png) no-repeat;
+}
+
+.prs_pbtn:active {
+  background: url(../images/plus_btn_click.png) no-repeat;
 }
 
 .search_btn{
@@ -126,7 +218,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: white;
   font-size: 17px;
   font-weight: bold;
+  border-radius: 5px;
 }
+
 
 /* search filter */
 .search_wrap {

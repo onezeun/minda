@@ -86,7 +86,7 @@ $(document).ready(function () {
     if (!$('#name').val()) {
       $('#name').addClass('err_input').focus();
       $('#name').removeClass('signup_input');
-      $('#err_name').css({ display: 'block' }).text('비밀번호 확인을 입력해주세요');
+      $('#err_name').css({ display: 'block' }).text('이름을 입력해주세요');
       return false;
     } else if (name_len < 2) {
       $('#name').addClass('err_input').focus();
@@ -114,7 +114,7 @@ $(document).ready(function () {
     if (!$('#nickname').val()) {
       $('#nickname').addClass('err_input').focus();
       $('#nickname').removeClass('signup_input');
-      $('#err_nickname').css({ display: 'block' }).text('비밀번호 확인을 입력해주세요');
+      $('#err_nickname').css({ display: 'block' }).text('닉네임을 입력해주세요');
       return false;
     } else if (nickname_len < 2) {
       $('#nickname').addClass('err_input').focus();

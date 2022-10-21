@@ -326,7 +326,7 @@ input {
 
 .card_top {
   height: 20px;
-  margin-bottom: 5px;
+  margin:5px 0 10px 0;
 }
 
 .card_category {

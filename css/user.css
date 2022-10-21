@@ -11,14 +11,6 @@ body {
   margin-bottom: 200px;
 }
 
-.btn_hover_user:hover {
-  box-shadow:inset 2px 2px 5px 1px rgba(255,255,255,.5),
-  1px 2px 4px 0px rgba(0,0,0,.1);
-  background: #e6e9e3;
-  border: none;
-  transition: all 0.3s ease;
-}
-
 .user_wrap {
   width: 600px;
   height: 800px;

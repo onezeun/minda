@@ -31,16 +31,15 @@ body {
 }
 
 .profile_wrap {
-  width: 600px;
-  height: 315px;
-  border: 1px solid #b7b7b7;
+  display: flex;
+  flex-direction: column;
 }
 
 .profile_photo {
   width: 150px;
   height: 150px;
-  background: url(../images/profile.png) no-repeat;
-  margin: 20px auto 0;
+  margin: auto;
+  display: inline-block;
 }
 
 .uplode_photo {
@@ -52,7 +51,7 @@ body {
   border-radius: 5px;
   font-weight: bold;
   display: block;
-  margin: 10px auto;
+  margin: 20px auto 10px;
 }
 
 .remove_photo {
@@ -65,6 +64,13 @@ body {
   font-weight: bold;
   display: block;
   margin: auto;
+}
+
+.line {
+  width: 500px;
+  height: 1px;
+  background: #d7d7d7;
+  margin: 25px auto 10px;
 }
 
 .edit_btn {

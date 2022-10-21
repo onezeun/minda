@@ -11,9 +11,9 @@
   <link rel="stylesheet" type="text/css" href="css/user.css">
   <link rel="stylesheet" type="text/css" href="css/footer.css">
   <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
-  crossorigin="anonymous">
-  </script>
-    <script type="text/javascript" src="js/user.js"></script>
+    crossorigin="anonymous">
+    </script>
+  <script type="text/javascript" src="js/user.js"></script>
 </head>
 
 <body>
@@ -81,19 +81,16 @@
         <h2 class="myminda">마이민다</h2>
 
         <form name="user_form" id="user_form" action="user.html" method="get">
-          <div class="profile_wrap">
-            <fieldset>
-              <legend class="indent">프로필 사진 설정</legend>
-              <p class="profile_photo indent">프로필 이미지</p>
-              <button class="uplode_photo btn_hover">이미지 업로드</button>
-              <button class="remove_photo btn_hover">이미지 제거</button>
-            </fieldset>
-          </div>
-
           <div class="change_info_wrap">
             <button type="button" class="edit_btn">편집</button>
             <fieldset class="edit_cont">
               <legend class="indent">회원정보 수정</legend>
+              <div class="profile_wrap">
+                <img src="./images/profile.png" class="profile_photo" alt="프로필 이미지">
+                <button class="uplode_photo btn_hover">이미지 업로드</button>
+                <button class="remove_photo btn_hover">이미지 제거</button>
+              </div>
+              <div class="line"></div>
               <div class="user">
                 <div class="user_id">
                   <span class="change_info_title">이메일</span>
@@ -105,11 +102,13 @@
                 </div>
                 <div class="user_nickname relative">
                   <span class="change_info_title">닉네임</span>
-                  <input type="text" id="user_nickname_input" class="user_input"><span id="err_nickname" class="err_txt"></span>
+                  <input type="text" id="user_nickname_input" class="user_input"><span id="err_nickname"
+                    class="err_txt"></span>
                 </div>
                 <div class="user_mobile relative">
                   <span class="change_info_title">연락처</span>
-                  <input type="text" id="user_mobile_input" class="user_input"><span id="err_mobile" class="err_txt"></span>
+                  <input type="text" id="user_mobile_input" class="user_input"><span id="err_mobile"
+                    class="err_txt"></span>
                 </div>
                 <div class="user_password">
                   <span class="change_info_title">비밀번호</span>
@@ -124,13 +123,17 @@
                 </div>
               </div>
               <div class="btn">
-              <button type="button" class="cancel_btn btn_hover">취소</button>
-              <button type="button" class="save_btn btn_hover">저장</button>
+                <button type="button" class="cancel_btn btn_hover">취소</button>
+                <button type="button" class="save_btn btn_hover">저장</button>
               </div>
             </fieldset>
 
             <fieldset class="default_cont">
               <legend class="indent">회원정보 수정</legend>
+              <div class="profile_wrap">
+                <img src="./images/profile.png" class="profile_photo" alt="프로필 이미지">
+              </div>
+              <div class="line"></div>
               <div class="user">
                 <div class="user_id">
                   <span class="change_info_title">이메일</span>

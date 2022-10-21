@@ -1,0 +1,102 @@
+.content { 
+  width: 1200px;
+  margin: 100px auto;
+  text-align: center;
+  font-size: 15px;
+}
+
+.cmnt_title {
+  width: 200px;
+  font-size: 40px;
+  margin: 0 auto 10px;
+  text-align: center;
+}
+
+.cmnt_txt {
+  color: #8c8c8c;
+}
+
+.cmnt_search_form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 50px 0 10px 0;
+}
+
+.cmnt_radio_wrap {
+  width: 180px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.search_input {
+  width: 270px;
+  height: 30px;
+  padding-left: 15px;
+  border: 1px solid #d9d9d9;
+  border-radius: 3px;
+}
+
+.search_btn {
+  width: 60px;
+  height: 30px;
+  border: 1px solid #eeb72f;
+  border-radius: 3px;
+  background: #eeb72f;
+  color: white;
+}
+
+
+.cmnt_table table{
+  width: 1200px;
+  border: 1px solid #d9d9d9;
+  border-collapse: collapse;
+  position: relative;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.cmnt_table th {
+  font-size: 17px;
+  height: 50px;
+  background: #f2f5ef;
+  border: 1px solid #d9d9d9;
+}
+
+.cmnt_table td {
+  font-size: 15px;
+  height: 40px;
+  border: 1px solid #d9d9d9;
+}
+
+.pagenation {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.pagenation_btn01 {
+  width: 32px;
+  height: 32px;
+  background: url(../images/ldg_review_pagenation01.png) no-repeat;
+  margin-right: 10px;
+}
+
+.pagenation_btn02 {
+  width: 32px;
+  height: 32px;
+  background: url(../images/ldg_review_pagenation02.png) no-repeat;
+}
+
+.write_btn {
+  width: 120px;
+  height: 40px;
+  border: 1px solid #eeb72f;
+  border-radius: 3px;
+  background: #eeb72f;
+  color: white;
+  font-size: 17px;
+
+  position: absolute;
+  right: 0;
+}

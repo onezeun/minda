@@ -39,7 +39,9 @@ root {
 }
 
 body,
-button {
+button,
+option,
+select {
   font-family: 'InfinitySans-RegularA1';
   font-size: 14px;
   line-height: 1.5
@@ -118,6 +120,14 @@ input::placeholder {color:#8c8c8c;}
   1px 2px 4px 0px rgba(0,0,0,.1);
   transition: all 0.3s ease;
   border: none;
+}
+
+.btn_hover_cancel:hover {
+  box-shadow:inset 2px 2px 5px 1px rgba(255,255,255,.5),
+  1px 2px 4px 0px rgba(0,0,0,.1);
+  background: #e6e9e3;
+  border: none;
+  transition: all 0.3s ease;
 }
 
 /* check box*/

@@ -1,0 +1,83 @@
+.content { 
+  width: 1200px;
+  margin: 100px auto 200px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.cmnt_title {
+  width: 200px;
+  font-size: 40px;
+  margin: 0 auto 10px;
+  text-align: center;
+}
+
+.cmnt_txt {
+  color: #8c8c8c;
+}
+
+.editor_table_wrap table{
+  width: 1200px;
+  border: 1px solid #d9d9d9;
+  border-collapse: collapse;
+  position: relative;
+  text-align: center;
+  margin: 30px auto;
+}
+
+.editor_table_wrap th {
+  width: 150px;
+  font-size: 17px;
+  background: #f2f5ef;
+  border: 1px solid #d9d9d9;
+}
+
+.editor_table_wrap td {
+  width: 1050px;
+  font-size: 15px;
+  border: 1px solid #d9d9d9;
+  text-align: left;
+  padding-left: 15px;
+}
+
+select {
+  border: none;
+  width: 100px;
+  color: #8c8c8c;
+}
+
+.post_title {
+  width: 1000px;
+  border: none;
+  font-size: 15px;
+}
+
+.btn {
+  display: flex;
+  justify-content: right;
+}
+
+.cancel_btn {
+  width: 120px;
+  height: 50px;
+  background: #f2f5ef;
+  color: #8b8b8b;
+  border: 1px solid #f2f5ef;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+.save_btn {
+  width: 120px;
+  height: 50px;
+  background: #eeb72f;
+  color: white;
+  border: 1px solid #eeb72f;
+  border-radius: 5px;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+
+

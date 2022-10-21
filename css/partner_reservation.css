@@ -1,0 +1,171 @@
+/* header */
+.header {
+  height: 198px;
+  padding-top: 1px;
+  position: relative;
+  border-bottom: 1px solid black;
+}
+
+.partner_logo {
+  width: 175px;
+  margin: 60px auto 0;
+}
+
+.partner_logo a {
+  display: block;
+  width: 175px;
+  height: 75px;
+  background: url(../images/partner_logo.png) no-repeat;
+}
+
+/* main */
+.content {
+  width: 1200px;
+  margin: 50px auto;
+  display: flex;
+  padding-top: 50px;
+}
+
+.side_bar {
+  width: 200px;
+  height: 800px;
+  background: #eeb72f;
+  border: 1px solid #eeb72f;
+  padding:0 30px;
+}
+
+.side_bar a{
+  width: 140px;
+  height: 80px;
+  color: white;
+  font-size: 18px;
+  line-height: 120px;
+  display: inline-block;
+}
+
+.side_bar a:hover {
+ border-bottom: 3px solid white;
+}
+
+.reservation_cont {
+  width: 1000px;
+  height: 800px;
+  border: 1px solid #d7d7d7;
+  padding: 0 30px;
+}
+
+.line {
+  width: 940px;
+  height: 1px;
+  border: 1px solid #d7d7d7;
+  margin: 30px auto;
+}
+
+.checkin, .checkout {
+  overflow: hidden;
+}
+
+.checkout {
+  height: 370px;
+}
+
+.checkout_title {
+  height: 80px;
+  line-height: 120px;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.checkin_title {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.checkin {
+  position: relative;
+}
+
+.card_slide {
+  width: 1000px;
+  display: flex;
+}
+
+.card_slide li {
+  margin: 0 16px;
+}
+
+.cstm_card {
+  width: 200px;
+  height: 280px;
+  border: 1px solid #d7d7d7;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: space-between;
+  padding-top:20px;
+}
+
+.cstm_num a{
+  color: #eeb72f;
+  text-decoration: underline;
+}
+
+.cstm_img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.massage_btn{
+  width: 200px;
+  height: 50px;
+  font-size: 16px;
+  text-align: center;
+  line-height: 50px;
+  border-top: 1px solid #d7d7d7;
+}
+
+.massage_btn a{
+  color: #eeb72f;
+}
+
+.card_prev {
+  width: 12px;
+  height: 19px;
+  background: url(../images/event_prev.png) no-repeat;
+  text-indent: -9999px;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 80px
+}
+
+.card_next {
+  width: 12px;
+  height: 19px;
+  background: url(../images/event_next.png) no-repeat;
+  text-indent: -9999px;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 30px
+}
+
+.cstm_none {
+  width: 940px;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cstm_none_img {
+  width: 50px;
+  height: 55px;
+  margin-bottom: 20px;
+}
+
+.cstm_none p {
+  color: #8c8c8c;
+}

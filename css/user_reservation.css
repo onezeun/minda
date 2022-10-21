@@ -149,3 +149,9 @@
   background: white;
   color: #eeb72f;;
  }
+ .search_btn:hover {
+  background: #eeb72f;
+  color: white;
+  border: 1px solid #eeb72f;
+  transition: 0.25s;
+ }

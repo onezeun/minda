@@ -11,9 +11,11 @@ body {
   margin-bottom: 200px;
 }
 
-.btn_hover:hover {
-  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+.btn_hover_user:hover {
+  box-shadow:inset 2px 2px 5px 1px rgba(255,255,255,.5),
   1px 2px 4px 0px rgba(0,0,0,.1);
+  background: #e6e9e3;
+  border: none;
   transition: all 0.3s ease;
 }
 
@@ -62,9 +64,9 @@ body {
 .remove_photo {
   width: 150px;
   height: 40px;
-  background: white;
-  color: #eeb72f;
-  border: 1px solid #eeb72f;
+  background: #f2f5ef;
+  color: #8b8b8b;
+  border: 1px solid #f2f5ef;
   border-radius: 5px;
   font-weight: bold;
   display: block;

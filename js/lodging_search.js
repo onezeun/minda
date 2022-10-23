@@ -1,55 +1,49 @@
-/* 가격 범위 input */
 $(document).ready(function () {
+  /* 가격 범위 input */
+  $('#value1').text($('#input_left').val());
+  $('#value2').text($('#input_right').val());
 
-const inputLeft = document.getElementById("input_left");
-const inputRight = document.getElementById("input_right");
+  const setLeftValue = () => {
+    var left_val = $('#input_left').val();
+    var right_val = $('#input_right').val();
 
-const thumbLeft = document.querySelector(".slider > .thumb.left");
-const thumbRight = document.querySelector(".slider > .thumb.right");
-const range = document.querySelector(".slider > .range");
+    const [min, max] = [parseInt($('#input_left').attr('min')), parseInt($('#input_left').attr('max'))];
 
-const value1 = document.getElementById("value1")
-const value2 = document.getElementById("value2")
+    // 교차되지 않게
+    left_val = Math.min(parseInt(left_val), parseInt(right_val) - 10);
+    $('#input_left').val(left_val);
 
-const setLeftValue = () => {
-  const _this = inputLeft;
-  const [min, max] = [parseInt(_this.min), parseInt(_this.max)];
+    // input, thumb 같이 움직이도록
+    $('.slider > .thumb.left').css('left', left_val + '%');
+    $('.slider > .range').css('left', left_val + '%');
+  };
 
-  // 교차되지 않게
-  _this.value = Math.min(parseInt(_this.value), parseInt(inputRight.value) - 10);
+  const setRightValue = () => {
+    var left_val = $('#input_left').val();
+    var right_val = $('#input_right').val();
 
-  // input, thumb 같이 움직이도록
-  thumbLeft.style.left = _this.value + "%";
-  range.style.left = _this.value + "%";
-};
+    const [min, max] = [parseInt($('#input_right').attr('min')), parseInt($('#input_right').attr('max'))];
 
-const setRightValue = () => {
-  const _this = inputRight;
-  const [min, max] = [parseInt(_this.min), parseInt(_this.max)];
+    // 교차되지 않게
+    right_val = Math.max(parseInt(right_val), parseInt(left_val) + 10);
+    $('#input_right').val(right_val);
 
-  // 교차되지 않게
-  _this.value = Math.max(parseInt(_this.value), parseInt(inputLeft.value) + 10);
+    // input, thumb 같이 움직이도록
+    $('.slider > .thumb.right').css('right', 100 - right_val + '%');
+    $('.slider > .range').css('right', 100 - right_val + '%');
+  };
 
-  // input, thumb 같이 움직이도록
-  thumbRight.style.right = 100 - _this.value + "%";
-  range.style.right = 100 - _this.value + "%";
-};
+  $('#input_left').on('input', function (e) {
+    setLeftValue();
+    $('#value1').text(e.target.value);
+  });
 
-inputLeft.addEventListener("input", setLeftValue);
-inputRight.addEventListener("input", setRightValue);
+  $('#input_right').on('input', function (e) {
+    setRightValue();
+    $('#value2').text(e.target.value);
+  });
 
-value1.innerHTML = `${inputLeft.value}`
-value2.innerHTML = `${inputRight.value}`
-
-inputLeft.addEventListener("input", e => {
-  value1.innerHTML = e.target.value;
-});
-
-inputRight.addEventListener("input", e => {
-  value2.innerHTML = e.target.value;
-});
-
-/* 검색 바 */
+  /* 검색 바 */
   /* 숙소 검색 달력 */
   $('#daterange_search').daterangepicker({
     autoUpdateInput: false,
@@ -88,13 +82,17 @@ inputRight.addEventListener("input", e => {
     $('#checkout_val').text(picker.endDate.format('YYYY-MM-DD'));
   });
 
-  $('.search_date').find('span').on('click', function () {
-    $('#daterange_search').focus();
-  });
+  $('.search_date')
+    .find('span')
+    .on('click', function () {
+      $('#daterange_search').focus();
+    });
 
-  $('.search_date').find('label').on('click', function () {
-    $('#daterange_search').focus();
-  });
+  $('.search_date')
+    .find('label')
+    .on('click', function () {
+      $('#daterange_search').focus();
+    });
 
   /* count Box */
   $('.search_count').on('click', function () {
@@ -183,6 +181,4 @@ inputRight.addEventListener("input", e => {
       $('#prs_count').text(num);
     }
   });
-
-
 });

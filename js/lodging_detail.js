@@ -34,8 +34,8 @@ $(document).ready(function () {
 
   /* 값 넣기*/
   $('#daterange_check').on('apply.daterangepicker', function (ev, picker) {
-    $('#checkin_val').text(picker.startDate.format('YYYY-MM-DD'));
-    $('#checkout_val').text(picker.endDate.format('YYYY-MM-DD'));
+    $('#checkin_val').text(picker.startDate.format('YYYY-MM-DD')).css({color : "black"});
+    $('#checkout_val').text(picker.endDate.format('YYYY-MM-DD')).css({color : "black"});
   });
 
   /* 라벨 클릭해도 달력창 뜨게 */
@@ -48,10 +48,10 @@ $(document).ready(function () {
     var prs_num = Number($('.prs_box').val());
     if (prs_num == 0) {
       prs_num = 0;
-      $('.prs_box').val(prs_num);
+      $('.prs_box').val(prs_num).css({color : "black"});
     } else {
       prs_num -= 1;
-      $('.prs_box').val(prs_num);
+      $('.prs_box').val(prs_num).css({color : "black"});
       $('.warning_msg').hide();
     }
   });
@@ -59,12 +59,12 @@ $(document).ready(function () {
   $('.prs_pbtn').on('click', function () {
     var prs_num = Number($('.prs_box').val());
     if (prs_num == 10) {
-      $('.prs_box').val(prs_num);
+      $('.prs_box').val(prs_num).css({color : "black"});
       $('.warning_msg').show();
       $('.warning_msg').text('최대 10명까지만 입력 가능합니다');
     } else {
       prs_num += 1;
-      $('.prs_box').val(prs_num);
+      $('.prs_box').val(prs_num).css({color : "black"});
     }
   });
 });

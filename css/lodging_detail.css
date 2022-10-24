@@ -290,7 +290,8 @@
   font-weight: bold;
   position: absolute;
   left: 420px;
-  top: 15px
+  top: 15px;
+  font-size: 15px;
 }
 
 .date_arrow {
@@ -314,7 +315,7 @@
   padding: 20px;
   color: #8c8c8c;
   cursor: default;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: bold;
 }
 

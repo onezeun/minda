@@ -39,14 +39,21 @@ $(document).ready(function () {
     }
   }
 
-  const TimeCheck = () => {
+  const timeCheck = () => {
     if (!$("#checkin_input").val()) {
-      $("#checkin_input").addClass("err_input").focus();
+      $("#checkin_input").addClass("err_input");
       $("#err_checkin").css({ display: "inline-block" }).text("체크인예정시간을 입력해주세요");
       return false;
     } else return true;
   }
 
+  const genderCheck = () => {
+    var checkedMan = $("#man").is(":checked");
+    var checkedWoman = $("#woman").is(":checked");
+    if(!checkedMan && !checkedWoman) {
+      $("#err_gender").css({ display: "inline-block" }).text("숙박자 성별을 선택해주세요");
+    }
+  }
 
   $("#name_input").on("keyup", function () {
     $("#name_input").removeClass("err_input");
@@ -63,18 +70,23 @@ $(document).ready(function () {
     $("#err_email").css({ display: "none" });
   });
 
-  $("#checkin_input").on("keyup", function () {
+  $("#checkin_input").on("change", function () {
     $("#checkin_input").removeClass("err_input");
     $("#err_checkin").css({ display: "none" });
   });
 
+  $(".gender").on("click", function () {
+    $("#err_gender").css({ display: "none" });
+  });
+
 
   $("#reservation_btn").on("click", function () {
-    if (!nameCheck() || !mobileCheck() || !emailCheck() || !TimeCheck()) {
+    if (!nameCheck() || !mobileCheck() || !emailCheck() || !timeCheck() || !genderCheck()) {
       nameCheck();
       mobileCheck();
       emailCheck();
-      TimeCheck();
+      timeCheck();
+      genderCheck();
       return false;
     } else $("#reservation_form").submit();
   });
@@ -146,7 +158,6 @@ $(document).ready(function () {
     var check1 = $("#check1").is(":checked")
     var check2 = $("#check2").is(":checked")
 
-    console.log("check1",check1)
     if(check1 && check2 == true){
       $("#check_all").prop("checked", true);
     } 

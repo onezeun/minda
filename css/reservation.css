@@ -3,13 +3,12 @@ fieldset {
 }
 
 .content {
-  height: 1100px;
   margin-bottom: 200px;
 }
 
 .reservation_wrap {
   width: 1200px;
-  height: 1100px;
+  height: 1300px;
   margin: auto;
 }
 
@@ -77,8 +76,8 @@ fieldset {
 
 .user_info_cont {
   width: 770px;
-  height: 350px;
   border-top: 2px solid #8c8c8c;
+  margin-bottom: 30px;
 }
 
 .user_info_wrap {
@@ -105,6 +104,10 @@ fieldset {
   padding-left: 15px;
   border-radius: 5px;
   border: 1px solid #eeb72f;
+}
+
+.man{
+  margin-right: 10px;
 }
 
 .err_txt {

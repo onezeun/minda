@@ -33,20 +33,20 @@
           <form name="signup_form" id="signup_form" action="signup_success.html" method="get">
             <div class="userinfo">
               <div class="email_wrap">
-                <input type="text" name="email" id="email" class="email_input" title="Email" placeholder="Email">
+                <input type="text" name="email" id="email" class="email_input" title="Email" placeholder="Email" maxlength="50">
                 <button type="button" class="email_check_btn btn_hover">중복확인</button>
                 <br><span id="err_email" class="err_txt"></span>
               </div>
               <div class="signup_rest">
-                <input type="password" id="pwd" class="signup_input" title="비밀번호" placeholder="비밀번호">
+                <input type="password" id="pwd" class="signup_input" title="비밀번호" placeholder="비밀번호"  maxlength="20">
                 <br><span id="err_pwd" class="err_txt"></span>
-                <input type="password" id="repwd" class="signup_input" title="비밀번호 확인" placeholder="비밀번호 확인">
+                <input type="password" id="repwd" class="signup_input" title="비밀번호 확인" placeholder="비밀번호 확인" maxlength="20">
                 <br><span id="err_repwd" class="err_txt"></span>
-                <input type="text" id="name" class="signup_input" title="이름(실명)" placeholder="이름(실명)">
+                <input type="text" id="name" class="signup_input" title="이름(실명)" placeholder="이름(실명)" maxlength="30">
                 <br><span id="err_name" class="err_txt"></span>
-                <input type="text" id="nickname" class="signup_input" title="닉네임" placeholder="닉네임">
+                <input type="text" id="nickname" class="signup_input" title="닉네임" placeholder="닉네임" maxlength="15">
                 <br><span id="err_nickname" class="err_txt"></span>
-                <input type="text" id="mobile" class="signup_input" title="휴태폰번호(숫자만 입력)" placeholder="휴대폰번호(숫자만 입력)">
+                <input type="text" id="mobile" class="signup_input" title="휴태폰번호(숫자만 입력)" placeholder="휴대폰번호(숫자만 입력)" maxlength="20">
                 <br><span id="err_mobile" class="err_txt"></span>
               </div>
             </div>

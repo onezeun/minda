@@ -41,7 +41,7 @@ $(document).ready(function () {
       $('#pwd').removeClass('signup_input');
       $('#err_pwd')
         .css({ display: 'block' })
-        .text('문자/숫자/특수문자 포함 8자 이상 입력해주세요');
+        .text('문자/숫자/특수문자 포함 8자 ~ 20자 사이로 입력해주세요');
       return false;
     } else {
       $('#pwd').addClass('signup_input');

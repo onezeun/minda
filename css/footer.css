@@ -30,54 +30,28 @@
   margin-left: 15px
 }
 
+.footer_side_wrap {
+  width: 1200px;
+  margin: auto;
+  position: relative;
+}
+
 .footer_gopatner {
   font-weight: bold;
   font-size: 16px;
   position: absolute;
-  top: 18px;
-  right: 220px;
+  top: -42px;
+  right: 10px;
 }
 
-.footer_info {
-  width: 1200px;
-  margin: 0 auto 20px;
-}
 
-.footer_txt::after {
-  content: "|";
-  margin: 0 5px
-}
-
-.footer_info_txt1 {
-  height: 24px;
-}
-
-.footer_info_txt1 p {
-  float: left;
-}
-
-.footer_info_txt2 {
-  height: 24px;
-}
-
-.footer_info_txt2 p {
-  float: left;
-}
-
-.footer_info_txt3 {
-  height: 24px;
-}
-
-.footer_info_txt3 p {
-  float: left;
-}
 
 .footer_side {
   width: 230px;
   height: 30px;
   position: absolute;
-  top: 50px;
-  right: 210px;
+  top: -12px;
+  right: 0px;
 }
 
 .footer_sns_fb a {
@@ -114,6 +88,40 @@
   display: block;
   float: left;
   margin-right: 5px;
+}
+
+.footer_info {
+  width: 1200px;
+  margin: 0 auto 20px;
+}
+
+.footer_txt::after {
+  content: "|";
+  margin: 0 5px
+}
+
+.footer_info_txt1 {
+  height: 24px;
+}
+
+.footer_info_txt1 p {
+  float: left;
+}
+
+.footer_info_txt2 {
+  height: 24px;
+}
+
+.footer_info_txt2 p {
+  float: left;
+}
+
+.footer_info_txt3 {
+  height: 24px;
+}
+
+.footer_info_txt3 p {
+  float: left;
 }
 
 .footer_bot_warp {

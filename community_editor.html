@@ -6,84 +6,31 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>커뮤니티 에디터</title>
+  <link rel="shortcut icon" href="images/favicon.ico">
   <link rel="stylesheet" type="text/css" href="css/reset.css">
-  <link rel="stylesheet" type="text/css" href="css/header.css">
   <link rel="stylesheet" type="text/css" href="css/community_editor.css">
-  <link rel="stylesheet" type="text/css" href="css/footer.css">
   <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
-  crossorigin="anonymous">
-  </script>
+    crossorigin="anonymous">
+    </script>
+  <script type="text/javascript" src="js/includ.js"></script>
   <script type="text/javascript">
     $(document).ready(function () {
-     $('#head_select').on('change', function(){
-      if($('#head_select').val() == '분류선택') {
-        $('#head_select').css({color : '#8c8c8c'})
-      } else {
-        $('#head_select').css({color : 'black'})
-      }
-     })
-    })
+      $('#head_select').on('change', function () {
+        if ($('#head_select').val() == '분류선택') {
+          $('#head_select').css({ color: '#8c8c8c' })
+        } else {
+          $('#head_select').css({ color: 'black' })
+        }
+      })
+    });
   </script>
 </head>
 
 <body>
   <div class="wrap">
-    <header id="header" class="header">
-      <h1 class="logo indent"><a href="index.html">민다</a></h1>
-      <div class="top_menu_wrap">
-        <h2 class="hide">사용자 메뉴</h2>
-        <div class="top_menu">
-          <ul>
-            <li class="top_bar"><a href="login.html">로그인</a></li>
-            <li class="top_bar"><a href="signup.html">회원가입</a></li>
-            <li class="top_bar"><a href="#">고객센터</a></li>
-            <li class="top_bar_search indent">
-              <form action="">
-                <input name="q" type="search" placeholder="검색어를 입력하세요" />
-                <button class="search-icon"><span></span></button>
-              </form>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <nav class="gnb">
-        <h2 class="hide">주요 메뉴</h2>
-        <ul>
-          <li class="menu1"><a href="lodging.html">숙소</a></li>
-          <li class="menu2"><a href="#">투어</a></li>
-          <li class="menu3"><a href="#">해외렌터카</a></li>
-          <li class="menu4"><a href="#" class="">여행편의</a>
-            <div class="menu4_sub_wrap shadow">
-              <ul>
-                <li class="menu4_sub1"><a href="#">해외유심</a></li>
-                <li class="menu4_sub2"><a href="#">공항픽업</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="menu5"><a href="#" class="">할인&이벤트</a>
-            <div class="menu5_sub_wrap shadow">
-              <ul ul class="menu5_sub">
-                <li class="menu5_sub1"><a href="#">땡처리할인</a></li>
-                <li class="menu5_sub2"><a href="#">비수기할인</a></li>
-                <li class="menu5_sub3"><a href="#">민다 이벤트</a></li>
-                <li class="menu5_sub4"><a href="#">숙소 이벤트</a></li>
-                <li class="menu5_sub5"><a href="#">숙소쿠폰</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="menu6"><a href="#">여행정보</a></li>
-          <li class="menu7"><a href="#">커뮤니티</a>
-            <div class="menu7_sub_wrap shadow">
-              <ul ul class="menu7_sub">
-                <li class="menu7_sub1"><a href="#">구인·구직</a></li>
-                <li class="menu7_sub2"><a href="#">사고·팔고</a></li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-        <div class="gnb_sub"></div>
-      </nav>
+    <!-- header -->
+    <header>
+      <div id="header-include"></div>
     </header>
 
     <!-- content -->
@@ -110,7 +57,8 @@
           <tr>
             <th height="60">제목</th>
             <td>
-              <input type="text" id="post_title" class="post_title" placeholder="제목을 입력해주세요"><label class="hide">제목을 입력해주세요</label>
+              <input type="text" id="post_title" class="post_title" placeholder="제목을 입력해주세요"><label class="hide">제목을
+                입력해주세요</label>
             </td>
           </tr>
           <tr>
@@ -125,62 +73,9 @@
       </div>
     </main>
 
-    <footer id="footer" class="footer">
-      <h2 class="hide">사이트 이용 안내</h2>
-
-      <div class="footer_term">
-        <h3 class="hide">약관 및 정책</h3>
-        <ul>
-          <li><a href="#">회사소개</a></li>
-          <li><a href="#">파트너 가입</a></li>
-          <li><a href="#">취소환불규정</a></li>
-          <li><a href="#">고객센터</a></li>
-          <li><a href="#" class="notice">공지사항</a></li>
-          <li><a href="#">이용약관개인정보처리방침</a></li>
-          <li><a href="#">사업자정보확인</a></li>
-        </ul>
-      </div>
-
-      <a href="#" class="footer_gopatner">숙소 파트너홈 바로가기</a>
-
-      <div class="footer_info">
-        <h3>INFORMATION</h3>
-        <div class="footer_info_txt1">
-          <p class="footer_txt">㈜민다 대표 : 김윤희 </p>
-          <p class="footer_txt">사업자등록번호 : 101-86-28116 </p>
-          <p class="footer_txt">관광사업등록증 : 제 2020-000054호 </p>
-          <p>통신판매업신고 : 제 2020-서울마포-3698호</p>
-        </div>
-        <div class="footer_info_txt2">
-          <p class="footer_txt">고객센터 : 1661-2892 </p>
-          <p class="footer_txt">FAX : 02-722-3478 </p>
-          <p>운영시간 : 평일 10시~12시/13시~18시(주말, 공휴일 휴무)</p>
-        </div>
-        <div class="footer_info_txt3">
-          <p class="footer_txt">이메일 : help@theminda.com(일반문의), biz@theminda.com(사업제휴)</p>
-          <address>서울특별시 마포구 성산로2길 55, 샤인빌딩 602호 (성산동)</address>
-        </div>
-        <p>Copyright © Minda Co., Ltd. All rights reserved.</p>
-      </div>
-
-      <div class="footer_side indent">
-        <h3 class="hide">SNS</h3>
-        <ul>
-          <li class="footer_sns_fb"><a href="#">페이스북</a></li>
-          <li class="footer_sns_blog"><a href="#">블로그</a></li>
-          <li class="footer_sns_instar"><a href="#">인스타그램</a></li>
-        </ul>
-        <a href="#" class="footer_qna indent">고객센터문의</a>
-      </div>
-
-      <div class="footer_bot_warp">
-        <div class="footer_bot">
-          <p>(주)민다의 사전 서면동의 없이 민다 사이트(PC, 모바일, 앱)의 일체의 정보, 콘텐츠 및 UI 등을 상업적 목적으로 전재, 전송, 스크래핑 등 무단 사용할 수 없습니다.</p>
-
-          <p>(주)민다는 통신판매중개자이며 통신판매의 당사자가 아닙니다.<br>
-            따라서 (주)민다는 상품·거래정보 및 거래와 관련하여 판매자의 고의 또는 과실로 소비자에게 발생하는 손해에 대해 일체 책임을 지지 않습니다.</p>
-        </div>
-      </div>
+    <!-- footer -->
+    <footer>
+      <div  id="footer-include"></div>
     </footer>
   </div>
 

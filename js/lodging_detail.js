@@ -12,7 +12,6 @@ $(document).ready(function () {
     slidesToShow: 4,
     slidesToScroll: 1,
     asNavFor: '.slider-for',
-
     focusOnSelect: true,
     prevArrow: $('#ldg_prev'),
     nextArrow: $('#ldg_next')

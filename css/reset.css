@@ -84,6 +84,10 @@ input::placeholder {color:#8c8c8c;}
 
 
 /* 공통클래스 */
+header {
+  height: 200px;
+}
+
 .hide {
   position: absolute;
   left: -9999px;

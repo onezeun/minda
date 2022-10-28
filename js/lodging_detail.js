@@ -17,17 +17,7 @@ $(document).ready(function () {
     prevArrow: $('#ldg_prev'),
     nextArrow: $('#ldg_next')
   });
-
   
-  $('.mb_reco_slide').on(
-    'afterChange',
-    function (event, slick, currentSlide, nextSlide) {
-      var i = (currentSlide ? currentSlide : 0) + 1;
-      $('#now_page').text(i);
-      $('#total_page').text(slick.slideCount);
-    },
-  );
-
   /* 숙소 검색 달력 */
   $('#daterange_check').daterangepicker({
     autoUpdateInput: false,

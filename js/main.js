@@ -108,7 +108,7 @@ $(document).ready(function () {
     $('#total_page').text(slick.slideCount);
   });
 
-  $('.mb_reco_slide').slick({
+  $('.mb_reco_slide').not('.slick-initialized').slick({
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -143,7 +143,7 @@ $(document).ready(function () {
   });
 
   /* 중간 배너 슬라이드 */
-  $('.sale_slide').slick({
+  $('.sale_slide').not('.slick-initialized').slick({
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -157,7 +157,7 @@ $(document).ready(function () {
     $('#evnt_total_page').text(slick.slideCount);
   });
 
-  $('.evnt_slide').slick({
+  $('.evnt_slide').not('.slick-initialized').slick({
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -192,7 +192,7 @@ $(document).ready(function () {
   });
 
   /* 메인 카드 슬라이드*/
-  $('#room_slide').slick({
+  $('#room_slide').not('.slick-initialized').slick({
     infinite: false,
     slidesToShow: 4,
     slidesToScroll: 1,
@@ -201,7 +201,7 @@ $(document).ready(function () {
     nextArrow: $('#room_btn2'),
   });
 
-  $('#tour_slide').slick({
+  $('#tour_slide').not('.slick-initialized').slick({
     infinite: false,
     slidesToShow: 4,
     slidesToScroll: 1,
@@ -211,7 +211,7 @@ $(document).ready(function () {
     nextArrow: $('#tour_btn2'),
   });
 
-  $('#info_slide').slick({
+  $('#info_slide').not('.slick-initialized').slick({
     infinite: false,
     slidesToShow: 4,
     slidesToScroll: 1,

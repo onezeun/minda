@@ -6,6 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FOOTER</title>
+  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous">
+    </script>
+  <script type="text/javascript" src="js/footer.js"></script>
 </head>
 
 <body>
@@ -26,7 +30,9 @@
     </div>
 
     <div class="footer_side_wrap">
-      <a href="partner_reservation.html" class="footer_gopatner">숙소 파트너홈 바로가기</a>
+
+      <!-- <a href="partner_reservation.html" class="footer_gopatner">숙소 파트너홈 바로가기</a> -->
+      <a href="#" class="footer_gopatner">숙소 파트너홈 바로가기</a>
       <div class="footer_side indent">
         <h3 class="hide">SNS</h3>
         <ul>
@@ -34,9 +40,70 @@
           <li class="footer_sns_blog"><a href="#">블로그</a></li>
           <li class="footer_sns_instar"><a href="#">인스타그램</a></li>
         </ul>
-        <a href="#" class="footer_qna indent">고객센터문의</a>
+        <a href="partner_reservation.html" class="footer_qna indent">고객센터문의</a>
       </div>
     </div>
+
+
+    <from>
+      <div class="modal_bg">
+        <div class="ptn_pop_signup_pop">
+          <h3 class="ptn_pop_logo indent">민다파트너</h3>
+          <button type="button" class="ptn_pop_cancel_btn indent">닫기</button>
+          <div class="ptn_pop_line"></div>
+          <fieldset>
+            <legend class="ptn_pop_signup_title">회원 가입</legend>
+            <p class="ptn_pop_txt">민다 파트너가 되어 새로운 수익을 만들어 보세요!</p>
+
+            <div class="ptn_pop_info_wrap">
+              <div class="ptn_pop_name_wrap">
+                <span class="ptn_pop_title">파트너명</span>
+                <input type="text" id="ptn_pop_name" class="ptn_pop_input" maxlength="20"
+                  placeholder="회사명, 숙소명등 대표되는 이름을 작성해주세요.">
+                <br><span id="ptn_err_name" class="ptn_pop_err_txt"></span>
+              </div>
+              <div class="ptn_pop_tel_wrap">
+                <span class="ptn_pop_title">업체 연락처</span>
+                <input type="text" id="ptn_pop_tel" class="ptn_pop_input" maxlength="20" placeholder="숫자만 입력해주세요.">
+                <br><span id="ptn_err_tel" class="ptn_pop_err_txt"></span>
+              </div>
+            </div>
+
+            <div class="ptn_pop_term">
+              <p class="ptn_pop_term_title">민다 서비스 판매대행 약관에 동의해주세요.</p>
+              <div class="ptn_pop_term_wrap">
+                <div class="ptn_pop_checkbox_wrap">
+                  <input type="checkbox" class="ptn_pop_checkbox01 ptn_nomal" id="ptn_pop_checkbox01">
+                  <label for="ptn_pop_checkbox01">(필수) 판매 이용약관</label>
+                  <a href="#" class="ptn_pop_viewall">전체보기</a>
+                </div>
+                <div class="ptn_pop_checkbox_wrap">
+                  <input type="checkbox" class="ptn_pop_checkbox02 ptn_nomal" id="ptn_pop_checkbox02">
+                  <label for="ptn_pop_checkbox02">(필수) 서비스 이용약관</label>
+                  <a href="#" class="ptn_pop_viewall">전체보기</a>
+                </div>
+                <div class="ptn_pop_checkbox_wrap">
+                  <input type="checkbox" class="ptn_pop_checkbox03 ptn_nomal" id="ptn_pop_checkbox03">
+                  <label for="ptn_pop_checkbox03">(필수) 개인정보 수집 및 이용</label>
+                  <a href="#" class="ptn_pop_viewall">전체보기</a>
+                </div>
+              </div>
+              <div class="ptn_pop_check_all_wrap">
+                <input type="checkbox" class="ptn_pop_check_all" id="ptn_pop_check_all">
+                <label for="ptn_pop_check_all" class="ptn_pop_check_all_txt">전체 약관 동의</label>
+                <span id="ptn_pop_err_apply" class="ptn_pop_check_err_txt"></span>
+              </div>
+            </div>
+
+            <div class="ptn_pop_modal_btn">
+              <button type="button" class="ptn_signup_cancel_btn btn_hover_cancel">취소</button>
+              <button type="button" class="ptn_signup_btn btn_hover">회원가입</button>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </from>
+
 
     <div class="footer_info">
       <h3>INFORMATION</h3>

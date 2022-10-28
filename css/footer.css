@@ -1,3 +1,7 @@
+fieldset {
+  border: none;
+}
+
 .footer {
   background: #3b3b3b;
   color: #eee;
@@ -44,6 +48,213 @@
   right: 10px;
 }
 
+/* 파트너 회원가입 모달창 */
+.scrollLock { 
+  overflow: hidden; 
+}
+
+.modal_bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(0,0,0,0.6);
+  display: none;
+}
+
+.ptn_pop_signup_pop {
+  width: 800px;
+  height: 700px;
+  background-color: white;
+  border: 1px solid #b7b7b7;
+  border-radius: 5px;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  opacity: 1;
+  color: black;
+}
+
+.ptn_pop_logo {
+  display: block;
+  width: 175px;
+  height: 75px;
+  margin: auto;
+  background: url(../images/partner_logo.png) no-repeat;
+}
+
+.ptn_pop_cancel_btn {
+  width: 15px; 
+  height: 15px; 
+  background: url(../images/pop_cancelbtn.png) center center no-repeat;
+  cursor: pointer;
+  border: none;
+  position: absolute;
+  top:20px;
+  right: 20px;
+}
+
+.ptn_pop_line {
+  width: 600px;
+  height: 2px;
+  background: #d7d7d7;
+  margin: 20px auto;
+}
+
+.ptn_pop_signup_title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.ptn_pop_txt {
+  font-size: 17px;
+  color: #8c8c8c;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.ptn_pop_info_wrap {
+  width: 500px;
+  margin: auto;
+  text-align: center;
+}
+
+.ptn_pop_name_wrap, .ptn_pop_tel_wrap {
+  position: relative;
+}
+
+.ptn_pop_title {
+  width: 100px;
+  font-size: 16px;
+  text-align: left;
+  vertical-align: center;
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.ptn_pop_input {
+  width: 300px;
+  height: 40px;
+  border: 1px solid #b7b7b7;
+  border-radius: 5px;
+  padding-left: 15px;
+  margin-bottom: 20px;
+}
+
+.ptn_pop_err_input {
+  width: 300px;
+  height: 40px;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid #eeb72f;
+}
+
+.ptn_pop_err_txt {
+  margin-left: 20px;
+  font-size: 12px;
+  color: #eeb72f;
+  display: inline-block;
+  position: absolute;
+  top:42px;
+  left: 140px;
+}
+
+.ptn_pop_mr {
+  margin-bottom: 30px;
+}
+
+.ptn_pop_term {
+  width: 500px;
+  margin: 20px auto 0;
+  border: none;
+}
+
+.ptn_pop_term_title {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #313131;
+}
+
+.ptn_pop_term_wrap {
+  width: 500px;
+  height: 130px;
+  margin: auto;
+  padding: 8px;
+  border: 1px solid #b7b7b7;
+  border-radius: 5px;
+  display: flex;
+  flex-direction:column;
+  align-content: center;
+}
+.ptn_pop_check_all_wrap{
+  margin: 5px 0 0 18px;
+  text-align: right;
+}
+
+.ptn_pop_check_all_txt {
+  font-size: 15px;
+  font-weight: bold;
+  color: #585858;
+}
+
+.ptn_pop_check_err_txt {
+  display: block;
+  font-size: 12px;
+  color: #eeb72f;
+}
+
+.ptn_pop_checkbox_wrap {
+  margin: 8px 0 8px 10px
+}
+
+.ptn_pop_viewall {
+  float: right;
+  margin-right: 10px;
+}
+
+.ptn_pop_term_wrap label {
+  color: #8c8c8c;
+}
+
+.ptn_pop_term_wrap a {
+  color: #eeb72f;
+}
+
+.ptn_pop_modal_btn {
+  position: absolute;
+  left: 240px;
+  bottom: 20px;
+}
+
+.ptn_signup_cancel_btn {
+  width: 150px;
+  height: 40px;
+  background: #f2f5ef;
+  color: #8b8b8b;
+  border: 1px solid #f2f5ef;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-right: 15px;
+}
+
+.ptn_signup_btn {
+  width: 150px;
+  height: 40px;
+  background: #eeb72f;
+  color: white;
+  border: 1px solid #eeb72f;
+  border-radius: 5px;
+  font-weight: bold;
+}
 
 
 .footer_side {

@@ -9,6 +9,8 @@
   <link rel="shortcut icon" href="images/favicon.ico">
   <link rel="stylesheet" type="text/css" href="css/reset.css">
   <link rel="stylesheet" type="text/css" href="css/lodging_detail.css">
+  <link rel="stylesheet" type="text/css" href="css/slick.css" />
+  <link rel="stylesheet" type="text/css" href="css/slick-theme.css" />
   <link rel="stylesheet" type="text/css" href="css/daterangepicker.css" />
   <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
     crossorigin="anonymous">
@@ -17,6 +19,7 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <script type="text/javascript" src="js/slick.js"></script>
   <script type="text/javascript" src="js/lodging_detail.js"></script>
 </head>
 
@@ -32,16 +35,23 @@
       <h2 class="indent">숙소상세페이지</h2>
       <div class="main_cont">
         <div class="main_cont_left">
-          <p class="main_ldg_img indent">숙소대표이미지</p>
+          <ul class="slider-for">
+            <li><img src="images/ldg_img01.jpg" alt="숙소대표이미지1"/></li>
+            <li><img src="images/ldg_img02.jpg" alt="숙소대표이미지2"/></li>
+            <li><img src="images/ldg_img03.jpg" alt="숙소대표이미지3"/></li>
+            <li><img src="images/ldg_img04.jpg" alt="숙소대표이미지4"/></li>
+            <li><img src="images/ldg_img05.jpg" alt="숙소대표이미지4"/></li>
+          </ul>
           <div class="carousel">
-            <ul>
-              <li><a href="#" class="ldg_img01 indent">숙소이미지1</a></li>
-              <li><a href="#" class="ldg_img02 indent">숙소이미지2</a></li>
-              <li><a href="#" class="ldg_img03 indent">숙소이미지3</a></li>
-              <li><a href="#" class="ldg_img04 indent">숙소이미지4</a></li>
+            <ul class="slider-nav">
+              <li><img src="images/ldg_main_img.jpg" alt="숙소이미지1" class="nav_img"/></li>
+              <li><img src="images/ldg_img02.jpg" alt="숙소이미지2" class="nav_img"/></li>
+              <li><img src="images/ldg_img03.jpg" alt="숙소이미지3" class="nav_img"/></li>
+              <li><img src="images/ldg_img04.jpg" alt="숙소이미지4" class="nav_img"/></li>
+              <li><img src="images/ldg_img05.jpg" alt="숙소이미지4" class="nav_img"/></li>
             </ul>
-            <a href="#" class="ldg_prev indent">이전</a>
-            <a href="#" class="ldg_next indent">다음</a>
+            <a href="#" id="ldg_prev" class="ldg_prev indent">이전</a>
+            <a href="#" id="ldg_next" class="ldg_next indent">다음</a>
           </div>
         </div>
         <div class="main_cont_right">

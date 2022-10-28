@@ -1,4 +1,33 @@
 $(document).ready(function () {
+  /* 슬라이더 */
+  $('.slider-for').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    fade: true,
+    asNavFor: '.slider-nav'
+  });
+
+  $('.slider-nav').slick({
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    asNavFor: '.slider-for',
+
+    focusOnSelect: true,
+    prevArrow: $('#ldg_prev'),
+    nextArrow: $('#ldg_next')
+  });
+
+  
+  $('.mb_reco_slide').on(
+    'afterChange',
+    function (event, slick, currentSlide, nextSlide) {
+      var i = (currentSlide ? currentSlide : 0) + 1;
+      $('#now_page').text(i);
+      $('#total_page').text(slick.slideCount);
+    },
+  );
+
   /* 숙소 검색 달력 */
   $('#daterange_check').daterangepicker({
     autoUpdateInput: false,

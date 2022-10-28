@@ -47,7 +47,8 @@
                 </div>
                 <div class="user_name relative">
                   <span class="change_info_title">이름</span>
-                  <input type="text" id="user_name_input" class="user_input" maxlength="30"><span id="err_name" class="err_txt"></span>
+                  <input type="text" id="user_name_input" class="user_input" maxlength="30"><span id="err_name"
+                    class="err_txt"></span>
                 </div>
                 <div class="user_nickname relative">
                   <span class="change_info_title">닉네임</span>
@@ -61,7 +62,7 @@
                 </div>
                 <div class="user_password">
                   <span class="change_info_title">비밀번호</span>
-                  <a href="#">비밀번호 변경하기</a>
+                  <a href="#" class="pwd_change_btn">비밀번호 변경하기</a>
                 </div>
               </div>
               <div class="marketing">
@@ -102,7 +103,7 @@
                 </div>
                 <div class="user_password">
                   <span class="change_info_title">비밀번호</span>
-                  <a href="#">비밀번호 변경하기</a>
+                  <a href="#" class="pwd_change_btn">비밀번호 변경하기</a>
                 </div>
               </div>
 
@@ -115,13 +116,39 @@
             </fieldset>
           </div>
         </form>
+
+        <form>
+          <div class="modal_bg">
+            <div class="modal_pwd">
+              <p>
+                <span>비밀번호 변경</span>
+                <button type="button" class="modal_cancel_btn indent">닫기</button>
+              </p>
+
+              <div class="pwd_input_wrap">
+                <span class="pwd_title">비밀번호</span>
+                <input type="password" id="pwd" class="pwd_input" maxlength="20">
+                <br><span id="err_pwd" class="pwd_err_txt"></span>
+              </div>
+              <div class="repwd_input_wrap">
+                <span class="pwd_title">비밀번호 확인</span>
+                <input type="password" id="repwd" class="pwd_input" maxlength="20">
+                <br><span id="err_repwd" class="pwd_err_txt"></span>
+              </div>
+              <div class="modal_btn">
+                <button type="button" class="pwd_cancel_btn btn_hover_cancel">취소</button>
+                <button type="button" class="pwd_save_btn btn_hover">저장</button>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
     </main>
 
 
     <!-- footer -->
     <footer>
-      <div  id="footer-include"></div>
+      <div id="footer-include"></div>
     </footer>
   </div>
 

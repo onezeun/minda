@@ -119,27 +119,25 @@ $(document).ready(function () {
     nextArrow: $('.carousel_next'),
   });
 
-  $('.mb_reco_slide').on(
-    'afterChange',
-    function (event, slick, currentSlide, nextSlide) {
+  $('.mb_reco_slide').on('afterChange', function (event, slick, currentSlide, nextSlide) {
       var i = (currentSlide ? currentSlide : 0) + 1;
       $('#now_page').text(i);
       $('#total_page').text(slick.slideCount);
     },
   );
 
-  $('.carousel_play').click(function (e) {
+  $('#carousel_play').on('click', function (e) {
     e.preventDefault(); // 클릭 시 맨 위로 가지 않게
     $('.mb_reco_slide').slick('slickPlay');
-    $('.carousel_stop').show();
-    $('.carousel_play').hide();
+    $('#carousel_stop').show();
+    $('#carousel_play').hide();
   });
 
-  $('.carousel_stop').click(function (e) {
+  $('#carousel_stop').on('click', function (e) {
     e.preventDefault();
     $('.mb_reco_slide').slick('slickPause');
-    $('.carousel_play').show();
-    $('.carousel_stop').hide();
+    $('#carousel_play').show();
+    $('#carousel_stop').hide();
   });
 
   /* 중간 배너 슬라이드 */
@@ -177,14 +175,14 @@ $(document).ready(function () {
     },
   );
 
-  $('.evnt_play').click(function (e) {
+  $('.evnt_play').on('click', function (e) {
     e.preventDefault();
     $('.evnt_slide').slick('slickPlay');
     $('.evnt_stop').show();
     $('.evnt_play').hide();
   });
 
-  $('.evnt_stop').click(function (e) {
+  $('.evnt_stop').on('click', function (e) {
     e.preventDefault();
     $('.evnt_slide').slick('slickPause');
     $('.evnt_play').show();

@@ -211,7 +211,7 @@ body, span {
   overflow: hidden; 
 }
 
-.modal_bg {
+.pwd_modal_bg {
   position: fixed;
   top: 0;
   left: 0;
@@ -219,6 +219,11 @@ body, span {
   bottom: 0;
   background-color: rgb(0,0,0,0.6);
   display: none;
+}
+
+.pwd_modal_title {
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .modal_pwd {

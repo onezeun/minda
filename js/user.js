@@ -202,12 +202,12 @@ $(document).ready(function () {
   $(".pwd_change_btn").on("click", function (e) {
     e.preventDefault();
 
-    $(".modal_bg").fadeTo("fast", 1);
+    $(".pwd_modal_bg").fadeTo("fast", 1);
     $("body").addClass("scrollLock");
   });
 
   $(".modal_cancel_btn").on("click", function () {
-    $(".modal_bg").hide();
+    $(".pwd_modal_bg").hide();
     $("body").removeClass("scrollLock");
     $("#pwd").val('').addClass("pwd_input").removeClass("pwd_err_input pwd_mr");
     $("#repwd").val('').addClass("pwd_input").removeClass("pwd_err_input");
@@ -216,7 +216,7 @@ $(document).ready(function () {
   });
 
   $(".pwd_cancel_btn").on("click", function () {
-    $(".modal_bg").hide();
+    $(".pwd_modal_bg").hide();
     $("body").removeClass("scrollLock");
     $("#pwd").val('').addClass("pwd_input").removeClass("pwd_err_input pwd_mr");
     $("#repwd").val('').addClass("pwd_input").removeClass("pwd_err_input");

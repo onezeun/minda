@@ -25,11 +25,13 @@ include "../inc/session.php";
 
         $('.gomain_btn').on('click', function() {
           location.href="../index.html"
-          <?php unset($_SESSION["s_name"]); ?>
         })
 
         $('.login_btn').on('click', function() {
           location.href="../login.html"
+        })
+
+        $(window).on('beforeunlode', function() {
           <?php unset($_SESSION["s_name"]); ?>
         })
       });

@@ -1,3 +1,7 @@
+<?php
+  include "session.php";
+?>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -5,10 +9,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HEADER</title>
-  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
-  crossorigin="anonymous">
+  <script 
+    src="https://code.jquery.com/jquery-3.6.1.js" 
+    integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous">
   </script>
-<script type="text/javascript" src="js/header.js"></script>
+<script type="text/javascript" src="../js/header.js"></script>
 </head>
 <body>
   <div id="header" class="header">
@@ -16,10 +22,12 @@
     <div class="top_menu_wrap">
       <h2 class="hide">사용자 메뉴</h2>
       <div class="top_menu">
+      <?php if(!$s_idx) { ?>
+        <!-- 로그인 전 -->
         <ul>
-          <li class="top_bar"><a href="login.html">로그인</a></li>
-          <li class="top_bar"><a href="user/signup.html">회원가입</a></li>
-          <li class="top_bar"><a href="user.html">고객센터</a></li>
+          <li class="top_bar"><a href="./login/login.html">로그인</a></li>
+          <li class="top_bar"><a href="./user/signup.html">회원가입</a></li>
+          <li class="top_bar"><a href="#">고객센터</a></li>
           <li class="top_bar_search indent">
             <form action="">
               <input name="q" type="search" placeholder="검색어를 입력하세요" />
@@ -27,15 +35,16 @@
             </form>
           </li>
         </ul>
-
-        <!-- <ul>
+        <?php } else {?>
+        <!-- 로그인 후 -->
+        <ul>
           <li><img src="images/profile.png" alt="사용자 프로필사진" class="top_profile_img"></li>
           <li class="top_login">
-            <a href="#" class="top_user_name">하찌</a> 님, 반갑습니다!
+            <a href="#" class="top_user_name"><?php echo $s_name; ?></a> 님, 반갑습니다!
             <div class="top_user_menu area">
               <ul>
                 <li>
-                  <a href="">마이민다</a>
+                  <a href="../user/user.html">마이민다</a>
                   <div class="top_user_bar"></div>
                 </li>
                 <li><a href="">예약내역</a></li>
@@ -47,14 +56,15 @@
               </ul>
             </div>
           </li>
-          <li class="top_bar"><a href="user.html">고객센터</a></li>
+          <li class="top_bar"><a href="">고객센터</a></li>
           <li class="top_bar_search indent">
             <form action="">
               <input name="q" type="search" placeholder="검색어를 입력하세요" />
               <button type="button" class="search-icon"></button>
             </form>
           </li>
-        </ul> -->
+        </ul>
+        <?php }; ?>
       </div>
     </div>
 

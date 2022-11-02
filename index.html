@@ -17,12 +17,18 @@
   <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
     crossorigin="anonymous">
     </script>
-  <script type="text/javascript" src="js/includ.js"></script>
+  <!-- <script type="text/javascript" src="js/includ.js"></script> -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
   <script type="text/javascript" src="js/slick.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('#header-include').load('inc/header.php');
+      $('#footer-include').load('inc/footer.html');
+    });
+  </script>
 </head>
 
 <body>

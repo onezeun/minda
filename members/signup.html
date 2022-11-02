@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+    <link rel="shortcut icon" href="../images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="../css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../css/header.css" />
+    <link rel="stylesheet" type="text/css" href="../css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="../css/signup.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.js"
+      integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#header-include').load('../header.html');
+        $('#footer-include').load('../footer.html');
+      });
+    </script>
+    <script type="text/javascript" src="../js/signup.js"></script>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <!-- header -->
+      <header>
+        <div id="header-include"></div>
+      </header>
+
+      <!-- content -->
+      <main id="content" class="content">
+        <div class="signup_wrap">
+          <div class="signup_title_wrap">
+            <h2 class="signup_title">회원가입</h2>
+          </div>
+          <div class="minda_signup_wrap">
+            <form
+              name="signup_form"
+              id="signup_form"
+              action="insert.php"
+              method="post"
+            >
+              <div class="userinfo">
+                <div class="email_wrap">
+                  <input
+                    type="text"
+                    name="u_email"
+                    id="email"
+                    class="email_input"
+                    title="Email"
+                    placeholder="Email"
+                    maxlength="50"
+                  />
+                  <button type="button" class="email_check_btn btn_hover">
+                    중복확인
+                  </button>
+                  <br /><span id="err_email" class="err_txt"></span>
+                </div>
+                <div class="signup_rest">
+                  <input
+                    type="password"
+                    name="u_pwd"
+                    id="pwd"
+                    class="signup_input"
+                    title="비밀번호"
+                    placeholder="비밀번호"
+                    maxlength="20"
+                  />
+                  <br /><span id="err_pwd" class="err_txt"></span>
+                  <input
+                    type="password"
+                    id="repwd"
+                    class="signup_input"
+                    title="비밀번호 확인"
+                    placeholder="비밀번호 확인"
+                    maxlength="20"
+                  />
+                  <br /><span id="err_repwd" class="err_txt"></span>
+                  <input
+                    type="text"
+                    name="u_name"
+                    id="name"
+                    class="signup_input"
+                    title="이름(실명)"
+                    placeholder="이름(실명)"
+                    maxlength="30"
+                  />
+                  <br /><span id="err_name" class="err_txt"></span>
+                  <input
+                    type="text"
+                    name="u_nickname"
+                    id="nickname"
+                    class="signup_input"
+                    title="닉네임"
+                    placeholder="닉네임"
+                    maxlength="15"
+                  />
+                  <br /><span id="err_nickname" class="err_txt"></span>
+                  <input
+                    type="text"
+                    name="u_phone"
+                    id="mobile"
+                    class="signup_input"
+                    title="휴태폰번호(숫자만 입력)"
+                    placeholder="휴대폰번호(숫자만 입력)"
+                    maxlength="20"
+                  />
+                  <br /><span id="err_mobile" class="err_txt"></span>
+                </div>
+              </div>
+
+              <fieldset class="term">
+                <legend class="term_title">약관 동의</legend>
+                <p>
+                  회원가입 후 포인트 적립, 베스트 평가회원 선정 등 민다가
+                  제공하는 서비스 혜택을 받으세요.
+                </p>
+                <div class="check_all_wrap">
+                  <input type="checkbox" class="check_all" id="check_all" />
+                  <label for="check_all" class="check_all_txt"
+                    >전체 약관 동의</label
+                  >
+                  <span id="err_apply" class="check_err_txt"></span>
+                </div>
+                <div class="term_wrap">
+                  <div class="checkbox_wrap">
+                    <input
+                      type="checkbox"
+                      class="checkbox01 nomal"
+                      id="checkbox01"
+                    />
+                    <label for="checkbox01"
+                      >(필수) 민다 서비스 이용약관 동의</label
+                    >
+                    <a href="#" class="viewall">전체보기</a>
+                  </div>
+                  <div class="checkbox_wrap">
+                    <input
+                      type="checkbox"
+                      class="checkbox02 nomal"
+                      id="checkbox02"
+                    />
+                    <label for="checkbox02"
+                      >(필수) 민다 개인정보 수집 이용 및 동의</label
+                    >
+                    <a href="#" class="viewall">전체보기</a>
+                  </div>
+                  <div class="checkbox_wrap">
+                    <input
+                      type="checkbox"
+                      name="u_marketing"
+                      class="checkbox03 nomal"
+                      id="checkbox03"
+                      value="Y"
+                    />
+                    <label for="checkbox03">(선택) 마케팅 정보 수신 동의</label>
+                  </div>
+                </div>
+              </fieldset>
+
+              <button type="click" id="signup_btn" class="submit_btn btn_hover">
+                <span>회원 가입</span>
+              </button>
+            </form>
+          </div>
+
+          <div class="social_signup">
+            <h3 class="social_signup_title">SNS 계정 회원가입</h3>
+            <a href="#" class="naver_signup indent">네이버계정으로 회원가입</a>
+            <a href="#" class="kakao_signup indent">카카오계정으로 회원가입</a>
+
+            <div class="login">
+              <p>이미 민다 회원이신가요?</p>
+              <a href="#">로그인하러가기</a>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- footer -->
+      <footer>
+        <div id="footer-include"></div>
+      </footer>
+    </div>
+  </body>
+</html>

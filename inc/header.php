@@ -14,7 +14,7 @@
     integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
     crossorigin="anonymous">
   </script>
-<script type="text/javascript" src="../js/header.js"></script>
+<script type="text/javascript" src="./js/header.js"></script>
 </head>
 <body>
   <div id="header" class="header">
@@ -25,8 +25,8 @@
       <?php if(!$s_idx) { ?>
         <!-- 로그인 전 -->
         <ul>
-          <li class="top_bar"><a href="./login/login.html">로그인</a></li>
-          <li class="top_bar"><a href="./user/signup.html">회원가입</a></li>
+          <li class="top_bar"><a href="http://localhost/KDT-1st-project-minda//login/login.html">로그인</a></li>
+          <li class="top_bar"><a href="http://localhost/KDT-1st-project-minda//user/signup.html">회원가입</a></li>
           <li class="top_bar"><a href="#">고객센터</a></li>
           <li class="top_bar_search indent">
             <form action="">
@@ -44,15 +44,15 @@
             <div class="top_user_menu area">
               <ul>
                 <li>
-                  <a href="../user/user.html">마이민다</a>
+                  <a href="http://localhost/KDT-1st-project-minda/user/user.html">마이민다</a>
                   <div class="top_user_bar"></div>
                 </li>
-                <li><a href="">예약내역</a></li>
+                <li><a href="#">예약내역</a></li>
                 <li>
-                  <a href="">위시리스트</a>
+                  <a href="#">위시리스트</a>
                   <div class="top_user_bar"></div>
                 </li>
-                <li><a href="">로그아웃</a></li>
+                <li><a href="#">로그아웃</a></li>
               </ul>
             </div>
           </li>
@@ -71,7 +71,7 @@
     <nav class="gnb">
       <h2 class="hide">주요 메뉴</h2>
       <ul>
-        <li class="menu1"><a href="lodging.html">숙소</a></li>
+        <li class="menu1"><a href="http://localhost/KDT-1st-project-minda/lodging.html">숙소</a></li>
         <li class="menu2"><a href="#">투어</a></li>
         <li class="menu3"><a href="#">해외렌터카</a></li>
         <li class="menu4"><a href="#" class="">여행편의</a>
@@ -94,7 +94,7 @@
           </div>
         </li>
         <li class="menu6"><a href="#">여행정보</a></li>
-        <li class="menu7"><a href="community.html">커뮤니티</a>
+        <li class="menu7"><a href="http://localhost/KDT-1st-project-minda/community.html">커뮤니티</a>
           <div class="menu7_sub_wrap shadow">
             <ul ul class="menu7_sub">
               <li class="menu7_sub1"><a href="#">구인·구직</a></li>

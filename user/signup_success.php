@@ -18,17 +18,15 @@ include "../inc/session.php";
       integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
       crossorigin="anonymous"
     ></script>
+    <script type="text/javascript" src="../js/includ.js"></script>
     <script type="text/javascript">
       $(document).ready(function () {
-        $('#header-include').load('../header.html');
-        $('#footer-include').load('../footer.html');
-
         $('.gomain_btn').on('click', function() {
           location.href="../index.html"
         })
 
         $('.login_btn').on('click', function() {
-          location.href="../login.html"
+          location.href="../login/login.html"
         })
 
         $(window).on('beforeunlode', function() {

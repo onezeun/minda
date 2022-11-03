@@ -14,19 +14,19 @@
     integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
     crossorigin="anonymous">
   </script>
-<script type="text/javascript" src="./js/header.js"></script>
+<script type="text/javascript" src="http://localhost/KDT-1st-project-minda/js/header.js"></script>
 </head>
 <body>
   <div id="header" class="header">
-    <h1 class="logo indent"><a href="index.html">민다</a></h1>
+    <h1 class="logo indent"><a href="http://localhost/KDT-1st-project-minda/index.html">민다</a></h1>
     <div class="top_menu_wrap">
       <h2 class="hide">사용자 메뉴</h2>
       <div class="top_menu">
       <?php if(!$s_idx) { ?>
         <!-- 로그인 전 -->
         <ul>
-          <li class="top_bar"><a href="http://localhost/KDT-1st-project-minda//login/login.html">로그인</a></li>
-          <li class="top_bar"><a href="http://localhost/KDT-1st-project-minda//user/signup.html">회원가입</a></li>
+          <li class="top_bar"><a href="http://localhost/KDT-1st-project-minda/login/login.html">로그인</a></li>
+          <li class="top_bar"><a href="http://localhost/KDT-1st-project-minda/user/signup.html">회원가입</a></li>
           <li class="top_bar"><a href="#">고객센터</a></li>
           <li class="top_bar_search indent">
             <form action="">
@@ -38,7 +38,7 @@
         <?php } else {?>
         <!-- 로그인 후 -->
         <ul>
-          <li><img src="images/profile.png" alt="사용자 프로필사진" class="top_profile_img"></li>
+          <li><img src="http://localhost/KDT-1st-project-minda/images/profile.png" alt="사용자 프로필사진" class="top_profile_img"></li>
           <li class="top_login">
             <a href="#" class="top_user_name"><?php echo $s_name; ?></a> 님, 반갑습니다!
             <div class="top_user_menu area">
@@ -47,12 +47,12 @@
                   <a href="http://localhost/KDT-1st-project-minda/user/user.html">마이민다</a>
                   <div class="top_user_bar"></div>
                 </li>
-                <li><a href="#">예약내역</a></li>
+                <li><a href="http://localhost/KDT-1st-project-minda/user/user_reservation.html">예약내역</a></li>
                 <li>
                   <a href="#">위시리스트</a>
                   <div class="top_user_bar"></div>
                 </li>
-                <li><a href="#">로그아웃</a></li>
+                <li><a href="http://localhost/KDT-1st-project-minda/login/logout.php">로그아웃</a></li>
               </ul>
             </div>
           </li>

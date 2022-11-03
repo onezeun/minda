@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>파트너 예약관리 페이지</title>
+    <link rel="shortcut icon" href="../images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="../css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../css/header.css" />
+    <link rel="stylesheet" type="text/css" href="../css/footer.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../css/partner_reservation.css"
+    />
+    <link rel="stylesheet" type="text/css" href="../css/slick.css" />
+    <link rel="stylesheet" type="text/css" href="../css/slick-theme.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.js"
+      integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="../js/slick.js"></script>
+    <script type="text/javascript" src="../js/partner_reservation.js"></script>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header id="header" class="header">
+        <h1 class="partner_logo indent">
+          <a href="../partner/partner_reservation.html">민다파트너</a>
+        </h1>
+      </header>
+
+      <!-- content -->
+      <main id="content" class="content">
+        <div class="side_bar">
+          <h2 class="hide">관리메뉴</h2>
+          <div class="reservation">
+            <a href="../partner/partner_reservation.html">예약 관리</a>
+          </div>
+          <div class="message">
+            <a href="#">메세지</a>
+          </div>
+          <div class="review">
+            <a href="#">후기 관리</a>
+          </div>
+          <div class="room">
+            <a href="../partner/partner_room.html">숙소 및 객실 관리</a>
+          </div>
+        </div>
+
+        <div class="reservation_cont">
+          <div class="checkout">
+            <h2 class="checkout_title">체크아웃 예정</h2>
+            <!-- <ul id="checkout_slide" class="card_slide">
+            <li class="block">
+              <div class="cstm_card">
+                <p class="cstm_num"><a href="#">예약번호 200000000</a></p>
+                <img src="./images/profile.png" alt="고객 프로필 이미지" class="cstm_img">
+                <p>한지은</p>
+                <p>010-0000-0000</p>
+                <p>체크아웃 2023/04/23</p>
+                <div class="massage_btn">
+                  <a href="#">1:1 메세지</a>
+                </div>
+              </div>
+            </li>
+          </ul> -->
+
+            <div class="cstm_none">
+              <img
+                src="./images/partner_reservation_icon.png"
+                alt="예약없음 아이콘"
+                class="cstm_none_img"
+              />
+              <p>오늘과 내일은 체크아웃하는 게스트가 없습니다.</p>
+            </div>
+          </div>
+          <div class="line"></div>
+          <div class="checkin">
+            <h2 class="checkin_title">체크인 예정</h2>
+            <ul id="checkin_slide" class="card_slide">
+              <li>
+                <div class="cstm_card">
+                  <p class="cstm_num"><a href="#">예약번호 200000000</a></p>
+                  <img
+                    src="./images/profile.png"
+                    alt="고객 프로필 이미지"
+                    class="cstm_img"
+                  />
+                  <p>한지은</p>
+                  <p>010-0000-0000</p>
+                  <p>체크아웃 2023/04/23</p>
+                  <div class="massage_btn">
+                    <a href="#">1:1 메세지</a>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="cstm_card">
+                  <p class="cstm_num"><a href="#">예약번호 200000000</a></p>
+                  <img
+                    src="./images/profile.png"
+                    alt="고객 프로필 이미지"
+                    class="cstm_img"
+                  />
+                  <p>한지은</p>
+                  <p>010-0000-0000</p>
+                  <p>체크아웃 2023/04/23</p>
+                  <div class="massage_btn">
+                    <a href="#">1:1 메세지</a>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="cstm_card">
+                  <p class="cstm_num"><a href="#">예약번호 200000000</a></p>
+                  <img
+                    src="./images/profile.png"
+                    alt="고객 프로필 이미지"
+                    class="cstm_img"
+                  />
+                  <p>한지은</p>
+                  <p>010-0000-0000</p>
+                  <p>체크아웃 2023/04/23</p>
+                  <div class="massage_btn">
+                    <a href="#">1:1 메세지</a>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="cstm_card">
+                  <p class="cstm_num"><a href="#">예약번호 200000000</a></p>
+                  <img
+                    src="./images/profile.png"
+                    alt="고객 프로필 이미지"
+                    class="cstm_img"
+                  />
+                  <p>한지은</p>
+                  <p>010-0000-0000</p>
+                  <p>체크아웃 2023/04/23</p>
+                  <div class="massage_btn">
+                    <a href="#">1:1 메세지</a>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="cstm_card">
+                  <p class="cstm_num"><a href="#">예약번호 200000000</a></p>
+                  <img
+                    src="./images/profile.png"
+                    alt="고객 프로필 이미지"
+                    class="cstm_img"
+                  />
+                  <p>한지은</p>
+                  <p>010-0000-0000</p>
+                  <p>체크아웃 2023/04/23</p>
+                  <div class="massage_btn">
+                    <a href="#">1:1 메세지</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+
+            <a href="#" id="checkin_btn1" class="card_prev">이전</a>
+            <a href="#" id="checkin_btn2" class="card_next">다음</a>
+          </div>
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+        <h2 class="hide">사이트 이용 안내</h2>
+
+        <div class="footer_term">
+          <h3 class="hide">약관 및 정책</h3>
+          <ul>
+            <li><a href="#">회사소개</a></li>
+            <li><a href="#">파트너 가입</a></li>
+            <li><a href="#">취소환불규정</a></li>
+            <li><a href="#">고객센터</a></li>
+            <li><a href="#" class="notice">공지사항</a></li>
+            <li><a href="#">이용약관개인정보처리방침</a></li>
+            <li><a href="#">사업자정보확인</a></li>
+          </ul>
+        </div>
+
+        <div class="footer_side_wrap">
+          <a href="index.html" class="footer_gopatner">민다 바로가기</a>
+          <div class="footer_side indent">
+            <h3 class="hide">SNS</h3>
+            <ul>
+              <li class="footer_sns_fb"><a href="#">페이스북</a></li>
+              <li class="footer_sns_blog"><a href="#">블로그</a></li>
+              <li class="footer_sns_instar"><a href="#">인스타그램</a></li>
+            </ul>
+            <a href="#" class="footer_qna indent">고객센터문의</a>
+          </div>
+        </div>
+
+        <div class="footer_info">
+          <h3>INFORMATION</h3>
+          <div class="footer_info_txt1">
+            <p class="footer_txt">㈜민다 대표 : 김윤희</p>
+            <p class="footer_txt">사업자등록번호 : 101-86-28116</p>
+            <p class="footer_txt">관광사업등록증 : 제 2020-000054호</p>
+            <p>통신판매업신고 : 제 2020-서울마포-3698호</p>
+          </div>
+          <div class="footer_info_txt2">
+            <p class="footer_txt">고객센터 : 1661-2892</p>
+            <p class="footer_txt">FAX : 02-722-3478</p>
+            <p>운영시간 : 평일 10시~12시/13시~18시(주말, 공휴일 휴무)</p>
+          </div>
+          <div class="footer_info_txt3">
+            <p class="footer_txt">
+              이메일 : help@theminda.com(일반문의), biz@theminda.com(사업제휴)
+            </p>
+            <address>
+              서울특별시 마포구 성산로2길 55, 샤인빌딩 602호 (성산동)
+            </address>
+          </div>
+          <p>Copyright © Minda Co., Ltd. All rights reserved.</p>
+        </div>
+
+        <div class="footer_bot_warp">
+          <div class="footer_bot">
+            <p>
+              (주)민다의 사전 서면동의 없이 민다 사이트(PC, 모바일, 앱)의 일체의
+              정보, 콘텐츠 및 UI 등을 상업적 목적으로 전재, 전송, 스크래핑 등
+              무단 사용할 수 없습니다.
+            </p>
+
+            <p>
+              (주)민다는 통신판매중개자이며 통신판매의 당사자가 아닙니다.<br />
+              따라서 (주)민다는 상품·거래정보 및 거래와 관련하여 판매자의 고의
+              또는 과실로 소비자에게 발생하는 손해에 대해 일체 책임을 지지
+              않습니다.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

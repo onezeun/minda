@@ -1,36 +1,32 @@
 $(document).ready(function () {
-  /* 기본 값 */
+  /* DB 조회 */
   $.ajax({
-    url : '../user/user_edit.php',
+    url : '../user/user_read.php',
     type : 'POST',
-    data : {
-      u_email: u_email,
-      u_name: u_name,
-      u_nickname: u_nickname,
-      u_marketing: u_marketing
-    },
-  }).done(function(data) {
-    console.log(data)
+    data : $('#user_form').serialize(),
+    datatype:'json',
+  }).done(function(data){
+    /* input */
+    $(".user_email_val").text(data.u_email);
+    $("#user_name_input").val(data.u_name);
+    $("#user_nickname_input").val(data.u_nickname);
+    $("#user_mobile_input").val(data.u_phone);
+    if (data.u_marketing == 'Y') {
+      $("#mk_btn1").attr("checked", true);
+    } else {
+      $("#mk_btn2").attr("checked", true);
+    }
+
+    /* value */
+    $("#user_name_val").text(data.u_name);
+    $("#user_nickname_val").text(data.u_nickname);
+    $("#user_mobile_val").text(data.u_phone.replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`));
+    if (data.u_marketing == 'Y') {
+      $(".mk_txt").text("수신");
+    } else {
+      $(".mk_txt").text("수신거부");
+    }
   })
-  if (!$(".user_name_val").text() == "") {
-    $("#user_name_input").val($(".user_name_val").text());
-  }
-
-  if (!$(".user_nickname_val").text() == "") {
-    $("#user_nickname_input").val($(".user_nickname_val").text());
-  }
-
-  if (!$(".user_mobile_val").text() == "") {
-    $("#user_mobile_input").val(
-      $(".user_mobile_val").text().replace(/\-/g, "")
-    );
-  }
-
-  if ($(".mk_txt").text() === "수신") {
-    $("#mk_btn1").attr("checked", true);
-  } else {
-    $("#mk_btn2").attr("checked", false);
-  }
 
   /* 편집 버튼 토글 */
   $(".edit_btn").on("click", function () {

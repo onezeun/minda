@@ -66,6 +66,14 @@
   display: block;
 }
 
+.err_login {
+  width: 300px;
+  margin: 5px 0 0 63px;
+  font-size: 15px;
+  color: red;
+  display: block;
+}
+
 .login_btn {
   width: 500px;
   height: 40px;

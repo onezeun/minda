@@ -27,13 +27,41 @@ $(document).ready(function () {
   });
 
   $('#login_btn').on('click', function () {
+    let u_email = $('#email_input').val();
+    let u_pwd = $('#pwd_input').val();
+
     if (!emailCheck() || !pwdCheck()) {
       emailCheck();
       pwdCheck();
       return false;
-    } else $('#login_form').submit();
+    } else {
+      $.ajax({
+        async: true,
+        url: '../login/login_ok.php',
+        type: 'POST',
+        data: {
+          u_email: u_email,
+          u_pwd: u_pwd,
+        },
+        success: function (data) {
+          if (data == '1') {
+            $('#email_input').addClass('err_input').focus();
+            $('#err_email')
+              .css({ display: 'block' })
+              .text('일치하는 이메일이 없습니다');
+            return false;
+          } else {
+            if (data == '2') {
+              $('#pwd_input').addClass('err_input').focus();
+              $('#err_pwd').css({ display: 'block' }).text('비밀번호가 일치하지 않습니다.');
+              return false;
+            } else {
+              $('#login_form').submit();
+              location.href = "../index.html";
+            }
+          }
+        },
+      });
+    }
   });
-
-
-
 });

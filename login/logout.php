@@ -10,7 +10,7 @@ unset($_SESSION["s_email"]);
 // 페이지 이동
 echo "
 <script type=\"text/javascript\">
-location.href = \"../index.html\";
+location.href = \"http://localhost/KDT-1st-project-minda/index.html\";
 </script>
 ";
 ?>

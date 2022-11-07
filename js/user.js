@@ -1,5 +1,17 @@
 $(document).ready(function () {
   /* 기본 값 */
+  $.ajax({
+    url : '../user/user_edit.php',
+    type : 'POST',
+    data : {
+      u_email: u_email,
+      u_name: u_name,
+      u_nickname: u_nickname,
+      u_marketing: u_marketing
+    },
+  }).done(function(data) {
+    console.log(data)
+  })
   if (!$(".user_name_val").text() == "") {
     $("#user_name_input").val($(".user_name_val").text());
   }

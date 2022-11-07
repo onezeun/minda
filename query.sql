@@ -6,7 +6,7 @@ create table user (
   u_name VARCHAR(30) NOT NULL,
   u_nickname VARCHAR(15) NOT NULL,
   u_phone VARCHAR(20) NOT NULL,
-  u_marketing TINYINT(1),
+  u_marketing CHAR(1),
   u_img LONGBLOB,
   reg_date DATETIME
 );
@@ -29,9 +29,9 @@ create table reservation (
   res_idx INT AUTO_INCREMENT PRIMARY KEY,
   ldg_idx INT,
   u_idx INT,
-  res_name VARCHAR(20) NOT NULL,
+  res_name VARCHAR(30) NOT NULL,
   res_phone VARCHAR(20) NOT NULL,
-  res_email VARCHAR(20) NOT NULL,
+  res_email VARCHAR(50) NOT NULL,
   res_gender CHAR(1) NOT NULL,
   res_checkin DATE NOT NULL,
   res_checkout DATE NOT NULL,

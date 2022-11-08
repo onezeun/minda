@@ -159,7 +159,7 @@
             </div>
             <button id="remove_user" class="remove_user">회원탈퇴</button>
 
-          <form>
+          <form name="user_pwd_form" id="user_pwd_form" action="user_pwd.php" method="post">
             <div class="pwd_modal_bg">
               <div class="modal_pwd">
                 <p>
@@ -173,6 +173,7 @@
                   <span class="pwd_title">비밀번호</span>
                   <input
                     type="password"
+                    name="u_pwd"
                     id="pwd"
                     class="pwd_input"
                     maxlength="20"
@@ -193,7 +194,7 @@
                   <button type="button" class="pwd_cancel_btn btn_hover_cancel">
                     취소
                   </button>
-                  <button type="button" class="pwd_save_btn btn_hover">
+                  <button type="button" id="pwd_save_btn" class="pwd_save_btn btn_hover">
                     저장
                   </button>
                 </div>

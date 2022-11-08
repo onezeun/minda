@@ -19,7 +19,6 @@
 
   /* 3. 쿼리 작성 */
   $sql ="UPDATE user SET u_name='$u_name', u_nickname='$u_nickname', u_phone='$u_phone', u_marketing='$u_marketing' WHERE u_idx=$s_idx;";
-  echo $sql;
 
   /* 4. 쿼리 전송 */
   mysqli_query($dbcon, $sql);

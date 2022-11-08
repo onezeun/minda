@@ -168,23 +168,7 @@ $(document).ready(function () {
       nicknameCheck();
       mobileCheck();
       return false;
-    } else {
-      $('#user_form').submit();
-
-      $.ajax({
-        url: '../user/user_edit.php',
-        type: 'POST',
-        data: {
-          u_name : $("#user_name_input").val(),
-          u_nickname : $("#user_nickname_input").val(),
-          u_phone : $("#user_phone_input").val(),
-          u_marketing : $("#mk_btn1").val(),
-        },
-        seccess: function(data) {
-          console.log(data);
-        }
-      });
-    }
+    } else $('#user_form').submit();
   });
 
   /* 회원 탈퇴 */
@@ -275,4 +259,13 @@ $(document).ready(function () {
   $("#repwd").on("keyup", function () {
     repwdCheck();
   });
+
+    /* 비밀번호 변경 */
+    $("#pwd_save_btn").on("click", function () {
+      if (!pwdCheck() || !repwdCheck()) {
+        pwdCheck();
+        repwdCheck();
+        return false;
+      } else $('#user_pwd_form').submit();
+    });
 });

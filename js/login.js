@@ -56,7 +56,6 @@ $(document).ready(function () {
               $('#err_pwd').css({ display: 'block' }).text('비밀번호가 일치하지 않습니다.');
               return false;
             } else {
-              $('#login_form').submit();
               location.href = "../index.html";
             }
           }

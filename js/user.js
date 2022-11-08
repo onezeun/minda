@@ -162,47 +162,28 @@ $(document).ready(function () {
   });
 
   /* input 값 넘겨주기*/
-  $(".save_btn").on("click", function (e) {
-    e.preventDefault();
-
+  $("#save_btn").on("click", function () {
     if (!nameCheck() || !nicknameCheck() || !mobileCheck()) {
       nameCheck();
       nicknameCheck();
       mobileCheck();
       return false;
     } else {
-      $(".edit_cont").hide();
-      $(".default_cont").show();
-      $(".btn").hide();
+      $('#user_form').submit();
 
-      if (!$("#profile_photo_edit").attr("src") == "") {
-        var new_img = $("#profile_photo_edit").attr("src");
-        $("#profile_photo_save").attr("src", new_img);
-      }
-
-      if ($("#user_name_input").val() != $(".user_name_val")) {
-        $(".user_name_val").text($("#user_name_input").val());
-      }
-
-      if ($("#user_nickname_input").val() != $(".user_nickname_val")) {
-        $(".user_nickname_val").text($("#user_nickname_input").val());
-      }
-
-      if ($("#user_mobile_input").val() != $(".user_mobile_val")) {
-        $(".user_mobile_val").text(
-          $("#user_mobile_input")
-            .val()
-            .replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`)
-        );
-      }
-
-      if ($("#mk_btn1").is(":checked")) {
-        $(".mk_txt").text("수신");
-      } else {
-        $(".mk_txt").text("수신거부");
-      }
-
-      // $('#user_form').submit();
+      $.ajax({
+        url: '../user/user_edit.php',
+        type: 'POST',
+        data: {
+          u_name : $("#user_name_input").val(),
+          u_nickname : $("#user_nickname_input").val(),
+          u_phone : $("#user_phone_input").val(),
+          u_marketing : $("#mk_btn1").val(),
+        },
+        seccess: function(data) {
+          console.log(data);
+        }
+      });
     }
   });
 

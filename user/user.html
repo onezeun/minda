@@ -31,7 +31,7 @@
         <div class="user_wrap">
           <h2 class="myminda">마이민다</h2>
 
-          <form name="user_form" id="user_form" action="user.html" method="get">
+          <form name="user_form" id="user_form" action="user_edit.php" method="post">
             <div class="change_info_wrap">
               <button type="button" class="edit_btn">편집</button>
               <fieldset class="edit_cont">
@@ -43,7 +43,7 @@
                     class="profile_photo"
                     alt="프로필 이미지"
                   />
-                  <input type="file" id="img_input" class="img_input" />
+                  <input type="file" name="u_img" id="img_input" class="img_input" />
                   <button id="uplode_btn" class="uplode_photo btn_hover">
                     이미지 업로드
                   </button>
@@ -61,6 +61,7 @@
                     <span class="change_info_title">이름</span>
                     <input
                       type="text"
+                      name="u_name"
                       id="user_name_input"
                       class="user_input"
                       maxlength="30"
@@ -70,6 +71,7 @@
                     <span class="change_info_title">닉네임</span>
                     <input
                       type="text"
+                      name="u_nickname"
                       id="user_nickname_input"
                       class="user_input"
                       maxlength="15"
@@ -79,6 +81,7 @@
                     <span class="change_info_title">연락처</span>
                     <input
                       type="text"
+                      name="u_phone"
                       id="user_mobile_input"
                       class="user_input"
                       maxlength="20"
@@ -92,12 +95,12 @@
                 <div class="marketing">
                   <span class="change_info_title">마케팅 수신 동의</span>
                   <div class="mk_radio">
-                    <input type="radio" name="marketing" id="mk_btn1" /><label
+                    <input type="radio" name="u_marketing" id="mk_btn1" value="Y"/><label
                       for="mk_btn1"
                       class="mk_btn1"
                       >수신</label
                     >
-                    <input type="radio" name="marketing" id="mk_btn2" /><label
+                    <input type="radio" name="u_marketing" id="mk_btn2" value="N" /><label
                       for="mk_btn2"
                       >수신거부</label
                     >
@@ -107,7 +110,7 @@
                   <button type="button" class="cancel_btn btn_hover_cancel">
                     취소
                   </button>
-                  <button type="button" class="save_btn btn_hover">저장</button>
+                  <button type="button" id="save_btn" class="save_btn btn_hover">저장</button>
                 </div>
               </fieldset>
             </form>

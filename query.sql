@@ -12,7 +12,13 @@ create table user (
 );
 
 -- USER 회원가입 INSERT 쿼리
-INSERT INTO user(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('$u_name', '$u_pwd', '$u_name', '$u_nickname', '$u_phone', '$u_marketing', '$reg_date');
+INSERT INTO user(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('$u_email', '$u_pwd', '$u_name', '$u_nickname', '$u_phone', '$u_marketing', '$reg_date');
+INSERT INTO user(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('테스트5', '1234', '이름6', '닉네임1', '01055555555', 'Y', now());
+INSERT INTO user(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('테스트6', '1234', '이름7', '닉네임2', '01066666666', 'N', now());
+INSERT INTO user(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('테스트7', '1234', '이름8', '닉네임3', '01077777777', 'Y', now());
+INSERT INTO user(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('테스트8', '1234', '이름9', '닉네임4', '01088888888', 'N', now());
+
+
 
 -- 회원(업주) OWNER
 create table owner_table (

@@ -187,6 +187,14 @@ $(document).ready(function () {
     }
   });
 
+  /* 회원 탈퇴 */
+  $('#remove_user').on('click', function() {
+    var rtn_val = confirm("정말 탈퇴하시겠습니까?");
+    if(rtn_val == true){
+      location.href = "user_delete.php"
+    };
+  });
+
   /* 비밀번호 변경 팝업 */
   $(".pwd_change_btn").on("click", function (e) {
     e.preventDefault();

@@ -1,5 +1,5 @@
--- 회원(고객) USER
-create table user (
+-- 일반회원 USER
+CREATE TABLE user (
   u_idx INT AUTO_INCREMENT PRIMARY KEY,
   u_email VARCHAR(50) NOT NULL,
   u_pwd VARCHAR(20) NOT NULL,
@@ -26,15 +26,21 @@ INSERT INTO user(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_d
 
 
 
--- 회원(업주) OWNER
-create table owner_table (
-  o_idx INT AUTO_INCREMENT PRIMARY KEY,
+-- 파트너회원
+CREATE TABLE partner_user (
+  p_idx INT AUTO_INCREMENT PRIMARY KEY,
   u_idx INT,
-  o_name VARCHAR(20) NOT NULL,
-  o_number VARCHAR(20) NOT NULL,
-  o_phone VARCHAR(20) NOT NULL,
-  FOREIGN KEY (u_idx) REFERENCES user (u_idx)
+  p_name VARCHAR(20) NOT NULL,
+  p_phone VARCHAR(20) NOT NULL,
+  FOREIGN KEY (u_idx) REFERENCES user (u_idx) ON DELETE CASCADE
 );
+
+INSERT INTO partner_user(u_idx, p_name, p_phone) VALUES(1, '관리자', '0236669999');
+INSERT INTO partner_user(u_idx, p_name, p_phone) VALUES(7, '테스트7 숙소','023339999');
+INSERT INTO partner_user(u_idx, p_name, p_phone) VALUES(8,'테스트8 숙소','0270707070');
+
+-- 일반 회원 중 파트너로 가입되어 있는 사람들 조회
+SELECT partner_user.u_idx, partner_user.p_name, user.u_name FROM partner_user JOIN user ON user.u_idx = partner_user.u_idx;
 
 -- 예약 RESERVATION
 create table reservation (
@@ -76,7 +82,7 @@ create table like_table (
 -- 숙소 LODGING
 create table lodging (
   ldg_idx INT AUTO_INCREMENT PRIMARY KEY,
-  o_idx INT,
+  p_idx INT,
   ldg_name VARCHAR(50) NOT NULL,
   ldg_addr VARCHAR(100) NOT NULL,
   ldg_tel VARCHAR(20) NOT NULL,
@@ -84,7 +90,15 @@ create table lodging (
   ldg_maxnop INT NOT NULL,
   toilet INT NOT NULL,
   shower INT NOT NULL,
-  FOREIGN KEY (o_idx) REFERENCES owner_table (o_idx)
+  FOREIGN KEY (p_idx) REFERENCES partner_user (p_idx)
+);
+
+-- 숙소 첨부 파일
+create table lodging_file (
+  l_file_idx INT AUTO_INCREMENT PRIMARY KEY,
+  l_file_name VARCHAR(255),
+  ldg_idx INT,
+  FOREIGN KEY (ldg_idx) REFERENCES lodging (ldg_idx),
 );
 
 -- 숙소 시설 LODGING_FACILITY
@@ -116,6 +130,14 @@ create table room (
   r_minimum INT,
   r_unisex VARCHAR(5) NOT NULL,
   FOREIGN KEY (ldg_idx) REFERENCES lodging (ldg_idx)
+);
+
+-- 객실 첨부 파일
+create table room_file (
+  r_file_idx INT AUTO_INCREMENT PRIMARY KEY,
+  r_file_name VARCHAR(255),
+  r_idx INT,
+  FOREIGN KEY (r_idx) REFERENCES room (r_idx),
 );
 
 -- 리뷰 REVIEW

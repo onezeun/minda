@@ -34,22 +34,21 @@
           <button type="button" class="edit_btn">편집</button>
           <fieldset class="edit_cont">
             <legend class="indent">회원정보 수정</legend>
-            <form name="profile_photo_form" id="profile_photo_form" action="profile_photo.php" method="post"
+            <form name="user_form" id="user_form" action="user_edit.php" method="post"
               enctype="multipart/form-data">
               <div class="profile_wrap">
-                <img src="../images/profile.png" id="profile_photo_edit" class="profile_photo" alt="프로필 이미지" />
+                <img src="" id="profile_photo_edit" class="profile_photo" alt="프로필 이미지" />
+                <img src="../images/profile.png" class="remove_profile_photo" alt="프로필 이미지" />
                 <input type="file" name="u_img" id="img_input" class="img_input" />
                 <button button="button" id="uplode_btn" class="uplode_photo btn_hover">
                   이미지 업로드
                 </button>
+                <input type="hidden" name="remove_img" id="remove_img" class="remove_img">
                 <button button="button" id="remove_btn" class="remove_photo btn_hover_cancel">
                   이미지 제거
                 </button>
-                <button type="submit">저장</button>
               </div>
-            </form>
             <div class="line"></div>
-            <form name="user_form" id="user_form" action="user_edit.php" method="post">
               <div class="user">
                 <div class="user_id">
                   <span class="change_info_title">이메일</span>
@@ -95,7 +94,8 @@
           <fieldset class="default_cont">
             <legend class="indent">회원정보 수정</legend>
             <div class="profile_wrap">
-              <img src="../images/profile.png" id="profile_photo_save" class="profile_photo" alt="프로필 이미지" />
+              <img src="" id="profile_photo_edit" class="profile_photo" alt="프로필 이미지" />
+              <img src="../images/profile.png" class="remove_profile_photo" alt="프로필 이미지" />
             </div>
             <div class="line"></div>
             <div class="user">

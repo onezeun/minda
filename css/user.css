@@ -37,6 +37,15 @@ body, span {
   display: inline-block;
 }
 
+.remove_profile_photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: auto;
+  display: none;
+}
+
+
 .img_input {
   display: none;
 }

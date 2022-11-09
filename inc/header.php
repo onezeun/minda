@@ -38,7 +38,7 @@
         <?php } else {?>
         <!-- 로그인 후 -->
         <ul>
-          <li><img src="http://localhost/KDT-1st-project-minda/images/profile.png" alt="사용자 프로필사진" class="top_profile_img"></li>
+          <li><img src="<?php echo $s_img; ?>" alt="사용자 프로필사진" class="top_profile_img"></li>
           <li class="top_login">
             <a href="#" class="top_user_name"><?php echo $s_name; ?></a> 님, 반갑습니다!
             <div class="top_user_menu area">

@@ -355,10 +355,48 @@ input[type=search]::-webkit-search-cancel-button {
   margin: 0 20px;
 }
 
-
 .menu7_sub a {
   width: 150px;
   height: 59px;
   display: block;
   line-height: 60px;
+}
+
+.user_sub_wrap {
+  width: 100%;
+  height: 60px;
+  margin-top: 1px;
+  background: #fff;
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  display: none;
+}
+
+.user_sub_wrap ul {
+  width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user_sub_wrap li{
+  width: 100px;
+  height: 60px;
+  font-size: 20px;
+  margin: 0 20px;
+}
+
+.user_sub a{
+  width: 100px;
+  height: 59px;
+  display: block;
+  line-height: 60px;
+}
+.menu_select {
+  display: block;
+}
+.menu_select_bar {
+  border-bottom: 4px solid #eeb72e;
 }

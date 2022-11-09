@@ -4,25 +4,25 @@
 
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HEADER</title>
-  <script 
-    src="https://code.jquery.com/jquery-3.6.1.js" 
-    integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
     crossorigin="anonymous">
   </script>
-<script type="text/javascript" src="http://localhost/KDT-1st-project-minda/js/header.js"></script>
+  <script type="text/javascript" src="http://localhost/KDT-1st-project-minda/js/header.js"></script>
 </head>
+
 <body>
   <div id="header" class="header">
     <h1 class="logo indent"><a href="http://localhost/KDT-1st-project-minda/index.html">민다</a></h1>
     <div class="top_menu_wrap">
       <h2 class="hide">사용자 메뉴</h2>
       <div class="top_menu">
-      <?php if(!$s_idx) { ?>
+        <?php if(!$s_idx) { ?>
         <!-- 로그인 전 -->
         <ul>
           <li class="top_bar"><a href="http://localhost/KDT-1st-project-minda/login/login.html">로그인</a></li>
@@ -84,7 +84,7 @@
         </li>
         <li class="menu5"><a href="#" class="">할인&이벤트</a>
           <div class="menu5_sub_wrap shadow">
-            <ul ul class="menu5_sub">
+            <ul class="menu5_sub">
               <li class="menu5_sub1"><a href="#">땡처리할인</a></li>
               <li class="menu5_sub2"><a href="#">비수기할인</a></li>
               <li class="menu5_sub3"><a href="#">민다 이벤트</a></li>
@@ -96,16 +96,23 @@
         <li class="menu6"><a href="#">여행정보</a></li>
         <li class="menu7"><a href="http://localhost/KDT-1st-project-minda/community.html">커뮤니티</a>
           <div class="menu7_sub_wrap shadow">
-            <ul ul class="menu7_sub">
+            <ul class="menu7_sub">
               <li class="menu7_sub1"><a href="#">구인·구직</a></li>
               <li class="menu7_sub2"><a href="#">사고·팔고</a></li>
             </ul>
           </div>
         </li>
       </ul>
-      <div class="gnb_sub"></div>
+      <div class="user_sub_wrap shadow">
+        <ul class="user_sub">
+          <li class="user_sub1"><a href="#">마이민다</a></li>
+          <li class="user_sub2"><a href="#">예약내역</a></li>
+          <li class="user_sub2"><a href="#">위시리스트</a></li>
+        </ul>
+      </div>
     </nav>
   </div>
 
 </body>
+
 </html>

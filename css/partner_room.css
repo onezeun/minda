@@ -59,9 +59,7 @@
 
 /* input */
 table {
-  width: 1000px;
   border-collapse: collapse;
-  margin: -1px;
   box-sizing: border-box;
 }
 
@@ -90,6 +88,13 @@ th {
 
 td {
   padding:0 20px 0 20px;
+}
+
+.room_edit_table {
+  width: 1000px;
+  border-collapse: collapse;
+  margin: -1px;
+  box-sizing: border-box;
 }
 
 .ldg_name, .ldg_addr {
@@ -166,6 +171,7 @@ td {
   margin: 10px;
   width: 70px;
   height: 30px;
+  font-size: 14px;
 }
 
 .ldg_submit_btn {
@@ -175,9 +181,24 @@ td {
 }
 
 /* card */
+.room_list td{
+  overflow: hidden;
+  position: relative;
+}
+
+.room_slide{
+  width: 800px;
+  margin:30px auto 0;
+  display: flex;
+}
+
+.room_slide li {
+  margin: 0 10px;
+}
+
 .card {
-  width: 250px;
-  height: 350px;
+  width: 230px;
+  height: 300px;
   margin: 5px 8px;
   border: 1px solid #b7b7b7;
   border-radius: 4px;
@@ -191,39 +212,42 @@ td {
   box-shadow: 0px 0px 5px #999;
 }
 
+.card img {
+  width: 230px;
+  height: 150px;
+  margin: auto;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  object-fit: cover;
+}
+
 .card_cont_wrap {
-  width: 250px;
+  width: 230px;
   height: 140px;
-  padding: 0 15px 15px;
+  padding: 0 10px;
+  margin-top: 5px;
 }
 
 .card_prev {
-  width: 30px;
-  height: 30px;
-  border-radius: 50px;
-  background: url(../images/content_prev.png) no-repeat;
+  width: 12px;
+  height: 19px;
+  background: url(../images/event_prev.png) no-repeat;
   text-indent: -9999px;
   display: block;
   position: absolute;
-  top: 220px;
-  left: 30px
+  top: 15px;
+  right: 80px
 }
 
 .card_next {
-  width: 30px;
-  height: 30px;
-  border-radius: 50px;
-  background: url(../images/content_next.png) no-repeat;
+  width: 12px;
+  height: 19px;
+  background: url(../images/event_next.png) no-repeat;
   text-indent: -9999px;
   display: block;
   position: absolute;
-  top: 220px;
+  top: 15px;
   right: 30px
-}
-
-.card_next:hover, .card_prev:hover {
- box-shadow: 0px 2px 5px #999;
- transition-duration: 0.25s;
 }
 
 .room_price_wrap {
@@ -241,4 +265,115 @@ td {
 .room_price_txt {
   font-size: 14px;
   color: #8c8c8c;
+}
+
+/* 모달 */
+.scrollLock { 
+  overflow: hidden; 
+}
+
+.room_modal_bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(0,0,0,0.6);
+  display: none;
+}
+
+.room_pop {
+  width: 1000px;
+  height: 530px;
+  background-color: white;
+  border: 1px solid #b7b7b7;
+  border-radius: 5px;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  opacity: 1;
+  color: black;
+  text-align: center;
+}
+
+.room_pop td{
+  text-align: left;
+}
+
+.room_pop_table {
+  width: 960px;
+  margin: auto;
+  border: 1px solid #d7d7d7;
+}
+
+.room_pop_title{
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.room_pop_img_list {
+  height: 200px;
+}
+
+.room_pop_img_btn {
+  width: 115px;
+  height: 30px;
+  margin-right: 10px;
+}
+.room_pop_img_wrap {
+  width: 717px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.room_pop_img {
+  width: 130px;
+  height: 90px;
+  border: 1px solid #d7d7d7;
+}
+
+.room_pop_facility_wrap {
+  height: 60px;
+  border: none;
+  display: flex;
+  align-items: center;
+}
+
+.room_pop_facility_wrap label {
+  margin-right: 20px;
+}
+
+.room_pop_maxnop input {
+  width: 40px;
+  height: 30px;
+  border: 1px solid #d7d7d7;
+  margin: 0 5px;
+  text-align: right;
+  padding: 0 5px;
+}
+
+.room_pop_price input {
+  width: 200px;
+  height: 30px;
+  border: 1px solid #d7d7d7;
+  margin: 0 5px;
+  text-align: right;
+  padding: 0 5px;
+}
+
+.room_pop_price_txt {
+  color: #8c8c8c;
+  font-size: 14px;
+}
+
+.room_submit_btn {
+  width: 150px;
+  height: 40px;
+  margin: 15px auto 0;
 }

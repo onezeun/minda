@@ -17,8 +17,10 @@
       integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
       crossorigin="anonymous"
     ></script>
+    <script type="text/javascript" src="../js/includ.js"></script>
     <script type="text/javascript" src="../js/slick.js"></script>
     <script type="text/javascript" src="../js/partner_room.js"></script>
+
   </head>
 
   <body>
@@ -52,7 +54,7 @@
 
         <div class="room_edit_cont">
           <form>
-          <table>
+          <table class="room_edit_table">
             <tr>
               <th>숙소명</th>
               <td>
@@ -112,7 +114,7 @@
                 <button type="button" id="room_btn" class="room_btn btn_hover">객실등록</button>
               </th>
               <td>
-                <ul class="room_slide">
+                <ul id="room_slide" class="room_slide">
                   <li>
                     <div id="card" class="card room1">
                       <a href="#" class="block">
@@ -125,90 +127,75 @@
                             <p>최소예약 1박 이상</p>
                           </div>
                           <div class="room_price_wrap">
-                            <span class="room_price_txt">1박금액</span><span class="room_price">90,800 원</span>
+                            <span class="room_price_txt">1박 금액</span><span class="room_price">90,800 원</span>
                           </div>
                         </div>
                       </a>
                     </div>
                   </li>
                 </ul>
+                <a href="#" id="room_btn1" class="card_prev">이전</a>
+                <a href="#" id="room_btn2" class="card_next">다음</a>
                 <button type="button" id="ldg_submit_btn" class="ldg_submit_btn btn_hover">숙소등록(저장)</button>
               </td>
             </tr>
           </table>
         </form>
         </div>
+
+        <!-- 객실등록팝업 -->
+        <div class="room_modal_bg">
+            <div class="room_pop">
+              <form>
+                <p class="room_pop_title">객실 등록</p>
+                <table class="room_pop_table">
+                  <tr class="room_pop_img_list">
+                    <th>객실사진</th>
+                    <td>
+                      <button type="button" class="room_pop_img_btn btn_hover">이미지 업로드</button><span>최대 5개 까지 등록 가능합니다.</span>
+                      <div class="room_pop_img_wrap">
+                        <div class="room_pop_img"></div>
+                        <div class="room_pop_img"></div>
+                        <div class="room_pop_img"></div>
+                        <div class="room_pop_img"></div>
+                        <div class="room_pop_img"></div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>객실유형</th>
+                    <td class="room_pop_facility_wrap">
+                      <input type="radio" name="room_gender" id="room_unisex"><label for="room_unisex">남여공용</label>
+                      <input type="radio" name="room_gender" id="room_womanonly"><label for="room_womanonly">여성용</label>
+                      <input type="radio" name="room_gender" id="manonly"><label for="manonly">남성용</label>
+                      <div class="rf_line"></div>
+                      <input type="checkbox" id="room_dormitory"><label for="room_dormitory">도미토리</label>
+                      <input type="checkbox" id="room_privateroom"><label for="room_privateroom">개인실</label>
+                      <input type="checkbox" id="room_condo"><label for="room_condo">콘도형</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>객실인원</th>
+                    <td class="room_pop_maxnop">
+                      <span>최소<input type="text">명</span> ~ <span>최대<input type="text">명</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>금액</th>
+                    <td class="room_pop_price">
+                      <span class="room_pop_price_txt">1인 1박 기준</span><input type="text"><span>원</span>
+                    </td>
+                  </tr>
+                </table>
+                <button type="button" id="room_submit_btn" class="room_submit_btn btn_hover">객실 등록</button>
+              </form>
+            </div>
+        </div>
       </main>
 
-      <footer id="footer" class="footer">
-        <h2 class="hide">사이트 이용 안내</h2>
-
-        <div class="footer_term">
-          <h3 class="hide">약관 및 정책</h3>
-          <ul>
-            <li><a href="#">회사소개</a></li>
-            <li><a href="#">파트너 가입</a></li>
-            <li><a href="#">취소환불규정</a></li>
-            <li><a href="#">고객센터</a></li>
-            <li><a href="#" class="notice">공지사항</a></li>
-            <li><a href="#">이용약관개인정보처리방침</a></li>
-            <li><a href="#">사업자정보확인</a></li>
-          </ul>
-        </div>
-
-        <div class="footer_side_wrap">
-          <a href="index.html" class="footer_gopatner">민다 바로가기</a>
-          <div class="footer_side indent">
-            <h3 class="hide">SNS</h3>
-            <ul>
-              <li class="footer_sns_fb"><a href="#">페이스북</a></li>
-              <li class="footer_sns_blog"><a href="#">블로그</a></li>
-              <li class="footer_sns_instar"><a href="#">인스타그램</a></li>
-            </ul>
-            <a href="#" class="footer_qna indent">고객센터문의</a>
-          </div>
-        </div>
-
-        <div class="footer_info">
-          <h3>INFORMATION</h3>
-          <div class="footer_info_txt1">
-            <p class="footer_txt">㈜민다 대표 : 김윤희</p>
-            <p class="footer_txt">사업자등록번호 : 101-86-28116</p>
-            <p class="footer_txt">관광사업등록증 : 제 2020-000054호</p>
-            <p>통신판매업신고 : 제 2020-서울마포-3698호</p>
-          </div>
-          <div class="footer_info_txt2">
-            <p class="footer_txt">고객센터 : 1661-2892</p>
-            <p class="footer_txt">FAX : 02-722-3478</p>
-            <p>운영시간 : 평일 10시~12시/13시~18시(주말, 공휴일 휴무)</p>
-          </div>
-          <div class="footer_info_txt3">
-            <p class="footer_txt">
-              이메일 : help@theminda.com(일반문의), biz@theminda.com(사업제휴)
-            </p>
-            <address>
-              서울특별시 마포구 성산로2길 55, 샤인빌딩 602호 (성산동)
-            </address>
-          </div>
-          <p>Copyright © Minda Co., Ltd. All rights reserved.</p>
-        </div>
-
-        <div class="footer_bot_warp">
-          <div class="footer_bot">
-            <p>
-              (주)민다의 사전 서면동의 없이 민다 사이트(PC, 모바일, 앱)의 일체의
-              정보, 콘텐츠 및 UI 등을 상업적 목적으로 전재, 전송, 스크래핑 등
-              무단 사용할 수 없습니다.
-            </p>
-
-            <p>
-              (주)민다는 통신판매중개자이며 통신판매의 당사자가 아닙니다.<br />
-              따라서 (주)민다는 상품·거래정보 및 거래와 관련하여 판매자의 고의
-              또는 과실로 소비자에게 발생하는 손해에 대해 일체 책임을 지지
-              않습니다.
-            </p>
-          </div>
-        </div>
+      <!-- footer -->
+      <footer>
+        <div  id="partner-footer-include"></div>
       </footer>
     </div>
   </body>

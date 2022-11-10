@@ -305,7 +305,7 @@ td {
 
 .ldg_info_pop {
   width: 1000px;
-  height: 530px;
+  height: 550px;
   background-color: white;
   border: 1px solid #b7b7b7;
   border-radius: 5px;
@@ -330,6 +330,10 @@ td {
 }
 
 .ldg_pop_sub_title2 {
+  font-size: 18px;
+} 
+
+.ldg_pop_sub_title3 {
   text-align: left;
   font-size: 18px;
   margin: 4px 0 9px 5px;
@@ -351,14 +355,31 @@ td {
   margin: 0 0 10px 5px;
 }
 
+.ldg_img_input {
+  display: none;
+}
+
 .ldg_pop_main_img {
   width: 470px;
-  height: 360px;
+  height: 250px;
   border: 1px solid #d7d7d7;
   margin-bottom: 10px;
 }
 
-.main_img_btn{
+.ldg_pop_img_wrap {
+  width: 470px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.ldg_pop_img {
+  width: 110px;
+  height: 70px;
+  border: 1px solid #d7d7d7;
+}
+
+
+.img_btn{
   width: 120px;
   height: 30px;
   border: 1px solid #eeb72f;
@@ -366,7 +387,7 @@ td {
   color: #eeb72f;
 }
 
-.main_img_btn:hover {
+.img_btn:hover {
   background: #f0b00e;
   color: white;
   transition: all 0.3s ease;
@@ -379,7 +400,7 @@ td {
 
 .ldg_pop_info_txt {
   width: 445px;
-  height: 338px;
+  height: 348px;
   border: 1px solid #d7d7d7;
   padding: 10px;
   font-size: 14px;
@@ -387,9 +408,10 @@ td {
   white-space: pre-wrap;
 }
 
-.info_img_btn {
+.info_save_btn {
   width: 120px;
   height: 35px;
+  margin-top: 20px;
 }
 
 /* 객실 등록 팝업 */
@@ -405,8 +427,8 @@ td {
 }
 
 .room_pop {
-  width: 1000px;
-  height: 530px;
+  width: 900px;
+  height: 590px;
   background-color: white;
   border: 1px solid #b7b7b7;
   border-radius: 5px;
@@ -426,7 +448,7 @@ td {
 }
 
 .room_pop_table {
-  width: 960px;
+  width: 860px;
   margin: auto;
   border: 1px solid #d7d7d7;
 }
@@ -438,26 +460,38 @@ td {
   margin-bottom: 10px;
 }
 
-.room_pop_img_list {
+.room_pop_name{
+  width: 350px;
+  border: none;
+  padding: 0 10px;
+}
+
+.room_pop_info_wrap {
   height: 200px;
+  display: flex;
+  padding: 20px 0;
+}
+
+.room_pop_img{
+  width: 267px;
+  height: 160px;
+  border: 1px solid #d7d7d7;
+}
+
+.room_pop_info_right {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.room_pop_info_right p {
+  margin-bottom: 5px;
 }
 
 .room_pop_img_btn {
-  width: 115px;
-  height: 30px;
-  margin-right: 10px;
-}
-.room_pop_img_wrap {
-  width: 717px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-.room_pop_img {
+  margin-top: 10px;
   width: 130px;
-  height: 90px;
-  border: 1px solid #d7d7d7;
+  height: 30px;
 }
 
 .room_pop_facility_wrap {

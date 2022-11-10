@@ -54,12 +54,13 @@
       </div>
 
       <div class="room_edit_cont">
-        <form>
+        <form name="ldg_form" id="ldg_form" action="ldg_insert.php" method="post">
           <table class="room_edit_table">
             <tr>
               <th>숙소명</th>
               <td>
-                <input type="text" name="ldg_name" id="ldg_name" class="ldg_name" placeholder="숙소명을 입력해주세요" maxlength="50">
+                <input type="text" name="ldg_name" id="ldg_name" class="ldg_name" placeholder="숙소명을 입력해주세요"
+                  maxlength="50">
               </td>
             </tr>
             <tr>
@@ -80,16 +81,31 @@
                       <div class="ldg_pop_left">
                         <p class="ldg_pop_left_txt_wrap">
                           <span class="ldg_pop_sub_title1">대표 사진 등록</span>
-                          <button type="button" id="main_img_btn" class="main_img_btn">이미지 업로드</button>
+                          <input type="file" accept="image/*" name="ldg_mainimg" id="ldg_mainimg_input"
+                            class="ldg_img_input">
+                          <button type="button" id="main_img_btn" class="img_btn">이미지 업로드</button>
                         </p>
                         <div class="ldg_pop_main_img"></div>
+
+                        <div class="ldg_pop_left_txt_wrap">
+                          <span class="ldg_pop_sub_title2">숙소 사진 등록</span>
+                          <input type="file" accept="image/*" name="ldg_subimg[]" id="ldg_subimg_input"
+                            class="ldg_img_input" multiple />
+                          <button type="button" id="sub_img_btn" class="img_btn">이미지 업로드</button>
+                        </div>
+                        <div class="ldg_pop_img_wrap">
+                          <div class="ldg_pop_img"></div>
+                          <div class="ldg_pop_img"></div>
+                          <div class="ldg_pop_img"></div>
+                          <div class="ldg_pop_img"></div>
+                        </div>
                       </div>
                       <div class="ldg_pop_right">
-                        <p class="ldg_pop_sub_title2">소개말 입력</p>
-                        <textarea class="ldg_pop_info_txt"></textarea>
+                        <p class="ldg_pop_sub_title3">소개말 입력</p>
+                        <textarea name="ldg_info" id="ldg_pop_info_txt" class="ldg_pop_info_txt"></textarea>
                       </div>
                     </div>
-                    <button type="button" id="info_img_btn" class="info_img_btn btn_hover">저장</button>
+                    <button type="button" id="info_save_btn" class="info_save_btn btn_hover">저장</button>
                   </div>
                 </div>
               </td>
@@ -120,9 +136,9 @@
             <tr>
               <th>공용시설</th>
               <td class="pubilc_facility_wrap">
-                <span>화장실<input type="text">개</span>
-                <span>샤워실<input type="text">개</span>
-                <span>최대인원<input type="text">명</span>
+                <span>화장실<input name="toilet" id="toilet" type="text">개</span>
+                <span>샤워실<input name="shower" id="shower" type="text">개</span>
+                <span>최대인원<input name="ldg_maxnop" id="ldg_maxnop" type="text">명</span>
               </td>
             </tr>
             <tr class="room_list">
@@ -134,9 +150,9 @@
                 <ul id="room_slide" class="room_slide">
                   <li>
                     <div id="card" class="card room1">
-                    <button type="button" id="card_delete_btn" class="card_delete_btn indent">삭제</button>
-                        <img src="../images/bestroom_image01.jpg" alt="영국런던런던스테이">
-                        <div class="card_cont_wrap">
+                      <button type="button" id="card_delete_btn" class="card_delete_btn indent">삭제</button>
+                      <img src="../images/bestroom_image01.jpg" alt="영국런던런던스테이">
+                      <div class="card_cont_wrap">
                         <a href="#" class="block">
                           <p class="room_title">2인 여성 도미토리</p>
                           <div class="room_cont_txt">
@@ -147,8 +163,8 @@
                           <div class="room_price_wrap">
                             <span class="room_price_txt">1박 금액</span><span class="room_price">90,800 원</span>
                           </div>
-                          </a>
-                        </div>
+                        </a>
+                      </div>
                     </div>
                   </li>
                 </ul>
@@ -168,21 +184,26 @@
             <p class="room_pop_title">객실 등록</p>
             <button type="button" id="room_pop_cancel" class="pop_cancel_btn indent">닫기</button>
             <table class="room_pop_table">
-              <tr class="room_pop_img_list">
-                <th>객실사진</th>
+              <tr>
+                <th>객실 이름</th>
                 <td>
-                  <button type="button" class="room_pop_img_btn btn_hover">이미지 업로드</button><span>최대 5개 까지 등록 가능합니다.</span>
-                  <div class="room_pop_img_wrap">
-                    <div class="room_pop_img"></div>
-                    <div class="room_pop_img"></div>
-                    <div class="room_pop_img"></div>
-                    <div class="room_pop_img"></div>
-                    <div class="room_pop_img"></div>
+                  <input type="text" name="r_name" id="room_pop_name" class="room_pop_name" placeholder="객실 이름을 입력해주세요.">
+                </td>
+              </tr>
+              <tr class="room_pop_img_list">
+                <th>
+                  <p>객실 사진</p>
+                  <button type="button" class="room_pop_img_btn btn_hover">이미지 업로드</button>
+                </th>
+                <td>
+                  <div class="room_pop_info_wrap">
+                      <input type="file" accept="image/*" name="room_img" id="room_img_input" class="ldg_img_input">
+                      <div class="room_pop_img"></div>
                   </div>
                 </td>
               </tr>
               <tr>
-                <th>객실유형</th>
+                <th>객실 유형</th>
                 <td class="room_pop_facility_wrap">
                   <input type="radio" name="room_gender" id="room_unisex"><label for="room_unisex">남여공용</label>
                   <input type="radio" name="room_gender" id="room_womanonly"><label for="room_womanonly">여성용</label>

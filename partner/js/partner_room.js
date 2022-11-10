@@ -22,7 +22,7 @@ $(document).ready(function () {
     $("body").removeClass("scrollLock");
   });
 
-  $('#info_img_btn').on('click', function() {
+  $('#info_save_btn').on('click', function() {
     $('#ldg_info_btn').text("등록 내용 확인").css({color : "#eeb72f"})
     $(".ldg_info_modal_bg").hide();
     $("body").removeClass("scrollLock");

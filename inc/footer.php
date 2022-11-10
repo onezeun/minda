@@ -53,7 +53,7 @@
     <div class="ptn_modal_bg">
       <div class="ptn_pop_signup">
         <form name="pertner_signup_form" id="pertner_signup_form"
-          action="http://localhost/KDT-1st-project-minda/user/partner_insert.php" method="post">
+          action="http://localhost/KDT-1st-project-minda/partner/partner_insert.php" method="post">
           <h3 class="ptn_pop_logo indent">민다파트너</h3>
           <button type="button" class="ptn_pop_cancel_btn indent">닫기</button>
           <div class="ptn_pop_line"></div>
@@ -76,7 +76,7 @@
               </div>
               <div class="ptn_pop_tel_wrap">
                 <span class="ptn_pop_title">업체 연락처</span>
-                <input type="text" name="p_tel" id="ptn_pop_tel" class="ptn_pop_input" maxlength="20"
+                <input type="text" name="p_phone" id="ptn_pop_tel" class="ptn_pop_input" maxlength="20"
                   placeholder="숫자만 입력해주세요.">
                 <br><span id="ptn_err_tel" class="ptn_pop_err_txt"></span>
               </div>

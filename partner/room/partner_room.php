@@ -197,7 +197,7 @@
                 </th>
                 <td>
                   <div class="room_pop_info_wrap">
-                      <input type="file" accept="image/*" name="room_img" id="room_img_input" class="ldg_img_input">
+                      <input type="file" accept="image/*" name="r_img" id="room_img_input" class="ldg_img_input">
                       <div class="room_pop_img"></div>
                   </div>
                 </td>
@@ -205,25 +205,25 @@
               <tr>
                 <th>객실 유형</th>
                 <td class="room_pop_facility_wrap">
-                  <input type="radio" name="room_gender" id="room_unisex"><label for="room_unisex">남여공용</label>
-                  <input type="radio" name="room_gender" id="room_womanonly"><label for="room_womanonly">여성용</label>
-                  <input type="radio" name="room_gender" id="manonly"><label for="manonly">남성용</label>
+                  <input type="radio" name="r_gender" id="room_unisex"><label for="room_unisex">남여공용</label>
+                  <input type="radio" name="r_gender" id="room_womanonly"><label for="room_womanonly">여성용</label>
+                  <input type="radio" name="r_gender" id="manonly"><label for="manonly">남성용</label>
                   <div class="rf_line"></div>
-                  <input type="checkbox" id="room_dormitory"><label for="room_dormitory">도미토리</label>
-                  <input type="checkbox" id="room_privateroom"><label for="room_privateroom">개인실</label>
-                  <input type="checkbox" id="room_condo"><label for="room_condo">콘도형</label>
+                  <input type="checkbox" name="r_dormitory" id="room_dormitory"><label for="room_dormitory">도미토리</label>
+                  <input type="checkbox" name="r_privateroom" id="room_privateroom"><label for="room_privateroom">개인실</label>
+                  <input type="checkbox" name="r_condo" id="room_condo"><label for="room_condo">콘도형</label>
                 </td>
               </tr>
               <tr>
                 <th>객실인원</th>
                 <td class="room_pop_maxnop">
-                  <span>최소<input type="text">명</span> ~ <span>최대<input type="text">명</span>
+                  <span>최소<input type="text" name="r_min" >명</span> ~ <span>최대<input type="text" name="r_max">명</span>
                 </td>
               </tr>
               <tr>
                 <th>금액</th>
                 <td class="room_pop_price">
-                  <span class="room_pop_price_txt">1인 1박 기준</span><input type="text"><span>원</span>
+                  <span class="room_pop_price_txt">1인 1박 기준</span><input type="text" name="r_price"><span>원</span>
                 </td>
               </tr>
             </table>

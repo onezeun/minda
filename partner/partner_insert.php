@@ -5,19 +5,19 @@
   // 사용자들이 쓴 값을 $변수에 저장
   $p_name = $_POST["p_name"]; 
   $p_biznum = $_POST["p_biznum"]; 
-  $p_tel = $_POST["p_tel"]; 
+  $p_phone = $_POST["p_phone"]; 
   $s_idx = $_SESSION["s_idx"];
 
-  echo $p_name;
-  echo $p_biznum;
-  echo $p_tel;
-  echo $s_idx;
+  // echo $p_name;
+  // echo $p_biznum;
+  // echo $p_phone;
+  // echo $s_idx;
 
   /* 2. DB 연결 */
   include "../inc/dbcon.php";
 
   /* 3. 쿼리 작성 */
-  $sql ="INSERT INTO partner_user(u_idx, p_name, p_biznum, p_tel) VALUES('$s_idx', '$p_name', '$p_biznum', '$p_tel');";
+  $sql ="INSERT INTO partner_user(u_idx, p_name, p_biznum, p_phone) VALUES('$s_idx', '$p_name', '$p_biznum', '$p_phone');";
 
   /* 4. 쿼리 전송 */
   mysqli_query($dbcon, $sql);

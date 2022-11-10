@@ -28,6 +28,11 @@ $(document).ready(function () {
     $("body").removeClass("scrollLock");
   })
 
+  /* 숙소 유효성검사 */
+  $('#ldg_submit_btn').on('click', function(){
+    $('#ldg_form').submit();
+  });
+
   /* 객실 등록 팝업 */
   $("#room_btn").on("click", function (e) {
     e.preventDefault();

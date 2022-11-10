@@ -36,12 +36,15 @@ CREATE TABLE partner_user (
   FOREIGN KEY (u_idx) REFERENCES user (u_idx) ON DELETE CASCADE
 );
 
+INSERT INTO partner_user(u_idx, p_name, p_biznum, p_tel) VALUES('$u_idx', '$p_name', '$p_biznum', '$p_tel');
+
 INSERT INTO partner_user(u_idx, p_name, p_biznum, p_tel) VALUES(1, '관리자', 123456789, '0236669999');
 INSERT INTO partner_user(u_idx, p_name, p_biznum, p_tel) VALUES(7, '테스트7 숙소', 123456789, '023339999');
 INSERT INTO partner_user(u_idx, p_name, p_biznum, p_tel) VALUES(8, '테스트8 숙소', 123456789, '0270707070');
 
 -- 일반 회원 중 파트너로 가입되어 있는 사람들 조회
-SELECT partner_user.u_idx, partner_user.p_name, user.u_name FROM partner_user JOIN user ON user.u_idx = partner_user.u_idx;
+SELECT partner_user.u_idx, partner_user.p_idx, user.u_email, user.u_name, user.u_img, partner_user.p_name FROM partner_user JOIN user ON user.u_idx = partner_user.u_idx;
+SELECT user.u_idx, partner_user.p_idx, user.u_email, user.u_pwd, user.u_name, user.u_img, partner_user.p_name FROM user LEFT OUTER JOIN partner_user ON user.u_idx = partner_user.u_idx where u_email='테스트3';
 
 -- 예약 RESERVATION
 create table reservation (

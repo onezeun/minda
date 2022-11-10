@@ -1,10 +1,17 @@
 $(document).ready(function () {
+  console.log($('#on_partner').val())
   /* 팝업 */
   $(".footer_gopatner").on("click", function (e) {
     e.preventDefault();
+    if(!$('#on_user').val()) {
+      alert("회원 로그인 후 진행해주세요")
+    } else if(!$('#on_partner').val()){
+      $(".ptn_modal_bg").fadeTo("fast", 1);
+      $("body").addClass("scrollLock");
+    } else {
+      location.href = `http://localhost/KDT-1st-project-minda/partner/partner_reservation.html?p_idx=${$('#on_partner').val()}`;
+    }
 
-    $(".ptn_modal_bg").fadeTo("fast", 1);
-    $("body").addClass("scrollLock");
   });
 
   $(".ptn_pop_cancel_btn").on("click", function () {
@@ -195,4 +202,20 @@ $(document).ready(function () {
       $("#ptn_pop_check_all").prop("checked", true);
     }
   });
+
+  $('#ptn_signup_btn').on('click', function(){
+    if (
+      !nameCheck() ||
+      !numCheck() ||
+      !telCheck() ||
+      !applyCheck()
+    ) {
+      nameCheck();
+      numCheck();
+      telCheck();
+      applyCheck();
+      return false;
+    } else $('#pertner_signup_form').submit();
+  })
+
 });

@@ -10,7 +10,7 @@ $u_pwd = $_POST['u_pwd'];
 include '../inc/dbcon.php';
 
 /* 쿼리 작성 */
-$sql = "select u_idx, u_name, u_email, u_pwd, u_img from user where u_email='$u_email';";
+$sql = "SELECT user.u_idx, partner_user.p_idx, user.u_email, user.u_pwd, user.u_name, user.u_img, partner_user.p_name FROM user LEFT OUTER JOIN partner_user ON user.u_idx = partner_user.u_idx where u_email='$u_email';";
 
 /* 쿼리 전송 */
 $result = mysqli_query($dbcon, $sql);
@@ -35,6 +35,7 @@ if(!$num){
     $_SESSION['s_name'] = $array['u_name'];
     $_SESSION['s_email'] = $array['u_email'];
     $_SESSION['s_img'] = $array['u_img'];
+    $_SESSION['sp_idx'] = $array['p_idx'];
   }
 };
 

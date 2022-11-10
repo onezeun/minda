@@ -41,7 +41,8 @@ root {
 body,
 button,
 option,
-select {
+select,
+textarea {
   font-family: 'InfinitySans-RegularA1';
   font-size: 14px;
   line-height: 1.5

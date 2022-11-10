@@ -118,11 +118,6 @@ td {
   color: #8c8c8c;
 }
 
-.info_img_btn {
-  width: 120px;
-  height: 35px;
-}
-
 .room_type_wrap label {
   margin-right: 20px;
 }
@@ -267,11 +262,124 @@ td {
   color: #8c8c8c;
 }
 
-/* 모달 */
+/* 숙소 소개 팝업*/
 .scrollLock { 
   overflow: hidden; 
 }
 
+.pop_cancel_btn {
+  width: 15px; 
+  height: 15px; 
+  background: url(../images/pop_cancelbtn.png) center center no-repeat;
+  cursor: pointer;
+  border: none;
+  position: absolute;
+  top:20px;
+  right: 20px;
+}
+
+
+.ldg_info_modal_bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(0,0,0,0.6);
+  z-index: 10;
+  display: none;
+}
+
+.ldg_info_pop {
+  width: 1000px;
+  height: 530px;
+  background-color: white;
+  border: 1px solid #b7b7b7;
+  border-radius: 5px;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  color: black;
+  text-align: center;
+}
+
+.ldg_pop_title {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.ldg_pop_sub_title1 {
+  font-size: 18px;
+}
+
+.ldg_pop_sub_title2 {
+  text-align: left;
+  font-size: 18px;
+  margin: 4px 0 9px 5px;
+}
+
+.ldg_pop_wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ldg_pop_left {
+  width: 470px;
+}
+
+.ldg_pop_left_txt_wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items:flex-end;
+  margin: 0 0 10px 5px;
+}
+
+.ldg_pop_main_img {
+  width: 470px;
+  height: 360px;
+  border: 1px solid #d7d7d7;
+  margin-bottom: 10px;
+}
+
+.main_img_btn{
+  width: 120px;
+  height: 30px;
+  border: 1px solid #eeb72f;
+  background: white;
+  color: #eeb72f;
+}
+
+.main_img_btn:hover {
+  background: #f0b00e;
+  color: white;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.ldg_pop_right {
+  width: 470px;
+}
+
+.ldg_pop_info_txt {
+  width: 445px;
+  height: 338px;
+  border: 1px solid #d7d7d7;
+  padding: 10px;
+  font-size: 14px;
+  resize: none;
+  white-space: pre-wrap;
+}
+
+.info_img_btn {
+  width: 120px;
+  height: 35px;
+}
+
+/* 객실 등록 팝업 */
 .room_modal_bg {
   position: fixed;
   top: 0;
@@ -279,6 +387,7 @@ td {
   right: 0;
   bottom: 0;
   background-color: rgb(0,0,0,0.6);
+  z-index: 10;
   display: none;
 }
 
@@ -360,7 +469,8 @@ td {
 
 .room_pop_price input {
   width: 200px;
-  height: 30px;
+  height: 40px;
+  font-size: 18px;
   border: 1px solid #d7d7d7;
   margin: 0 5px;
   text-align: right;

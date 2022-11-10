@@ -134,9 +134,10 @@
                 <ul id="room_slide" class="room_slide">
                   <li>
                     <div id="card" class="card room1">
-                      <a href="#" class="block">
+                    <button type="button" id="card_delete_btn" class="card_delete_btn indent">삭제</button>
                         <img src="../images/bestroom_image01.jpg" alt="영국런던런던스테이">
                         <div class="card_cont_wrap">
+                        <a href="#" class="block">
                           <p class="room_title">2인 여성 도미토리</p>
                           <div class="room_cont_txt">
                             <p>여성도미토리</p>
@@ -146,8 +147,8 @@
                           <div class="room_price_wrap">
                             <span class="room_price_txt">1박 금액</span><span class="room_price">90,800 원</span>
                           </div>
+                          </a>
                         </div>
-                      </a>
                     </div>
                   </li>
                 </ul>

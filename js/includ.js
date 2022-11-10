@@ -6,6 +6,7 @@ $(document).ready(function () {
       $('.gnb li li').not(this).removeClass('menu_select_bar');
     })
   });
-  $('#footer-include').load('http://localhost/KDT-1st-project-minda/inc/footer.html');
+  $('#footer-include').load('http://localhost/KDT-1st-project-minda/inc/footer.php');
+  $('#partner-footer-include').load('http://localhost/KDT-1st-project-minda/inc/partner_header.php');
   $('#partner-footer-include').load('http://localhost/KDT-1st-project-minda/inc/partner_footer.html');
 });

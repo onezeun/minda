@@ -1,3 +1,7 @@
+<?php
+  include "session.php";
+?>
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -8,7 +12,7 @@
   <title>FOOTER</title>
   <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
     crossorigin="anonymous">
-    </script>
+  </script>
   <script type="text/javascript" src="http://localhost/KDT-1st-project-minda/js/footer.js"></script>
 </head>
 
@@ -30,8 +34,8 @@
     </div>
 
     <div class="footer_side_wrap">
-
-      <!-- <a href="partner_reservation.html" class="footer_gopatner">숙소 파트너홈 바로가기</a> -->
+      <input type="hidden" name="on_user" id="on_user" class="on_user" value="<?php echo $s_idx ?>">
+      <input type="hidden" name="on_partner" id="on_partner" class="on_partner" value="<?php echo $sp_idx ?>">
       <a href="#" class="footer_gopatner">숙소 파트너홈 바로가기</a>
       <div class="footer_side indent">
         <h3 class="hide">SNS</h3>
@@ -40,13 +44,16 @@
           <li class="footer_sns_blog"><a href="#">블로그</a></li>
           <li class="footer_sns_instar"><a href="#">인스타그램</a></li>
         </ul>
-        <a href="http://localhost/KDT-1st-project-minda/partner/partner_reservation.html" class="footer_qna indent">고객센터문의</a>
+        <a href="http://localhost/KDT-1st-project-minda/partner/partner_reservation.html"
+          class="footer_qna indent">고객센터문의</a>
       </div>
     </div>
 
-    <form name="pertner_signup_form" id="pertner_signup_form" action="http://localhost/KDT-1st-project-minda/user/partner_insert.php" method="post">
-      <div class="ptn_modal_bg">
-        <div class="ptn_pop_signup">
+    <!-- 파트너 가입 팝업 -->
+    <div class="ptn_modal_bg">
+      <div class="ptn_pop_signup">
+        <form name="pertner_signup_form" id="pertner_signup_form"
+          action="http://localhost/KDT-1st-project-minda/user/partner_insert.php" method="post">
           <h3 class="ptn_pop_logo indent">민다파트너</h3>
           <button type="button" class="ptn_pop_cancel_btn indent">닫기</button>
           <div class="ptn_pop_line"></div>
@@ -69,7 +76,8 @@
               </div>
               <div class="ptn_pop_tel_wrap">
                 <span class="ptn_pop_title">업체 연락처</span>
-                <input type="text" name="p_tel" id="ptn_pop_tel" class="ptn_pop_input" maxlength="20" placeholder="숫자만 입력해주세요.">
+                <input type="text" name="p_tel" id="ptn_pop_tel" class="ptn_pop_input" maxlength="20"
+                  placeholder="숫자만 입력해주세요.">
                 <br><span id="ptn_err_tel" class="ptn_pop_err_txt"></span>
               </div>
             </div>
@@ -102,13 +110,12 @@
 
             <div class="ptn_pop_modal_btn">
               <button type="button" class="ptn_signup_cancel_btn btn_hover_cancel">취소</button>
-              <button type="button" class="ptn_signup_btn btn_hover">회원가입</button>
+              <button type="button" id="ptn_signup_btn" class="ptn_signup_btn btn_hover">회원가입</button>
             </div>
           </fieldset>
-        </div>
+          </from>
       </div>
-    </from>
-
+    </div>
 
     <div class="footer_info">
       <h3>INFORMATION</h3>

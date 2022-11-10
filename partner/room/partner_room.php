@@ -1,5 +1,5 @@
 <?php
-  include "inc/session.php";
+  include "../inc/session.php";
 ?>
 
 <!DOCTYPE html>
@@ -10,17 +10,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>파트너 숙소관리 페이지</title>
-  <link rel="shortcut icon" href="../images/favicon.ico" />
-  <link rel="stylesheet" type="text/css" href="../css/reset.css" />
-  <link rel="stylesheet" type="text/css" href="../css/header.css" />
-  <link rel="stylesheet" type="text/css" href="../css/footer.css" />
+  <link rel="shortcut icon" href="../../images/favicon.ico" />
+  <link rel="stylesheet" type="text/css" href="../../css/reset.css" />
+  <link rel="stylesheet" type="text/css" href="../../css/header.css" />
+  <link rel="stylesheet" type="text/css" href="../../css/footer.css" />
   <link rel="stylesheet" type="text/css" href="../css/partner_room.css" />
-  <link rel="stylesheet" type="text/css" href="../css/slick.css" />
-  <link rel="stylesheet" type="text/css" href="../css/slick-theme.css" />
+  <link rel="stylesheet" type="text/css" href="../../css/slick.css" />
+  <link rel="stylesheet" type="text/css" href="../../css/slick-theme.css" />
   <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
     crossorigin="anonymous"></script>
-  <script type="text/javascript" src="js/include.js"></script>
-  <script type="text/javascript" src="../js/slick.js"></script>
+  <script type="text/javascript" src="../js/include.js"></script>
+  <script type="text/javascript" src="../../js/slick.js"></script>
   <script type="text/javascript" src="../js/partner_room.js"></script>
 
 </head>
@@ -36,8 +36,11 @@
     <main id="content" class="content">
       <div class="side_bar">
         <h2 class="hide">관리메뉴</h2>
+        <div class="partner_info">
+          <a href="../partner_info.php?p_idx=<?php echo $sp_idx ?>">파트너 정보 수정</a>
+        </div>
         <div class="reservation">
-          <a href="partner_reservation.php?p_idx=<?php echo $sp_idx ?>">예약 관리</a>
+          <a href="../reservation/partner_reservation.php?p_idx=<?php echo $sp_idx ?>">예약 관리</a>
         </div>
         <div class="message">
           <a href="#">메세지</a>
@@ -48,9 +51,6 @@
         <div class="room">
           <a href="partner_room.php?p_idx=<?php echo $sp_idx ?>" class="this">숙소 및 객실 관리</a>
         </div>
-        <div class="partner_info">
-          <a href="partner_info.php?p_idx=<?php echo $sp_idx ?>">파트너 정보 수정</a>
-        </div>
       </div>
 
       <div class="room_edit_cont">
@@ -59,7 +59,7 @@
             <tr>
               <th>숙소명</th>
               <td>
-                <input type="text" name="ldg_name" id="ldg_name" class="ldg_name" placeholder="숙소명을 입력해주세요">
+                <input type="text" name="ldg_name" id="ldg_name" class="ldg_name" placeholder="숙소명을 입력해주세요" maxlength="50">
               </td>
             </tr>
             <tr>
@@ -170,8 +170,7 @@
               <tr class="room_pop_img_list">
                 <th>객실사진</th>
                 <td>
-                  <button type="button" class="room_pop_img_btn btn_hover">이미지 업로드</button><span>최대 5개 까지 등록
-                    가능합니다.</span>
+                  <button type="button" class="room_pop_img_btn btn_hover">이미지 업로드</button><span>최대 5개 까지 등록 가능합니다.</span>
                   <div class="room_pop_img_wrap">
                     <div class="room_pop_img"></div>
                     <div class="room_pop_img"></div>

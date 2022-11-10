@@ -16,7 +16,7 @@
   <link rel="stylesheet" type="text/css" href="../css/reset.css" />
   <link rel="stylesheet" type="text/css" href="../css/header.css" />
   <link rel="stylesheet" type="text/css" href="../css/footer.css" />
-  <link rel="stylesheet" type="text/css" href="../css/partner_room.css" />
+  <link rel="stylesheet" type="text/css" href="css/partner_room.css" />
   <link rel="stylesheet" type="text/css" href="../css/slick.css" />
   <link rel="stylesheet" type="text/css" href="../css/slick-theme.css" />
   <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
@@ -37,8 +37,11 @@
     <main id="content" class="content">
       <div class="side_bar">
         <h2 class="hide">관리메뉴</h2>
+        <div class="partner_info">
+          <a href="partner_info.php?p_idx=<?php echo $sp_idx ?>">파트너 정보 수정</a>
+        </div>
         <div class="reservation">
-          <a href="partner_reservation.php?p_idx=<?php echo $sp_idx ?>">예약 관리</a>
+          <a href="reservation/partner_reservation.php?p_idx=<?php echo $sp_idx ?>">예약 관리</a>
         </div>
         <div class="message">
           <a href="#">메세지</a>
@@ -47,10 +50,7 @@
           <a href="#">후기 관리</a>
         </div>
         <div class="room">
-          <a href="partner_room.php?p_idx=<?php echo $sp_idx ?>">숙소 및 객실 관리</a>
-        </div>
-        <div class="partner_info">
-          <a href="partner_info.php?p_idx=<?php echo $sp_idx ?>">파트너 정보 수정</a>
+          <a href="room/partner_room.php?p_idx=<?php echo $sp_idx ?>">숙소 및 객실 관리</a>
         </div>
       </div>
 

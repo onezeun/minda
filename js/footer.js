@@ -8,7 +8,7 @@ $(document).ready(function () {
       $(".ptn_modal_bg").fadeTo("fast", 1);
       $("body").addClass("scrollLock");
     } else {
-      location.href = `http://localhost/KDT-1st-project-minda/partner/partner_reservation.php?p_idx=${$('#on_partner').val()}`;
+      location.href = `http://localhost/KDT-1st-project-minda/partner/partner_info.php?p_idx=${$('#on_partner').val()}`;
     }
   });
 

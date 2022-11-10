@@ -65,7 +65,7 @@ fieldset {
 
 .ptn_pop_signup {
   width: 800px;
-  height: 675px;
+  height: 770px;
   background-color: white;
   border: 1px solid #b7b7b7;
   border-radius: 5px;
@@ -83,7 +83,7 @@ fieldset {
   display: block;
   width: 175px;
   height: 75px;
-  margin: auto;
+  margin: 10px auto;
   background: url(../images/partner_logo.png) no-repeat;
 }
 
@@ -125,7 +125,7 @@ fieldset {
   text-align: center;
 }
 
-.ptn_pop_name_wrap, .ptn_pop_tel_wrap {
+.ptn_pop_name_wrap, .ptn_pop_num_wrap, .ptn_pop_tel_wrap {
   position: relative;
 }
 

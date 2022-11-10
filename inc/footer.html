@@ -44,27 +44,32 @@
       </div>
     </div>
 
-
-    <from>
+    <form name="pertner_signup_form" id="pertner_signup_form" action="http://localhost/KDT-1st-project-minda/user/partner_insert.php" method="post">
       <div class="ptn_modal_bg">
         <div class="ptn_pop_signup">
           <h3 class="ptn_pop_logo indent">민다파트너</h3>
           <button type="button" class="ptn_pop_cancel_btn indent">닫기</button>
           <div class="ptn_pop_line"></div>
           <fieldset>
-            <legend class="ptn_pop_signup_title">회원 가입</legend>
+            <legend class="ptn_pop_signup_title">파트너 등록</legend>
             <p class="ptn_pop_txt">민다 파트너가 되어 새로운 수익을 만들어 보세요!</p>
 
             <div class="ptn_pop_info_wrap">
               <div class="ptn_pop_name_wrap">
                 <span class="ptn_pop_title">파트너명</span>
-                <input type="text" id="ptn_pop_name" class="ptn_pop_input" maxlength="20"
+                <input type="text" name="p_name" id="ptn_pop_name" class="ptn_pop_input" maxlength="20"
                   placeholder="회사명, 숙소명등 대표되는 이름을 작성해주세요.">
                 <br><span id="ptn_err_name" class="ptn_pop_err_txt"></span>
               </div>
+              <div class="ptn_pop_num_wrap">
+                <span class="ptn_pop_title">사업자번호</span>
+                <input type="text" name="p_biznum" id="ptn_pop_num" class="ptn_pop_input" maxlength="20"
+                  placeholder="국내/해외 사업자등록번호를 입력해주세요">
+                <br><span id="ptn_err_num" class="ptn_pop_err_txt"></span>
+              </div>
               <div class="ptn_pop_tel_wrap">
                 <span class="ptn_pop_title">업체 연락처</span>
-                <input type="text" id="ptn_pop_tel" class="ptn_pop_input" maxlength="20" placeholder="숫자만 입력해주세요.">
+                <input type="text" name="p_tel" id="ptn_pop_tel" class="ptn_pop_input" maxlength="20" placeholder="숫자만 입력해주세요.">
                 <br><span id="ptn_err_tel" class="ptn_pop_err_txt"></span>
               </div>
             </div>

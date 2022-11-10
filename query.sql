@@ -31,13 +31,14 @@ CREATE TABLE partner_user (
   p_idx INT AUTO_INCREMENT PRIMARY KEY,
   u_idx INT,
   p_name VARCHAR(20) NOT NULL,
-  p_phone VARCHAR(20) NOT NULL,
+  p_biznum INT NOT NULL,
+  p_tel VARCHAR(20) NOT NULL,
   FOREIGN KEY (u_idx) REFERENCES user (u_idx) ON DELETE CASCADE
 );
 
-INSERT INTO partner_user(u_idx, p_name, p_phone) VALUES(1, '관리자', '0236669999');
-INSERT INTO partner_user(u_idx, p_name, p_phone) VALUES(7, '테스트7 숙소','023339999');
-INSERT INTO partner_user(u_idx, p_name, p_phone) VALUES(8,'테스트8 숙소','0270707070');
+INSERT INTO partner_user(u_idx, p_name, p_biznum, p_tel) VALUES(1, '관리자', 123456789, '0236669999');
+INSERT INTO partner_user(u_idx, p_name, p_biznum, p_tel) VALUES(7, '테스트7 숙소', 123456789, '023339999');
+INSERT INTO partner_user(u_idx, p_name, p_biznum, p_tel) VALUES(8, '테스트8 숙소', 123456789, '0270707070');
 
 -- 일반 회원 중 파트너로 가입되어 있는 사람들 조회
 SELECT partner_user.u_idx, partner_user.p_name, user.u_name FROM partner_user JOIN user ON user.u_idx = partner_user.u_idx;

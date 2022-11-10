@@ -13,12 +13,17 @@ $(document).ready(function () {
     $("#ptn_pop_name")
       .val("")
       .addClass("ptn_pop_input")
-      .removeClass("ptn_err_input mr");
+      .removeClass("ptn_err_input ptn_pop_mr");
+      $("#ptn_pop_num")
+      .val("")
+      .addClass("ptn_pop_input")
+      .removeClass("ptn_err_input ptn_pop_mr");
     $("#ptn_pop_tel")
       .val("")
       .addClass("ptn_pop_input")
       .removeClass("ptn_err_input");
     $("#ptn_err_name").css({ display: "none" });
+    $("#ptn_err_num").css({ display: "none" });
     $("#ptn_err_tel").css({ display: "none" });
     $("#ptn_pop_err_apply").css({ display: "none" });
     $("input[type=checkbox]").prop('checked', false);
@@ -30,12 +35,17 @@ $(document).ready(function () {
     $("#ptn_pop_name")
       .val("")
       .addClass("ptn_pop_input")
-      .removeClass("ptn_err_input mr");
+      .removeClass("ptn_err_input ptn_pop_mr");
+      $("#ptn_pop_num")
+      .val("")
+      .addClass("ptn_pop_input")
+      .removeClass("ptn_err_input ptn_pop_mr");
     $("#ptn_pop_tel")
       .val("")
       .addClass("ptn_pop_input")
       .removeClass("ptn_err_input");
     $("#ptn_err_name").css({ display: "none" });
+    $("#ptn_err_num").css({ display: "none" });
     $("#ptn_err_tel").css({ display: "none" });
     $("#ptn_pop_err_apply").css({ display: "none" });
     $("input[type=checkbox]").prop('checked', false);
@@ -70,6 +80,33 @@ $(document).ready(function () {
 
   $("#ptn_pop_name").on("keyup", function () {
     nameCheck();
+  });
+
+  const numCheck = () => {
+    if (!$("#ptn_pop_num").val()) {
+      $("#ptn_pop_num").addClass("ptn_pop_err_input ptn_pop_mr").focus();
+      $("#ptn_pop_num").removeClass("ptn_pop_input");
+      $("#ptn_err_num")
+        .css({ display: "block" })
+        .text("사업자등록번호를 입력해주세요");
+      return false;
+    } else if (!regTel.test($("#ptn_pop_num").val())) {
+      $("#ptn_pop_num").addClass("ptn_pop_err_input ptn_pop_mr").focus();
+      $("#ptn_pop_num").removeClass("ptn_pop_input");
+      $("#ptn_err_num")
+        .css({ display: "block" })
+        .text('"-"없이 숫자만 입력해주세요');
+      return false;
+    } else {
+      $("#ptn_pop_num").addClass("ptn_pop_input");
+      $("#ptn_pop_num").removeClass("ptn_pop_err_input ptn_pop_mr");
+      $("#ptn_err_num").css({ display: "none" });
+      return true;
+    }
+  };
+
+  $("#ptn_pop_num").on("input", function () {
+    numCheck();
   });
 
   const telCheck = () => {

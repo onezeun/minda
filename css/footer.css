@@ -48,6 +48,14 @@ fieldset {
   right: 10px;
 }
 
+.partner_gominda {
+  font-weight: bold;
+  font-size: 16px;
+  position: absolute;
+  top: -42px;
+  right: 10px;
+}
+
 /* 파트너 회원가입 모달창 */
 .scrollLock { 
   overflow: hidden; 

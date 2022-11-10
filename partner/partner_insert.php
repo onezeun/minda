@@ -1,5 +1,5 @@
 <?php
-  include "../inc/session.php";
+  include "inc/session.php";
   
   /*  1. 이전 페이지에서 값 가져오기 */
   // 사용자들이 쓴 값을 $변수에 저장
@@ -31,7 +31,7 @@
   /* 6.페이지 이동 */
   echo "
     <script type=\"text/javascript\">
-      location.href = \"http://localhost/KDT-1st-project-minda/partner/partner_reservation.html\";
+      location.href = \"http://localhost/KDT-1st-project-minda/partner/partner_reservation.php\";
     </script>
     ";
 ?>

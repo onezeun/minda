@@ -44,7 +44,7 @@
           <li class="footer_sns_blog"><a href="#">블로그</a></li>
           <li class="footer_sns_instar"><a href="#">인스타그램</a></li>
         </ul>
-        <a href="http://localhost/KDT-1st-project-minda/partner/partner_reservation.html"
+        <a href="#"
           class="footer_qna indent">고객센터문의</a>
       </div>
     </div>

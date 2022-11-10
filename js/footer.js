@@ -1,5 +1,4 @@
 $(document).ready(function () {
-  console.log($('#on_partner').val())
   /* 팝업 */
   $(".footer_gopatner").on("click", function (e) {
     e.preventDefault();
@@ -9,9 +8,8 @@ $(document).ready(function () {
       $(".ptn_modal_bg").fadeTo("fast", 1);
       $("body").addClass("scrollLock");
     } else {
-      location.href = `http://localhost/KDT-1st-project-minda/partner/partner_reservation.html?p_idx=${$('#on_partner').val()}`;
+      location.href = `http://localhost/KDT-1st-project-minda/partner/partner_reservation.php?p_idx=${$('#on_partner').val()}`;
     }
-
   });
 
   $(".ptn_pop_cancel_btn").on("click", function () {

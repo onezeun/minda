@@ -1,0 +1,184 @@
+/* header */
+.header {
+  height: 198px;
+  padding-top: 1px;
+  position: relative;
+  border-bottom: 1px solid black;
+}
+
+.partner_logo {
+  width: 175px;
+  margin: 60px auto 0;
+}
+
+.partner_logo a {
+  display: block;
+  width: 175px;
+  height: 75px;
+  background: url(../../images/partner_logo.png) no-repeat;
+}
+
+/* main */
+.content {
+  width: 1200px;
+  margin: 50px auto;
+  display: flex;
+  padding-top: 50px;
+}
+
+.side_bar {
+  width: 200px;
+  height: 800px;
+  background: #eeb72f;
+  border: 1px solid #eeb72f;
+  padding:0 30px;
+}
+
+.side_bar a{
+  width: 140px;
+  height: 80px;
+  color: white;
+  font-size: 18px;
+  line-height: 120px;
+  display: inline-block;
+}
+
+.side_bar a:hover {
+ border-bottom: 3px solid white;
+}
+
+.this {
+  border-bottom: 3px solid white;
+}
+
+.cont {
+  width: 1000px;
+  height: 800px;
+  border: 1px solid #d7d7d7;
+  padding: 20px;
+}
+
+/* search result */
+.list_title {
+  width: 850px;
+  font-size: 16px;
+}
+
+.list_title span {
+  font-weight: bold;
+  color: #eeb72f
+}
+
+.ldg_card {
+  width: 960px;
+  height: 190px;
+  border: 2px solid #b7b7b7;
+  border-radius: 5px;
+  padding: 20px;
+  position: relative;
+  display: flex;
+  margin: 10px 0;
+}
+
+.ldg_card a{
+  width: 850px;
+  height: 190px;
+}
+
+.ldg_card_menu {
+  position:absolute;
+  top: 20px;
+  right: 20px;
+}
+
+button {
+  width: 100px;
+  height: 35px;
+  border: none;
+  color: white;
+  background: #eeb72f;
+  border-radius: 5px;
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+.ldg_card_left {
+  width: 300px;
+  margin-left: 20px;
+  position: relative;
+}
+
+.lodging_name {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.room_type {
+  color: #8c8c8c;
+}
+
+.ldg_card_bot {
+  position: absolute;
+  bottom: 0;
+  color: #8c8c8c;
+}
+
+.ldg_card_review {
+display: inline-block;
+margin-right: 20px;
+}
+
+.review_star {
+  width: 77px;
+  height: 14px;
+  background: url(../../images/star.png) no-repeat;
+  text-indent: -9999px;
+  display: inline-block;
+}
+
+.review_count {
+  color: black;
+  font-size: 16px;
+  margin-right: 5px;
+}
+
+.ldg_card_right {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.ldg_card_day {
+  width: 48px;
+  height: 23px;
+  background: url(../../images/oneday.png) no-repeat;
+  margin-bottom: 5px;
+}
+
+.ldg_card_price {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+
+/* search result */
+.pagenation {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.pagenation_btn01 {
+  width: 32px;
+  height: 32px;
+  background: url(../images/ldg_review_pagenation01.png) no-repeat;
+  margin-right: 10px;
+}
+
+.pagenation_btn02 {
+  width: 32px;
+  height: 32px;
+  background: url(../images/ldg_review_pagenation02.png) no-repeat;
+}

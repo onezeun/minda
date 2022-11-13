@@ -71,8 +71,8 @@
 
 .ldg_card {
   width: 960px;
-  height: 190px;
-  border: 2px solid #b7b7b7;
+  height: 220px;
+  border: 1px solid #b7b7b7;
   border-radius: 5px;
   padding: 20px;
   position: relative;

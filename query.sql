@@ -29,9 +29,9 @@ INSERT INTO user(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_d
 -- 파트너회원
 CREATE TABLE partner_user (
   p_idx INT AUTO_INCREMENT PRIMARY KEY,
-  p_name VARCHAR(20) NOT NULL,
-  p_biznum INT NOT NULL,
-  p_phone VARCHAR(20) NOT NULL,
+  p_name VARCHAR(30) NOT NULL,
+  p_biznum VARCHAR(50) NOT NULL,
+  p_phone VARCHAR(30) NOT NULL,
   u_idx INT,
   FOREIGN KEY (u_idx) REFERENCES user (u_idx) ON DELETE CASCADE
 );

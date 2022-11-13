@@ -22,6 +22,12 @@
   /* 4. 쿼리 전송 */
   mysqli_query($dbcon, $sql);
 
+  $s_sql = "SELECT * FROM partner_user WHERE u_idx=$s_idx";
+  $result = mysqli_query($dbcon, $s_sql);
+  $array = mysqli_fetch_array($result);
+
+  $_SESSION['sp_idx'] = $array['p_idx'];
+
   /* 5. 전송된 값 가져오기 & 세션 저장 */
   // $array = mysqli_fetch_array($result);
 

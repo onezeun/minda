@@ -55,7 +55,9 @@
   mysqli_query($dbcon, $ldg_sql);
 
   $ldg_sel_sql ="SELECT ldg_idx FROM lodging WHERE p_idx = $sp_idx;";
-  $array = mysqli_query($dbcon, $ldg_sql);
+
+  $result = mysqli_query($dbcon, $ldg_sel_sql);
+  $array = mysqli_fetch_array($result);
   $ldg_idx = $array['ldg_idx'];
 
   // $facility_sql ="INSERT INTO lodging_facility (dormitory, privateroom, condo, womenonly, wifi, kitchen, elevator, locker, parking, breakfast, lunch, dinner, ldg_idx) VALUES ($dormitory, $privateroom, $condo, $womenonly, $wifi, $kitchen, $elevator, $locker, $parking, $breakfast, $lunch, $dinner, $ldg_idx);";
@@ -70,7 +72,7 @@
   /* 6.페이지 이동 */
   echo "
     <script type=\"text/javascript\">
-      location.href = \"http://localhost/KDT-1st-project-minda/partner/room/partner_room.php\";
+      location.href = \"http://localhost/KDT-1st-project-minda/partner/room/list.php\";
     </script>
     ";
 ?>

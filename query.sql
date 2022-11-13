@@ -132,7 +132,8 @@ create table lodging_facility (
 INSERT INTO lodging (ldg_name, ldg_addr, ldg_info, ldg_maxnop, toilet, shower, p_idx) VALUES ( '$ldg_name', '$ldg_addr', '$ldg_info', $ldg_maxnop, $toilet, $shower, $sp_idx);
 -- 등록된 숙소 idx 조회
 SELECT ldg_idx FROM lodging WHERE p_idx = $sp_idx;
-
+-- 숙소 조회
+select * from lodging where p_idx=5;
 -- 숙소 첨부파일
 
 -- 숙소 시설

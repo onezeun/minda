@@ -3,7 +3,6 @@ $(document).ready(function () {
   $.ajax({
     url: '../user/user_read.php',
     type: 'POST',
-    data: $('#user_form').serialize(),
     datatype: 'json',
   }).done(function (data) {
     /* input */

@@ -105,6 +105,8 @@ create table lodging_file (
   l_file_idx INT AUTO_INCREMENT PRIMARY KEY,
   l_file_src LONGBLOB,
   l_file_name VARCHAR(255),
+  l_file_type VARCHAR(25),
+  l_file_size VARCHAR(255),
   ldg_idx INT,
   FOREIGN KEY (ldg_idx) REFERENCES lodging (ldg_idx) ON DELETE CASCADE
 );

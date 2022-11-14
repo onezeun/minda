@@ -13,12 +13,27 @@
   $ldg_maxnop = $_POST["ldg_maxnop"]; 
   $toilet = $_POST["toilet"]; 
   $shower = $_POST["shower"]; 
+  $ldg_mainimg_err = $_FILES["ldg_mainimg"]["error"];
 
-  // // 숙소 첨부파일 
-  // $ldg_mainimg = $_FILE["ldg_mainimg"]; 
+  // 숙소 첨부파일 
+  // 대표 이미지 저장
+  if($ldg_mainimg_err == 0) {
+    $ldg_mainimg_tmp = $_FILES['ldg_mainimg']['tmp_name'];
+    $ldg_mainimg_name = $_FILES['ldg_mainimg']['name'];
+    $upload_folder = "images/";
+    move_uploaded_file( $ldg_mainimg_tmp, $upload_folder . $ldg_mainimg_name );
+    
+    $path = $upload_folder.$ldg_mainimg_name;
+    $type = pathinfo($path, PATHINFO_EXTENSION);
+    $data = file_get_contents($path);
+    $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+  }
+
   // $ldg_subimg = $_FILES["ldg_subimg"];
 
-  // // 숙소 시설
+  // 숙소 시설
+  $facility_arr = $_POST['facility'];
+  $facility = implode( ',', $facility_arr);
   // $dormitory = $_POST["dormitory"];
   // $privateroom = $_POST["privateroom"];
   // $condo = $_POST["condo"];
@@ -31,6 +46,21 @@
   // $breakfast = $_POST["breakfast"];
   // $lunch = $_POST["lunch"];
   // $dinner = $_POST["dinner"];
+
+  echo $facility;
+  // echo $privateroom;
+  // echo $condo;
+  // echo $womenonly;
+  // echo $wifi;
+  // echo $kitchen;
+  // echo $elevator;
+  // echo $locker;
+  // echo $parking;
+  // echo $breakfast;
+  // echo $lunch;
+  // echo $dinner;
+
+  exit;
 
   // //객실 
   // $r_name = $_POST["r_name"]; 
@@ -60,7 +90,8 @@
   $array = mysqli_fetch_array($result);
   $ldg_idx = $array['ldg_idx'];
 
-  // $facility_sql ="INSERT INTO lodging_facility (dormitory, privateroom, condo, womenonly, wifi, kitchen, elevator, locker, parking, breakfast, lunch, dinner, ldg_idx) VALUES ($dormitory, $privateroom, $condo, $womenonly, $wifi, $kitchen, $elevator, $locker, $parking, $breakfast, $lunch, $dinner, $ldg_idx);";
+  $img_sql = "INSERT INTO ldging_file (l_file_src, l_file_name, ldg_idx) VALUES ('$ldg_mainimg', '$ldg_mainimg_name', '$ldg_idx');";
+  $facility_sql ="INSERT INTO lodging_facility (dormitory, privateroom, condo, womenonly, wifi, kitchen, elevator, locker, parking, breakfast, lunch, dinner, ldg_idx) VALUES ($dormitory, $privateroom, $condo, $womenonly, $wifi, $kitchen, $elevator, $locker, $parking, $breakfast, $lunch, $dinner, $ldg_idx);";
   
   /* 4. 쿼리 전송 */
 

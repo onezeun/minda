@@ -54,7 +54,7 @@
       </div>
 
       <div class="room_edit_cont">
-        <form name="ldg_form" id="ldg_form" action="room_insert.php" method="post">
+        <form name="ldg_form" id="ldg_form" action="room_insert.php" method="post" enctype="multipart/form-data">
           <table class="room_edit_table">
             <tr>
               <th>숙소명</th>
@@ -66,13 +66,18 @@
             <tr>
               <th>숙소주소</th>
               <td>
+                <!-- <input type="hidden" name="ldg_ps_code" id="ldg_ps_code" class="ldg_addr" placeholder="주소를 입력해주세요">
+                <input type="hidden" name="ldg_addr_a" id="ldg_addr_a" class="ldg_addr" placeholder="주소를 입력해주세요">
+                <input type="hidden" name="ldg_addr_b" id="ldg_addr_b" class="ldg_addr" placeholder="주소를 입력해주세요">
+                <span id="ldg_addr" class="ldg_addr">주소를 입력해주세요</span>
+                <button type="button">검색</button> -->
                 <input type="text" name="ldg_addr" id="ldg_addr" class="ldg_addr" placeholder="주소를 입력해주세요">
               </td>
             </tr>
             <tr>
               <th>숙소소개</th>
               <td class="ldg_info_td">
-                <a href="#" id="ldg_info_btn" class="ldg_info_btn">대표 이미지 및 소개말을 입력해주세요</a>
+                <a href="#" id="ldg_info_btn" class="ldg_info_btn">숙소 이미지 및 소개말을 입력해주세요</a>
                 <div class="ldg_info_modal_bg">
                   <div class="ldg_info_pop">
                     <p class="ldg_pop_title">숙소 소개</p>
@@ -81,11 +86,11 @@
                       <div class="ldg_pop_left">
                         <p class="ldg_pop_left_txt_wrap">
                           <span class="ldg_pop_sub_title1">대표 사진 등록</span>
-                          <input type="file" accept="image/*" name="ldg_mainimg" id="ldg_mainimg_input"
+                          <input type="file" name="ldg_mainimg" id="ldg_mainimg_input"
                             class="ldg_img_input">
                           <button type="button" id="main_img_btn" class="img_btn">이미지 업로드</button>
                         </p>
-                        <div class="ldg_pop_main_img"></div>
+                        <img src="" id="ldg_pop_main_img" class="ldg_pop_main_img">
 
                         <div class="ldg_pop_left_txt_wrap">
                           <span class="ldg_pop_sub_title2">숙소 사진 등록</span>
@@ -113,24 +118,24 @@
             <tr>
               <th>숙소객실유형</th>
               <td class="room_type_wrap">
-                <input type="checkbox" id="dormitory"><label for="dormitory">도미토리</label>
-                <input type="checkbox" id="privateroom"><label for="privateroom">개인실</label>
-                <input type="checkbox" id="condo"><label for="condo">콘도형</label>
-                <input type="checkbox" id="womenonly"><label for="womenonly">여성전용</label>
+                <input type="checkbox" name="facility[]" id="dormitory" value="dormitory"><label for="dormitory">도미토리</label>
+                <input type="checkbox" name="facility[]" id="privateroom" value="privateroom"><label for="privateroom">개인실</label>
+                <input type="checkbox" name="facility[]" id="condo" value="condo"><label for="condo">콘도형</label>
+                <input type="checkbox" name="facility[]" id="womenonly" value="womenonly"><label for="womenonly">여성전용</label>
               </td>
             </tr>
             <tr>
               <th>숙소시설</th>
               <td class="room_facility_wrap">
-                <input type="checkbox" id="wifi"><label for="wifi">Wifi</label>
-                <input type="checkbox" id="kitchen"><label for="kitchen">게스트부엌</label>
-                <input type="checkbox" id="elevator"><label for="elevator">엘리베이터</label>
-                <input type="checkbox" id="locker"><label for="locker">개인사물함</label>
-                <input type="checkbox" id="parking"><label for="parking">주차가능</label>
+                <input type="checkbox" name="facility[]" id="wifi" value="wifi"><label for="wifi">Wifi</label>
+                <input type="checkbox" name="facility[]" id="kitchen" value="kitchen"><label for="kitchen">게스트부엌</label>
+                <input type="checkbox" name="facility[]" id="elevator" value="elevator"><label for="elevator">엘리베이터</label>
+                <input type="checkbox" name="facility[]" id="locker" value="locker"><label for="locker">개인사물함</label>
+                <input type="checkbox" name="facility[]" id="parking" value="parking"><label for="parking">주차가능</label>
                 <div class="rf_line"></div>
-                <input type="checkbox" id="breakfast"><label for="breakfast">조식</label>
-                <input type="checkbox" id="lunch"><label for="lunch">중식</label>
-                <input type="checkbox" id="dinner"><label for="dinner">석식</label>
+                <input type="checkbox" name="facility[]" id="breakfast" value="breakfast"><label for="breakfast">조식</label>
+                <input type="checkbox" name="facility[]" id="lunch" value="lunch"><label for="lunch">중식</label>
+                <input type="checkbox" name="facility[]" id="dinner" value="dinner"><label for="dinner">석식</label>
               </td>
             </tr>
             <tr>

@@ -20,7 +20,7 @@
 <body>
   <div id="header" class="header">
     <h1 class="partner_logo indent">
-      <a href="http://localhost/KDT-1st-project-minda/partner/partner_reservation.php?p_idx=<?php echo $sp_idx?>">민다파트너</a>
+      <a href="http://localhost/KDT-1st-project-minda/partner/partner_info_page.php">민다파트너</a>
     </h1>
   </div>
 </body>

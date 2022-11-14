@@ -1,6 +1,5 @@
 <?php
-  include "inc/session.php";
-?>
+include 'inc/session.php'; ?>
 
 
 
@@ -16,14 +15,14 @@
   <link rel="stylesheet" type="text/css" href="../css/reset.css" />
   <link rel="stylesheet" type="text/css" href="../css/header.css" />
   <link rel="stylesheet" type="text/css" href="../css/footer.css" />
-  <link rel="stylesheet" type="text/css" href="css/partner_room.css" />
+  <link rel="stylesheet" type="text/css" href="css/partner_info.css" />
   <link rel="stylesheet" type="text/css" href="../css/slick.css" />
   <link rel="stylesheet" type="text/css" href="../css/slick-theme.css" />
   <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
     crossorigin="anonymous"></script>
   <script type="text/javascript" src="js/include.js"></script>
   <script type="text/javascript" src="../js/slick.js"></script>
-  <script type="text/javascript" src="../js/partner_room.js"></script>
+  <script type="text/javascript" src="js/partner_info.js"></script>
 </head>
 
 <body>
@@ -38,27 +37,23 @@
       <div class="side_bar">
         <h2 class="hide">관리메뉴</h2>
         <div class="partner_info">
-          <a href="partner_info.php?p_idx=<?php echo $sp_idx ?>">파트너 정보</a>
+          <a href="partner_info_page.php">파트너 정보</a>
+        </div>
+        <div class="ldg_list">
+          <a href="room/list_page.php">숙소 리스트</a>
         </div>
         <div class="reservation">
-          <a href="reservation/partner_reservation.php?p_idx=<?php echo $sp_idx ?>">예약 관리</a>
+          <a href="reservation/partner_reservation_page.php">예약 관리</a>
         </div>
         <div class="message">
           <a href="#">메세지</a>
-        </div>
-        <div class="ldg_list">
-          <a href="room/partner_room_list.php?p_idx=<?php echo $sp_idx ?>">숙소 리스트</a>
-        </div>
-        <!-- 나중에 없애야됨.. -->
-        <div class="room">
-          <a href="room/partner_room.php?p_idx=<?php echo $sp_idx ?>">숙소 및 객실 관리</a>
         </div>
         <div class="review">
           <a href="#">후기 관리</a>
         </div>
       </div>
 
-      <div class="room_edit_cont"></div>
+      <div class="partner_info_cont"></div>
     </main>
 
     <!-- footer -->

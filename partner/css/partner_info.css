@@ -1,0 +1,55 @@
+/* header */
+.header {
+  height: 198px;
+  padding-top: 1px;
+  position: relative;
+  border-bottom: 1px solid black;
+}
+
+.partner_logo {
+  width: 175px;
+  margin: 60px auto 0;
+}
+
+.partner_logo a {
+  display: block;
+  width: 175px;
+  height: 75px;
+  background: url(../../images/partner_logo.png) no-repeat;
+}
+
+/* main */
+.content {
+  width: 1200px;
+  margin: 50px auto;
+  display: flex;
+  padding-top: 50px;
+}
+
+.side_bar {
+  width: 200px;
+  height: 800px;
+  background: #eeb72f;
+  border: 1px solid #eeb72f;
+  padding:0 30px;
+}
+
+.side_bar a{
+  width: 140px;
+  height: 80px;
+  color: white;
+  font-size: 18px;
+  line-height: 120px;
+  display: inline-block;
+}
+
+.side_bar a:hover {
+ border-bottom: 3px solid white;
+}
+
+.partner_info_cont {
+  width: 1000px;
+  height: 800px;
+  border: 1px solid #d7d7d7;
+  padding: 20px;
+}

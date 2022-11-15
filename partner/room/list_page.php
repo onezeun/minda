@@ -63,14 +63,14 @@
   <link rel="stylesheet" type="text/css" href="../../css/reset.css" />
   <link rel="stylesheet" type="text/css" href="../../css/header.css" />
   <link rel="stylesheet" type="text/css" href="../../css/footer.css" />
-  <link rel="stylesheet" type="text/css" href="../css/room_list.css" />
+  <link rel="stylesheet" type="text/css" href="../css/ldg_list.css" />
   <link rel="stylesheet" type="text/css" href="../../css/slick.css" />
   <link rel="stylesheet" type="text/css" href="../../css/slick-theme.css" />
   <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
     crossorigin="anonymous"></script>
   <script type="text/javascript" src="../js/include.js"></script>
   <script type="text/javascript" src="../../js/slick.js"></script>
-  <script type="text/javascript" src="../js/room_list.js"></script>
+  <script type="text/javascript" src="../js/ldg_list.css"></script>
 
 </head>
 
@@ -104,7 +104,7 @@
 
       <div class="cont">
         <p class="list_title">총 <span><?php echo $total; ?></span>개의 숙소가 등록되어있습니다.</p>
-        <a href="new_room_page.php" class="new_ldg btn_hover">신규 등록</a>
+        <a href="new_ldg_page.php" class="new_ldg btn_hover">신규 등록</a>
         <?php
           // paging : 해당 페이지의 글 시작 번호 = (현재 페이지 번호 - 1) * 페이지 당 보여질 목록 수
           $start = ($page - 1) * $list_num;
@@ -129,9 +129,8 @@
           </div>
           <ul class="ldg_card_menu">
             <li><a href="../reservation/partner_reservation_page.php" class="menu_btn btn_hover">예약관리</a></li>
-            <li><a href="edit_room_page.php?ldg_idx=<?php echo $array["ldg_idx"]; ?>"
-                class="menu_btn btn_hover">숙소관리</a></li>
-            <li><a href="#" class="menu_btn btn_hover">후기관리</a></li>
+            <li><a href="edit_ldg_page.php?ldg_idx=<?php echo $array["ldg_idx"]; ?>" class="menu_btn btn_hover">숙소관리</a></li>
+            <li><a href="room_page.php?ldhldg_idx=<?php echo $array["ldg_idx"];?>" class="menu_btn btn_hover">객실관리</a></li>
             <li><a href="#" class="menu_btn del_btn">숙소삭제</a></li>
           </ul>
           <div class="ldg_card_left">

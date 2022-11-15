@@ -113,7 +113,7 @@
                       <button type="button" id="card_delete_btn" class="card_delete_btn indent">삭제</button>
                       <img src="../images/bestroom_image01.jpg" alt="영국런던런던스테이">
                       <div class="card_cont_wrap">
-                        <a href="#" class="block">
+                        <a href="room_page.php?ldg_idx=<?php echo $ldg_idx?>&r_idx=<?php echo $r_idx?>" class="block">
                           <p class="room_title">2인 여성 도미토리</p>
                           <div class="room_cont_txt">
                             <p>여성도미토리</p>

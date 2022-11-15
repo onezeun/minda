@@ -35,7 +35,7 @@
 
   // paging : 현재 블럭 번호 = 현재 페이지 번호 / 블럭 당 페이지 수
   $now_block = ceil($page / $page_num);
-
+  
   // paging : 블럭 당 시작 페이지 번호 = (해당 글의 블럭 번호 - 1) * 블럭 당 페이지 수 + 1
   $s_pageNum = ($now_block - 1) * $page_num + 1;
   if($s_pageNum <= 0){
@@ -73,6 +73,7 @@
   <script type="text/javascript" src="../js/room_list.js"></script>
 
 </head>
+
 <body>
   <div class="wrap">
     <!-- header -->
@@ -110,7 +111,7 @@
 
           // paging : 시작번호부터 페이지 당 보여질 목록수 만큼 데이터 구하는 쿼리 작성
           // limit 몇번부터, 몇 개
-          $sql = "SELECT l.ldg_idx, l.ldg_name, i.l_file_src, f.dormitory, f.dormitory, f.privateroom, f.condo, f.womenonly, f.wifi, f.kitchen, f.elevator, f.locker, f.parking, f.breakfast, f.lunch, f.dinner FROM lodging l LEFT OUTER JOIN lodging_file i ON l.ldg_idx = i.ldg_idx LEFT OUTER JOIN lodging_facility f ON l.ldg_idx = f.ldg_idx;";
+          $sql = "SELECT l.ldg_idx, l.ldg_name, i.l_file_src, f.dormitory, f.dormitory, f.privateroom, f.condo, f.womenonly, f.wifi, f.kitchen, f.elevator, f.locker, f.parking, f.breakfast, f.lunch, f.dinner FROM lodging l LEFT OUTER JOIN lodging_file i ON l.ldg_idx = i.ldg_idx LEFT OUTER JOIN lodging_facility f ON l.ldg_idx = f.ldg_idx LIMIT $start, $list_num;";
           // echo $sql;
           /* exit; */
 
@@ -128,9 +129,10 @@
           </div>
           <ul class="ldg_card_menu">
             <li><a href="../reservation/partner_reservation_page.php" class="menu_btn btn_hover">예약관리</a></li>
-            <li><a href="edit_room_page.php?ldg_idx=<?php echo $array["ldg_idx"]; ?>" class="menu_btn btn_hover">숙소관리</a></li>
+            <li><a href="edit_room_page.php?ldg_idx=<?php echo $array["ldg_idx"]; ?>"
+                class="menu_btn btn_hover">숙소관리</a></li>
             <li><a href="#" class="menu_btn btn_hover">후기관리</a></li>
-            <li><a href="#" class="menu_btn del_btn">숙소 삭제</a></li>
+            <li><a href="#" class="menu_btn del_btn">숙소삭제</a></li>
           </ul>
           <div class="ldg_card_left">
             <div class="ldg_card_top">
@@ -178,10 +180,24 @@
             <p class="ldg_card_price">90,900 원~</p>
           </div>
         </div>
-        <?php
-                $i++;
-            }; 
+        <?php 
+          $i++; 
+          }; 
         ?>
+
+        <div class="pager_wrap">
+          <p class="pager">
+            <?php
+          // pager : 페이지 번호 출력
+          for($print_page = $s_pageNum;  $print_page <= $e_pageNum; $print_page++){
+          ?>
+            <?php if ($print_page == $page) { ?>
+            <a href="list_page.php?page=<?php echo $print_page;?>" class="page01"><?php echo $print_page; ?></a>
+            <?php } else { ?>
+            <a href="list_page.php?page=<?php echo $print_page;?>" class="page02"><?php echo $print_page; ?></a>
+            <?php }}; ?>
+          </p>
+        </div>
       </div>
     </main>
 

@@ -57,7 +57,7 @@
         </div>
       </div>
 
-      <form name="ldg_form" id="ldg_form" class="ldg_form" action="room_insert.php" method="post" enctype="multipart/form-data">
+      <form name="ldg_form" id="ldg_form" class="ldg_form" action="ldg_insert.php" method="post" enctype="multipart/form-data">
         <div class="room_edit_cont">
           <table class="room_edit_table">
             <tr>

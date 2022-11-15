@@ -129,6 +129,7 @@ header {
 }
 
 .btn_hover_cancel:hover {
+  color: #8b8b8b;
   box-shadow:inset 2px 2px 5px 1px rgba(255,255,255,.5),
   1px 2px 4px 0px rgba(0,0,0,.1);
   background: #e6e9e3;

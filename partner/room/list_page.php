@@ -1,6 +1,9 @@
 <?php
   include "../inc/session.php";
 
+  // 로그인 사용자만 접근
+  include '../inc/login_check.php';
+
   // DB 연결
   include "../inc/dbcon.php";
 
@@ -127,6 +130,7 @@
             <li><a href="../reservation/partner_reservation_page.php" class="menu_btn btn_hover">예약관리</a></li>
             <li><a href="edit_room_page.php?ldg_idx=<?php echo $array["ldg_idx"]; ?>" class="menu_btn btn_hover">숙소관리</a></li>
             <li><a href="#" class="menu_btn btn_hover">후기관리</a></li>
+            <li><a href="#" class="menu_btn del_btn">숙소 삭제</a></li>
           </ul>
           <div class="ldg_card_left">
             <div class="ldg_card_top">
@@ -160,7 +164,8 @@
               <p class="room_type"><?php echo $type; ?></p>
             </div>
             <div class="ldg_card_bot">
-              <p class="room_service"><?php echo $meal." 제공 · ".$facility; ?></p>
+              <p class="ldg_meal"><?php echo $meal." 제공"; ?></p>
+              <p class="facility"><?php echo $facility; ?></p>
               <div class="ldg_card_review">
                 <span class="review_star">리뷰점수</span>
                 <span class="review_count">5.0</span>

@@ -107,6 +107,10 @@
   display: flex;
 }
 
+.ldg_card_menu li {
+  z-index: 5;
+}
+
 .menu_btn {
   width: 100px;
   height: 35px;
@@ -121,11 +125,14 @@
   line-height: 33px;
 }
 
-/* .menu_btn:hover {
-  background: #eeb72f;
-  color: white;
-  transition: 0.5s;
-} */
+.del_btn:hover {
+  color: #8b8b8b;
+  box-shadow:inset 2px 2px 5px 1px rgba(255,255,255,.5),
+  1px 2px 4px 0px rgba(0,0,0,.1);
+  background: #e9e3e3;
+  border: none;
+  transition: all 0.3s ease;
+}
 
 .ldg_card_left {
   width: 300px;
@@ -148,10 +155,8 @@
   color: #8c8c8c;
 }
 
-.room_service {
-  width: 400px;
-  position: absolute;
-  top: -23px;
+.facility {
+  width: 340px;
 }
 
 .ldg_card_review {

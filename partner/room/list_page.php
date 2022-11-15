@@ -111,7 +111,7 @@
 
           // paging : 시작번호부터 페이지 당 보여질 목록수 만큼 데이터 구하는 쿼리 작성
           // limit 몇번부터, 몇 개
-          $sql = "SELECT l.ldg_idx, l.ldg_name, i.l_file_src, f.dormitory, f.dormitory, f.privateroom, f.condo, f.womenonly, f.wifi, f.kitchen, f.elevator, f.locker, f.parking, f.breakfast, f.lunch, f.dinner FROM lodging l LEFT OUTER JOIN lodging_file i ON l.ldg_idx = i.ldg_idx LEFT OUTER JOIN lodging_facility f ON l.ldg_idx = f.ldg_idx LIMIT $start, $list_num;";
+          $sql = "SELECT l.ldg_idx, l.ldg_name, i.l_file_src, f.dormitory, f.dormitory, f.privateroom, f.condo, f.womenonly, f.wifi, f.kitchen, f.elevator, f.locker, f.parking, f.breakfast, f.lunch, f.dinner FROM lodging l LEFT OUTER JOIN lodging_file i ON l.ldg_idx = i.ldg_idx LEFT OUTER JOIN lodging_facility f ON l.ldg_idx = f.ldg_idx WHERE p_idx=$sp_idx LIMIT $start, $list_num;";
           // echo $sql;
           /* exit; */
 
@@ -130,7 +130,7 @@
           <ul class="ldg_card_menu">
             <li><a href="../reservation/partner_reservation_page.php" class="menu_btn btn_hover">예약관리</a></li>
             <li><a href="edit_ldg_page.php?ldg_idx=<?php echo $array["ldg_idx"]; ?>" class="menu_btn btn_hover">숙소관리</a></li>
-            <li><a href="room_page.php?ldhldg_idx=<?php echo $array["ldg_idx"];?>" class="menu_btn btn_hover">객실관리</a></li>
+            <li><a href="room_page.php?ldg_idx=<?php echo $array["ldg_idx"];?>" class="menu_btn btn_hover">객실관리</a></li>
             <li><a href="#" class="menu_btn del_btn">숙소삭제</a></li>
           </ul>
           <div class="ldg_card_left">

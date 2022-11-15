@@ -54,6 +54,7 @@
       </div>
 
       <form name="room_form" id="room_form" class="room_form" action="room_insert.php" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="ldg_idx" value="<?php echo $_GET["ldg_idx"]; ?>">
         <div class="room_cont">
           <table class="room_edit_table">
             <tr>

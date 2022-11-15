@@ -138,9 +138,13 @@ SELECT ldg_idx FROM lodging WHERE p_idx = $sp_idx;
 -- 숙소 조회
 SELECT * FROM lodging WHERE p_idx=$sp_idx;
 -- 숙소 첨부파일
-
+INSERT INTO lodging_file (l_file_main, l_file_src, l_file_name, ldg_idx) VALUES ('Y', '$mainbase64', '$ldg_mainimg_name', '$ldg_idx');
 -- 숙소 시설
 INSERT INTO lodging_facility (dormitory, privateroom, condo, womenonly, wifi, kitchen, elevator, locker, parking, breakfast, lunch, dinner, ldg_idx) VALUES ($dormitory, $privateroom, $condo, $womenonly, $wifi, $kitchen, $elevator, $locker, $parking, $breakfast, $lunch, $dinner, $ldg_idx);
+
+-- 숙소 테이블 합치기
+SELECT l.ldg_idx, l.ldg_name, i.l_file_src, f.dormitory, f.dormitory, f.privateroom, f.condo, f.womenonly, f.wifi, f.kitchen, f.elevator, f.locker, f.parking, f.breakfast, f.lunch, f.dinner FROM lodging l INNER JOIN lodging_file i ON l.ldg_idx = i.ldg_idx INNER JOIN lodging_facility f ON l.ldg_idx = f.ldg_idx;
+SELECT l.ldg_idx, l.ldg_name, i.l_file_src FROM lodging l INNER JOIN lodging_file i ON l.ldg_idx = i.ldg_idx;
 
 -- 객실 ROOM
 create table room (

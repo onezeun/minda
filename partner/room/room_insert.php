@@ -81,7 +81,7 @@
   // $ldg_sql ="INSERT INTO lodging (ldg_name, ldg_addr, ldg_info, ldg_maxnop, toilet, shower, p_idx) VALUES ( '$ldg_name', '$ldg_addr', '$ldg_info', $ldg_maxnop, $toilet, $shower, $sp_idx);";
   mysqli_query($dbcon, $ldg_sql);
 
-  $ldg_sel_sql ="SELECT ldg_idx FROM lodging WHERE p_idx = $sp_idx;";
+  $ldg_sel_sql ="SELECT MAX(ldg_idx) AS ldg_idx FROM lodging WHERE p_idx = $sp_idx;";
 
   $result = mysqli_query($dbcon, $ldg_sel_sql);
   $array = mysqli_fetch_array($result);

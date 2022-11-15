@@ -94,6 +94,11 @@
   margin: 10px 0;
 }
 
+.ldg_card_img_wrap img{
+  width: 250px;
+  height: 180px;
+  object-fit: cover;
+}
 
 .ldg_card_menu {
   position:absolute;
@@ -143,6 +148,12 @@
   color: #8c8c8c;
 }
 
+.room_service {
+  width: 400px;
+  position: absolute;
+  top: -23px;
+}
+
 .ldg_card_review {
 display: inline-block;
 margin-right: 20px;
@@ -154,6 +165,7 @@ margin-right: 20px;
   background: url(../../images/star.png) no-repeat;
   text-indent: -9999px;
   display: inline-block;
+  line-height: 16px;
 }
 
 .review_count {

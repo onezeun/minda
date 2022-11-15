@@ -5,8 +5,8 @@
   include "../inc/dbcon.php";
 
   // 쿼리 작성
-  $sql = "select * from lodging where p_idx='$sp_idx';";
-
+  // $sql = "select * from lodging where p_idx='$sp_idx';";
+  $sql = "SELECT l.ldg_idx, l.ldg_name, i.l_file_src, f.dormitory, f.dormitory, f.privateroom, f.condo, f.womenonly, f.wifi, f.kitchen, f.elevator, f.locker, f.parking, f.breakfast, f.lunch, f.dinner FROM lodging l LEFT OUTER JOIN lodging_file i ON l.ldg_idx = i.ldg_idx LEFT OUTER JOIN lodging_facility f ON l.ldg_idx = f.ldg_idx WHERE p_idx='$sp_idx';";
   // 쿼리 전송
   $result = mysqli_query($dbcon, $sql);
 
@@ -107,7 +107,7 @@
 
           // paging : 시작번호부터 페이지 당 보여질 목록수 만큼 데이터 구하는 쿼리 작성
           // limit 몇번부터, 몇 개
-          $sql = "select * from lodging limit $start, $list_num;";
+          $sql = "SELECT l.ldg_idx, l.ldg_name, i.l_file_src, f.dormitory, f.dormitory, f.privateroom, f.condo, f.womenonly, f.wifi, f.kitchen, f.elevator, f.locker, f.parking, f.breakfast, f.lunch, f.dinner FROM lodging l LEFT OUTER JOIN lodging_file i ON l.ldg_idx = i.ldg_idx LEFT OUTER JOIN lodging_facility f ON l.ldg_idx = f.ldg_idx;";
           // echo $sql;
           /* exit; */
 
@@ -120,7 +120,9 @@
           while($array = mysqli_fetch_array($result)){
         ?>
         <div class="ldg_card">
-          <img src="../../images/search_room_img01.png" alt="숙소이미지">
+          <div class="ldg_card_img_wrap">
+            <img src="<?php echo $array["l_file_src"]; ?>" alt="숙소이미지">
+          </div>
           <ul class="ldg_card_menu">
             <li><a href="../reservation/partner_reservation_page.php" class="menu_btn btn_hover">예약관리</a></li>
             <li><a href="edit_room_page.php?ldg_idx=<?php echo $array["ldg_idx"]; ?>" class="menu_btn btn_hover">숙소관리</a></li>
@@ -129,10 +131,36 @@
           <div class="ldg_card_left">
             <div class="ldg_card_top">
               <p id="ldg_name" class="lodging_name"><?php echo $array["ldg_name"]; ?></p>
-              <p class="room_type">도미토리 · 개인실</p>
+              <?php
+                $dormitory = $array["dormitory"] == "1" ? "도미토리" : "";
+                $privateroom = $array["privateroom"] == "1" ? "개인실" : "";
+                $condo = $array["condo"] == "1" ? "콘도형" : "";
+                $womenonly = $array["womenonly"] == "1" ? "여성전용" : "";
+                $wifi = $array["wifi"] == "1" ? "Wifi" : "";
+                $kitchen = $array["kitchen"] == "1" ? "게스트부엌" : "";
+                $elevator = $array["elevator"] == "1" ? "엘리베이터" : "";
+                $locker = $array["locker"] == "1" ? "개인사물함" : "";
+                $parking = $array["parking"] == "1" ? "주차가능" : "";
+                $breakfast = $array["breakfast"] == "1" ? "조식" : "";
+                $lunch = $array["lunch"] == "1" ? "중식" : "";
+                $dinner = $array["dinner"] == "1" ? "석식" : "";
+
+                $type_arr = array("$dormitory","$privateroom", "$condo", "$womenonly");
+                $type_arr2 = array_filter($type_arr);
+                $type = trim(implode(" · ", $type_arr2)," · ");
+
+                $meal_arr =  array("$breakfast", "$lunch", "$dinner");
+                $meal_arr2 = array_filter($meal_arr);
+                $meal = trim(implode(", ", $meal_arr2),", ");
+
+                $facility_arr = array("$wifi","$kitchen", "$elevator", "$locker", "$parking");
+                $facility_arr2 = array_filter($facility_arr);
+                $facility = trim(implode(" · ", $facility_arr2)," · ");
+              ?>
+              <p class="room_type"><?php echo $type; ?></p>
             </div>
             <div class="ldg_card_bot">
-              <p class="room_service">조식, 석식 제공 · Wifi · 개인사물함</p>
+              <p class="room_service"><?php echo $meal." 제공 · ".$facility; ?></p>
               <div class="ldg_card_review">
                 <span class="review_star">리뷰점수</span>
                 <span class="review_count">5.0</span>

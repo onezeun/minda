@@ -103,6 +103,7 @@ create table lodging (
 -- 숙소 첨부 파일
 create table lodging_file (
   l_file_idx INT AUTO_INCREMENT PRIMARY KEY,
+  l_file_main CHAR(1),
   l_file_src LONGBLOB,
   l_file_name VARCHAR(255),
   l_file_type VARCHAR(25),
@@ -135,7 +136,7 @@ INSERT INTO lodging (ldg_name, ldg_addr, ldg_info, ldg_maxnop, toilet, shower, p
 -- 등록된 숙소 idx 조회
 SELECT ldg_idx FROM lodging WHERE p_idx = $sp_idx;
 -- 숙소 조회
-select * from lodging where p_idx=5;
+SELECT * FROM lodging WHERE p_idx=$sp_idx;
 -- 숙소 첨부파일
 
 -- 숙소 시설

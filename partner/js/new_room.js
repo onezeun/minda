@@ -30,7 +30,6 @@ $(document).ready(function () {
 
   /* 메인 이미지 등록 */
   $('#main_img_btn').on('click', function () {
-    console.log("메롱")
     $('#ldg_mainimg_input').click();
   });
 
@@ -55,12 +54,32 @@ $(document).ready(function () {
       }
     };
 
-
+    // $('.ck_box').change(function () {
+    //   if(!$(this).is(":checked")) {
+    //     $(this).attr('value', '0');
+    //     console.log($(this).val());
+    //   } else {
+    //     $(this).attr('value', '1');
+    //     console.log($(this).val());
+    //   }
+    // });
 
   /* 숙소 유효성검사 */
   $('#ldg_submit_btn').on('click', function(){
+
+    // var ckbox = $('.ck_box');
+    // var facility_length = ckbox.length;
+    // for (var i=0; i<facility_length; i++) {
+    //   if(ckbox[i].val() != "1") {
+    //     ckbox.val("0");
+    //     console.log("0일때",ckbox.val())
+    //   } else {
+    //     ckbox.val("1");
+    //     console.log("1일때",ckbox.val())
+    //   }
     $('#ldg_form').submit();
-  });
+  // }
+});
 
   /* 객실 등록 팝업 */
   $("#room_btn").on("click", function (e) {

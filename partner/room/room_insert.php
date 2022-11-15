@@ -26,28 +26,27 @@
     $path = $upload_folder.$ldg_mainimg_name;
     $type = pathinfo($path, PATHINFO_EXTENSION);
     $data = file_get_contents($path);
-    $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+    $mainbase64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
   }
 
+  // 서브이미지 저장
   // $ldg_subimg = $_FILES["ldg_subimg"];
 
   // 숙소 시설
-  $facility_arr = $_POST['facility'];
-  $facility = implode( ',', $facility_arr);
-  // $dormitory = $_POST["dormitory"];
-  // $privateroom = $_POST["privateroom"];
-  // $condo = $_POST["condo"];
-  // $womenonly = $_POST["womenonly"];
-  // $wifi = $_POST["wifi"];
-  // $kitchen = $_POST["kitchen"];
-  // $elevator = $_POST["elevator"];
-  // $locker = $_POST["locker"];
-  // $parking = $_POST["parking"];
-  // $breakfast = $_POST["breakfast"];
-  // $lunch = $_POST["lunch"];
-  // $dinner = $_POST["dinner"];
+  $dormitory = isset($_POST["dormitory"]) ? "1" : "0";
+  $privateroom = isset($_POST["privateroom"]) ? "1" : "0";
+  $condo = isset($_POST["condo"]) ? "1" : "0";
+  $womenonly = isset($_POST["womenonly"]) ? "1" : "0";
+  $wifi = isset($_POST["wifi"]) ? "1" : "0";
+  $kitchen = isset($_POST["kitchen"]) ? "1" : "0";
+  $elevator = isset($_POST["elevator"]) ? "1" : "0";
+  $locker = isset($_POST["locker"]) ? "1" : "0";
+  $parking = isset($_POST["parking"]) ? "1" : "0";
+  $breakfast = isset($_POST["breakfast"]) ? "1" : "0";
+  $lunch = isset($_POST["lunch"]) ? "1" : "0";
+  $dinner = isset($_POST["dinner"]) ? "1" : "0";
 
-  echo $facility;
+  // echo $dormitory;
   // echo $privateroom;
   // echo $condo;
   // echo $womenonly;
@@ -59,8 +58,6 @@
   // echo $breakfast;
   // echo $lunch;
   // echo $dinner;
-
-  exit;
 
   // //객실 
   // $r_name = $_POST["r_name"]; 
@@ -76,10 +73,10 @@
 
   // $r_price = $_POST["r_price"]; 
 
-  /* 2. DB 연결 */
+  /* DB 연결 */
   include "../inc/dbcon.php";
 
-  /* 3. 쿼리 작성 */
+  /* 쿼리 작성 */
   $ldg_sql ="INSERT INTO lodging (ldg_name, ldg_addr, ldg_info, ldg_maxnop, toilet, shower, p_idx) VALUES ( '$ldg_name', '$ldg_addr', '$ldg_info', $ldg_maxnop, $toilet, $shower, $sp_idx);";
   // $ldg_sql ="INSERT INTO lodging (ldg_name, ldg_addr, ldg_info, ldg_maxnop, toilet, shower, p_idx) VALUES ( '$ldg_name', '$ldg_addr', '$ldg_info', $ldg_maxnop, $toilet, $shower, $sp_idx);";
   mysqli_query($dbcon, $ldg_sql);
@@ -90,17 +87,18 @@
   $array = mysqli_fetch_array($result);
   $ldg_idx = $array['ldg_idx'];
 
-  $img_sql = "INSERT INTO ldging_file (l_file_src, l_file_name, ldg_idx) VALUES ('$ldg_mainimg', '$ldg_mainimg_name', '$ldg_idx');";
+  $mainimg_sql = "INSERT INTO lodging_file (l_file_main, l_file_src, l_file_name, ldg_idx) VALUES ('Y', '$mainbase64', '$ldg_mainimg_name', '$ldg_idx');";
+  mysqli_query($dbcon, $mainimg_sql);
+
   $facility_sql ="INSERT INTO lodging_facility (dormitory, privateroom, condo, womenonly, wifi, kitchen, elevator, locker, parking, breakfast, lunch, dinner, ldg_idx) VALUES ($dormitory, $privateroom, $condo, $womenonly, $wifi, $kitchen, $elevator, $locker, $parking, $breakfast, $lunch, $dinner, $ldg_idx);";
-  
-  /* 4. 쿼리 전송 */
+  mysqli_query($dbcon, $facility_sql);
 
-  // mysqli_query($dbcon, $facility_sql);
 
-  /* 5. DB 접속 종료 */
+
+  /* DB 접속 종료 */
   mysqli_close($dbcon);
 
-  /* 6.페이지 이동 */
+  /* 페이지 이동 */
   echo "
     <script type=\"text/javascript\">
       location.href = \"http://localhost/KDT-1st-project-minda/partner/room/list_page.php\";

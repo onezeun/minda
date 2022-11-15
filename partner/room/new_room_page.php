@@ -118,24 +118,24 @@
             <tr>
               <th>숙소객실유형</th>
               <td class="room_type_wrap">
-                <input type="checkbox" name="facility[]" id="dormitory" value="dormitory"><label for="dormitory">도미토리</label>
-                <input type="checkbox" name="facility[]" id="privateroom" value="privateroom"><label for="privateroom">개인실</label>
-                <input type="checkbox" name="facility[]" id="condo" value="condo"><label for="condo">콘도형</label>
-                <input type="checkbox" name="facility[]" id="womenonly" value="womenonly"><label for="womenonly">여성전용</label>
+                <input type="checkbox" name="dormitory" id="dormitory"><label for="dormitory">도미토리</label>
+                <input type="checkbox" name="privateroom" id="privateroom"><label for="privateroom">개인실</label>
+                <input type="checkbox" name="condo" id="condo"><label for="condo">콘도형</label>
+                <input type="checkbox" name="womenonly" id="womenonly"><label for="womenonly">여성전용</label>
               </td>
             </tr>
             <tr>
               <th>숙소시설</th>
               <td class="room_facility_wrap">
-                <input type="checkbox" name="facility[]" id="wifi" value="wifi"><label for="wifi">Wifi</label>
-                <input type="checkbox" name="facility[]" id="kitchen" value="kitchen"><label for="kitchen">게스트부엌</label>
-                <input type="checkbox" name="facility[]" id="elevator" value="elevator"><label for="elevator">엘리베이터</label>
-                <input type="checkbox" name="facility[]" id="locker" value="locker"><label for="locker">개인사물함</label>
-                <input type="checkbox" name="facility[]" id="parking" value="parking"><label for="parking">주차가능</label>
+                <input type="checkbox" name="wifi" id="wifi"><label for="wifi">Wifi</label>
+                <input type="checkbox" name="kitchen" id="kitchen"><label for="kitchen">게스트부엌</label>
+                <input type="checkbox" name="elevator" id="elevator"><label for="elevator">엘리베이터</label>
+                <input type="checkbox" name="locker" id="locker"><label for="locker">개인사물함</label>
+                <input type="checkbox" name="parking" id="parking"><label for="parking">주차가능</label>
                 <div class="rf_line"></div>
-                <input type="checkbox" name="facility[]" id="breakfast" value="breakfast"><label for="breakfast">조식</label>
-                <input type="checkbox" name="facility[]" id="lunch" value="lunch"><label for="lunch">중식</label>
-                <input type="checkbox" name="facility[]" id="dinner" value="dinner"><label for="dinner">석식</label>
+                <input type="checkbox" name="breakfast" id="breakfast"><label for="breakfast">조식</label>
+                <input type="checkbox" name="lunch" id="lunch"><label for="lunch">중식</label>
+                <input type="checkbox" name="dinner" id="dinner"><label for="dinner">석식</label>
               </td>
             </tr>
             <tr>

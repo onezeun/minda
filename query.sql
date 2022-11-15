@@ -151,7 +151,7 @@ create table room (
   r_idx INT AUTO_INCREMENT PRIMARY KEY,
   r_name VARCHAR(50) NOT NULL,
   r_img LONGBLOB,
-  r_gender VARCHAR(5) NOT NULL,
+  r_gender CHAR(1) NOT NULL,
   r_dormitory TINYINT(1),
   r_privateroom TINYINT(1),
   r_condo TINYINT(1),

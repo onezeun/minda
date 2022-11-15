@@ -1,0 +1,269 @@
+/* header */
+.header {
+  height: 198px;
+  padding-top: 1px;
+  position: relative;
+  border-bottom: 1px solid black;
+}
+
+.partner_logo {
+  width: 175px;
+  margin: 60px auto 0;
+}
+
+.partner_logo a {
+  display: block;
+  width: 175px;
+  height: 75px;
+  background: url(../../images/partner_logo.png) no-repeat;
+}
+
+/* main */
+.content {
+  width: 1200px;
+  margin: 50px auto;
+  display: flex;
+  padding: 50px 0;
+}
+
+.side_bar {
+  width: 200px;
+  height: 800px;
+  background: #eeb72f;
+  border: 1px solid #eeb72f;
+  padding:0 30px;
+}
+
+.side_bar a{
+  width: 140px;
+  height: 80px;
+  color: white;
+  font-size: 18px;
+  line-height: 120px;
+  display: inline-block;
+}
+
+.side_bar a:hover {
+ border-bottom: 3px solid white;
+}
+
+.this {
+  border-bottom: 3px solid white;
+}
+
+.room_edit_cont {
+  width: 1000px;
+  height: 800px;
+  border: 1px solid #d7d7d7;
+}
+
+/* input */
+table {
+  border-collapse: collapse;
+  box-sizing: border-box;
+}
+
+button {
+  border: none;
+  color: white;
+  background: #eeb72f;
+  border-radius: 5px;
+}
+
+th, td {
+  border: 1px solid #d7d7d7;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+input, button {
+  font-size: 16px;
+}
+
+th {
+  width: 200px;
+  height: 60px;
+  background: #f2f5ef;
+}
+
+td {
+  padding:0 20px;
+}
+
+.ldg_form {
+  position: relative;
+}
+
+.room_edit_table {
+  width: 1000px;
+  border-collapse: collapse;
+  margin: -1px;
+  box-sizing: border-box;
+}
+
+.ldg_name, .ldg_addr {
+  width: 800px;
+  border: none;
+  height: 60px;
+}
+
+.ldg_info_td {
+  height: 60px;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.ldg_img_wrap {
+  display: inline-block;
+}
+
+.ldg_info_btn {
+  color: #8c8c8c;
+}
+
+.room_type_wrap label {
+  margin-right: 20px;
+}
+
+.room_facility_wrap {
+  height: 60px;
+  border: none;
+  display: flex;
+  align-items: center;
+}
+
+.room_facility_wrap label {
+  margin-right: 20px;
+}
+
+.rf_line {
+  width: 1px;
+  height: 60px;
+  background: #d7d7d7;
+  margin: 0 20px 0 0;
+  display: inline-block;
+}
+
+.pubilc_facility_wrap input {
+  width: 40px;
+  height: 30px;
+  border: 1px solid #d7d7d7;
+  margin: 0 5px;
+  text-align: right;
+  padding: 0 5px;
+}
+
+.pubilc_facility_wrap span {
+  margin-right: 20px;
+}
+
+.room_list {
+  height: 435px;
+}
+
+.room_list td {
+  text-align: center;
+}
+
+.room_btn {
+  margin: 10px;
+  width: 70px;
+  height: 30px;
+  font-size: 14px;
+}
+
+
+
+/* 숙소 사진 등록 */
+.ldf_img_wrap {
+display: flex;
+justify-content: space-evenly;
+}
+
+.ldg_img_title {
+  font-size: 16px;
+}
+
+.ldg_img_left {
+  width: 340px;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.ldg_txt_wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items:flex-end;
+  margin: 0 0 10px 5px;
+}
+
+.ldg_img_input {
+  display: none;
+}
+
+.ldg_main_img {
+  width: 320px;
+  height: 200px;
+  border: 1px solid #d7d7d7;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+
+.ldg_img_right {
+  width: 340px;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.ldg_sub_img_wrap {
+  width: 320px;
+  height: 200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+
+.ldg_sub_img {
+  width: 150px;
+  height: 90px;
+  border: 1px solid #d7d7d7;
+  margin
+}
+
+.img_btn{
+  width: 120px;
+  height: 30px;
+  border: 1px solid #eeb72f;
+  background: white;
+  color: #eeb72f;
+}
+
+.img_btn:hover {
+  background: #f0b00e;
+  color: white;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.ldg_info_txt {
+  width: 800px;
+  height: 200px;
+  border: none;
+  font-size: 15px;
+  resize: none;
+  white-space: pre-wrap;
+  padding: 20px 0;
+  box-sizing: border-box;
+}
+
+.ldg_submit_btn {
+  position:absolute;
+  right: 0;
+  margin-top: 10px;
+  width: 220px;
+  height: 45px;
+}

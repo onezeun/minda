@@ -22,7 +22,7 @@ include "../inc/session.php";
     <script type="text/javascript">
       $(document).ready(function () {
         $('.gomain_btn').on('click', function() {
-          location.href="../index.html"
+          location.href="../index.php"
         })
 
         $('.login_btn').on('click', function() {

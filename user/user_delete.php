@@ -25,7 +25,7 @@
   echo "
     <script type=\"text/javascript\">
       alert(\"정상 처리되었습니다.\");
-      location.href = \"../index.html\";
+      location.href = \"../index.php\";
     </script>
   ";
 

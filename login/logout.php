@@ -12,7 +12,7 @@ unset($_SESSION["sp_idx"]);
 // 페이지 이동
 echo "
 <script type=\"text/javascript\">
-location.href = \"http://localhost/KDT-1st-project-minda/index.html\";
+location.href = \"http://localhost/KDT-1st-project-minda/index.php\";
 </script>
 ";
 ?>

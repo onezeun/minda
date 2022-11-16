@@ -18,7 +18,7 @@
 
 <body>
   <div id="header" class="header">
-    <h1 class="logo indent"><a href="http://localhost/KDT-1st-project-minda/index.html">민다</a></h1>
+    <h1 class="logo indent"><a href="http://localhost/KDT-1st-project-minda/index.php">민다</a></h1>
     <div class="top_menu_wrap">
       <h2 class="hide">사용자 메뉴</h2>
       <div class="top_menu">

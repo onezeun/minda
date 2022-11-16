@@ -1,3 +1,9 @@
+<?php
+  include "inc/session.php";
+
+  // DB 연결
+  include "inc/dbcon.php";
+?>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -106,10 +112,15 @@
       <section class="best_room">
         <h2 class="slide_title">베스트 한인민박</h2>
         <ul id="room_slide" class="card_slide">
+          <?php 
+            $sql = "SELECT l.ldg_idx, l.ldg_name, MIN(r.r_price) r_price, f.l_file_src FROM lodging l JOIN lodging_file f ON l.ldg_idx = f.ldg_idx JOIN room r ON l.ldg_idx = r.ldg_idx GROUP BY ldg_idx;";
+            $result = mysqli_query($dbcon, $sql);
+            while($array = mysqli_fetch_array($result)){ 
+          ?>
           <li>
-            <div id="card" class="card room1">
+            <div id="card" class="card">
               <a href="lodging_detail.html" class="block">
-                <img src="images/bestroom_image01.jpg" alt="영국런던런던스테이">
+                <img src="<?php echo $array['l_file_src']; ?>" alt="숙소대표이미지">
                 <div class="card_cont_wrap">
                   <div class="card_top">
                     <span class="card_category">영국·런던</span>
@@ -117,121 +128,21 @@
                       <span class="card_like_sign">좋아요</span><span class="card_like_count">132</span>
                     </div>
                   </div>
-                  <h3 class="card_title">런던스테이</h3>
+                  <h3 class="card_title"><?php echo $array['ldg_name']; ?></h3>
                   <div class="card_bot">
                     <div class="card_review">
                       <span class="card_review_sign">리뷰5.0</span><span class="card_review_count">11</span>
                     </div>
                     <div>
-                      <span class="card_price">72,500 원</span><span class="card_price_std">1박</span>
+                      <span class="card_price"><?php echo number_format($array['r_price']); ?> 원</span><span class="card_price_std">1박</span>
                     </div>
                   </div>
                 </div>
               </a>
             </div>
           </li>
-
-          <li>
-            <div id="card" class="card room2">
-              <a href="#" class="block">
-                <img src="images/bestroom_image02.jpg" alt="미국뉴욕앳홈스테이">
-                <div class="card_cont_wrap">
-                  <div class="card_top">
-                    <span class="card_category">미국·뉴욕</span>
-                    <div class="card_like">
-                      <span class="card_like_sign">좋아요</span><span class="card_like_count">593</span>
-                    </div>
-                  </div>
-                  <h3 class="card_title">앳홈스테이</h3>
-                  <div class="card_bot">
-                    <div class="card_review">
-                      <span class="card_review_sign">리뷰5.0</span><span class="card_review_count">26</span>
-                    </div>
-                    <div>
-                      <span class="card_price">109,700 원</span><span class="card_price_std">1박</span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </li>
-
-          <li>
-            <div id="card" class="card room3">
-              <a href="#" class="block">
-                <img src="images/bestroom_image03.jpg" alt="프랑스파리하이파리민박">
-                <div class="card_cont_wrap">
-                  <div class="card_top">
-                    <span class="card_category">프랑스·파리</span>
-                    <div class="card_like">
-                      <span class="card_like_sign">좋아요</span><span class="card_like_count">2134</span>
-                    </div>
-                  </div>
-                  <h3 class="card_title">하이파리민박</h3>
-                  <div class="card_bot">
-                    <div class="card_review">
-                      <span class="card_review_sign">리뷰5.0</span><span class="card_review_count">41</span>
-                    </div>
-                    <div>
-                      <span class="card_price">55,500 원</span><span class="card_price_std">1박</span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </li>
-
-          <li>
-            <div id="card" class="card room4">
-              <a href="#" class="block">
-                <img src="images/bestroom_image04.jpg" alt="이탈리아로마로마골뱅이호텔">
-                <div class="card_cont_wrap">
-                  <div class="card_top">
-                    <span class="card_category">이탈리아·로마</span>
-                    <div class="card_like">
-                      <span class="card_like_sign">좋아요</span><span class="card_like_count">1051</span>
-                    </div>
-                  </div>
-                  <h3 class="card_title">로마골뱅이호텔</h3>
-                  <div class="card_bot">
-                    <div class="card_review">
-                      <span class="card_review_sign">리뷰5.0</span><span class="card_review_count">204</span>
-                    </div>
-                    <div>
-                      <span class="card_price">10,000 원</span><span class="card_price_std">1박</span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </li>
-
-          <li>
-            <div id="card" class="card room3">
-              <a href="#" class="block">
-                <img src="images/bestroom_image03.jpg" alt="프랑스파리하이파리민박">
-                <div class="card_cont_wrap">
-                  <div class="card_top">
-                    <span class="card_category">프랑스·파리</span>
-                    <div class="card_like">
-                      <span class="card_like_sign">좋아요</span><span class="card_like_count">2134</span>
-                    </div>
-                  </div>
-                  <h3 class="card_title">하이파리민박</h3>
-                  <div class="card_bot">
-                    <div class="card_review">
-                      <span class="card_review_sign">리뷰5.0</span><span class="card_review_count">41</span>
-                    </div>
-                    <div>
-                      <span class="card_price">55,500 원</span><span class="card_price_std">1박</span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </li>
+          <?php };?>
         </ul>
-
         <a href="#" id="room_btn1" class="card_prev">이전</a>
         <a href="#" id="room_btn2" class="card_next">다음</a>
       </section>

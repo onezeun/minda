@@ -61,7 +61,6 @@
           <a href="#">후기 관리</a>
         </div>
       </div>
-      <input type="hidden" name="ldg_idx" value="<?php echo $_GET["ldg_idx"]; ?>">
       <div class="room_cont">
         <div class="room_list">
           <ul id="room_slide" class="room_slide">
@@ -72,10 +71,9 @@
             ?>
             <li>
               <div id="card" class="card room1">
-                <button type="button" id="card_delete_btn" class="card_delete_btn btn_hover_cancel">삭제</button>
+              <a href="room_page.php?ldg_idx=<?php echo $ldg_idx;?>&r_idx=<?php echo $list_arr["r_idx"];?>" id="room_edit" class="room_edit block">
                 <img src="<?php echo $list_arr["r_img"]; ?>" alt="객실이미지">
                 <div class="card_cont_wrap">
-                  <a href="room_page.php?ldg_idx=<?php echo $ldg_idx;?>&r_idx=<?php echo $list_arr["r_idx"];?>" id="room_edit" class="room_edit block">
                     <p class="room_title"><?php echo $list_arr["r_name"]; ?></p>
                     <div class="room_cont_txt">
                       <?php 
@@ -120,11 +118,15 @@
         ?>
         <form name="room_form" id="room_form" class="room_form" action="room_insert.php" method="post"
           enctype="multipart/form-data">
+          <input type="hidden" name="ldg_idx" value="<?php echo $_GET["ldg_idx"]; ?>">
           <table class="room_edit_table">
             <tr>
               <th>객실 이름</th>
               <td>
-                <input type="text" name="r_name" id="room_name" class="room_name" placeholder="객실 이름을 입력해주세요.">
+                <div class="room_name_wrap">
+                  <input type="text" name="r_name" id="room_name" class="room_name" placeholder="객실 이름을 입력해주세요.">
+                  <span class="room_name_txt">신규</span>
+                </div>
               </td>
             </tr>
             <tr>
@@ -179,6 +181,8 @@
         ?>
         <form name="room_edit_form" id="room_edit_form" class="room_form" action="room_edit.php" method="post"
           enctype="multipart/form-data">
+          <input type="hidden" name="ldg_idx"id="ldg_idx" value="<?php echo $_GET["ldg_idx"]; ?>">
+          <input type=hidden name="r_idx" id="r_idx" value="<?php echo $r_idx;?>">
           <table class="room_edit_table">
             <tr>
               <th>객실 이름</th>
@@ -229,8 +233,9 @@
               </td>
             </tr>
           </table>
-          <a href="room_page.php?ldg_idx=<?php echo $ldg_idx;?>" class="new_room_btn btn_hover">신규 등록</a>
-          <button type="button" id="room_submit_btn" class="room_submit_btn btn_hover">객실 수정</button>
+          <a href="room_page.php?ldg_idx=<?php echo $ldg_idx;?>" class="new_room_btn btn_hover">신규객실등록</a>
+          <button type="button" id="room_delete_btn" class="cancel_btn btn_hover_cancel">객실 삭제</button>
+          <button type="button" id="room_edit_btn" class="room_submit_btn btn_hover">객실 수정</button>
         </form>
         <?php }; ?>
       </div>

@@ -41,4 +41,18 @@ $(document).ready(function () {
     $('#room_submit_btn').on('click', function () {
       $('#room_form').submit();
     });
+
+    $('#room_edit_btn').on('click', function () {
+      $('#room_edit_form').submit();
+    });
+
+    /* 객실 삭제 */
+    $("#room_delete_btn").on('click', function(){
+      var rtn_val = confirm("정말 삭제하시겠습니까?");
+      var ldg_idx = $('#ldg_idx').val();
+      var r_idx = $('#r_idx').val();
+      if(rtn_val == true){
+        location.href = "room_delete.php?ldg_idx="+ldg_idx+"&r_idx="+r_idx;
+      };
+    });
 });

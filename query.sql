@@ -101,17 +101,17 @@ create table lodging (
 
 
 -- 숙소 첨부 파일
+
 create table lodging_file (
   l_file_idx INT AUTO_INCREMENT PRIMARY KEY,
   l_file_main CHAR(1),
   l_file_src LONGBLOB,
   l_file_name VARCHAR(255),
   l_file_type VARCHAR(25),
-  l_file_size VARCHAR(255),
   ldg_idx INT,
   FOREIGN KEY (ldg_idx) REFERENCES lodging (ldg_idx) ON DELETE CASCADE
 );
-
+  l_file_size VARCHAR(255),
 
 -- 숙소 시설 LODGING_FACILITY
 create table lodging_facility (
@@ -144,6 +144,14 @@ INSERT INTO lodging_facility (dormitory, privateroom, condo, womenonly, wifi, ki
 
 -- 숙소 테이블 합치기
 SELECT l.ldg_idx, l.ldg_name, i.l_file_src, f.dormitory, f.dormitory, f.privateroom, f.condo, f.womenonly, f.wifi, f.kitchen, f.elevator, f.locker, f.parking, f.breakfast, f.lunch, f.dinner FROM lodging l INNER JOIN lodging_file i ON l.ldg_idx = i.ldg_idx INNER JOIN lodging_facility f ON l.ldg_idx = f.ldg_idx;
+SELECT 
+l.ldg_idx, l.ldg_name, l.ldg_addr, l.ldg_tel, l.ldg_info, l.ldg_maxnop, 
+i.l_file_idx, i.l_file_main, i.l_file_src, i.l_file_name, i.l_file_type, i.l_file_size, 
+f.dormitory, f.privateroom, f.condo, f.womenonly, f.wifi, f.kitchen, f.elevator, f.locker, f.parking, f.breakfast, f.lunch, f.dinner
+FROM lodging l INNER JOIN lodging_file i ON l.ldg_idx = i.ldg_idx INNER JOIN lodging_facility f ON l.ldg_idx = f.ldg_idx;
+
+SELECT l.ldg_idx, l.ldg_name, l.ldg_addr, l.ldg_tel, l.ldg_info, l.ldg_maxnop, i.l_file_idx, i.l_file_main, i.l_file_src, i.l_file_name, i.l_file_type, i.l_file_size, f.dormitory, f.privateroom, f.condo, f.womenonly, f.wifi, f.kitchen, f.elevator, f.locker, f.parking, f.breakfast, f.lunch, f.dinner
+FROM lodging l INNER JOIN lodging_file i ON l.ldg_idx = i.ldg_idx INNER JOIN lodging_facility f ON l.ldg_idx = f.ldg_idx WHERE ldg_idx = $ldg_idx;
 SELECT l.ldg_idx, l.ldg_name, i.l_file_src FROM lodging l INNER JOIN lodging_file i ON l.ldg_idx = i.ldg_idx;
 
 -- 객실 ROOM
@@ -159,6 +167,8 @@ create table room (
   ldg_idx INT,
   FOREIGN KEY (ldg_idx) REFERENCES lodging (ldg_idx) ON DELETE CASCADE
 );
+
+SELECT MIN(r_price) r_price FROM room WHERE ldg_idx=26;
 
 -- 리뷰 REVIEW
 create table review (

@@ -70,8 +70,7 @@
     crossorigin="anonymous"></script>
   <script type="text/javascript" src="../js/include.js"></script>
   <script type="text/javascript" src="../../js/slick.js"></script>
-  <script type="text/javascript" src="../js/ldg_list.css"></script>
-
+  <script type="text/javascript" src="../js/list_page.js"></script>
 </head>
 
 <body>
@@ -122,6 +121,10 @@
           // pager : 글번호
           $i = $start + 1;
           while($array = mysqli_fetch_array($result)){
+            $ldg_idx = $array["ldg_idx"];
+            $r_sql = "SELECT MIN(r_price) r_price FROM room WHERE ldg_idx=$ldg_idx;";
+            $r_result = mysqli_query($dbcon, $r_sql);
+            $r_arr = mysqli_fetch_array($r_result);
         ?>
         <div class="ldg_card">
           <div class="ldg_card_img_wrap">
@@ -129,9 +132,12 @@
           </div>
           <ul class="ldg_card_menu">
             <li><a href="../reservation/partner_reservation_page.php" class="menu_btn btn_hover">예약관리</a></li>
-            <li><a href="edit_ldg_page.php?ldg_idx=<?php echo $array["ldg_idx"]; ?>" class="menu_btn btn_hover">숙소관리</a></li>
-            <li><a href="room_page.php?ldg_idx=<?php echo $array["ldg_idx"];?>" class="menu_btn btn_hover">객실관리</a></li>
-            <li><a href="#" class="menu_btn del_btn">숙소삭제</a></li>
+            <li><a href="edit_ldg_page.php?ldg_idx=<?php echo $ldg_idx; ?>" class="menu_btn btn_hover">숙소관리</a></li>
+            <li><a href="room_page.php?ldg_idx=<?php echo $ldg_idx;?>" class="menu_btn btn_hover">객실관리</a></li>
+            <li>
+              <button type="button" class="menu_btn del_btn">숙소삭제</button>
+              <input type=hidden id="ldg_idx" value="<?php echo $ldg_idx;?>">
+            </li>
           </ul>
           <div class="ldg_card_left">
             <div class="ldg_card_top">
@@ -176,7 +182,7 @@
           </div>
           <div class="ldg_card_right">
             <p class="ldg_card_day indent">1박</p>
-            <p class="ldg_card_price">90,900 원~</p>
+            <p class="ldg_card_price"><?php echo number_format($r_arr['r_price']); ?> 원 ~</p>
           </div>
         </div>
         <?php 

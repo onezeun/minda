@@ -19,15 +19,13 @@
     move_uploaded_file( $r_img_tmp, $upload_folder . $r_img_name );
     
     $r_path = $upload_folder.$r_img_name;
-    $r_type = pathinfo($r_path, PATHINFO_EXTENSION);
+    $r_img_type = pathinfo($r_path, PATHINFO_EXTENSION);
     $r_data = file_get_contents($r_path);
-    $roombase64 = 'data:image/' . $r_type . ';base64,' . base64_encode($r_data);
+    $roombase64 = 'data:image/' . $r_img_type . ';base64,' . base64_encode($r_data);
   }
   
   $r_gender = $_POST["r_gender"]; 
-  $r_dormitory = isset($_POST["r_dormitory"]) ? "1" : "0";
-  $r_privateroom = isset($_POST["r_privateroom"]) ? "1" : "0";
-  $r_condo = isset($_POST["r_condo"]) ? "1" : "0";
+  $r_type = $_POST["r_type"]; 
 
   $r_min = $_POST["r_min"]; 
   $r_max = $_POST["r_max"]; 
@@ -36,9 +34,6 @@
 
   // echo $r_name;
   // echo $r_gender;
-  // echo $r_dormitory;
-  // echo $r_privateroom;
-  // echo $r_condo;
   // echo $r_min;
   // echo $r_max;
   // echo $r_price;
@@ -47,7 +42,7 @@
   include "../inc/dbcon.php";
 
   /* 쿼리 작성 */
-  $sql ="INSERT INTO room (r_name, r_img, r_gender, r_dormitory, r_privateroom, r_condo, r_min, r_max, r_price, ldg_idx) VALUES ( '$r_name', '$roombase64', '$r_gender', $r_dormitory, $r_privateroom, $r_condo, $r_min, $r_max, $r_price, $ldg_idx);";
+  $sql ="INSERT INTO room (r_name, r_img, r_gender, r_type, r_min, r_max, r_price, ldg_idx) VALUES ( '$r_name', '$roombase64', '$r_gender', $r_type, $r_min, $r_max, $r_price, $ldg_idx);";
 
   mysqli_query($dbcon, $sql);
 

@@ -1,5 +1,15 @@
 <?php
   include "../inc/session.php";
+
+  // 로그인 사용자만 접근
+  include '../inc/login_check.php';
+
+  // DB 연결
+  include "../inc/dbcon.php";
+  $ldg_idx = $_GET["ldg_idx"];
+
+  $sql = "SELECT * FROM room WHERE ldg_idx=$ldg_idx";
+  $result = mysqli_query($dbcon, $sql);
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +32,6 @@
   <script type="text/javascript" src="../js/include.js"></script>
   <script type="text/javascript" src="../../js/slick.js"></script>
   <script type="text/javascript" src="../js/room.js"></script>
-
 </head>
 
 <body>
@@ -52,10 +61,65 @@
           <a href="#">후기 관리</a>
         </div>
       </div>
+      <input type="hidden" name="ldg_idx" value="<?php echo $_GET["ldg_idx"]; ?>">
+      <div class="room_cont">
+        <div class="room_list">
+          <ul id="room_slide" class="room_slide">
+            <?php 
+              $list_sql = "SELECT * FROM room WHERE ldg_idx=$ldg_idx";
+              $list_result = mysqli_query($dbcon, $list_sql);
+              while($list_arr = mysqli_fetch_array($list_result)){ 
+            ?>
+            <li>
+              <div id="card" class="card room1">
+                <button type="button" id="card_delete_btn" class="card_delete_btn btn_hover_cancel">삭제</button>
+                <img src="<?php echo $list_arr["r_img"]; ?>" alt="객실이미지">
+                <div class="card_cont_wrap">
+                  <a href="room_page.php?ldg_idx=<?php echo $ldg_idx;?>&r_idx=<?php echo $list_arr["r_idx"];?>" id="room_edit" class="room_edit block">
+                    <p class="room_title"><?php echo $list_arr["r_name"]; ?></p>
+                    <div class="room_cont_txt">
+                      <?php 
+                        $gender = $list_arr["r_gender"];
 
-      <form name="room_form" id="room_form" class="room_form" action="room_insert.php" method="post" enctype="multipart/form-data">
-        <input type="hidden" name="ldg_idx" value="<?php echo $_GET["ldg_idx"]; ?>">
-        <div class="room_cont">
+                        if($gender == "1") {
+                          $gender = "남여공용";
+                        } else if($gender == "2") {
+                          $gender = "여성";
+                        } else {
+                          $gender = "남성";
+                        };
+
+                        $type = $list_arr["r_type"];
+
+                        if($type == "1") {
+                          $type = "도미토리";
+                        } else if($type == "2") {
+                          $type = "개인실";
+                        } else {
+                          $type = "콘도형";
+                        };
+                      ?>
+                      <p><?php echo $gender." ".$type;?></p>
+                      <p>객실정원 <?php echo $list_arr["r_gender"]." ~ ".$list_arr["r_max"]; ?></p>
+                    </div>
+                    <div class="room_price_wrap">
+                      <span class="room_price_txt">1박 금액</span><span class="room_price"><?php echo number_format($list_arr["r_price"]); ?> 원</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <?php }; ?>
+          </ul>
+          <a href="#" id="room_btn1" class="card_prev">이전</a>
+          <a href="#" id="room_btn2" class="card_next">다음</a>
+        </div>
+        <?php 
+          $r_idx = isset($_GET["r_idx"]) ? $_GET['r_idx'] : "";
+          if($r_idx == "") { 
+        ?>
+        <form name="room_form" id="room_form" class="room_form" action="room_insert.php" method="post"
+          enctype="multipart/form-data">
           <table class="room_edit_table">
             <tr>
               <th>객실 이름</th>
@@ -83,10 +147,10 @@
                   for="room_womanonly">여성용</label>
                 <input type="radio" name="r_gender" id="manonly" value="3"><label for="manonly">남성용</label>
                 <div class="rf_line"></div>
-                <input type="checkbox" name="r_dormitory" id="room_dormitory"><label for="room_dormitory">도미토리</label>
-                <input type="checkbox" name="r_privateroom" id="room_privateroom"><label
+                <input type="radio" name="r_type" id="room_dormitory" value="1"><label for="room_dormitory">도미토리</label>
+                <input type="radio" name="r_type" id="room_privateroom" value="2"><label
                   for="room_privateroom">개인실</label>
-                <input type="checkbox" name="r_condo" id="room_condo"><label for="room_condo">콘도형</label>
+                <input type="radio" name="r_type" id="room_condo" value="3"><label for="room_condo">콘도형</label>
               </td>
             </tr>
             <tr>
@@ -103,38 +167,73 @@
                   id="r_price"><span>원</span>
               </td>
             </tr>
-
-            <tr class="room_list">
-              <th>등록된 객실</th>
+          </table>
+          <button type="button" id="room_submit_btn" class="room_submit_btn btn_hover">객실 등록</button>
+        </form>
+        <?php
+          } else { 
+          $r_idx = $_GET["r_idx"];
+          $r_sql = "SELECT * FROM room WHERE r_idx=$r_idx;";
+          $r_result = mysqli_query($dbcon, $r_sql);
+          $r_arr = mysqli_fetch_array($r_result);
+        ?>
+        <form name="room_edit_form" id="room_edit_form" class="room_form" action="room_edit.php" method="post"
+          enctype="multipart/form-data">
+          <table class="room_edit_table">
+            <tr>
+              <th>객실 이름</th>
               <td>
-                <ul id="room_slide" class="room_slide">
-                  <li>
-                    <div id="card" class="card room1">
-                      <button type="button" id="card_delete_btn" class="card_delete_btn indent">삭제</button>
-                      <img src="../images/bestroom_image01.jpg" alt="영국런던런던스테이">
-                      <div class="card_cont_wrap">
-                        <a href="room_page.php?ldg_idx=<?php echo $ldg_idx?>&r_idx=<?php echo $r_idx?>" class="block">
-                          <p class="room_title">2인 여성 도미토리</p>
-                          <div class="room_cont_txt">
-                            <p>여성도미토리</p>
-                            <p>객실정원 1 ~ 2</p>
-                          </div>
-                          <div class="room_price_wrap">
-                            <span class="room_price_txt">1박 금액</span><span class="room_price">90,800 원</span>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-                <a href="#" id="room_btn1" class="card_prev">이전</a>
-                <a href="#" id="room_btn2" class="card_next">다음</a>
+                <input type="text" name="r_name" id="room_name" class="room_name" placeholder="객실 이름을 입력해주세요." value="<?php echo $r_arr["r_name"];?>">
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <p>객실 사진</p>
+                <button type="button" id="room_img_btn" class="room_img_btn btn_hover">이미지 업로드</button>
+              </th>
+              <td>
+                <div class="room_img_wrap">
+                  <input type="file" accept="image/*" name="r_img" id="room_img_input" class="room_img_input">
+                  <img src="<?php echo $r_arr["r_img"];?>" id="room_img" class="room_img">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>객실 유형</th>
+              <?php
+                $gender = $r_arr["r_gender"];
+                $type = $r_arr["r_type"];
+              ?>
+              <td class="room_facility_wrap">
+                <input type="radio" name="r_gender" id="room_unisex" value="1" <?php if($gender == '1'){echo "checked";}; ?>><label for="room_unisex">남여공용</label>
+                <input type="radio" name="r_gender" id="room_womanonly" value="2" <?php if($gender == '2'){echo "checked";}; ?>><label
+                  for="room_womanonly">여성용</label>
+                <input type="radio" name="r_gender" id="manonly" value="3" <?php if($gender == '3'){echo "checked";}; ?>><label for="manonly">남성용</label>
+                <div class="rf_line"></div>
+                <input type="radio" name="r_type" id="room_dormitory" value="1" <?php if($type == '1'){echo "checked";}; ?>><label for="room_dormitory">도미토리</label>
+                <input type="radio" name="r_type" id="room_privateroom" value="2" <?php if($type == '2'){echo "checked";}; ?>><label
+                  for="room_privateroom">개인실</label>
+                <input type="radio" name="r_type" id="room_condo" value="3" <?php if($type == '3'){echo "checked";}; ?>><label for="room_condo">콘도형</label>
+              </td>
+            </tr>
+            <tr>
+              <th>객실인원</th>
+              <td class="room_maxnop">
+                <span>최소<input type="text" name="r_min" id="r_min" value="<?php echo $r_arr["r_min"];?>">명</span> ~ <span>최대<input type="text" name="r_max" id="r_max" value="<?php echo $r_arr["r_max"];?>">명</span>
+              </td>
+            </tr>
+            <tr>
+              <th>금액</th>
+              <td class="room_price">
+                <span class="room_price_txt">1인 1박 기준</span><input type="text" name="r_price"id="r_price" value="<?php echo $r_arr["r_price"];?>"><span>원</span>
               </td>
             </tr>
           </table>
-          <button type="button" id="room_submit_btn" class="room_submit_btn btn_hover">객실 등록</button>
-        </div>
-      </form>
+          <a href="room_page.php?ldg_idx=<?php echo $ldg_idx;?>" class="new_room_btn btn_hover">신규 등록</a>
+          <button type="button" id="room_submit_btn" class="room_submit_btn btn_hover">객실 수정</button>
+        </form>
+        <?php }; ?>
+      </div>
     </main>
 
     <!-- footer -->

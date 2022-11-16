@@ -9,7 +9,7 @@
 
   $ldg_idx = $_GET["ldg_idx"];
 
-  $l_sql = "SELECT l.ldg_name, l.ldg_addr, l.ldg_tel, l.ldg_info, l.ldg_maxnop, l.toilet, l.shower, i.l_file_main, i.l_file_src, i.l_file_name, i.l_file_type, i.l_file_size, f.dormitory, f.privateroom, f.condo, f.womenonly, f.wifi, f.kitchen, f.elevator, f.locker, f.parking, f.breakfast, f.lunch, f.dinner FROM lodging l INNER JOIN lodging_file i ON l.ldg_idx = i.ldg_idx INNER JOIN lodging_facility f ON l.ldg_idx = f.ldg_idx WHERE l.ldg_idx = $ldg_idx;";
+  $l_sql = "SELECT l.ldg_name, l.ldg_country, l.ldg_city, l.ldg_tel, l.ldg_info, l.ldg_maxnop, l.toilet, l.shower, i.l_file_main, i.l_file_src, i.l_file_name, i.l_file_type, f.dormitory, f.privateroom, f.condo, f.womenonly, f.wifi, f.kitchen, f.elevator, f.locker, f.parking, f.breakfast, f.lunch, f.dinner FROM lodging l INNER JOIN lodging_file i ON l.ldg_idx = i.ldg_idx INNER JOIN lodging_facility f ON l.ldg_idx = f.ldg_idx WHERE l.ldg_idx = $ldg_idx;";
 
   $l_result = mysqli_query($dbcon, $l_sql);
   $l_arr = mysqli_fetch_array($l_result);
@@ -77,14 +77,13 @@
               </td>
             </tr>
             <tr>
-              <th>숙소주소</th>
+              <th>숙소 위치</th>
               <td>
-                <!-- <input type="hidden" name="ldg_ps_code" id="ldg_ps_code" class="ldg_addr" placeholder="주소를 입력해주세요">
-                <input type="hidden" name="ldg_addr_a" id="ldg_addr_a" class="ldg_addr" placeholder="주소를 입력해주세요">
-                <input type="hidden" name="ldg_addr_b" id="ldg_addr_b" class="ldg_addr" placeholder="주소를 입력해주세요">
-                <span id="ldg_addr" class="ldg_addr">주소를 입력해주세요</span>
-                <button type="button">검색</button> -->
-                <input type="text" name="ldg_addr" id="ldg_addr" class="ldg_addr" placeholder="주소를 입력해주세요" value="<?php echo $l_arr['ldg_addr'];?>">
+              <div class="ldg_addr_wrap">
+                <label for="ldg_country">국가명 :&nbsp;</label> <input type="text" name="ldg_country" id="ldg_contry" class="ldg_addr" placeholder="국가명을 입력해주세요" value="<?php echo $l_arr['ldg_country'];?>">
+                <div class="rf_line"></div>
+                <label for="ldg_city">도시명 :&nbsp;</label> <input type="text" name="ldg_city" id="ldg_city" class="ldg_addr" placeholder="도시명을 입력해주세요" value="<?php echo $l_arr['ldg_city'];?>">
+              </div>
               </td>
             </tr>
             <tr>

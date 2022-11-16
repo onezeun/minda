@@ -1,5 +1,6 @@
 -- 메인 조회
-SELECT l.ldg_idx, l.ldg_name, MIN(r.r_price) r_price, f.l_file_src FROM lodging l JOIN lodging_file f ON l.ldg_idx = f.ldg_idx JOIN room r ON l.ldg_idx = r.ldg_idx GROUP BY ldg_idx;
+SELECT l.ldg_idx, l.ldg_name, l.ldg_country, l.ldg_city, MIN(r.r_price) r_price, f.l_file_src FROM lodging l JOIN lodging_file f ON l.ldg_idx = f.ldg_idx JOIN room r ON l.ldg_idx = r.ldg_idx GROUP BY ldg_idx;
+
 -- 일반회원 USER
 CREATE TABLE user (
   u_idx INT AUTO_INCREMENT PRIMARY KEY,
@@ -104,7 +105,7 @@ create table lodging (
 
 
 -- 숙소 첨부 파일
-
+--  l_file_size VARCHAR(255),
 create table lodging_file (
   l_file_idx INT AUTO_INCREMENT PRIMARY KEY,
   l_file_main CHAR(1),
@@ -114,7 +115,6 @@ create table lodging_file (
   ldg_idx INT,
   FOREIGN KEY (ldg_idx) REFERENCES lodging (ldg_idx) ON DELETE CASCADE
 );
-  l_file_size VARCHAR(255),
 
 -- 숙소 시설 LODGING_FACILITY
 create table lodging_facility (

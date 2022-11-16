@@ -113,7 +113,7 @@
         <h2 class="slide_title">베스트 한인민박</h2>
         <ul id="room_slide" class="card_slide">
           <?php 
-            $sql = "SELECT l.ldg_idx, l.ldg_name, MIN(r.r_price) r_price, f.l_file_src FROM lodging l JOIN lodging_file f ON l.ldg_idx = f.ldg_idx JOIN room r ON l.ldg_idx = r.ldg_idx GROUP BY ldg_idx;";
+            $sql = "SELECT l.ldg_idx, l.ldg_name, l.ldg_country, l.ldg_city, MIN(r.r_price) r_price, f.l_file_src FROM lodging l JOIN lodging_file f ON l.ldg_idx = f.ldg_idx JOIN room r ON l.ldg_idx = r.ldg_idx GROUP BY ldg_idx;";
             $result = mysqli_query($dbcon, $sql);
             while($array = mysqli_fetch_array($result)){ 
           ?>
@@ -123,7 +123,7 @@
                 <img src="<?php echo $array['l_file_src']; ?>" alt="숙소대표이미지">
                 <div class="card_cont_wrap">
                   <div class="card_top">
-                    <span class="card_category">영국·런던</span>
+                    <span class="card_category"><?php echo $array['ldg_country']."·".$array['ldg_city']; ?></span>
                     <div class="card_like">
                       <span class="card_like_sign">좋아요</span><span class="card_like_count">132</span>
                     </div>

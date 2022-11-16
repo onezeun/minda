@@ -1,3 +1,5 @@
+-- 메인 조회
+SELECT l.ldg_idx, l.ldg_name, MIN(r.r_price) r_price, f.l_file_src FROM lodging l JOIN lodging_file f ON l.ldg_idx = f.ldg_idx JOIN room r ON l.ldg_idx = r.ldg_idx GROUP BY ldg_idx;
 -- 일반회원 USER
 CREATE TABLE user (
   u_idx INT AUTO_INCREMENT PRIMARY KEY,
@@ -89,7 +91,8 @@ create table like_table (
 create table lodging (
   ldg_idx INT AUTO_INCREMENT PRIMARY KEY,
   ldg_name VARCHAR(50) NOT NULL,
-  ldg_addr VARCHAR(100) NOT NULL,
+  ldg_country VARCHAR(50) NOT NULL,
+  ldg_city VARCHAR(50) NOT NULL,
   ldg_tel VARCHAR(20),
   ldg_info TEXT,
   ldg_maxnop INT NOT NULL,

@@ -101,10 +101,25 @@ td {
   box-sizing: border-box;
 }
 
-.ldg_name, .ldg_addr {
+.ldg_name {
   width: 800px;
   border: none;
   height: 60px;
+}
+
+.ldg_addr_wrap {
+  display: flex;
+}
+
+.ldg_addr {
+  width: 330px;
+  border: none;
+  height: 60px;
+}
+
+.ldg_addr_wrap label {
+  line-height: 60px;
+  color: #eeb72f;
 }
 
 .ldg_info_td {
@@ -231,10 +246,9 @@ justify-content: space-evenly;
   width: 150px;
   height: 90px;
   border: 1px solid #d7d7d7;
-  margin
 }
 
-.img_btn{
+.img_btn {
   width: 120px;
   height: 30px;
   border: 1px solid #eeb72f;

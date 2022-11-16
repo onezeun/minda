@@ -8,7 +8,8 @@
 
   //숙소 lodging
   $ldg_name = $_POST["ldg_name"]; 
-  $ldg_addr = $_POST["ldg_addr"]; 
+  $ldg_country = $_POST["ldg_country"]; 
+  $ldg_city = $_POST["ldg_city"]; 
   $ldg_info = $_POST["ldg_info"]; 
   $ldg_maxnop = $_POST["ldg_maxnop"]; 
   $toilet = $_POST["toilet"]; 
@@ -63,8 +64,8 @@
   include "../inc/dbcon.php";
 
   /* 쿼리 작성 */
-  $ldg_sql ="INSERT INTO lodging (ldg_name, ldg_addr, ldg_info, ldg_maxnop, toilet, shower, p_idx) VALUES ( '$ldg_name', '$ldg_addr', '$ldg_info', $ldg_maxnop, $toilet, $shower, $sp_idx);";
-  // $ldg_sql ="INSERT INTO lodging (ldg_name, ldg_addr, ldg_info, ldg_maxnop, toilet, shower, p_idx) VALUES ( '$ldg_name', '$ldg_addr', '$ldg_info', $ldg_maxnop, $toilet, $shower, $sp_idx);";
+  $ldg_sql ="INSERT INTO lodging (ldg_name, ldg_country, ldg_city, ldg_info, ldg_maxnop, toilet, shower, p_idx) VALUES ( '$ldg_name', '$ldg_country', '$ldg_city', '$ldg_info', $ldg_maxnop, $toilet, $shower, $sp_idx);";
+
   mysqli_query($dbcon, $ldg_sql);
 
   $ldg_sel_sql ="SELECT MAX(ldg_idx) AS ldg_idx FROM lodging WHERE p_idx = $sp_idx;";

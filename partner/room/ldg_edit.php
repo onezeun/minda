@@ -9,7 +9,8 @@
 
   //숙소 lodging
   $ldg_name = $_POST["ldg_name"]; 
-  $ldg_addr = $_POST["ldg_addr"]; 
+  $ldg_country = $_POST["ldg_country"]; 
+  $ldg_city = $_POST["ldg_city"]; 
   $ldg_info = $_POST["ldg_info"]; 
   $ldg_maxnop = $_POST["ldg_maxnop"]; 
   $toilet = $_POST["toilet"]; 
@@ -51,7 +52,7 @@
   include "../inc/dbcon.php";
 
   /* 쿼리 작성 */
-  $ldg_sql ="UPDATE lodging SET ldg_name='$ldg_name', ldg_addr='$ldg_addr', ldg_info='$ldg_info', ldg_maxnop=$ldg_maxnop, toilet=$toilet, shower=$shower WHERE ldg_idx=$ldg_idx;";
+  $ldg_sql ="UPDATE lodging SET ldg_name='$ldg_name', ldg_country='$ldg_country', ldg_city='$ldg_city', ldg_info='$ldg_info', ldg_maxnop=$ldg_maxnop, toilet=$toilet, shower=$shower WHERE ldg_idx=$ldg_idx;";
   mysqli_query($dbcon, $ldg_sql);
 
   $facility_sql ="UPDATE lodging_facility SET dormitory='$dormitory', privateroom='$privateroom', condo='$condo', womenonly='$womenonly', wifi='$wifi', kitchen='$kitchen', elevator='$elevator', locker='$locker', parking='$parking', breakfast='$breakfast', lunch='$lunch', dinner='$dinner' WHERE ldg_idx=$ldg_idx;";

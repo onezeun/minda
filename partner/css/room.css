@@ -66,6 +66,7 @@
 }
 
 /* input */
+
 table {
   border-collapse: collapse;
   box-sizing: border-box;
@@ -188,7 +189,18 @@ td {
 
 /* card */
 .room_list {
+  height: 360px;
   position:relative;
+  padding-top: 25px;
+}
+
+.room_txt {
+  color: #8c8c8c;
+  text-align: center;
+  font-size: 16px;
+  cursor: default;
+  user-select:none;
+  line-height: 300px;
 }
 
 .room_list td{
@@ -196,9 +208,10 @@ td {
   position: relative;
   text-align: center;
 }
+
 .room_slide{
   width: 800px;
-  margin: 25px auto;
+  margin: auto ;
   display: flex;
 }
 
@@ -246,7 +259,7 @@ td {
   text-indent: -9999px;
   display: block;
   position: absolute;
-  top: 150px;
+  top: 170px;
   left: 30px
 }
 
@@ -258,7 +271,7 @@ td {
   text-indent: -9999px;
   display: block;
   position: absolute;
-  top: 150px;
+  top: 170px;
   right: 30px
 }
 

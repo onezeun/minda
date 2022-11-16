@@ -62,11 +62,18 @@
         </div>
       </div>
       <div class="room_cont">
+          <?php 
+            $list_sql = "SELECT * FROM room WHERE ldg_idx=$ldg_idx";
+            $list_result = mysqli_query($dbcon, $list_sql);
+            $num = mysqli_num_rows($list_result);
+            if(!$num) {
+          ?>
+          <div class="room_list">
+            <p class="room_txt">등록된 객실이 없습니다.</p>
+          <?php } else {?>
         <div class="room_list">
           <ul id="room_slide" class="room_slide">
             <?php 
-              $list_sql = "SELECT * FROM room WHERE ldg_idx=$ldg_idx";
-              $list_result = mysqli_query($dbcon, $list_sql);
               while($list_arr = mysqli_fetch_array($list_result)){ 
             ?>
             <li>
@@ -111,6 +118,7 @@
           </ul>
           <a href="#" id="room_btn1" class="card_prev">이전</a>
           <a href="#" id="room_btn2" class="card_next">다음</a>
+          <?php }; ?>
         </div>
         <?php 
           $r_idx = isset($_GET["r_idx"]) ? $_GET['r_idx'] : "";

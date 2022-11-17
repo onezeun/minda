@@ -1,8 +1,8 @@
 <?php
-  include "inc/session.php";
+  include "../inc/session.php";
 
   // DB 연결
-  include "inc/dbcon.php";
+  include "../inc/dbcon.php";
 
   $ldg_idx = $_GET['ldg_idx'];
 ?>
@@ -43,6 +43,12 @@
 
     <!-- content -->
     <main id="content" class="content">
+      <?php 
+      $l_sql = "SELECT l.ldg_idx, l.ldg_name, l.ldg_info, l.ldg_country, l.ldg_city, l.ldg_maxnop, l.toilet, l.shower, MIN(r.r_price) r_price, i.l_file_src, f.dormitory, f.dormitory, f.privateroom, f.condo, f.womenonly, f.wifi, f.kitchen, f.elevator, f.locker, f.parking, f.breakfast, f.lunch, f.dinner FROM lodging l JOIN lodging_file i ON l.ldg_idx = i.ldg_idx JOIN room r ON l.ldg_idx = r.ldg_idx JOIN lodging_facility f ON l.ldg_idx = f.ldg_idx WHERE l.ldg_idx=$ldg_idx;";
+      $l_result = mysqli_query($dbcon, $l_sql);
+      $l_array = mysqli_fetch_array($l_result); 
+      $ldg_info = $l_array['ldg_info'];
+      ?>
       <h2 class="indent">숙소상세페이지</h2>
       <div class="main_cont">
         <div class="main_cont_left">
@@ -66,8 +72,8 @@
           </div>
         </div>
         <div class="main_cont_right">
-          <h3>런던스테이</h3>
-          <p class="ldg_price">90,800원 ~</p>
+          <h3><?php echo $l_array['ldg_name'];?></h3>
+          <p class="ldg_price"><?php echo number_format($l_array['r_price']);?>원 ~</p>
           <div class="ldg_btn">
             <a href="#" class="ldg_share indent">공유</a>
             <a href="#" class="ldg_like indent">좋아요</a>
@@ -84,31 +90,68 @@
           </div>
           <div class="pictogram">
             <ul>
+              <?php 
+                $toilet = $l_array['toilet'];
+                $shower = $l_array['shower'];
+                $ldg_maxnop = $l_array['ldg_maxnop'];
+                $dormitory = $l_array['dormitory'];
+                $privateroom = $l_array['privateroom'];
+
+                if($dormitory == 1) {
+              ?>
               <li><span class="picto_img01 indent">이미지</span>
                 <p>도미토리</p>
               </li>
+              <?php }; ?>
+              <?php if($privateroom == 1) { ?>
               <li><span class="picto_img02 indent">이미지</span>
                 <p>개인실</p>
               </li>
+              <?php }; ?>
+              <?php if($ldg_maxnop > 0) { ?>
               <li><span class="picto_img03 indent">이미지</span>
-                <p>최대 5명</p>
+                <p>최대 <?php echo $ldg_maxnop; ?>명</p>
               </li>
+              <?php }; ?>
+              <?php if($toilet > 0) { ?>
               <li><span class="picto_img04 indent">이미지</span>
-                <p>화장실 1개</p>
+                <p>화장실 <?php echo $toilet; ?>개</p>
               </li>
+              <?php }; ?>
+              <?php if($shower > 0) { ?>
               <li><span class="picto_img05 indent">이미지</span>
-                <p>샤워실 1개</p>
+                <p>샤워실 <?php echo $shower; ?>개</p>
               </li>
+              <?php }; ?>
             </ul>
           </div>
           <div class="other_info">
             <div class="public">
+              <?php
+                $wifi = $l_array["wifi"] == "1" ? "Wifi" : "";
+                $kitchen = $l_array["kitchen"] == "1" ? "게스트부엌" : "";
+                $elevator = $l_array["elevator"] == "1" ? "엘리베이터" : "";
+                $locker = $l_array["locker"] == "1" ? "개인사물함" : "";
+                $parking = $l_array["parking"] == "1" ? "주차가능" : "";
+                $breakfast = $l_array["breakfast"] == "1" ? "조식" : "";
+                $lunch = $l_array["lunch"] == "1" ? "중식" : "";
+                $dinner = $l_array["dinner"] == "1" ? "석식" : "";
+
+                $meal_arr =  array("$breakfast", "$lunch", "$dinner");
+                $meal_arr2 = array_filter($meal_arr);
+                $meal = trim(implode(", ", $meal_arr2),", ");
+
+                $facility_arr = array("$wifi","$kitchen", "$elevator", "$locker", "$parking");
+                $facility_arr2 = array_filter($facility_arr);
+                $facility = trim(implode(" · ", $facility_arr2)," · ");
+              ?>
               <h4>공용시설</h4>
-              <p>Wifi, 헤어드라이기, 전자렌지, 커피포트, 토스트기, 엘리베이터</p>
+              <p class="ldg_meal"><?php echo $meal." 제공"; ?></p>
+              <p class="facility"><?php echo $facility; ?></p>
             </div>
             <div class="location">
               <h4>위치</h4>
-              <p>까탈루냐광장에서 도보 7분</p>
+              <p><?php $l_array["ldg_country"]." · ".$l_array["ldg_city"]?></p>
               <button type="button" class="location_btn">지도보기</button>
             </div>
           </div>
@@ -134,98 +177,59 @@
             <span class="warning_msg"></span>
           </div>
         </div>
+        <?php 
+        $r_sql = "SELECT * FROM room WHERE ldg_idx=$ldg_idx";
+        $r_result = mysqli_query($dbcon, $r_sql);
+        $r_total = mysqli_num_rows($r_result);
+        ?>
         <div class="room_list">
           <div class="room_list_txt">
-            <p>총 <span>4</span>개의 객실이 있습니다.</p>
+            <p>총 <span><?php echo $r_total; ?></span>개의 객실이 있습니다.</p>
           </div>
+
+          <?php 
+            while($r_array = mysqli_fetch_array($r_result)){
+
+              $gender = $r_array["r_gender"];
+              if($gender == "1") {
+                $gender = "남여공용";
+              } else if($gender == "2") {
+                $gender = "여성";
+              } else {
+                $gender = "남성";
+              };
+
+              $type = $r_array["r_type"];
+              if($type == "1") {
+                $type = "도미토리";
+              } else if($type == "2") {
+                $type = "개인실";
+              } else {
+                $type = "콘도형";
+              };
+          ?>
           <div class="room">
-            <img src="../images/ldg_room_img01.jpg" alt="방 이미지">
+            <div class="room_img_wrap">
+            <img src="<?php echo $r_array['r_img']; ?>" alt="방 이미지">
+            </div>
             <div class="room_left">
-              <p class="room_type">2인 여성도미토리</p>
-              <p class="room_left_txt01">여성도미토리<span>객실정원 1~2</span></p>
-              <p class="room_left_txt02">최소예약 1박이상</p>
+              <p class="room_type"><?php echo $r_array["r_name"]; ?></p>
+              <p class="room_left_txt01"><?php echo $gender." ".$type; ?><span>객실정원 <?php echo $r_array["r_min"]." ~ ".$r_array["r_max"]; ?></span></p>
             </div>
             <div class="room_right">
               <div class="room_right_txt_wrap">
                 <p class="room_right_txt01">1인 1박</p>
-                <p class="room_right_txt02">90,800원 (￡57)</p>
+                <p class="room_right_txt02"><?php echo number_format($r_array['r_price']); ?>원</p>
               </div>
-              <button type="button" onclick="location.href='reservation.html'" class="room_right_btn btn_hover">예약</button>
+              <button type="button" class="room_right_btn btn_hover">예약</button>
             </div>
           </div>
-          <div class="room">
-            <img src="../images/ldg_room_img02.jpg" alt="방 이미지">
-            <div class="room_left">
-              <p class="room_type">2인 남성도미토리</p>
-              <p class="room_left_txt01">남성도미토리<span>객실정원 1~2</span></p>
-              <p class="room_left_txt02">최소예약 1박이상</p>
-            </div>
-            <div class="room_right">
-              <div class="room_right_txt_wrap">
-                <p class="room_right_txt01">1인 1박</p>
-                <p class="room_right_txt02">90,800원 (￡57)</p>
-              </div>
-              <button type="button" onclick="location.href='reservation.html'" class="room_right_btn btn_hover">예약</button>
-            </div>
-          </div>
-          <div class="room">
-            <img src="../images/ldg_room_img03.jpg" alt="방 이미지">
-            <div class="room_left">
-              <p class="room_type">베이지룸 전체 (최대 2인)</p>
-              <p class="room_left_txt01">개인실<span>객실정원 1~2</span></p>
-              <p class="room_left_txt02">최소예약 2박이상</p>
-            </div>
-            <div class="room_right">
-              <div class="room_right_txt_wrap">
-                <p class="room_right_txt01">2인 1박</p>
-                <p class="room_right_txt02">181,600원 (￡114)</p>
-              </div>
-              <button type="button" onclick="location.href='reservation.html'" class="room_right_btn btn_hover">예약</button>
-            </div>
-          </div>
-          <div class="room">
-            <img src="../images/ldg_room_img04.jpg" alt="방 이미지">
-            <div class="room_left">
-              <p class="room_type">블루룸 전체 (최대 2인)</p>
-              <p class="room_left_txt01">개인실<span>객실정원 1~2</span></p>
-              <p class="room_left_txt02">최소예약 2박이상</p>
-            </div>
-            <div class="room_right">
-              <div class="room_right_txt_wrap">
-                <p class="room_right_txt01">2인 1박</p>
-                <p class="room_right_txt02">181,600원 (￡114)</p>
-              </div>
-              <button type="button" onclick="location.href='reservation.html'" class="room_right_btn btn_hover">예약</button>
-            </div>
-          </div>
+          <?php }; ?>
         </div>
         <div class="room_intro">
           <h3>숙소 소개</h3>
           <div class="intro_txt">
-            <p>*3박 미만 숙박을 원하시는 경우 사전 문의 부탁드립니다!</p>
-
-            <p>안녕하세요. 쾌적하고 프라이빗한 여행 공간을 지향하는 런던스테이 입니다.<br>
-              30대 한국인 부부가 직접 운영하는 소규모 숙소로 총 2개의 방(블루룸, 베이지룸)으로 구성되어 있습니다.<br>
-              안전하고 프라이빗한 여행이 되실 수 있도록 편안하게 모시겠습니다:)</p>
-
-            <p>
-              <주요 특징>
-            </p>
-            <p>- 1존 런던 중심부에 위치한 숙소로 리젠트파크 옆 주거지역에 위치하여 안전하고 조용한 휴식 공간을 제공합니다.</p>
-
-            <p>- 평일 아침 한식조식(꼬리곰탕, 육개장, 김치찌개, 소불고기 등)을 무료 제공해드리며, 컵라면(무료)이 구비되어 있습니다.</p>
-
-            <p>- 특정시간 출입 제한 등의 번거로운 규칙이 없으며 지내시는 동안 개별 키를 드려 24시간 자유로운 왕래가 가능합니다.</p>
-
-            <p>- 모든 방에 시스템 이중창이 설치되어 있어 채광, 단열, 소음에 좋습니다.</p>
-
-            <p>- 각 침대마다 개인 옷장 및 노트북 스탠드를 제공하여 쾌적한 휴식과 여행준비가 가능합니다.</p>
-
-            <p>- 욕실(1)과 화장실(1)가 분리되어 바쁜 아침 시간 유연한 이용이 가능합니다.</p>
-
-            <p>- 엘리베이터가 있어 케리어와 함께 편리한 이동이 가능합니다.</p>
-
-            <p>- 주인 부부가 함께 거주하여 안전하고 빠른 피드백이 가능합니다. 그 외 런던꿀팁은 덤</p>
+            <?php echo $ldg_info;?>
           </div>
         </div>
         <div class="review">

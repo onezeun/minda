@@ -71,7 +71,7 @@
             <h3 class="hide">추천 여행지</h3>
             <ul class="mb_reco_slide">
               <li class="mb_reco_cont1">
-                <a href="lodging_search.html" class="block">
+                <a href="lodging/lodging_search.html" class="block">
                   <div class="mb_reco_txt_wrap">
                     <p class="mb_reco_txt1">역사가 살아 숨쉬는 이탈리아</p>
                     <p class="mb_reco_txt2">문화유산의 천국! 이탈리아로 떠나요</p>
@@ -79,7 +79,7 @@
                 </a>
               </li>
               <li class="mb_reco_cont2">
-                <a href="lodging_search.html" class="block">
+                <a href="lodging/lodging_search.html" class="block">
                   <div class="mb_reco_txt_wrap">
                     <p class="mb_reco_txt1">어디에도 없는 매력 미국으로 떠나요</p>
                     <p class="mb_reco_txt2">가장 힙하고, 아름답고, 신나는 여행</p>
@@ -87,7 +87,7 @@
                 </a>
               </li>
               <li class="mb_reco_cont3">
-                <a href="lodging_search.html" class="block">
+                <a href="lodging/lodging_search.html" class="block">
                   <div class="mb_reco_txt_wrap">
                     <p class="mb_reco_txt1">당신의 로맨스를 찾을 곳, 파리</p>
                     <p class="mb_reco_txt2">낭만적인 파리를 즐겨보세요</p>

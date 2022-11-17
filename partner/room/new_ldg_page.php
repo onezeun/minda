@@ -1,8 +1,8 @@
 <?php
   include '../inc/session.php'; 
 
-  // 로그인 사용자만 접근
-  include '../inc/login_check.php';
+ // 로그인 사용자만 접근
+ include '../inc/login_check.php';
 
 ?>
 
@@ -93,9 +93,12 @@
                   <div class="ldg_img_right">
                     <div class="ldg_txt_wrap">
                       <span class="ldg_img_title">숙소 사진 등록</span>
-                      <button type="button" id="sub_img_btn" class="img_btn">이미지 업로드</button>
+                      <div class="btn_wrap">
+                        <button type="button" id="sub_img_btn" class="img_btn">이미지 업로드</button>
+                        <button type="button" id="sub_img_del_btn" class="img_del_btn">삭제</button>
+                      </div>
                     </div>
-                    <input type="file" accept="image/*" name="ldg_subimg[]" id="ldg_subimg_input" class="ldg_img_input" multiple />
+                    <input type="file" accept="image/*" name="ldg_subimg[]" id="ldg_subimg_input" class="ldg_img_input" multiple/>
                     <div class="ldg_sub_img_wrap">
                     </div>
                   </div>

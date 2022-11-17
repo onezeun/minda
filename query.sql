@@ -87,7 +87,7 @@ create table like_table (
 );
 
 
-
+SELECT l.ldg_idx, l.ldg_name, l.ldg_main_img, l.ldg_country, l.ldg_city, MIN(r.r_price) r_price FROM lodging l JOIN room r ON l.ldg_idx = r.ldg_idx GROUP BY ldg_idx;
 -- 숙소 LODGING
 create table lodging (
   ldg_idx INT AUTO_INCREMENT PRIMARY KEY,
@@ -95,6 +95,8 @@ create table lodging (
   ldg_country VARCHAR(50) NOT NULL,
   ldg_city VARCHAR(50) NOT NULL,
   ldg_tel VARCHAR(20),
+  ldg_main_img LONGBLOB,
+  ldg_sub_img LONGBLOB,
   ldg_info TEXT,
   ldg_maxnop INT NOT NULL,
   toilet INT NOT NULL,
@@ -103,18 +105,17 @@ create table lodging (
   FOREIGN KEY (p_idx) REFERENCES partner_user (p_idx)
 );
 
-
 -- 숙소 첨부 파일
 --  l_file_size VARCHAR(255),
-create table lodging_file (
-  l_file_idx INT AUTO_INCREMENT PRIMARY KEY,
-  l_file_main CHAR(1),
-  l_file_src LONGBLOB,
-  l_file_name VARCHAR(255),
-  l_file_type VARCHAR(25),
-  ldg_idx INT,
-  FOREIGN KEY (ldg_idx) REFERENCES lodging (ldg_idx) ON DELETE CASCADE
-);
+-- create table lodging_file (
+--   l_file_idx INT AUTO_INCREMENT PRIMARY KEY,
+--   l_file_main CHAR(1),
+--   l_file_src LONGBLOB,
+--   l_file_name VARCHAR(255),
+--   l_file_type VARCHAR(25),
+--   ldg_idx INT,
+--   FOREIGN KEY (ldg_idx) REFERENCES lodging (ldg_idx) ON DELETE CASCADE
+-- );
 
 -- 숙소 시설 LODGING_FACILITY
 create table lodging_facility (

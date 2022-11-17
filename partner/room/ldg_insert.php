@@ -14,24 +14,29 @@
   $ldg_maxnop = $_POST["ldg_maxnop"]; 
   $toilet = $_POST["toilet"]; 
   $shower = $_POST["shower"]; 
-  $ldg_mainimg_err = $_FILES["ldg_mainimg"]["error"];
 
   // 숙소 첨부파일 
   // 대표 이미지 저장
-  if($ldg_mainimg_err == 0) {
+  if($_FILES["ldg_mainimg"] != NULL){
     $ldg_mainimg_tmp = $_FILES['ldg_mainimg']['tmp_name'];
     $ldg_mainimg_name = $_FILES['ldg_mainimg']['name'];
     $upload_folder = "images/";
-    move_uploaded_file( $ldg_mainimg_tmp, $upload_folder . $ldg_mainimg_name );
-    
-    $path = $upload_folder.$ldg_mainimg_name;
-    $type = pathinfo($path, PATHINFO_EXTENSION);
-    $data = file_get_contents($path);
-    $mainbase64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+    move_uploaded_file( $ldg_mainimg_tmp, $upload_folder.$ldg_mainimg_name );
   }
 
   // 서브이미지 저장
-  // $ldg_subimg = $_FILES["ldg_subimg"];
+  if($_FILES["ldg_subimg"] != NULL){
+    $ldg_subimg_tmp = $_FILES['ldg_subimg']['tmp_name'];
+    $ldg_subimg_name = $_FILES['ldg_subimg']['name'];
+    $upload_folder = "images/";
+    $sub_arr = array();
+
+    for($i=0; $i<count($ldg_subimg_name); $i++){
+      move_uploaded_file($ldg_subimg_tmp[$i], $upload_folder.$ldg_subimg_name[$i]); // 디렉토리에 저장하기
+      array_push($sub_arr, $ldg_subimg_name[$i]); // 가공해서 배열에 넣기
+      $sub_arr_str = implode(",", $sub_arr); // 배열을 문자열로 만들기
+    };
+  };
 
   // 숙소 시설
   $dormitory = isset($_POST["dormitory"]) ? "1" : "0";
@@ -64,7 +69,7 @@
   include "../inc/dbcon.php";
 
   /* 쿼리 작성 */
-  $ldg_sql ="INSERT INTO lodging (ldg_name, ldg_country, ldg_city, ldg_info, ldg_maxnop, toilet, shower, p_idx) VALUES ( '$ldg_name', '$ldg_country', '$ldg_city', '$ldg_info', $ldg_maxnop, $toilet, $shower, $sp_idx);";
+  $ldg_sql ="INSERT INTO lodging (ldg_name, ldg_country, ldg_city, ldg_main_img, ldg_sub_img, ldg_info, ldg_maxnop, toilet, shower, p_idx) VALUES ( '$ldg_name', '$ldg_country', '$ldg_city', '$ldg_mainimg_name', '$sub_arr_str', '$ldg_info', $ldg_maxnop, $toilet, $shower, $sp_idx);";
 
   mysqli_query($dbcon, $ldg_sql);
 
@@ -74,8 +79,11 @@
   $array = mysqli_fetch_array($result);
   $ldg_idx = $array['ldg_idx'];
 
-  $mainimg_sql = "INSERT INTO lodging_file (l_file_main, l_file_src, l_file_name, ldg_idx) VALUES ('Y', '$mainbase64', '$ldg_mainimg_name', '$ldg_idx');";
-  mysqli_query($dbcon, $mainimg_sql);
+  // $mainimg_sql = "INSERT INTO lodging_file (l_file_main, l_file_src, l_file_name, ldg_idx) VALUES ('Y', '$mainbase64', '$ldg_mainimg_name', '$ldg_idx');";
+  // mysqli_query($dbcon, $mainimg_sql);
+
+  // $subimg_sql = "INSERT INTO lodging_file ()"
+  // mysqli_query($dbcon, $subimg_sql);
 
   $facility_sql ="INSERT INTO lodging_facility (dormitory, privateroom, condo, womenonly, wifi, kitchen, elevator, locker, parking, breakfast, lunch, dinner, ldg_idx) VALUES ($dormitory, $privateroom, $condo, $womenonly, $wifi, $kitchen, $elevator, $locker, $parking, $breakfast, $lunch, $dinner, $ldg_idx);";
   mysqli_query($dbcon, $facility_sql);

@@ -113,14 +113,20 @@
         <h2 class="slide_title">베스트 한인민박</h2>
         <ul id="room_slide" class="card_slide">
           <?php 
-            $sql = "SELECT l.ldg_idx, l.ldg_name, l.ldg_country, l.ldg_city, MIN(r.r_price) r_price, f.l_file_src FROM lodging l JOIN lodging_file f ON l.ldg_idx = f.ldg_idx JOIN room r ON l.ldg_idx = r.ldg_idx GROUP BY ldg_idx;";
+            $sql = "SELECT l.ldg_idx, l.ldg_name, l.ldg_main_img, l.ldg_country, l.ldg_city, MIN(r.r_price) r_price FROM lodging l JOIN room r ON l.ldg_idx = r.ldg_idx GROUP BY ldg_idx;";
             $result = mysqli_query($dbcon, $sql);
+            $num = mysqli_num_rows($result);
+            if(!$num) {
+          ?>
+            <p class="room_txt">등록된 숙소가 없습니다.</p>
+          <?php  
+            };
             while($array = mysqli_fetch_array($result)){ 
           ?>
           <li>
             <div id="card" class="card">
               <a href="lodging/lodging_detail.php?ldg_idx=<?php echo $array['ldg_idx']; ?>" class="block">
-                <img src="<?php echo $array['l_file_src']; ?>" alt="숙소대표이미지">
+                <img src="<?php echo $array['ldg_main_img']; ?>" alt="숙소대표이미지">
                 <div class="card_cont_wrap">
                   <div class="card_top">
                     <span class="card_category"><?php echo $array['ldg_country']."·".$array['ldg_city']; ?></span>

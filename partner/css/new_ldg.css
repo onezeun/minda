@@ -263,6 +263,24 @@ justify-content: space-evenly;
   border: none;
 }
 
+.img_del_btn {
+  width: 50px;
+  height: 30px;
+  background: #f2f5ef;
+  color: #8b8b8b;
+  border: 1px solid #f2f5ef;
+  border-radius: 5px;
+}
+
+.img_del_btn:hover {
+color: #8b8b8b;
+box-shadow:inset 2px 2px 5px 1px rgba(255,255,255,.5),
+1px 2px 4px 0px rgba(0,0,0,.1);
+background: #e6e9e3;
+border: none;
+transition: all 0.3s ease;
+}
+
 .ldg_info_txt {
   width: 800px;
   height: 200px;

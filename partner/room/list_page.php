@@ -9,7 +9,7 @@
 
   // 쿼리 작성
   // $sql = "select * from lodging where p_idx='$sp_idx';";
-  $sql = "SELECT l.ldg_idx, l.ldg_name, i.l_file_src, f.dormitory, f.dormitory, f.privateroom, f.condo, f.womenonly, f.wifi, f.kitchen, f.elevator, f.locker, f.parking, f.breakfast, f.lunch, f.dinner FROM lodging l LEFT OUTER JOIN lodging_file i ON l.ldg_idx = i.ldg_idx LEFT OUTER JOIN lodging_facility f ON l.ldg_idx = f.ldg_idx WHERE p_idx='$sp_idx';";
+  $sql = "SELECT l.ldg_idx, l.ldg_name, l.ldg_main_img, f.dormitory, f.dormitory, f.privateroom, f.condo, f.womenonly, f.wifi, f.kitchen, f.elevator, f.locker, f.parking, f.breakfast, f.lunch, f.dinner FROM lodging l JOIN lodging_facility f ON l.ldg_idx = f.ldg_idx WHERE p_idx='$sp_idx';";
   // 쿼리 전송
   $result = mysqli_query($dbcon, $sql);
 
@@ -110,7 +110,7 @@
 
           // paging : 시작번호부터 페이지 당 보여질 목록수 만큼 데이터 구하는 쿼리 작성
           // limit 몇번부터, 몇 개
-          $sql = "SELECT l.ldg_idx, l.ldg_name, i.l_file_src, f.dormitory, f.dormitory, f.privateroom, f.condo, f.womenonly, f.wifi, f.kitchen, f.elevator, f.locker, f.parking, f.breakfast, f.lunch, f.dinner FROM lodging l LEFT OUTER JOIN lodging_file i ON l.ldg_idx = i.ldg_idx LEFT OUTER JOIN lodging_facility f ON l.ldg_idx = f.ldg_idx WHERE p_idx=$sp_idx LIMIT $start, $list_num;";
+          $sql = "SELECT l.ldg_idx, l.ldg_name, l.ldg_main_img, f.dormitory, f.dormitory, f.privateroom, f.condo, f.womenonly, f.wifi, f.kitchen, f.elevator, f.locker, f.parking, f.breakfast, f.lunch, f.dinner FROM lodging l JOIN lodging_facility f ON l.ldg_idx = f.ldg_idx WHERE p_idx=$sp_idx LIMIT $start, $list_num;";
           // echo $sql;
           /* exit; */
 
@@ -128,7 +128,7 @@
         ?>
         <div class="ldg_card">
           <div class="ldg_card_img_wrap">
-            <img src="<?php echo $array["l_file_src"]; ?>" alt="숙소이미지">
+            <img src="<?php echo 'images/'.$array['ldg_main_img']; ?>" alt="숙소이미지">
           </div>
           <ul class="ldg_card_menu">
             <li><a href="../reservation/partner_reservation_page.php" class="menu_btn btn_hover">예약관리</a></li>

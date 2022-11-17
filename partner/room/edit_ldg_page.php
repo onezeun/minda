@@ -9,7 +9,7 @@
 
   $ldg_idx = $_GET["ldg_idx"];
 
-  $l_sql = "SELECT l.ldg_name, l.ldg_country, l.ldg_city, l.ldg_tel, l.ldg_info, l.ldg_maxnop, l.toilet, l.shower, i.l_file_main, i.l_file_src, i.l_file_name, i.l_file_type, f.dormitory, f.privateroom, f.condo, f.womenonly, f.wifi, f.kitchen, f.elevator, f.locker, f.parking, f.breakfast, f.lunch, f.dinner FROM lodging l INNER JOIN lodging_file i ON l.ldg_idx = i.ldg_idx INNER JOIN lodging_facility f ON l.ldg_idx = f.ldg_idx WHERE l.ldg_idx = $ldg_idx;";
+  $l_sql = "SELECT l.ldg_name, l.ldg_country, l.ldg_city, l.ldg_tel, l.ldg_main_img, l.ldg_sub_img, l.ldg_info, l.ldg_maxnop, l.toilet, l.shower, f.dormitory, f.privateroom, f.condo, f.womenonly, f.wifi, f.kitchen, f.elevator, f.locker, f.parking, f.breakfast, f.lunch, f.dinner FROM lodging l JOIN lodging_facility f ON l.ldg_idx = f.ldg_idx WHERE l.ldg_idx = $ldg_idx;";
 
   $l_result = mysqli_query($dbcon, $l_sql);
   $l_arr = mysqli_fetch_array($l_result);
@@ -96,21 +96,27 @@
                       <button type="button" id="main_img_btn" class="img_btn">이미지 업로드</button>
                     </div>
                     <input type="file" name="ldg_mainimg" id="ldg_mainimg_input" class="ldg_img_input">
-                    <img src="<?php echo $l_arr['l_file_src'];?>" id="ldg_main_img" class="ldg_main_img">
+                    <img src="<?php echo 'images/'.$l_arr['ldg_main_img'];?>" id="ldg_main_img" class="ldg_main_img">
                   </div>
 
                   <div class="ldg_img_right">
                     <div class="ldg_txt_wrap">
                       <span class="ldg_img_title">숙소 사진 등록</span>
-                      <button type="button" id="sub_img_btn" class="img_btn">이미지 업로드</button>
+                      <div class="btn_wrap">
+                        <button type="button" id="sub_img_btn" class="img_btn">이미지 업로드</button>
+                        <button type="button" id="sub_img_del_btn" class="img_del_btn">삭제</button>
+                      </div>
                     </div>
-                    <input type="file" accept="image/*" name="ldg_subimg[]" id="ldg_subimg_input" class="ldg_img_input"
-                      multiple />
+                    <input type="file" accept="image/*" name="ldg_subimg[]" id="ldg_subimg_input" class="ldg_img_input" multiple />
                     <div class="ldg_sub_img_wrap">
-                      <div class="ldg_sub_img"></div>
-                      <div class="ldg_sub_img"></div>
-                      <div class="ldg_sub_img"></div>
-                      <div class="ldg_sub_img"></div>
+                      <?php
+                        $sub_arr = explode(",",$l_arr['ldg_sub_img'] );
+                        for($i=0; $i<count($sub_arr); $i++){
+                          echo "
+                            <img src=\"images/{$sub_arr[$i]}\" class=\"ldg_sub_img\">
+                          ";
+                        }
+                      ?>
                     </div>
                   </div>
                 </div>

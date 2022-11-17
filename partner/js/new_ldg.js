@@ -32,15 +32,26 @@ $(document).ready(function () {
 
   /* 미리보기 */
   $('#ldg_subimg_input').change(function (e) {
-    var sub_img = $('.ldg_sub_img_wrap').children().length;
-    if(sub_img <= 3 ) {
-      subImg(e);
-    } else {
-      alert("4개까지만 등록 가능합니다.")
-    }
+    subImg(e);
   });
 
+  $('#sub_img_del_btn').on('click', function () {
+    $('img').remove('.ldg_sub_img');
+  });
+
+
   const subImg = (e) => {
+    var maxFileCnt = 4; // 이미지 최대 개수
+    var attFileCnt = $('.ldg_sub_img_wrap').children().length; // 기존 추가된 이미지 개수
+    var remainFileCnt = maxFileCnt - attFileCnt; // 추가로 첨부가능한 개수
+    var curFileCnt = e.target.files.length; // 현재 선택된 이미지 개수
+
+    // 이미지 개수 확인
+    if (curFileCnt > remainFileCnt) {
+      alert('이미지는 최대 ' + maxFileCnt + '개 까지 첨부 가능합니다.');
+      return false;
+    };
+
     for (var image of e.target.files) {
       var reader = new FileReader();
 
@@ -49,6 +60,10 @@ $(document).ready(function () {
         sub_img.attr('src', e.target.result);
         $('.ldg_sub_img_wrap').append(sub_img);
       };
+
+      if (image.length > 4) {
+        image = image.slice(0, 4);
+      }
       console.log(image);
       reader.readAsDataURL(image);
     }

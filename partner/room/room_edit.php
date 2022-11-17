@@ -37,9 +37,14 @@
   include "../inc/dbcon.php";
 
   /* 쿼리 작성 */
-  $sql ="UPDATE room SET r_name='$r_name', r_img='$roombase64', r_gender=$r_gender, r_type=$r_type, r_min=$r_min, r_max=$r_max, r_price=$r_price WHERE r_idx=$r_idx;";
+  $sql ="UPDATE room SET r_name='$r_name', r_gender=$r_gender, r_type=$r_type, r_min=$r_min, r_max=$r_max, r_price=$r_price WHERE r_idx=$r_idx;";
   
   mysqli_query($dbcon, $sql);
+
+  if($r_img_err == 0) {
+    $img_sql = "UPDATE room SET r_img='$roombase64' WHERE r_idx=$r_idx;";
+    mysqli_query($dbcon, $img_sql);
+  } 
 
   /* DB 접속 종료 */
   mysqli_close($dbcon);

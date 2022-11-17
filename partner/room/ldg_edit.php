@@ -15,6 +15,8 @@
   $ldg_maxnop = $_POST["ldg_maxnop"]; 
   $toilet = $_POST["toilet"]; 
   $shower = $_POST["shower"]; 
+  $ldg_mainimg_err = $_FILES["ldg_mainimg"]["error"];
+  $ldg_subimg_err = $_FILES["ldg_mainimg"]["error"];
 
   // 숙소 첨부파일 
   // 대표 이미지 저장
@@ -57,11 +59,21 @@
   include "../inc/dbcon.php";
 
   /* 쿼리 작성 */
-  $ldg_sql ="UPDATE lodging SET ldg_name='$ldg_name', ldg_country='$ldg_country', ldg_city='$ldg_city', ldg_main_img='$ldg_mainimg_name', ldg_sub_img='$sub_arr_str', ldg_info='$ldg_info', ldg_maxnop=$ldg_maxnop, toilet=$toilet, shower=$shower WHERE ldg_idx=$ldg_idx;";
+  $ldg_sql ="UPDATE lodging SET ldg_name='$ldg_name', ldg_country='$ldg_country', ldg_city='$ldg_city', ldg_info='$ldg_info', ldg_maxnop=$ldg_maxnop, toilet=$toilet, shower=$shower WHERE ldg_idx=$ldg_idx;";
   mysqli_query($dbcon, $ldg_sql);
 
   $facility_sql ="UPDATE lodging_facility SET dormitory='$dormitory', privateroom='$privateroom', condo='$condo', womenonly='$womenonly', wifi='$wifi', kitchen='$kitchen', elevator='$elevator', locker='$locker', parking='$parking', breakfast='$breakfast', lunch='$lunch', dinner='$dinner' WHERE ldg_idx=$ldg_idx;";
   mysqli_query($dbcon, $facility_sql);
+
+  if($ldg_mainimg_err == 0) {
+    $mainimg_sql = "UPDATE lodging SET ldg_main_img='$ldg_mainimg_name' WHERE ldg_idx=$ldg_idx;";
+    mysqli_query($dbcon, $mainimg_sql);
+  } 
+
+  if($ldg_subimg_err == 0) {
+    $subimg_sql = "UPDATE lodging SET ldg_sub_img='$sub_arr_str' WHERE ldg_idx=$ldg_idx;";
+    mysqli_query($dbcon, $subimg_sql);
+  } 
 
   /* DB 접속 종료 */
   mysqli_close($dbcon);

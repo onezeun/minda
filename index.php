@@ -126,7 +126,7 @@
           <li>
             <div id="card" class="card">
               <a href="lodging/lodging_detail.php?ldg_idx=<?php echo $array['ldg_idx']; ?>" class="block">
-                <img src="<?php echo $array['ldg_main_img']; ?>" alt="숙소대표이미지">
+                <img src="<?php echo "images/".$array['ldg_main_img']; ?>" alt="숙소대표이미지">
                 <div class="card_cont_wrap">
                   <div class="card_top">
                     <span class="card_category"><?php echo $array['ldg_country']."·".$array['ldg_city']; ?></span>

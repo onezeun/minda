@@ -25,8 +25,37 @@ $(document).ready(function () {
     }
   };
 
-    /* 유효성검사 */
-    $('#ldg_submit_btn').on('click', function () {
-      $('#ldg_form').submit();
-    });
+  /* 서브 이미지 등록 */
+  $('#sub_img_btn').on('click', function () {
+    $('#ldg_subimg_input').click();
+  });
+
+  /* 미리보기 */
+  $('#ldg_subimg_input').change(function (e) {
+    var sub_img = $('.ldg_sub_img_wrap').children().length;
+    if(sub_img <= 3 ) {
+      subImg(e);
+    } else {
+      alert("4개까지만 등록 가능합니다.")
+    }
+  });
+
+  const subImg = (e) => {
+    for (var image of e.target.files) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        var sub_img = $('<img class="ldg_sub_img">');
+        sub_img.attr('src', e.target.result);
+        $('.ldg_sub_img_wrap').append(sub_img);
+      };
+      console.log(image);
+      reader.readAsDataURL(image);
+    }
+  };
+
+  /* 유효성검사 */
+  $('#ldg_submit_btn').on('click', function () {
+    $('#ldg_form').submit();
+  });
 });

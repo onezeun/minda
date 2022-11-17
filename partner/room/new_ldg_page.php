@@ -95,13 +95,8 @@
                       <span class="ldg_img_title">숙소 사진 등록</span>
                       <button type="button" id="sub_img_btn" class="img_btn">이미지 업로드</button>
                     </div>
-                    <input type="file" accept="image/*" name="ldg_subimg[]" id="ldg_subimg_input" class="ldg_img_input"
-                      multiple />
+                    <input type="file" accept="image/*" name="ldg_subimg[]" id="ldg_subimg_input" class="ldg_img_input" multiple />
                     <div class="ldg_sub_img_wrap">
-                      <div class="ldg_sub_img"></div>
-                      <div class="ldg_sub_img"></div>
-                      <div class="ldg_sub_img"></div>
-                      <div class="ldg_sub_img"></div>
                     </div>
                   </div>
                 </div>

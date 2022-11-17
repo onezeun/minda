@@ -25,7 +25,7 @@
   <link rel="stylesheet" type="text/css" href="../css/daterangepicker.css" />
   <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
     crossorigin="anonymous">
-    </script>
+  </script>
   <script type="text/javascript" src="../js/includ.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
@@ -53,19 +53,27 @@
       <div class="main_cont">
         <div class="main_cont_left">
           <ul class="slider-for">
-            <li><img src="../images/ldg_img01.jpg" alt="숙소대표이미지1"/></li>
-            <li><img src="../images/ldg_img02.jpg" alt="숙소대표이미지2"/></li>
-            <li><img src="../images/ldg_img03.jpg" alt="숙소대표이미지3"/></li>
-            <li><img src="../images/ldg_img04.jpg" alt="숙소대표이미지4"/></li>
-            <li><img src="../images/ldg_img05.jpg" alt="숙소대표이미지4"/></li>
+            <li><img src="<?php echo "../images/".$l_array['ldg_main_img'] ?>" alt="숙소대표이미지" /></li>
+            <?php
+              $sub_arr = explode(",",$l_array['ldg_sub_img'] );
+              for($i=0; $i<count($sub_arr); $i++){
+                echo "
+                  <li><img src=\"../images/{$sub_arr[$i]}\" alt=\"숙소대표이미지\"/></li>
+                  ";
+                }
+            ?>
           </ul>
           <div class="carousel">
             <ul class="slider-nav">
-              <li><img src="../images/ldg_main_img.jpg" alt="숙소이미지1" class="nav_img"/></li>
-              <li><img src="../images/ldg_img02.jpg" alt="숙소이미지2" class="nav_img"/></li>
-              <li><img src="../images/ldg_img03.jpg" alt="숙소이미지3" class="nav_img"/></li>
-              <li><img src="../images/ldg_img04.jpg" alt="숙소이미지4" class="nav_img"/></li>
-              <li><img src="../images/ldg_img05.jpg" alt="숙소이미지4" class="nav_img"/></li>
+              <li><img src="<?php echo "../images/".$l_array['ldg_main_img']?>" alt="숙소대표이미지" class="nav_img"/></li>
+              <?php
+                $sub_arr = explode(",",$l_array['ldg_sub_img'] );
+                for($i=0; $i<count($sub_arr); $i++){
+                echo "
+                  <li><img src=\"../images/{$sub_arr[$i]}\" alt=\"숙소대표이미지\" class=\"nav_img\"/></li>
+                  ";
+                }
+              ?>
             </ul>
             <a href="#" id="ldg_prev" class="ldg_prev indent">이전</a>
             <a href="#" id="ldg_next" class="ldg_next indent">다음</a>
@@ -151,7 +159,7 @@
             </div>
             <div class="location">
               <h4>위치</h4>
-              <p><?php $l_array["ldg_country"]." · ".$l_array["ldg_city"]?></p>
+              <p><?php echo $l_array["ldg_country"]." · ".$l_array["ldg_city"]?></p>
               <button type="button" class="location_btn">지도보기</button>
             </div>
           </div>
@@ -210,7 +218,7 @@
           ?>
           <div class="room">
             <div class="room_img_wrap">
-            <img src="<?php echo $r_array['r_img']; ?>" alt="방 이미지">
+              <img src="<?php echo $r_array['r_img']; ?>" alt="방 이미지">
             </div>
             <div class="room_left">
               <p class="room_type"><?php echo $r_array["r_name"]; ?></p>
@@ -273,7 +281,7 @@
 
     <!-- footer -->
     <footer>
-      <div  id="footer-include"></div>
+      <div id="footer-include"></div>
     </footer>
   </div>
 

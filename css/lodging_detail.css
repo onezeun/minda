@@ -433,6 +433,7 @@
   font-size: 14px;
   line-height: 30px;
   margin-bottom: 20px;
+  white-space:pre;
 }
 
 .review_wrap01 {

@@ -44,7 +44,7 @@
     <!-- content -->
     <main id="content" class="content">
       <?php 
-      $l_sql = "SELECT l.ldg_idx, l.ldg_name, l.ldg_info, l.ldg_country, l.ldg_city, l.ldg_maxnop, l.toilet, l.shower, MIN(r.r_price) r_price, i.l_file_src, f.dormitory, f.dormitory, f.privateroom, f.condo, f.womenonly, f.wifi, f.kitchen, f.elevator, f.locker, f.parking, f.breakfast, f.lunch, f.dinner FROM lodging l JOIN lodging_file i ON l.ldg_idx = i.ldg_idx JOIN room r ON l.ldg_idx = r.ldg_idx JOIN lodging_facility f ON l.ldg_idx = f.ldg_idx WHERE l.ldg_idx=$ldg_idx;";
+      $l_sql = "SELECT l.ldg_idx, l.ldg_name, l.ldg_main_img, l.ldg_sub_img, l.ldg_info, l.ldg_country, l.ldg_city, l.ldg_maxnop, l.toilet, l.shower, MIN(r.r_price) r_price, f.dormitory, f.dormitory, f.privateroom, f.condo, f.womenonly, f.wifi, f.kitchen, f.elevator, f.locker, f.parking, f.breakfast, f.lunch, f.dinner FROM lodging l JOIN room r ON l.ldg_idx = r.ldg_idx JOIN lodging_facility f ON l.ldg_idx = f.ldg_idx WHERE l.ldg_idx=$ldg_idx;";
       $l_result = mysqli_query($dbcon, $l_sql);
       $l_array = mysqli_fetch_array($l_result); 
       $ldg_info = $l_array['ldg_info'];
@@ -214,7 +214,8 @@
             </div>
             <div class="room_left">
               <p class="room_type"><?php echo $r_array["r_name"]; ?></p>
-              <p class="room_left_txt01"><?php echo $gender." ".$type; ?><span>객실정원 <?php echo $r_array["r_min"]." ~ ".$r_array["r_max"]; ?></span></p>
+              <p class="room_left_txt01"><?php echo $gender." ".$type; ?></p>
+              <p class="room_left_txt02">객실정원 <?php echo $r_array["r_min"]." ~ ".$r_array["r_max"]; ?></p>
             </div>
             <div class="room_right">
               <div class="room_right_txt_wrap">
@@ -228,9 +229,7 @@
         </div>
         <div class="room_intro">
           <h3>숙소 소개</h3>
-          <div class="intro_txt">
-            <?php echo $ldg_info;?>
-          </div>
+          <div class="intro_txt"><?php echo $ldg_info;?></div>
         </div>
         <div class="review">
           <div class="review_wrap01">

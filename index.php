@@ -119,7 +119,7 @@
           ?>
           <li>
             <div id="card" class="card">
-              <a href="lodging_detail.html" class="block">
+              <a href="lodging_detail.php?ldg_idx=<?php echo $array['ldg_idx']; ?>" class="block">
                 <img src="<?php echo $array['l_file_src']; ?>" alt="숙소대표이미지">
                 <div class="card_cont_wrap">
                   <div class="card_top">

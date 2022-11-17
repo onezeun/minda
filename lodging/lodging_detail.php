@@ -1,3 +1,12 @@
+<?php
+  include "inc/session.php";
+
+  // DB 연결
+  include "inc/dbcon.php";
+
+  $ldg_idx = $_GET['ldg_idx'];
+?>
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -6,23 +15,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>숙소 상세</title>
-  <link rel="shortcut icon" href="images/favicon.ico">
-  <link rel="stylesheet" type="text/css" href="css/reset.css">
-  <link rel="stylesheet" type="text/css" href="css/header.css">
-  <link rel="stylesheet" type="text/css" href="css/footer.css">
-  <link rel="stylesheet" type="text/css" href="css/lodging_detail.css">
-  <link rel="stylesheet" type="text/css" href="css/slick.css" />
-  <link rel="stylesheet" type="text/css" href="css/slick-theme.css" />
-  <link rel="stylesheet" type="text/css" href="css/daterangepicker.css" />
+  <link rel="shortcut icon" href="../images/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="../css/reset.css">
+  <link rel="stylesheet" type="text/css" href="../css/header.css">
+  <link rel="stylesheet" type="text/css" href="../css/footer.css">
+  <link rel="stylesheet" type="text/css" href="../css/lodging_detail.css">
+  <link rel="stylesheet" type="text/css" href="../css/slick.css" />
+  <link rel="stylesheet" type="text/css" href="../css/slick-theme.css" />
+  <link rel="stylesheet" type="text/css" href="../css/daterangepicker.css" />
   <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
     crossorigin="anonymous">
     </script>
-  <script type="text/javascript" src="js/includ.js"></script>
+  <script type="text/javascript" src="../js/includ.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-  <script type="text/javascript" src="js/slick.js"></script>
-  <script type="text/javascript" src="js/lodging_detail.js"></script>
+  <script type="text/javascript" src="../js/slick.js"></script>
+  <script type="text/javascript" src="../js/lodging_detail.js"></script>
 </head>
 
 <body>
@@ -38,19 +47,19 @@
       <div class="main_cont">
         <div class="main_cont_left">
           <ul class="slider-for">
-            <li><img src="images/ldg_img01.jpg" alt="숙소대표이미지1"/></li>
-            <li><img src="images/ldg_img02.jpg" alt="숙소대표이미지2"/></li>
-            <li><img src="images/ldg_img03.jpg" alt="숙소대표이미지3"/></li>
-            <li><img src="images/ldg_img04.jpg" alt="숙소대표이미지4"/></li>
-            <li><img src="images/ldg_img05.jpg" alt="숙소대표이미지4"/></li>
+            <li><img src="../images/ldg_img01.jpg" alt="숙소대표이미지1"/></li>
+            <li><img src="../images/ldg_img02.jpg" alt="숙소대표이미지2"/></li>
+            <li><img src="../images/ldg_img03.jpg" alt="숙소대표이미지3"/></li>
+            <li><img src="../images/ldg_img04.jpg" alt="숙소대표이미지4"/></li>
+            <li><img src="../images/ldg_img05.jpg" alt="숙소대표이미지4"/></li>
           </ul>
           <div class="carousel">
             <ul class="slider-nav">
-              <li><img src="images/ldg_main_img.jpg" alt="숙소이미지1" class="nav_img"/></li>
-              <li><img src="images/ldg_img02.jpg" alt="숙소이미지2" class="nav_img"/></li>
-              <li><img src="images/ldg_img03.jpg" alt="숙소이미지3" class="nav_img"/></li>
-              <li><img src="images/ldg_img04.jpg" alt="숙소이미지4" class="nav_img"/></li>
-              <li><img src="images/ldg_img05.jpg" alt="숙소이미지4" class="nav_img"/></li>
+              <li><img src="../images/ldg_main_img.jpg" alt="숙소이미지1" class="nav_img"/></li>
+              <li><img src="../images/ldg_img02.jpg" alt="숙소이미지2" class="nav_img"/></li>
+              <li><img src="../images/ldg_img03.jpg" alt="숙소이미지3" class="nav_img"/></li>
+              <li><img src="../images/ldg_img04.jpg" alt="숙소이미지4" class="nav_img"/></li>
+              <li><img src="../images/ldg_img05.jpg" alt="숙소이미지4" class="nav_img"/></li>
             </ul>
             <a href="#" id="ldg_prev" class="ldg_prev indent">이전</a>
             <a href="#" id="ldg_next" class="ldg_next indent">다음</a>
@@ -112,7 +121,7 @@
             <input type="text" id="daterange_check" class="checkin_box" readonly>
             <div class="data_placeholder">
               <span id="checkin_val" class="checkin_box_label">체크인</span>
-              <img src="./images/date_arrow.png" alt="화살표아이콘" class="date_arrow">
+              <img src="../images/date_arrow.png" alt="화살표아이콘" class="date_arrow">
               <span id="checkout_val" class="checkout_box_label">체크아웃</span>
             </div>
           </div>
@@ -130,7 +139,7 @@
             <p>총 <span>4</span>개의 객실이 있습니다.</p>
           </div>
           <div class="room">
-            <img src="./images/ldg_room_img01.jpg" alt="방 이미지">
+            <img src="../images/ldg_room_img01.jpg" alt="방 이미지">
             <div class="room_left">
               <p class="room_type">2인 여성도미토리</p>
               <p class="room_left_txt01">여성도미토리<span>객실정원 1~2</span></p>
@@ -145,7 +154,7 @@
             </div>
           </div>
           <div class="room">
-            <img src="./images/ldg_room_img02.jpg" alt="방 이미지">
+            <img src="../images/ldg_room_img02.jpg" alt="방 이미지">
             <div class="room_left">
               <p class="room_type">2인 남성도미토리</p>
               <p class="room_left_txt01">남성도미토리<span>객실정원 1~2</span></p>
@@ -160,7 +169,7 @@
             </div>
           </div>
           <div class="room">
-            <img src="./images/ldg_room_img03.jpg" alt="방 이미지">
+            <img src="../images/ldg_room_img03.jpg" alt="방 이미지">
             <div class="room_left">
               <p class="room_type">베이지룸 전체 (최대 2인)</p>
               <p class="room_left_txt01">개인실<span>객실정원 1~2</span></p>
@@ -175,7 +184,7 @@
             </div>
           </div>
           <div class="room">
-            <img src="./images/ldg_room_img04.jpg" alt="방 이미지">
+            <img src="../images/ldg_room_img04.jpg" alt="방 이미지">
             <div class="room_left">
               <p class="room_type">블루룸 전체 (최대 2인)</p>
               <p class="room_left_txt01">개인실<span>객실정원 1~2</span></p>

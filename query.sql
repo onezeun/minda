@@ -1,3 +1,6 @@
+CREATE DATABASE minda
+    DEFAULT CHARACTER SET = 'utf8mb4';
+    
 -- 메인 조회
 SELECT l.ldg_idx, l.ldg_name, l.ldg_country, l.ldg_city, MIN(r.r_price) r_price, f.l_file_src FROM lodging l JOIN lodging_file f ON l.ldg_idx = f.ldg_idx JOIN room r ON l.ldg_idx = r.ldg_idx GROUP BY ldg_idx;
 

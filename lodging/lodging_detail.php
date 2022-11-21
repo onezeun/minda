@@ -177,7 +177,7 @@
             </div>
           </div>
           <div class="prs">
-            <input type="text" placeholder="인원" class="prs_box" min="0" max="10" readonly>
+            <input type="text" placeholder="인원" class="prs_box" min="1" max="10" readonly>
             <div class="prs_btn_wrap">
               <button type="button" class="prs_mbtn"></button>
               <button type="button" class="prs_pbtn"></button>
@@ -197,7 +197,6 @@
 
           <?php 
             while($r_array = mysqli_fetch_array($r_result)){
-
               $gender = $r_array["r_gender"];
               if($gender == "1") {
                 $gender = "남여공용";
@@ -226,11 +225,17 @@
               <p class="room_left_txt02">객실정원 <?php echo $r_array["r_min"]." ~ ".$r_array["r_max"]; ?></p>
             </div>
             <div class="room_right">
-              <div class="room_right_txt_wrap">
-                <p class="room_right_txt01">1인 1박</p>
-                <p class="room_right_txt02"><?php echo number_format($r_array['r_price']); ?>원</p>
+            <form name="rv_room_form" id="rv_room_form" action="../reservation/reservation.php" method="post">
+              <div id="price_wrap" class="room_right_txt_wrap">
+                <p class="room_right_txt01"><span class="rv_nop">1</span>인 <span class="rv_date">1</span>박</p>
+                <input type="hidden" class="price" value="<?php echo $r_array['r_price']; ?>">
+                <p class="room_right_txt02"><span class="rv_price"><?php echo number_format($r_array['r_price']); ?></span>원</p>
+                <input type="hidden" name=rv_price id="rv_price">
+                <input type="hidden" name=rv_nop id="rv_nop">
+                <input type="hidden" name=rv_date id="rv_date">
               </div>
-              <button type="button" class="room_right_btn btn_hover">예약</button>
+                <button type="button" class="room_right_btn btn_hover">예약</button>
+              </form>
             </div>
           </div>
           <?php }; ?>

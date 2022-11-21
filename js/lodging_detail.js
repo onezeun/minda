@@ -64,6 +64,8 @@ $(document).ready(function () {
   $('#daterange_check').on('apply.daterangepicker', function (ev, picker) {
     $('#checkin_val').text(picker.startDate.format('YYYY-MM-DD')).css({color : "black"});
     $('#checkout_val').text(picker.endDate.format('YYYY-MM-DD')).css({color : "black"});
+    $('#checkin_date').val(picker.startDate.format('YYYY-MM-DD'))
+    $('#checkout_date').val(picker.endDate.format('YYYY-MM-DD'))
     $('#rv_date').val(getDate($('#checkin_val').text(),$('#checkout_val').text()));
     $('.rv_date').text(getDate($('#checkin_val').text(),$('#checkout_val').text()));
   });
@@ -138,6 +140,11 @@ $(document).ready(function () {
   })
 
   $('.room_right_btn').on('click', function(){
-    $('#rv_room_form').submit();
-  });
+    if(!$('.s_idx').val()){
+      alert("로그인 먼저 진행해주세요.");
+      location.href = "../login/login.html";
+    } else if(!$('#checkin_date').val() && !$('#checkout_date').val()){
+      alert("숙박 일자를 선택해주세요.");
+    } else $('#rv_room_form').submit();
+  })
 });

@@ -65,6 +65,7 @@ create table reservation (
   res_nop INT NOT NULL,
   res_date DATE NOT NULL,
   res_state VARCHAR(20) NOT NULL,
+  res_pay CHAR(1) NOT NULL,
   total_price INT NOT NULL,
   ldg_idx INT,
   u_idx INT,

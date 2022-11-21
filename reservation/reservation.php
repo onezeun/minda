@@ -1,3 +1,32 @@
+<?php 
+  // 세션으로 데이터 가져오기
+  include '../inc/session.php';
+
+  // 로그인 사용자만 접근
+  include '../inc/login_check.php';
+
+  // DB 연결
+  include '../inc/dbcon.php';
+
+  $ldg_idx = $_GET['ldg_idx'];
+  $r_idx = $_GET['r_idx'];
+
+  $checkin_date = $_POST['checkin_date'];
+  $checkout_date = $_POST['checkout_date'];
+  $rv_price = $_POST['rv_price'];
+  $rv_nop = $_POST['rv_nop'];
+  $rv_date = $_POST['rv_date'];
+
+  // echo $checkin_date;
+  // echo $checkout_date;
+  // echo $rv_price;
+  // echo $rv_nop;
+  // echo $rv_date;
+
+  $sql = "SELECT l.ldg_idx, l.ldg_name, l.ldg_main_img, l.ldg_country, l.ldg_city, r.r_idx, r.r_name, r.r_price FROM lodging l JOIN room r ON l.ldg_idx = r.ldg_idx WHERE l.ldg_idx=$ldg_idx AND r.r_idx=$r_idx;";
+  $result = mysqli_query($dbcon, $sql);
+  $array = mysqli_fetch_array($result);
+?>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -33,16 +62,16 @@
     <main id="content" class="content">
       <div class="reservation_wrap">
         <h2 class="reservation_title">숙소 예약</h2>
-        <form name="reservation_form" id="reservation_form" action="reservation_success.html">
+        <form name="reservation_form" id="reservation_form" action="res_insert.php?s_idx=<?php echo $s_idx ?>&ldg_idx=<?php echo $ldg_idx ?>&r_idx=<?php echo $r_idx;?>" method="post">
           <div class="form_left">
             <fieldset class="room_info">
               <legend class="room_info_title">예약 정보</legend>
               <div class="room_info_cont">
-                <img src="../images/reservation_roomphoto.jpg" alt="숙소 대표 사진" class="reservation_roomphoto">
-                <p class="room_info_country">영국 · 런던</p>
-                <p class="room_info_name">런던스테이</p>
-                <p class="room_info_type">2인여성도미토리</p>
-                <p class="room_info_date">2023-04-22 ~ 2023-04-28 / 6박</p>
+                <img src="../images/<?php echo $array['ldg_main_img']; ?>" alt="숙소 대표 사진" class="reservation_roomphoto">
+                <p class="room_info_country"><?php echo $array["ldg_country"]." · ".$array["ldg_city"];?></p>
+                <p class="room_info_name"><?php echo $array['ldg_name']; ?></p>
+                <p class="room_info_type"><?php echo $array['r_name']; ?></p>
+                <p class="room_info_date"><?php echo $checkin_date." ~ ".$checkout_date." / ".$rv_date; ?>박</p>
               </div>
             </fieldset>
 
@@ -51,26 +80,31 @@
               <div class="user_info_cont">
                 <div class="user_info_wrap">
                   <p>이름</p>
-                  <input type="text" id="name_input" class="user_input" maxlength="30"><span id="err_name" class="err_txt"></span>
+                  <input type="text" name="res_name" id="name_input" class="user_input" maxlength="30"><span id="err_name" class="err_txt"></span>
                 </div>
                 <div class="user_info_wrap">
                   <p>연락처</p>
-                  <input type="text" id="mobile_input" class="user_input" maxlength="20"><span id="err_mobile" class="err_txt"></span>
+                  <input type="text" name="res_phone" id="mobile_input" class="user_input" maxlength="20"><span id="err_mobile" class="err_txt"></span>
                 </div>
                 <div class="user_info_wrap">
                   <p>이메일</p>
-                  <input type="text" id="email_input" class="user_input" maxlength="50"><span id="err_email" class="err_txt"></span>
+                  <input type="text" name="res_email" id="email_input" class="user_input" maxlength="50"><span id="err_email" class="err_txt"></span>
                 </div>
                 <div class="user_info_wrap">
                   <p>체크인예정시간</p>
-                  <input type="text" id="checkin_input" class="user_input" readonly><span id="err_checkin"class="err_txt"></span>
+                  <input type="text" name="res_time" id="checkin_input" class="user_input" readonly><span id="err_checkin"class="err_txt"></span>
                 </div>
                 <div class="user_info_wrap">
                   <p>숙박자 성별</p>
-                  <input type="radio" name="gender" id="man"><label for="man" class="gender man">남</label>
-                  <input type="radio" name="gender" id="woman"><label for="woman" class="gender">여</label>
+                  <input type="radio" name="res_gender" id="man" value="1"><label for="man" class="gender man">남</label>
+                  <input type="radio" name="res_gender" id="woman" value="2"><label for="woman" class="gender">여</label>
                   <span id="err_gender"class="err_txt"></span>
                 </div>
+                <input type="hidden" name="res_checkin" value="<?php echo $checkin_date; ?>">
+                <input type="hidden" name="res_checkout" value="<?php echo $checkout_date; ?>">
+                <input type="hidden" name="res_nop" value="<?php echo $rv_nop; ?>">
+                <input type="hidden" name="res_nod" value="<?php echo $rv_date; ?>">
+                <input type="hidden" name="total_price" value="<?php echo $rv_price; ?>">
               </div>
               <div class="user_info_warning_wrap">
                 <p class="user_info_warning_icon indent">경고</p>
@@ -87,7 +121,7 @@
               <legend class="pay_title">결제 방법</legend>
               <div class="pay_cont">
                 <div class="pay1"><input type="radio" name="pay" id="pay1"> <label for="pay1">신용/체크카드</label></div>
-                <div class="pay2"><input type="radio" name="pay" id="pay2"> <label for="pay2">실시간 계좌이체</label></div>
+                <div class="pay2"><input type="radio" name="pay" id="pay2"> <label for="pay2">카카오페이</label></div>
                 <div class="pay3"><input type="radio" name="pay" id="pay3"> <label for="pay3">가상계좌</label></div>
               </div>
             </fieldset>
@@ -98,17 +132,17 @@
               <legend class="payment_title">결제 정보</legend>
               <div class="payment_wrap1">
                 <div class="selectroom">
-                  <p class="selectroom_title">객실 1개 X 6박</p>
-                  <p class="selectroom_account">546,200 (￡342)</p>
+                  <p class="selectroom_title">객실 1개 X <?php echo $rv_date; ?>박 X <?php echo $rv_nop; ?>명</p>
+                  <p class="selectroom_account"><?php echo number_format($rv_price);?> 원</p>
                 </div>
                 <div class="oneday">
-                  <p class="oneday_title">1박 평균 요금</p>
-                  <p class="oneday_account">91,000원 (￡57)</p>
+                  <p class="oneday_title">1박 요금</p>
+                  <p class="oneday_account"><?php echo number_format($array['r_price']); ?> 원</p>
                 </div>
               </div>
               <div class="payment_wrap2">
                 <p class="totle_title">총 결제 금액</p>
-                <p class="totle_account">546,200원</p>
+                <p class="totle_account"><?php echo number_format($rv_price);?> 원</p>
               </div>
             </fieldset>
             <fieldset class="term">
@@ -116,6 +150,7 @@
               <div id="checkbox_group" class="term_wrap">
                 <div class="checkall_wrap">
                   <input type="checkbox" id="check_all"><label for="check_all">전체 약관 동의</label>
+                  <span id="err_apply" class="err_txt"></span>
                 </div>
                 <div class="checkterm_wrap">
                   <div class="term1">

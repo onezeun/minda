@@ -225,7 +225,7 @@
               <p class="room_left_txt02">객실정원 <?php echo $r_array["r_min"]." ~ ".$r_array["r_max"]; ?></p>
             </div>
             <div class="room_right">
-            <form name="rv_room_form" id="rv_room_form" action="../reservation/reservation.php?s_idx=<?php echo $s_idx ?>&r_idx=<?php echo $r_array["r_idx"];?>" method="post">
+            <form name="rv_room_form" id="rv_room_form" action="../reservation/reservation.php?s_idx=<?php echo $s_idx ?>&ldg_idx=<?php echo $ldg_idx ?>&r_idx=<?php echo $r_array["r_idx"];?>" method="post">
               <div id="price_wrap" class="room_right_txt_wrap">
                 <p class="room_right_txt01"><span class="rv_nop">1</span>인 <span class="rv_date">1</span>박</p>
                 <input type="hidden" class="price" value="<?php echo $r_array['r_price']; ?>">

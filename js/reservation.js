@@ -5,7 +5,7 @@ $(document).ready(function () {
 
   const nameCheck = () => {
     if (!$("#name_input").val()) {
-      $("#name_input").addClass("err_input").focus();
+      $("#name_input").addClass("err_input");
       $("#err_name").css({ display: "inline-block" }).text("이름을 입력해주세요");
       return false;
     } else return true;
@@ -13,7 +13,7 @@ $(document).ready(function () {
 
   const mobileCheck = () => {
     if (!$("#mobile_input").val()) {
-      $("#mobile_input").addClass("err_input").focus();
+      $("#mobile_input").addClass("err_input");
       $("#err_mobile").css({ display: "inline-block" }).text("연락처를 입력해주세요");
       return false;
     } else return true;
@@ -21,14 +21,14 @@ $(document).ready(function () {
 
   const emailCheck = () => {
     if (!$("#email_input").val()) {
-      $("#email_input").addClass("err_input").focus();
+      $("#email_input").addClass("err_input");
       $("#err_email").css({ display: "inline-block" }).text("이메일주소를 입력해주세요");
       return false;
-    } else if (!regEmail.test($('#email').val())) {
-      $('#email_input').addClass('err_input').focus();
+    } else if (!regEmail.test($('#email_input').val())) {
+      $('#email_input').addClass('err_input');
       $('#email_input').removeClass('email_input');
       $('#err_email')
-        .css({ display: 'block' })
+        .css({ display: 'inline-block' })
         .text('올바른 이메일 형식이 아닙니다');
       return false;
     } else {
@@ -52,8 +52,31 @@ $(document).ready(function () {
     var checkedWoman = $("#woman").is(":checked");
     if(!checkedMan && !checkedWoman) {
       $("#err_gender").css({ display: "inline-block" }).text("숙박자 성별을 선택해주세요");
-    }
+      return false;
+    } else return true;
   }
+
+  const applyCheck = () => {
+    var check1 = $('#check1').is(':checked');
+    var check2 = $('#check2').is(':checked');
+
+    if (!check1 || !check2) {
+      $('#err_apply')
+        .css({ display: 'inline-block' })
+        .text('필수약관에 동의해주세요');
+      return false;
+    } else {
+      $('#err_apply').css({ display: 'none' });
+      return true;
+    }
+  };
+
+  $('#check_all').on('change', function() {
+    var checked = $(this).is(':checked');
+    if(checked) {
+      $('#err_apply').css({ display: 'none' });
+    }
+  })
 
   $("#name_input").on("keyup", function () {
     $("#name_input").removeClass("err_input");
@@ -79,17 +102,6 @@ $(document).ready(function () {
     $("#err_gender").css({ display: "none" });
   });
 
-
-  $("#reservation_btn").on("click", function () {
-    if (!nameCheck() || !mobileCheck() || !emailCheck() || !timeCheck() || !genderCheck()) {
-      nameCheck();
-      mobileCheck();
-      emailCheck();
-      timeCheck();
-      genderCheck();
-      return false;
-    } else $("#reservation_form").submit();
-  });
 
   /* 체크인예정시간 달력 */
   $('#checkin_input').daterangepicker({
@@ -128,8 +140,10 @@ $(document).ready(function () {
 
   $('#checkin_input').on('apply.daterangepicker', function (ev, picker) {
     $(this).val(
-      picker.startDate.format('YYYY-MM-DD / H:mm')
+      picker.startDate.format('YYYY-MM-DD H:mm')
     );
+    $("#checkin_input").removeClass("err_input");
+    $("#err_checkin").css({ display: "none" });
   });
   
   /* 체크 박스 */
@@ -160,6 +174,22 @@ $(document).ready(function () {
 
     if(check1 && check2 == true){
       $("#check_all").prop("checked", true);
+      $('#err_apply').css({ display: 'none' });
     } 
-  })
+  });
+
+  $("#reservation_btn").on("click", function () {
+    if (!nameCheck() || !mobileCheck() || !emailCheck() || !timeCheck() || !genderCheck() || !applyCheck()) {
+      nameCheck();
+      mobileCheck();
+      emailCheck();
+      timeCheck();
+      genderCheck();
+      applyCheck();
+      return false;
+    } else {
+      $("#reservation_form").submit();
+    }
+  });
+
 });

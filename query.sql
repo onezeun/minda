@@ -1,3 +1,6 @@
+-- Active: 1668050788298@@127.0.0.1@3306@minda
+SELECT l.ldg_idx, l.ldg_name, l.ldg_main_img, l.ldg_country, l.ldg_city, r.r_idx, r.r_name, r.r_price FROM lodging l JOIN room r ON l.ldg_idx = r.ldg_idx WHERE l.ldg_idx=2 AND r.r_idx=2;
+
 CREATE DATABASE minda
     DEFAULT CHARACTER SET = 'utf8mb4';
     
@@ -63,13 +66,15 @@ create table reservation (
   res_checkout DATE NOT NULL,
   res_time DATETIME NOT NULL,
   res_nop INT NOT NULL,
+  res_nod INT NOT NULL,
   res_date DATE NOT NULL,
   res_state VARCHAR(20) NOT NULL,
-  res_pay CHAR(1) NOT NULL,
   total_price INT NOT NULL,
   ldg_idx INT,
+  r_idx INT,
   u_idx INT,
   FOREIGN KEY (ldg_idx) REFERENCES lodging (ldg_idx),
+  FOREIGN KEY (r_idx) REFERENCES room (r_idx),
   FOREIGN KEY (u_idx) REFERENCES user (u_idx)
 );
 

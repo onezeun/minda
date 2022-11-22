@@ -23,17 +23,6 @@ CREATE TABLE user (
 -- USER 회원가입 INSERT 쿼리
 INSERT INTO user(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('$u_email', '$u_pwd', '$u_name', '$u_nickname', '$u_phone', '$u_marketing', '$reg_date');
 
-INSERT INTO user(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('admin', '0000', '관리자', '관리자닉네임', '01000000000', 'Y', now());
-INSERT INTO user(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('테스트1', '1234', '이름1', '닉네임1', '01011111111', 'Y', now());
-INSERT INTO user(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('테스트2', '1234', '이름2', '닉네임2', '01022222222', 'N', now());
-INSERT INTO user(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('테스트3', '1234', '이름3', '닉네임3', '01033333333', 'Y', now());
-INSERT INTO user(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('테스트4', '1234', '이름4', '닉네임4', '01044444444', 'N', now());
-INSERT INTO user(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('테스트5', '1234', '이름5', '닉네임5', '01055555555', 'Y', now());
-INSERT INTO user(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('테스트6', '1234', '이름6', '닉네임6', '01066666666', 'N', now());
-INSERT INTO user(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('테스트7', '1234', '이름7', '닉네임7', '01077777777', 'Y', now());
-INSERT INTO user(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('테스트8', '1234', '이름8', '닉네임8', '01088888888', 'N', now());
-
-
 
 -- 파트너회원
 CREATE TABLE partner_user (
@@ -46,10 +35,6 @@ CREATE TABLE partner_user (
 );
 
 INSERT INTO partner_user(u_idx, p_name, p_biznum, p_phone) VALUES('$u_idx', '$p_name', '$p_biznum', '$p_phone');
-
-INSERT INTO partner_user(u_idx, p_name, p_biznum, p_phone) VALUES(1, '관리자의 호텔', 0000, '0236669999');
-INSERT INTO partner_user(u_idx, p_name, p_biznum, p_phone) VALUES(7, '테스트의 숙소', 9999, '023339999');
-INSERT INTO partner_user(u_idx, p_name, p_biznum, p_phone) VALUES(8, '테스트의 펜션', 1111, '0270707070');
 
 -- 일반 회원 중 파트너로 가입되어 있는 사람들
 SELECT partner_user.u_idx, partner_user.p_idx, user.u_email, user.u_name, user.u_img, partner_user.p_name FROM partner_user JOIN user ON user.u_idx = partner_user.u_idx;
@@ -68,8 +53,10 @@ create table reservation (
   res_nop INT NOT NULL,
   res_nod INT NOT NULL,
   res_date DATE NOT NULL,
-  res_state VARCHAR(20) NOT NULL,
+  res_state CHAR(1) NOT NULL,
   total_price INT NOT NULL,
+  pay_date DATE NOT NULL,
+  pay_method VARCHAR(20) NOT NULL,
   ldg_idx INT,
   r_idx INT,
   u_idx INT,
@@ -78,14 +65,19 @@ create table reservation (
   FOREIGN KEY (u_idx) REFERENCES user (u_idx)
 );
 
+-- res_state 예약 상태 -> 1 : 결제 대기 (결제), 2 : 예약 완료 (예약취소), 3 : 예약취소(환불진행중, 환불완료), 4 : 숙박완료(리뷰쓰기)
+SELECT res.res_idx, l.ldg_idx, r.r_idx, r.r_name, res.res_checkin, res.res_checkout, res.total_price, res.res_state 
+FROM reservation res JOIN lodging l ON res.ldg_idx = l.ldg_idx JOIN room r ON res.r_idx = r.r_idx 
+WHERE res.u_idx=3 AND res.res_checkin < CURDATE();
+
 -- 결제 PAYMENT
-create table payment (
-  pay_idx INT AUTO_INCREMENT PRIMARY KEY,
-  pay_date DATE NOT NULL,
-  pay_method VARCHAR(20) NOT NULL,
-  res_idx INT,
-  FOREIGN KEY (res_idx) REFERENCES reservation (res_idx)
-);
+-- create table payment (
+--   pay_idx INT AUTO_INCREMENT PRIMARY KEY,
+--   pay_date DATE NOT NULL,
+--   pay_method VARCHAR(20) NOT NULL,
+--   res_idx INT,
+--   FOREIGN KEY (res_idx) REFERENCES reservation (res_idx)
+-- );
 
 -- 좋아요 LIKE
 create table like_table (

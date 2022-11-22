@@ -1,3 +1,53 @@
+<?php
+
+  $srch_txt = isset($_GET['srch_txt']) ? $_GET['srch_txt'] : $_POST['srch_txt'];
+  $srch_start = isset($_POST['srch_start']) ? $_POST['srch_start'] : "";
+  $srch_end = isset($_POST['srch_end']) ? $_POST['srch_start'] : "";
+
+  // DB 연결
+  include "../inc/dbcon.php";
+
+  $sql = "SELECT * FROM lodging WHERE ldg_name LIKE '%$srch_txt%' OR ldg_city LIKE '%$srch_txt%' OR ldg_country LIKE '%$srch_txt%';";
+
+  // 쿼리 전송
+  $result = mysqli_query($dbcon, $sql);
+
+  // 전체 데이터 가져오기
+  $total = mysqli_num_rows($result);
+
+  // paging : 한 페이지 당 보여질 목록 수
+  $list_num = 4;
+
+  // paging : 한 블럭 당 페이지 수
+  $page_num = 5;
+
+  // paging : 현재 페이지
+  $page = isset($_GET["page"]) ? $_GET["page"] : 1 ;
+
+  // paging : 전체 페이지 수 = 전체 데이터 / 페이지 당 목록 수,  ceil : 올림값, floor : 내림값, round : 반올림
+  $total_page = ceil($total / $list_num);
+  // echo "전체 페이지수 : ".$total_page;
+  // exit;
+
+  // paging : 전체 블럭 수 = 전체 페이지 수 / 블럭 당 페이지 수
+  $total_block = ceil($total_page / $page_num);
+
+  // paging : 현재 블럭 번호 = 현재 페이지 번호 / 블럭 당 페이지 수
+  $now_block = ceil($page / $page_num);
+  
+  // paging : 블럭 당 시작 페이지 번호 = (해당 글의 블럭 번호 - 1) * 블럭 당 페이지 수 + 1
+  $s_pageNum = ($now_block - 1) * $page_num + 1;
+  if($s_pageNum <= 0){
+      $s_pageNum = 1;
+  };
+
+  // paging : 블럭 당 마지막 페이지 번호 = 현재 블럭 번호 * 블럭 당 페이지 수
+  $e_pageNum = $now_block * $page_num;
+  // 블럭 당 마지막 페이지 번호가 전체 페이지 수를 넘지 않도록
+  if($e_pageNum > $total_page){
+      $e_pageNum = $total_page;
+  };
+?>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -16,7 +66,7 @@
   <link rel="stylesheet" type="text/css" href="../css/daterangepicker.css" />
   <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
     crossorigin="anonymous">
-    </script>
+  </script>
   <script type="text/javascript" src="../js/includ.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
@@ -36,8 +86,8 @@
     <main id="content" class="content">
       <div class="search_bar_wrap">
         <div class="search_bar">
-          <form>
-            <input type="text" class="search_keyword" placeholder="도시명 또는 숙소명을 검색해보세요">
+          <form name="search_form" id="search_form" action="lodging_search.php" method="post">
+            <input name="srch_txt" type="text" class="search_keyword" placeholder="도시명 또는 숙소명을 검색해보세요">
             <div class="search_date">
               <input type="text" id="daterange_search" readonly>
               <label class="checkin_label">체크인</label>
@@ -188,17 +238,64 @@
 
 
         <div class="search_result">
-          <p class="search_result_title">검색된 한인민박 <span>4</span>개</p>
+          <p class="search_result_title">검색된 한인민박 <span><?php echo $total; ?></span>개</p>
+          <?php
+            // paging : 해당 페이지의 글 시작 번호 = (현재 페이지 번호 - 1) * 페이지 당 보여질 목록 수
+            $start = ($page - 1) * $list_num;
+
+            // paging : 시작번호부터 페이지 당 보여질 목록수 만큼 데이터 구하는 쿼리 작성
+            // limit 몇번부터, 몇 개
+            $sql = "SELECT l.ldg_idx, l.ldg_name, l.ldg_main_img, f.dormitory, f.dormitory, f.privateroom, f.condo, f.womenonly, f.wifi, f.kitchen, f.elevator, f.locker, f.parking, f.breakfast, f.lunch, f.dinner FROM lodging l JOIN lodging_facility f ON l.ldg_idx = f.ldg_idx WHERE ldg_name LIKE '%$srch_txt%' OR ldg_city LIKE '%$srch_txt%' OR ldg_country LIKE '%$srch_txt%' LIMIT $start, $list_num;";
+            // echo $sql;
+            /* exit; */
+
+            // DB에 데이터 전송
+            $result = mysqli_query($dbcon, $sql);
+
+            // DB에서 데이터 가져오기
+            // pager : 글번호
+            $i = $start + 1;
+            while($array = mysqli_fetch_array($result)){
+              $ldg_idx = $array["ldg_idx"];
+              $r_sql = "SELECT MIN(r_price) r_price FROM room WHERE ldg_idx=$ldg_idx;";
+              $r_result = mysqli_query($dbcon, $r_sql);
+              $r_arr = mysqli_fetch_array($r_result);
+
+              $dormitory = $array["dormitory"] == "1" ? "도미토리" : "";
+              $privateroom = $array["privateroom"] == "1" ? "개인실" : "";
+              $condo = $array["condo"] == "1" ? "콘도형" : "";
+              $womenonly = $array["womenonly"] == "1" ? "여성전용" : "";
+              $wifi = $array["wifi"] == "1" ? "Wifi" : "";
+              $kitchen = $array["kitchen"] == "1" ? "게스트부엌" : "";
+              $elevator = $array["elevator"] == "1" ? "엘리베이터" : "";
+              $locker = $array["locker"] == "1" ? "개인사물함" : "";
+              $parking = $array["parking"] == "1" ? "주차가능" : "";
+              $breakfast = $array["breakfast"] == "1" ? "조식" : "";
+              $lunch = $array["lunch"] == "1" ? "중식" : "";
+              $dinner = $array["dinner"] == "1" ? "석식" : "";
+
+              $type_arr = array("$dormitory","$privateroom", "$condo", "$womenonly");
+              $type_arr2 = array_filter($type_arr);
+              $type = trim(implode(" · ", $type_arr2)," · ");
+
+              $meal_arr =  array("$breakfast", "$lunch", "$dinner");
+              $meal_arr2 = array_filter($meal_arr);
+              $meal = trim(implode(", ", $meal_arr2),", ");
+
+              $facility_arr = array("$wifi","$kitchen", "$elevator", "$locker", "$parking");
+              $facility_arr2 = array_filter($facility_arr);
+              $facility = trim(implode(" · ", $facility_arr2)," · ");
+          ?>
           <a href="#">
             <div class="result_room">
-              <img src="../images/search_room_img01.png" alt="검색된숙소이미지1">
+              <img src="<?php echo '../partner/room/images/'.$array['ldg_main_img']; ?>" alt="검색된숙소이미지1">
               <div class="result_room_left">
                 <div class="result_room_top">
-                  <p class="lodging_name">런던스테이</p>
-                  <p class="room_type">도미토리 · 개인실</p>
+                  <p class="lodging_name"><?php echo $array["ldg_name"]; ?></p>
+                  <p class="room_type"><?php echo $type; ?></p>
                 </div>
                 <div class="result_room_bot">
-                  <p class="room_service">조식, 석식 제공 · Wifi · 개인사물함</p>
+                  <p class="room_service"><?php echo $meal." 제공, ".$facility; ?></p>
                   <div class="result_room_review">
                     <span class="review_star">리뷰점수</span>
                     <span class="review_count">5.0</span>
@@ -212,126 +309,27 @@
               </div>
               <div class="result_room_right">
                 <p class="result_room_day indent">1박</p>
-                <p class="result_room_price">90,900 원~</p>
+                <p class="result_room_price"><?php echo number_format($r_arr['r_price']); ?> 원~</p>
               </div>
             </div>
           </a>
+          <?php 
+          $i++; 
+          }; 
+          ?>
 
-          <a href="#">
-            <div class="result_room">
-              <img src="../images/search_room_img02.png" alt="검색된숙소이미지2">
-              <div class="result_room_left">
-                <div class="result_room_top">
-                  <p class="lodging_name">무드 인 런던[여성전용]</p>
-                  <p class="room_type">여성전용 · 도미토리 · 개인실</p>
-                </div>
-                <div class="result_room_bot">
-                  <p class="room_service">조식, 중식, 석식 제공 · Wifi · 게스트부엌</p>
-                  <div class="result_room_review">
-                    <span class="review_star">리뷰점수</span>
-                    <span class="review_count">4.91</span>
-                    <span class="review_comment">63개의 이용후기</span>
-                  </div>
-                  <div class="result_room_like">
-                    <span class="like_sign">좋아요</span>
-                    <span class="like_count">704</span>
-                  </div>
-                </div>
-              </div>
-              <div class="result_room_right">
-                <p class="result_room_day indent">1박</p>
-                <p class="result_room_price">82,900 원~</p>
-              </div>
-            </div>
-          </a>
-
-          <a href="#">
-            <div class="result_room">
-              <img src="../images/search_room_img03.png" alt="검색된숙소이미지3">
-              <div class="result_room_left">
-                <div class="result_room_top">
-                  <p class="lodging_name">런던 윔블던 그린</p>
-                  <p class="room_type">여성전용 · 도미토리 · 개인실</p>
-                </div>
-                <div class="result_room_bot">
-                  <p class="room_service">조식 제공 · Wifi · 주차가능</p>
-                  <div class="result_room_review">
-                    <span class="review_star">리뷰점수</span>
-                    <span class="review_count">4.93</span>
-                    <span class="review_comment">5개의 이용후기</span>
-                  </div>
-                  <div class="result_room_like">
-                    <span class="like_sign">좋아요</span>
-                    <span class="like_count">118</span>
-                  </div>
-                </div>
-              </div>
-              <div class="result_room_right">
-                <p class="result_room_day indent">1박</p>
-                <p class="result_room_price">63,800 원~</p>
-              </div>
-            </div>
-          </a>
-
-          <a href="#">
-            <div class="result_room">
-              <img src="../images/search_room_img04.png" alt="검색된숙소이미지4">
-              <div class="result_room_left">
-                <div class="result_room_top">
-                  <p class="lodging_name">파크런던</p>
-                  <p class="room_type">개인실</p>
-                </div>
-                <div class="result_room_bot">
-                  <p class="room_service">조식, 석식 제공 · Wifi · 주차가능 · 엘리베이터</p>
-                  <div class="result_room_review">
-                    <span class="review_star">리뷰점수</span>
-                    <span class="review_count">4.93</span>
-                    <span class="review_comment">40개의 이용후기</span>
-                  </div>
-                  <div class="result_room_like">
-                    <span class="like_sign">좋아요</span>
-                    <span class="like_count">491</span>
-                  </div>
-                </div>
-              </div>
-              <div class="result_room_right">
-                <p class="result_room_day indent">1박</p>
-                <p class="result_room_price">159,500 원~</p>
-              </div>
-            </div>
-          </a>
-
-          <a href="#">
-            <div class="result_room">
-              <img src="../images/search_room_img05.png" alt="검색된숙소이미지5">
-              <div class="result_room_left">
-                <div class="result_room_top">
-                  <p class="lodging_name">런던 팝콘민박</p>
-                  <p class="room_type">도미토리 · 개인실</p>
-                </div>
-                <div class="result_room_bot">
-                  <p class="room_service">조식, 석식 제공 · Wifi · 주차가능 · 개인사물함</p>
-                  <div class="result_room_review">
-                    <span class="review_star">리뷰점수</span>
-                    <span class="review_count">4.81</span>
-                    <span class="review_comment">47개의 이용후기</span>
-                  </div>
-                  <div class="result_room_like">
-                    <span class="like_sign">좋아요</span>
-                    <span class="like_count">820</span>
-                  </div>
-                </div>
-              </div>
-              <div class="result_room_right">
-                <p class="result_room_day indent">1박</p>
-                <p class="result_room_price">63,800 원~</p>
-              </div>
-            </div>
-          </a>
-
-          <div class="pagenation indent">
-            <a href="#" class="pagenation_btn01">1페이지</a>
-            <a href="#" class="pagenation_btn02">2페이지</a>
+          <div class="pager_wrap">
+            <p class="pager">
+              <?php
+                // pager : 페이지 번호 출력
+                for($print_page = $s_pageNum;  $print_page <= $e_pageNum; $print_page++){
+              ?>
+              <?php if ($print_page == $page) { ?>
+              <a href="lodging_search.php?srch_txt=<?php echo $srch_txt;?>&page=<?php echo $print_page;?>" class="page01"><?php echo $print_page; ?></a>
+              <?php } else { ?>
+              <a href="lodging_search.php?srch_txt=<?php echo $srch_txt;?>&page=<?php echo $print_page;?>" class="page02"><?php echo $print_page; ?></a>
+              <?php }}; ?>
+            </p>
           </div>
         </div>
       </div>
@@ -339,7 +337,7 @@
 
     <!-- footer -->
     <footer>
-      <div  id="footer-include"></div>
+      <div id="footer-include"></div>
     </footer>
   </div>
 

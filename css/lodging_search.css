@@ -486,21 +486,29 @@ margin-right: 20px;
 
 
 /* search result */
-.pagenation {
-  margin-top: 20px;
+.pager_wrap {
+  width: 850px;
+  margin-top: 10px;
+}
+.pager {
   display: flex;
   justify-content: center;
+  align-items: flex-end;
+  text-align: center;
+  line-height: 32px;
 }
 
-.pagenation_btn01 {
+.page01 {
+  color: #eeb72f;
   width: 32px;
   height: 32px;
-  background: url(../images/ldg_review_pagenation01.png) no-repeat;
-  margin-right: 10px;
+  background: url(../images/page01.png) no-repeat;
 }
 
-.pagenation_btn02 {
+.page02 {
+  color: #B7B7B7;
   width: 32px;
   height: 32px;
-  background: url(../images/ldg_review_pagenation02.png) no-repeat;
+  background: url(../images/page02.png) no-repeat;
+  margin:0 5px;
 }

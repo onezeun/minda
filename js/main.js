@@ -33,11 +33,9 @@ $(document).ready(function () {
   });
 
   $('#daterange_room').on('apply.daterangepicker', function (ev, picker) {
-    $(this).val(
-      picker.startDate.format('YYYY-MM-DD') +
-        ' - ' +
-        picker.endDate.format('YYYY-MM-DD'),
-    );
+    $(this).val(picker.startDate.format('YYYY-MM-DD') +' - ' +picker.endDate.format('YYYY-MM-DD'),).css({color : "black"});
+    $('#srch_start').val(picker.startDate.format('YYYY-MM-DD'));
+    $('#srch_enc').val(picker.startDate.format('YYYY-MM-DD'));
   });
 
     /* 날짜 선택 */

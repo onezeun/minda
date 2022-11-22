@@ -54,13 +54,15 @@
               <div class="mb_search_bar clearfix"></div>
             </div>
             <div class="mb_search_form"></div>
-            <form name="search_room_form" id="search_room_form" action="lodging_search.html" method="get">
-              <input type="text" class="mb_search_input1" placeholder="도시명 또는 숙소명을 입력해주세요"><br>
+            <form name="search_room_form" id="search_room_form" action="lodging/lodging_search.php" method="post">
+              <input type="text" name="srch_txt" class="mb_search_input1" placeholder="도시명 또는 숙소명을 입력해주세요"><br>
               <input type="text" id="daterange_room" class="mb_search_input2" placeholder="체크인 - 체크아웃" readonly><br>
+              <input type="hidden" name="srch_start" id="srch_start">
+              <input type="hidden" name="srch_end" id="srch_end">
               <button type="submit" class="mb_search_btn">숙소 검색</button>
             </form>
 
-            <form name="search_tour_form" id="search_tour_form" class="search_tour_form" action="lodging_search.html" method="get">
+            <form name="search_tour_form" id="search_tour_form" class="search_tour_form" action="lodging/lodging_search.php" method="post">
               <input type="text" class="mb_search_input1" placeholder="도시명 또는 투어명을 입력해주세요"><br>
               <input type="text" id="daterange_tour" class="mb_search_input2" placeholder="투어(시작)날짜" readonly><br>
               <button type="submit" class="mb_search_btn">투어 검색</button>
@@ -71,7 +73,7 @@
             <h3 class="hide">추천 여행지</h3>
             <ul class="mb_reco_slide">
               <li class="mb_reco_cont1">
-                <a href="lodging/lodging_search.html" class="block">
+                <a href="lodging/lodging_search.php?srch_txt=%이탈리아%" class="block">
                   <div class="mb_reco_txt_wrap">
                     <p class="mb_reco_txt1">역사가 살아 숨쉬는 이탈리아</p>
                     <p class="mb_reco_txt2">문화유산의 천국! 이탈리아로 떠나요</p>
@@ -79,7 +81,7 @@
                 </a>
               </li>
               <li class="mb_reco_cont2">
-                <a href="lodging/lodging_search.html" class="block">
+                <a href="lodging/lodging_search.php?srch_txt=%미국%" class="block">
                   <div class="mb_reco_txt_wrap">
                     <p class="mb_reco_txt1">어디에도 없는 매력 미국으로 떠나요</p>
                     <p class="mb_reco_txt2">가장 힙하고, 아름답고, 신나는 여행</p>
@@ -87,7 +89,7 @@
                 </a>
               </li>
               <li class="mb_reco_cont3">
-                <a href="lodging/lodging_search.html" class="block">
+                <a href="lodging/lodging_search.php?srch_txt=%파리%" class="block">
                   <div class="mb_reco_txt_wrap">
                     <p class="mb_reco_txt1">당신의 로맨스를 찾을 곳, 파리</p>
                     <p class="mb_reco_txt2">낭만적인 파리를 즐겨보세요</p>

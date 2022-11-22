@@ -37,7 +37,7 @@
   /* 6.페이지 이동 */
   echo "
     <script type=\"text/javascript\">
-      location.href = \"http://localhost/KDT-1st-project-minda/partner/partner_info.php\";
+      location.href = \"http://localhost/KDT-1st-project-minda/partner/partner_info_page.php\";
     </script>
     ";
 ?>

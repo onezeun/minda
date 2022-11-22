@@ -29,9 +29,9 @@
           <li class="top_bar"><a href="http://localhost/KDT-1st-project-minda/user/signup.html">회원가입</a></li>
           <li class="top_bar"><a href="#">고객센터</a></li>
           <li class="top_bar_search indent">
-            <form action="">
-              <input name="q" type="search" placeholder="검색어를 입력하세요" />
-              <button type="button" class="search-icon"></button>
+            <form name="search_form" action="http://localhost/KDT-1st-project-minda/lodging/lodging_search.php" method="post">
+              <input name="srch_txt" type="search" placeholder="검색어를 입력하세요" />
+              <button type="submit" class="search-icon"></button>
             </form>
           </li>
         </ul>

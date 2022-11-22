@@ -1,3 +1,7 @@
+SELECT * FROM lodging WHERE ldg_name LIKE '%런던%';
+
+SELECT * FROM lodging WHERE ldg_name LIKE '%런던%' OR ldg_city LIKE '%런던%' OR ldg_country LIKE '%런던%';
+
 -- Active: 1668050788298@@127.0.0.1@3306@minda
 SELECT l.ldg_idx, l.ldg_name, l.ldg_main_img, l.ldg_country, l.ldg_city, r.r_idx, r.r_name, r.r_price FROM lodging l JOIN room r ON l.ldg_idx = r.ldg_idx WHERE l.ldg_idx=2 AND r.r_idx=2;
 

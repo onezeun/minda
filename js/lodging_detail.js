@@ -64,8 +64,8 @@ $(document).ready(function () {
   $('#daterange_check').on('apply.daterangepicker', function (ev, picker) {
     $('#checkin_val').text(picker.startDate.format('YYYY-MM-DD')).css({color : "black"});
     $('#checkout_val').text(picker.endDate.format('YYYY-MM-DD')).css({color : "black"});
-    $('#checkin_date').val(picker.startDate.format('YYYY-MM-DD'))
-    $('#checkout_date').val(picker.endDate.format('YYYY-MM-DD'))
+    $('.checkin_date').val(picker.startDate.format('YYYY-MM-DD'))
+    $('.checkout_date').val(picker.endDate.format('YYYY-MM-DD'))
     $('#rv_date').val(getDate($('#checkin_val').text(),$('#checkout_val').text()));
     $('.rv_date').text(getDate($('#checkin_val').text(),$('#checkout_val').text()));
   });
@@ -76,22 +76,6 @@ $(document).ready(function () {
   });
 
   /* 인원 선택 */
-  $('.prs_mbtn').on('click', function () {
-    var prs_num = Number($('.prs_box').val());
-
-    if (prs_num == 1) {
-      $('.prs_box').val(prs_num).css({color : "black"});
-      $('.rv_nop').text(prs_num);
-      $('#rv_nop').val(prs_num);
-    } else {
-      prs_num -= 1;
-      $('.prs_box').val(prs_num).css({color : "black"});
-      $('.rv_nop').text(prs_num);
-      $('#rv_nop').val(prs_num);
-      $('.warning_msg').hide();
-    }
-  });
-
   $('.prs_pbtn').on('click', function () {
     var prs_num = Number($('.prs_box').val());
 
@@ -108,6 +92,27 @@ $(document).ready(function () {
       $('#rv_nop').val(prs_num);
     }
   });
+
+  $('.prs_mbtn').on('click', function () {
+    var prs_num = Number($('.prs_box').val());
+    if (prs_num <= 0) {
+      return false;
+    } else {
+      if (prs_num == 1) {
+        $('.prs_box').val(prs_num).css({color : "black"});
+        $('.rv_nop').text(prs_num);
+        $('#rv_nop').val(prs_num);
+        return false;
+      } else {
+        prs_num -= 1;
+        $('.prs_box').val(prs_num).css({color : "black"});
+        $('.rv_nop').text(prs_num);
+        $('#rv_nop').val(prs_num);
+        $('.warning_msg').hide();
+      };
+    }
+  });
+
   
 
   $('.rv_date').on('DOMSubtreeModified', function(){
@@ -143,8 +148,8 @@ $(document).ready(function () {
     if(!$('.s_idx').val()){
       alert("로그인 먼저 진행해주세요.");
       location.href = "../login/login.html";
-    } else if(!$('#checkin_date').val() && !$('#checkout_date').val()){
+    } else if(!$('.checkin_date').val() && !$('.checkout_date').val()){
       alert("숙박 일자를 선택해주세요.");
-    } else $('#rv_room_form').submit();
+    } else $(this).parent('form').submit();
   })
 });

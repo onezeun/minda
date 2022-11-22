@@ -197,6 +197,7 @@
 
           <?php 
             while($r_array = mysqli_fetch_array($r_result)){
+              $r_idx = $r_array['r_idx'];
               $gender = $r_array["r_gender"];
               if($gender == "1") {
                 $gender = "남여공용";
@@ -214,29 +215,34 @@
               } else {
                 $type = "콘도형";
               };
+
+
           ?>
           <div class="room">
             <div class="room_img_wrap">
               <img src="<?php echo $r_array['r_img']; ?>" alt="방 이미지">
             </div>
             <div class="room_left">
-              <p class="room_type"><?php echo $r_array["r_name"]; ?></p>
+              <p class="room_type"><?php echo $r_array["r_idx"].$r_array["r_name"]; ?></p>
               <p class="room_left_txt01"><?php echo $gender." ".$type; ?></p>
               <p class="room_left_txt02">객실정원 <?php echo $r_array["r_min"]." ~ ".$r_array["r_max"]; ?></p>
             </div>
             <div class="room_right">
-            <form name="rv_room_form" id="rv_room_form" action="../reservation/reservation.php?s_idx=<?php echo $s_idx ?>&ldg_idx=<?php echo $ldg_idx ?>&r_idx=<?php echo $r_array["r_idx"];?>" method="post">
+            <form name="rv_room_form" id="rv_room_form" action="../reservation/reservation.php?s_idx=<?php echo $s_idx; ?>&ldg_idx=<?php echo $ldg_idx; ?>" method="post">
+              <input type="hidden" name="r_idx" id="r_idx" value="<?php echo $r_array['r_idx'];?>">
               <div id="price_wrap" class="room_right_txt_wrap">
                 <p class="room_right_txt01"><span class="rv_nop">1</span>인 <span class="rv_date">1</span>박</p>
                 <input type="hidden" class="price" value="<?php echo $r_array['r_price']; ?>">
                 <input type="hidden" class="s_idx" value="<?php echo $s_idx ?>">
                 <p class="room_right_txt02"><span class="rv_price"><?php echo number_format($r_array['r_price']); ?></span>원</p>
-                <input type="hidden" name="checkin_date" id="checkin_date">
-                <input type="hidden" name="checkout_date" id="checkout_date">
+
+                <input type="hidden" name="checkin_date" class="checkin_date">
+                <input type="hidden" name="checkout_date" class="checkout_date">
                 <input type="hidden" name="rv_price" id="rv_price">
                 <input type="hidden" name="rv_nop" id="rv_nop">
                 <input type="hidden" name="rv_date" id="rv_date">
               </div>
+                <!-- <a href="../reservation/reservation.php?s_idx=<?php echo $s_idx; ?>&ldg_idx=<?php echo $ldg_idx; ?>&r_idx=<?php echo $r_array['r_idx']; ?>" class="room_right_btn btn_hover">예약</a> -->
                 <button type="button" class="room_right_btn btn_hover">예약</button>
               </form>
             </div>

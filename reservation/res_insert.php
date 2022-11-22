@@ -21,10 +21,12 @@
 
   // 예약 상태
   // 1 : 결제 대기 (결제), 2 : 예약완료 (예약취소), 3 : 예약취소(환불진행중, 환불완료), 4 : 숙박완료(리뷰쓰기)
-  if($pay_method == "3") { // 가상계좌
-    $res_state = "1";
-  } else if($pay_method == "1") { // 신용카드 (임시)
+  if($pay_method == "1") { // 신용카드
     $res_state = "2";
+  } else if($pay_method == "2") { // 카카오페이
+    $res_state = "2";
+  } else {  // 가상계좌(임시)
+    $res_state = "1";
   };
 
   // echo "<p>이름 : ".$res_name."</p>";

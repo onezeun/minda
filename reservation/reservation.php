@@ -50,6 +50,7 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
   <script type="text/javascript" src="../js/reservation.js"></script>
 </head>
 
@@ -120,7 +121,7 @@
             </fieldset>
 
             <fieldset class="pay">
-              <legend class="pay_title">결제 방법</legend>
+              <legend class="pay_title">결제 방법<span id="err_pay"class="err_txt"></span></legend>
               <div class="pay_cont">
                 <div class="pay1"><input type="radio" name="pay_method" id="pay1" value="1"> <label for="pay1">신용/체크카드</label></div>
                 <div class="pay2"><input type="radio" name="pay_method" id="pay2" value="2"> <label for="pay2">카카오페이</label></div>

@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
   /* 유효성 검사 */
   var regEmail = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
 
@@ -71,12 +70,25 @@ $(document).ready(function () {
     }
   };
 
+  const payCheck = () => {
+    if (!$('input:radio[name="pay_method"]').is(':checked')) {
+      $('#err_pay')
+      .css({ display: 'inline-block' })
+      .text('결제 방법을 선택해주세요');
+      return false;
+    } else {
+      $('#err_pay').css({ display: 'none' });
+      return true;
+    }
+  }
+
+
   $('#check_all').on('change', function() {
     var checked = $(this).is(':checked');
     if(checked) {
       $('#err_apply').css({ display: 'none' });
     }
-  })
+  });
 
   $("#name_input").on("keyup", function () {
     $("#name_input").removeClass("err_input");
@@ -102,6 +114,9 @@ $(document).ready(function () {
     $("#err_gender").css({ display: "none" });
   });
 
+  $('input:radio[name="pay_method"]').on("click", function () {
+    $("#err_pay").css({ display: "none" });
+  });
 
   /* 체크인예정시간 달력 */
   $('#checkin_input').daterangepicker({
@@ -179,17 +194,72 @@ $(document).ready(function () {
   });
 
   $("#reservation_btn").on("click", function () {
-    if (!nameCheck() || !mobileCheck() || !emailCheck() || !timeCheck() || !genderCheck() || !applyCheck()) {
+    if (!nameCheck() || !mobileCheck() || !emailCheck() || !timeCheck() || !payCheck() || !genderCheck() || !applyCheck()) {
       nameCheck();
       mobileCheck();
       emailCheck();
       timeCheck();
       genderCheck();
       applyCheck();
+      payCheck();
       return false;
-    } else {
-      $("#reservation_form").submit();
-    }
+    } else if($('#pay1').is(':checked')){
+      inicisRequestPay();
+    }else if($('#pay2').is(':checked')) {
+      kakaoRequestPay();
+    } else $("#reservation_form").submit();
   });
 
+      /* 카카오페이 결제 */
+      var IMP = window.IMP; 
+      IMP.init('imp80244728');
+      const kakaoRequestPay = () => {
+        // IMP.request_pay(param, callback) 결제창 호출
+        IMP.request_pay({
+          pg : 'kakaopay',
+          pay_method : 'card',
+          merchant_uid: 'MDorder_no_'+ new Date().getTime(), //상점에서 생성한 고유 주문번호
+          name : $('.room_info_name').text()+" / "+ $('.room_info_type').text(),
+          amount : 1,
+          buyer_email : $('#email_input').val(),
+          buyer_name : $('#name_input').val(),
+          buyer_tel : $('#mobile_input').val(),
+          // buyer_addr : '서울특별시 강남구 삼성동',
+          // buyer_postcode : '123-456',
+        }, 
+        function (rsp) { // callback
+            if (rsp.success) {
+              console.log(rsp);
+               $("#reservation_form").submit();
+            } else {
+              console.log(rsp);
+              alert("결제에 실패하였습니다.");
+            }
+        });
+      }
+
+      const inicisRequestPay = () => {
+        // IMP.request_pay(param, callback) 결제창 호출
+        IMP.request_pay({
+          pg : 'html5_inicis',
+          pay_method : 'card',
+          merchant_uid: 'MDorder_no_'+ new Date().getTime(), // 상점에서 관리하는 주문 번호를 전달
+          name : $('.room_info_name').text()+" / "+ $('.room_info_type').text(),
+          amount : 1,
+          buyer_email : $('#email_input').val(),
+          buyer_name : $('#name_input').val(),
+          buyer_tel : $('#mobile_input').val(),
+          // buyer_addr : '서울특별시 강남구 삼성동',
+          // buyer_postcode : '123-456',
+      },
+        function (rsp) { // callback
+            if (rsp.success) {
+              console.log(rsp);
+               $("#reservation_form").submit();
+            } else {
+              console.log(rsp);
+              alert("결제에 실패하였습니다.");
+            }
+        });
+      }
 });

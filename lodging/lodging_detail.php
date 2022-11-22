@@ -223,7 +223,7 @@
               <img src="<?php echo $r_array['r_img']; ?>" alt="방 이미지">
             </div>
             <div class="room_left">
-              <p class="room_type"><?php echo $r_array["r_idx"].$r_array["r_name"]; ?></p>
+              <p class="room_type"><?php echo $r_array["r_name"]; ?></p>
               <p class="room_left_txt01"><?php echo $gender." ".$type; ?></p>
               <p class="room_left_txt02">객실정원 <?php echo $r_array["r_min"]." ~ ".$r_array["r_max"]; ?></p>
             </div>

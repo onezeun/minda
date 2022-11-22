@@ -155,3 +155,25 @@
   border: 1px solid #eeb72f;
   transition: 0.25s;
  }
+
+  .pay_btn {
+  width: 50px;
+  height: 25px;
+  margin: 2px auto 5px;
+  display: block;
+  border: none;
+  border-radius: 5px;
+  background: #eeb72f;
+  color: white;
+ }
+
+ .review_btn {
+  width: 60px;
+  height: 25px;
+  margin: 2px auto 5px;
+  display: block;
+  border: none;
+  border-radius: 5px;
+  background: #eeb72f;
+  color: white;
+ }

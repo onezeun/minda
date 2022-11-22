@@ -9,19 +9,21 @@
   include '../inc/dbcon.php';
 
   $ldg_idx = $_GET['ldg_idx'];
-  $r_idx = $_GET['r_idx'];
 
+  $r_idx = $_POST['r_idx'];
   $checkin_date = $_POST['checkin_date'];
   $checkout_date = $_POST['checkout_date'];
   $rv_price = $_POST['rv_price'];
   $rv_nop = $_POST['rv_nop'];
   $rv_date = $_POST['rv_date'];
 
-  // echo $checkin_date;
-  // echo $checkout_date;
-  // echo $rv_price;
-  // echo $rv_nop;
-  // echo $rv_date;
+  // echo "<p>".$ldg_idx."</p>";
+  // echo "<p>".$r_idx."</p>";
+  // echo "<p>".$checkin_date."</p>";
+  // echo "<p>".$checkout_date."</p>";
+  // echo "<p>".$rv_price."</p>";
+  // echo "<p>".$rv_nop."</p>";
+  // echo "<p> 숙박일자 : ".$rv_date."</p>";
 
   $sql = "SELECT l.ldg_idx, l.ldg_name, l.ldg_main_img, l.ldg_country, l.ldg_city, r.r_idx, r.r_name, r.r_price FROM lodging l JOIN room r ON l.ldg_idx = r.ldg_idx WHERE l.ldg_idx=$ldg_idx AND r.r_idx=$r_idx;";
   $result = mysqli_query($dbcon, $sql);
@@ -120,9 +122,9 @@
             <fieldset class="pay">
               <legend class="pay_title">결제 방법</legend>
               <div class="pay_cont">
-                <div class="pay1"><input type="radio" name="pay" id="pay1"> <label for="pay1">신용/체크카드</label></div>
-                <div class="pay2"><input type="radio" name="pay" id="pay2"> <label for="pay2">카카오페이</label></div>
-                <div class="pay3"><input type="radio" name="pay" id="pay3"> <label for="pay3">가상계좌</label></div>
+                <div class="pay1"><input type="radio" name="pay_method" id="pay1" value="1"> <label for="pay1">신용/체크카드</label></div>
+                <div class="pay2"><input type="radio" name="pay_method" id="pay2" value="2"> <label for="pay2">카카오페이</label></div>
+                <div class="pay3"><input type="radio" name="pay_method" id="pay3" value="3"> <label for="pay3">가상계좌</label></div>
               </div>
             </fieldset>
           </div>

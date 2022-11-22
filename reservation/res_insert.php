@@ -14,12 +14,18 @@
   $res_nop = $_POST['res_nop'];
   $res_nod = $_POST['res_nod'];
   $total_price = $_POST['total_price'];
+  $pay_method = $_POST['pay_method'];
 
   // 현재 시간(예약 날짜)
-  $res_date = date("Y-m-d");
+  $res_date = date("Y-m-d H:i:s");
 
   // 예약 상태
-  $res_state = "결제 대기"; 
+  // 1 : 결제 대기 (결제), 2 : 예약완료 (예약취소), 3 : 예약취소(환불진행중, 환불완료), 4 : 숙박완료(리뷰쓰기)
+  if($pay_method == "3") { // 가상계좌
+    $res_state = "1";
+  } else if($pay_method == "1") { // 신용카드 (임시)
+    $res_state = "2";
+  };
 
   // echo "<p>이름 : ".$res_name."</p>";
   // echo "<p>연락처 : ".$res_phone."</p>";

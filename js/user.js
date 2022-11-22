@@ -33,6 +33,10 @@ $(document).ready(function () {
     } else {
       $('.mk_txt').text('수신거부');
     }
+
+    $('.cancel_btn').on('click', function (e) {
+      $('.profile_photo').attr('src', data.u_img);
+    });
   });
 
   /* 편집 버튼 토글 */

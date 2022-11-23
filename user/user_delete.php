@@ -6,7 +6,7 @@
 
   // 쿼리 작성
   // delete from 테이블명 where 필드명='값';
-  $sql = "delete from user where u_idx=$s_idx;";
+  $sql = "DELETE FROM users WHERE u_idx=$s_idx;";
 
   // 쿼리 전송
   mysqli_query($dbcon, $sql);

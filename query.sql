@@ -12,7 +12,7 @@ CREATE DATABASE minda
 SELECT l.ldg_idx, l.ldg_name, l.ldg_country, l.ldg_city, MIN(r.r_price) r_price, f.l_file_src FROM lodging l JOIN lodging_file f ON l.ldg_idx = f.ldg_idx JOIN room r ON l.ldg_idx = r.ldg_idx GROUP BY ldg_idx;
 
 -- 일반회원 USER
-CREATE TABLE user (
+CREATE TABLE users (
   u_idx INT AUTO_INCREMENT PRIMARY KEY,
   u_email VARCHAR(50) NOT NULL,
   u_pwd VARCHAR(20) NOT NULL,
@@ -20,12 +20,12 @@ CREATE TABLE user (
   u_nickname VARCHAR(15) NOT NULL,
   u_phone VARCHAR(20) NOT NULL,
   u_marketing CHAR(1),
-  u_img LONGBLOB DEFAULT 'http://localhost/KDT-1st-project-minda/user/profilephoto/default_profile.png',
+  u_img LONGBLOB,
   reg_date DATETIME
 );
 
 -- USER 회원가입 INSERT 쿼리
-INSERT INTO user(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('$u_email', '$u_pwd', '$u_name', '$u_nickname', '$u_phone', '$u_marketing', '$reg_date');
+INSERT INTO users(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('$u_email', '$u_pwd', '$u_name', '$u_nickname', '$u_phone', '$u_marketing', '$reg_date');
 
 
 -- 파트너회원

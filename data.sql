@@ -1,14 +1,14 @@
 -- USER 회원가입
 
-INSERT INTO user(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('admin', '0000', '관리자', '관리자닉네임', '01000000000', 'Y', now());
-INSERT INTO user(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('테스트1', '1234', '이름1', '닉네임1', '01011111111', 'Y', now());
-INSERT INTO user(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('테스트2', '1234', '이름2', '닉네임2', '01022222222', 'N', now());
-INSERT INTO user(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('테스트3', '1234', '이름3', '닉네임3', '01033333333', 'Y', now());
-INSERT INTO user(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('테스트4', '1234', '이름4', '닉네임4', '01044444444', 'N', now());
-INSERT INTO user(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('테스트5', '1234', '이름5', '닉네임5', '01055555555', 'Y', now());
-INSERT INTO user(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('테스트6', '1234', '이름6', '닉네임6', '01066666666', 'N', now());
-INSERT INTO user(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('테스트7', '1234', '이름7', '닉네임7', '01077777777', 'Y', now());
-INSERT INTO user(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('테스트8', '1234', '이름8', '닉네임8', '01088888888', 'N', now());
+INSERT INTO users(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('admin', '0000', '관리자', '관리자닉네임', '01000000000', 'Y', now());
+INSERT INTO users(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('테스트1', '1234', '이름1', '닉네임1', '01011111111', 'Y', now());
+INSERT INTO users(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('테스트2', '1234', '이름2', '닉네임2', '01022222222', 'N', now());
+INSERT INTO users(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('테스트3', '1234', '이름3', '닉네임3', '01033333333', 'Y', now());
+INSERT INTO users(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('테스트4', '1234', '이름4', '닉네임4', '01044444444', 'N', now());
+INSERT INTO users(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('테스트5', '1234', '이름5', '닉네임5', '01055555555', 'Y', now());
+INSERT INTO users(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('테스트6', '1234', '이름6', '닉네임6', '01066666666', 'N', now());
+INSERT INTO users(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('테스트7', '1234', '이름7', '닉네임7', '01077777777', 'Y', now());
+INSERT INTO users(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('테스트8', '1234', '이름8', '닉네임8', '01088888888', 'N', now());
 
 
 -- 파트너

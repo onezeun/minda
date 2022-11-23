@@ -9,7 +9,8 @@
   $u_nickname = $_POST["u_nickname"];
   $u_phone = $_POST["u_phone"]; 
   $u_marketing = isset($_POST["u_marketing"]) ? "Y" : "N"; 
-
+  // $u_img = 'http://onezeun.dothome.co.kr/minda/user/profilephoto/default_profile.png';
+  $u_img = 'http://localhost/KDT-1st-project-minda/user/profilephoto/default_profile.png';
   // 시간 구하기 (가입일)
   $reg_date = date("Y-m-d");
 
@@ -26,8 +27,8 @@
   include "../inc/dbcon.php";
 
   /* 3. 쿼리 작성 */
-  $sql ="INSERT INTO user(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('$u_email', '$u_pwd', '$u_name', '$u_nickname', '$u_phone', '$u_marketing', '$reg_date');";
-  $sql_name = "select u_email, u_name from user where u_email='$u_email';";
+  $sql ="INSERT INTO users(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, u_img, reg_date) VALUES('$u_email', '$u_pwd', '$u_name', '$u_nickname', '$u_phone', '$u_marketing', '$u_img', '$reg_date');";
+  $sql_name = "SELECT u_email, u_name FROM users WHERE u_email='$u_email';";
 
   /* 4. 쿼리 전송 */
   mysqli_query($dbcon, $sql);

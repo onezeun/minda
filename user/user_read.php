@@ -12,7 +12,7 @@ include '../inc/dbcon.php';
 header("Content-Type: application/json");
 
 // 쿼리 작성
-$sql = "select * from user where u_idx=$s_idx;";
+$sql = "select * from users where u_idx=$s_idx;";
 
 // 쿼리 실행
 $result = mysqli_query($dbcon, $sql);

@@ -9,7 +9,7 @@
   include "../inc/dbcon.php";
 
   /* 3. 쿼리 작성 */
-  $sql ="UPDATE user SET u_pwd='$u_pwd' WHERE u_idx=$s_idx;";
+  $sql ="UPDATE users SET u_pwd='$u_pwd' WHERE u_idx=$s_idx;";
 
   /* 4. 쿼리 전송 */
   mysqli_query($dbcon, $sql);

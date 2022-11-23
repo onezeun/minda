@@ -42,14 +42,14 @@
   include "../inc/dbcon.php";
 
   /* 3. 쿼리 작성 */
-  $sql ="UPDATE user SET u_name='$u_name', u_nickname='$u_nickname', u_phone='$u_phone', u_marketing='$u_marketing', u_img='$base64' WHERE u_idx=$s_idx;";
+  $sql ="UPDATE users SET u_name='$u_name', u_nickname='$u_nickname', u_phone='$u_phone', u_marketing='$u_marketing', u_img='$base64' WHERE u_idx=$s_idx;";
 
   /* 4. 쿼리 전송 */
   mysqli_query($dbcon, $sql);
 
 
   /* 5. 전송된 값 가져오기 & 세션 저장 */
-  $img_session = "select u_idx, u_name, u_email, u_pwd, u_img from user where u_idx='$s_idx';";
+  $img_session = "SELECT u_idx, u_name, u_email, u_pwd, u_img FROM users WHERE u_idx='$s_idx';";
   $result = mysqli_query($dbcon, $img_session);
   $array = mysqli_fetch_array($result);
 

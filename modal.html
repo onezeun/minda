@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>예약 완료</title>
+  <link rel="shortcut icon" href="../images/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="../css/reset.css">
+  <link rel="stylesheet" type="text/css" href="../css/user_reservation.css" />
+  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous">
+    </script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      /* 팝업 */
+      $(".review_btn").on("click", function (e) {
+        e.preventDefault();
+        $(".review_pop_bg").fadeTo("fast", 1);
+        $("body").addClass("scrollLock");
+      });
+
+      $(".review_pop_cancel_btn").on("click", function () {
+        $(".review_pop_bg").hide();
+        $("body").removeClass("scrollLock");
+      });
+
+      $(".review_pop_cancel_btn").on("click", function () {
+        $(".review_pop_bg").hide();
+        $("body").removeClass("scrollLock");
+      });
+
+      $('#draw_star').on('input', function () {
+        $('.star span').css({ width: `${$(this).val() * 10}%` });
+        $('.star_score').text($('#draw_star').val() / 2);
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div class="wrap">
+    <!-- content -->
+    <button id="pop" class="review_btn" type="button">팝업창</button>
+    <div class="review_pop_bg">
+      <div class="review_pop">
+        <p class="review_pop_title">리뷰 작성</p>
+        <button type="button" class="review_pop_cancel_btn indent">닫기</button>
+        <form name="review_form" id="review_form" action="review_insert.php" method="post">
+          <div class="rv_ldg_wrap">
+            <img src="../images/ldg_main_img.jpg" alt="숙소대표이미지" class="rv_img">
+            <div class="rv_txt_wrap">
+              <p class="rv_txt1">런던스테이</p>
+              <p class="rv_txt2">2인 여성 도미토리</p>
+              <p class="rv_txt2">2022-11-23 ~ 2022-12-12</p>
+              <div class="rv_pop_line"></div>
+              <p class="rv_txt3">리뷰 점수</p>
+              <p class="star_wrap">
+                <span class="star">
+                  ★★★★★
+                  <span>★★★★★</span>
+                  <input type="range" name="rv_score" id="draw_star" value="1" step="1" min="0" max="10">
+                </span><br>
+                <span class="star_score"></span>
+              </p>
+            </div>
+          </div>
+          <textarea name="rv_content" class="rv_content" placeholder="리뷰 내용을 작성해주세요"></textarea>
+          <div class="rv_pop_btn_wrap">
+            <button type="button" class="rv_pop_cancel_btn btn_hover_cancel">취소</button>
+            <button type="button" class="rv_pop_btn btn_hover">등록</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+  </div>
+
+</body>
+
+</html>

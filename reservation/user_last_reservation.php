@@ -4,9 +4,10 @@ include '../inc/session.php';
 // 로그인 사용자만 접근
 include '../inc/login_check.php';
 
+// DB연결
 include '../inc/dbcon.php';
 
-$sql = "SELECT res.res_idx, l.ldg_idx, l.ldg_name, r.r_idx, r.r_name, res.res_checkin, res.res_checkout, res.total_price, res.res_state FROM reservation res JOIN lodging l ON res.ldg_idx = l.ldg_idx JOIN room r ON res.r_idx = r.r_idx WHERE res.u_idx='$s_idx' AND res.res_checkout < CURDATE() AND res.res_state IN ('1','2','4');";
+$sql = "SELECT res.res_idx, l.ldg_idx, l.ldg_name, l.ldg_main_img, r.r_idx, r.r_name, res.res_checkin, res.res_checkout, res.total_price, res.res_state FROM reservation res JOIN lodging l ON res.ldg_idx = l.ldg_idx JOIN room r ON res.r_idx = r.r_idx WHERE res.u_idx='$s_idx' AND res.res_checkout < CURDATE() AND res.res_state IN ('1','2','4');";
 
 // 쿼리 전송
 $result = mysqli_query($dbcon, $sql);
@@ -54,7 +55,7 @@ $total = mysqli_num_rows($result);
     $(".review_pop_cancel_btn").on("click", function() {
       $(".review_pop_bg").hide();
       $("body").removeClass("scrollLock");
-      $('#draw_star').val(0);
+      $('.rv_score').val(0);
       $('.rv_content').val("");
       $('.star_score').text("");
       $('.star span').css({ width:"0"});
@@ -63,18 +64,28 @@ $total = mysqli_num_rows($result);
     $(".review_pop_cancel_btn").on("click", function() {
       $(".review_pop_bg").hide();
       $("body").removeClass("scrollLock");
-      $('#draw_star').val(0);
+      $('.rv_score').val(0);
       $('.rv_content').val("");
       $('.star_score').text("");
       $('.star span').css({ width:"0"});
     });
 
-    $('#draw_star').on('input', function() {
+    $('.rv_score').on('input', function() {
       $('.star span').css({
-        width: `${$(this).val() * 10}%`
+        width: `${$(this).val() * 20}%`
       });
-      $('.star_score').text($('#draw_star').val() / 2);
+      $('.star_score').text($('.rv_score').val());
     });
+
+    $('#rv_pop_btn').on('click', function(){
+      var rv_score = $(this).parent().siblings('div').find('input[name="rv_score"]').val();
+      var rv_content = $(this).parent().siblings('textarea').val();
+      console.log(rv_score);
+      console.log(rv_content);
+      if(!rv_score || !rv_content) {
+        alert("내용을 입력해주세요");
+      } else $('#review_form').submit();
+    })
   });
   </script>
 </head>
@@ -138,36 +149,43 @@ $total = mysqli_num_rows($result);
                   </button>
                 </div>
               </div>
-              <?php } else {while ($array = mysqli_fetch_array($result)) { ?>
+              <?php 
+              } else {
+                while ($array = mysqli_fetch_array($result)) { 
+              ?>
               <tbody id="rv_data_list">
                 <tr>
                   <td width="100">숙소</td>
-                  <td width="280"><?php echo $array['ldg_name'] .
-                      ' / ' .
-                      $array['r_name']; ?></td>
-                  <?php
-                  $res_idx = $array['res_idx'];
-                  $ldg_idx = $array['ldg_idx'];
-                  $r_idx = $array['r_idx'];
+                  <td width="280"><?php echo $array['ldg_name'] .' / ' .$array['r_name']; ?></td>
+                  <?php 
+                    $res_idx = $array['res_idx'];
+                    $ldg_idx = $array['ldg_idx'];
+                    $r_idx = $array['r_idx'];
                   ?>
-                  <td width="150"><a href=#><?php echo substr(
-                          str_replace('-', '', $array['res_checkin']),
-                          2,
-                          6
-                      ) .
-                          $res_idx .
-                          $ldg_idx .
-                          $r_idx .
-                          $s_idx; ?></a>
+                  <td width="150">
+                    <a href=#>
+                      <?php 
+                      echo substr(str_replace('-', '', $array['res_checkin']),2,6).$res_idx.$ldg_idx.$r_idx.$s_idx; ?>
+                      </a>
                   </td>
-                  <td width="150"><?php echo $array[
-                      'res_checkin'
-                  ]; ?> ~ <br><?php echo $array['res_checkout']; ?></td>
-                  <td width="120"><?php echo number_format(
-                      $array['total_price']
-                  ); ?> 원</td>
+                  <td width="150">
+                    <?php echo $array['res_checkin']; ?> ~ <br><?php echo $array['res_checkout']; ?>
+                  </td>
+                  <td width="120">
+                    <?php echo number_format($array['total_price']); ?> 원
+                  </td>
                   <td width="100">
                     <p>숙박완료</p>
+                    <?php 
+                      $rv_sql ="SELECT * FROM review WHERE u_idx='$s_idx' AND ldg_idx='$ldg_idx';";
+
+                      $rv_result = mysqli_query($dbcon, $rv_sql);
+
+                      // 전체 데이터 가져오기
+                      $rv_num = mysqli_num_rows($rv_result);
+
+                      if(!$rv_num) {
+                    ?>
                     <button class="review_btn btn_hover">리뷰쓰기</button>
                     <div class="review_pop_bg">
                       <div class="review_pop">
@@ -175,19 +193,19 @@ $total = mysqli_num_rows($result);
                         <button type="button" class="review_pop_cancel_btn indent">닫기</button>
                         <form name="review_form" id="review_form" action="review_insert.php" method="post">
                           <div class="rv_ldg_wrap">
-                            <img src="../images/ldg_main_img.jpg" alt="숙소대표이미지" class="rv_img">
+                            <img src="../partner/room/images/<?php echo $array['ldg_main_img'];?>" alt="숙소대표이미지" class="rv_img">
                             <div class="rv_txt_wrap">
-                              <p class="rv_txt1">런던스테이</p>
-                              <p class="rv_txt2">2인 여성 도미토리</p>
-                              <p class="rv_txt2">2022-11-23 ~ 2022-12-12</p>
+                              <p class="rv_txt1"><?php echo $array['ldg_name']; ?></p>
+                              <p class="rv_txt2"><?php echo $array['r_name']; ?></p>
+                              <p class="rv_txt2"><?php echo $array['res_checkin']; ?> ~ <?php echo $array['res_checkout']; ?></p>
                               <div class="rv_pop_line"></div>
                               <p class="rv_txt3">리뷰 점수</p>
                               <p class="star_wrap">
                                 <span class="star">
                                   ★★★★★
                                   <span>★★★★★</span>
-                                  <input type="range" name="rv_score" id="draw_star" value="1" step="1" min="0"
-                                    max="10">
+                                  <input type="range" name="rv_score" class="rv_score" value="0" step="0.5" min="0"
+                                    max="5">
                                 </span><br>
                                 <span class="star_score"></span>
                               </p>
@@ -195,12 +213,17 @@ $total = mysqli_num_rows($result);
                           </div>
                           <textarea name="rv_content" class="rv_content" placeholder="리뷰 내용을 작성해주세요"></textarea>
                           <div class="rv_pop_btn_wrap">
+                            <input type="hidden" name="ldg_idx" value="<?php echo $ldg_idx; ?>">
+                            <input type="hidden" name="r_idx" value="<?php echo $r_idx; ?>">
                             <button type="button" class="rv_pop_cancel_btn btn_hover_cancel">취소</button>
-                            <button type="button" class="rv_pop_btn btn_hover">등록</button>
+                            <button type="button" id="rv_pop_btn" class="rv_pop_btn btn_hover">등록</button>
                           </div>
                         </form>
                       </div>
                     </div>
+                    <?php } else { ?>
+                      <button class="review_btn btn_hover">리뷰수정</button>
+                    <?php }; ?>
                   </td>
               </tbody>
               <?php }} ?>

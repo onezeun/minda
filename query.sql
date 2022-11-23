@@ -186,11 +186,14 @@ SELECT MIN(r_price) r_price FROM room WHERE ldg_idx=26;
 -- 리뷰 REVIEW
 create table review (
   rv_idx INT AUTO_INCREMENT PRIMARY KEY,
-  rv_score INT NOT NULL,
+  rv_score VARCHAR(5) NOT NULL,
   rv_content TEXT NOT NULL,
+  rv_time DATETIME,
   u_idx INT,
   ldg_idx INT,
+  r_idx INT,
   FOREIGN KEY (ldg_idx) REFERENCES lodging (ldg_idx) ON DELETE CASCADE,
+  FOREIGN KEY (r_idx) REFERENCES room (r_idx),
   FOREIGN KEY (u_idx) REFERENCES users (u_idx)
 );
 

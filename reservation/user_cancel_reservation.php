@@ -6,7 +6,7 @@
 
   include "../inc/dbcon.php";
 
-  $sql = "SELECT res.res_idx, l.ldg_idx, l.ldg_name, r.r_idx, r.r_name, res.res_checkin, res.res_checkout, res.total_price, res.res_state FROM reservation res JOIN lodging l ON res.ldg_idx = l.ldg_idx JOIN room r ON res.r_idx = r.r_idx WHERE res.u_idx='$s_idx' AND res.res_state IN('3');";
+  $sql = "SELECT res.res_idx, l.ldg_idx, l.ldg_name, r.r_idx, r.r_name, res.res_time, res.res_checkin, res.res_checkout, res.total_price, res.res_state FROM reservation res JOIN lodging l ON res.ldg_idx = l.ldg_idx JOIN room r ON res.r_idx = r.r_idx WHERE res.u_idx='$s_idx' AND res.res_state IN('3');";
   
   // 쿼리 전송
   $result = mysqli_query($dbcon, $sql);
@@ -73,12 +73,10 @@
         <div class="rv_warning">
           <img src="../images/warning.png" alt="경고 아이콘" class="rv_warning_icon" />
           <p class="rv_warning_msg">
-            - 예약 신청 후 아직 체크아웃 날짜가 지나지 않은 예약을 확인하실 수
-            있습니다.<br />
-            - 예약취소를 원하실 경우는 해당 예약의 '예약번호'를 클릭하시면,
-            상세페이지에서 '예약취소'를 하실 수 있습니다.<br />
-            - 예약진행상태가 '예약확정-입금완료'인 예약은 예약번호를 클릭하면
-            상세 페이지에서 숙소연락처를 확인해 보실 수 있습니다.<br />
+            - 접수된 후 1~2일 이내에 환불처리 됩니다.<br />
+            - 토,일,공휴일 제외 / 신용카드 결제일 경우 카드사의 사정에 따라 5~7일정도 소요될 수 있습니다.<br />
+            - '예약번호'를 클릭하시면 상세페이지에서 환불 상세 정보를 확인해 보실 수 있습니다.<br />
+            - 환불기한이 지난 후 환불완료가 되지 않을 경우 고객센터로 문의바랍니다.<br />
           </p>
         </div>
 
@@ -129,8 +127,23 @@
                   <td width="150"><?php echo $array["res_checkin"]; ?> ~ <br><?php echo $array["res_checkout"]; ?></td>
                   <td width="120"><?php echo number_format($array["total_price"]); ?> 원</td>
                   <td width="100">
-                    <p>숙박완료</p>
-                    <button class="review_btn btn_hover">리뷰쓰기</button>
+                    <p>예약취소</p>
+                    <?php 
+                      // 취소 요청 일자
+                      $res_time = $array["res_time"];
+
+                      // 일주일 지난 날짜
+                      $date = date('Y-m-d',strtotime($res_time."+7 days"));
+
+                      //오늘 날짜
+                      $now_date = date('Y-m-d',strtotime('Now'));
+
+                      // 현재 취소한지 일주일이 지났다면?
+                      if($date < $now_date) { ?>
+                      <p class="gray">환불완료</p>
+                      <?php } else { ?>
+                      <p class="red">환불진행중</p>
+                      <?php }; ?>
                   </td>
               </tbody>
               <?php 

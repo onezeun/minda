@@ -167,7 +167,7 @@
   color: white;
  }
 
- .review_btn {
+ .review_btn, .cancle_btn {
   width: 60px;
   height: 25px;
   margin: 2px auto 5px;
@@ -176,4 +176,14 @@
   border-radius: 5px;
   background: #eeb72f;
   color: white;
+ }
+
+ .red {
+  color: red;
+  font-size: 14px;
+ }
+
+ .gray {
+  color: #8c8c8c;
+  font-size: 14px;
  }

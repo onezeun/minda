@@ -6,7 +6,7 @@
 
   include "../inc/dbcon.php";
 
-  $sql = "SELECT res.res_idx, l.ldg_idx, l.ldg_name, r.r_idx, r.r_name, res.res_checkin, res.res_checkout, res.total_price, res.res_state FROM reservation res JOIN lodging l ON res.ldg_idx = l.ldg_idx JOIN room r ON res.r_idx = r.r_idx WHERE res.u_idx='$s_idx' AND res.res_checkout < CURDATE();";
+  $sql = "SELECT res.res_idx, l.ldg_idx, l.ldg_name, r.r_idx, r.r_name, res.res_checkin, res.res_checkout, res.total_price, res.res_state FROM reservation res JOIN lodging l ON res.ldg_idx = l.ldg_idx JOIN room r ON res.r_idx = r.r_idx WHERE res.u_idx='$s_idx' AND res.res_checkout < CURDATE() AND res.res_state IN ('1','2','4');";
   
   // 쿼리 전송
   $result = mysqli_query($dbcon, $sql);
@@ -70,15 +70,11 @@
           <li><a href="user_last_reservation.php" class="click_tab">지난 예약</a></li>
           <li><a href="user_cancel_reservation.php" class="user_rv_tab_menu">환불 진행 상황</a></li>
         </ul>
-        <div class="rv_warning">
+        <div class="rv_warning" style="height:160px">
           <img src="../images/warning.png" alt="경고 아이콘" class="rv_warning_icon" />
           <p class="rv_warning_msg">
-            - 예약 신청 후 아직 체크아웃 날짜가 지나지 않은 예약을 확인하실 수
-            있습니다.<br />
-            - 예약취소를 원하실 경우는 해당 예약의 '예약번호'를 클릭하시면,
-            상세페이지에서 '예약취소'를 하실 수 있습니다.<br />
-            - 예약진행상태가 '예약확정-입금완료'인 예약은 예약번호를 클릭하면
-            상세 페이지에서 숙소연락처를 확인해 보실 수 있습니다.<br />
+            - '리뷰쓰기'를 클릭하시면 다녀오신 숙소에 대해 '리뷰' 글을 남길 수 있습니다.<br />
+            - 리뷰글 작성은 체크아웃 날짜 기준으로 6개월까지 작성이 가능하며, 6개월 이후 작성이 불가합니다.<br />
           </p>
         </div>
 

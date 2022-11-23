@@ -26,7 +26,7 @@
   } else if($pay_method == "2") { // 카카오페이
     $res_state = "2";
   } else {  // 가상계좌(임시)
-    $res_state = "1";
+    $res_state = "2";
   };
 
   // echo "<p>이름 : ".$res_name."</p>";

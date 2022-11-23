@@ -43,6 +43,14 @@
         $('.user_sub1').removeClass('menu_select_bar');
         $('.user_sub3').removeClass('menu_select_bar');
       });
+
+      $('.cancle_btn').click(function(){
+        var rtn_val = confirm("예약을 취소하시겠습니까?");
+        if(rtn_val == true){
+          var res_idx = $(this).siblings('input[type=hidden]').val();
+          location.href = "res_cancel.php?res_idx="+res_idx;
+        }
+      });
     });
   </script>
 </head>
@@ -73,12 +81,9 @@
         <div class="rv_warning">
           <img src="../images/warning.png" alt="경고 아이콘" class="rv_warning_icon" />
           <p class="rv_warning_msg">
-            - 예약 신청 후 아직 체크아웃 날짜가 지나지 않은 예약을 확인하실 수
-            있습니다.<br />
-            - 예약취소를 원하실 경우는 해당 예약의 '예약번호'를 클릭하시면,
-            상세페이지에서 '예약취소'를 하실 수 있습니다.<br />
-            - 예약진행상태가 '예약확정-입금완료'인 예약은 예약번호를 클릭하면
-            상세 페이지에서 숙소연락처를 확인해 보실 수 있습니다.<br />
+            - 예약 신청 후 아직 체크아웃 날짜가 지나지 않은 예약을 확인하실 수있습니다.<br />
+            - '예약취소'를 원하실 경우 예약상태에 해당 버튼을 클릭하시면 예약취소를 하실 수 있습니다.<br />
+            - 예약진행상태가 '예약완료'인 예약은 '예약번호'를 클릭하면 상세 페이지에서 숙소정보를 확인해 보실 수 있습니다.<br />
           </p>
         </div>
 
@@ -137,7 +142,8 @@
                     <button class="pay_btn btn_hover">결제</button>
                     <?php } else if($res_state == "2") {?>
                       <p>예약완료</p>
-                      <button class="review_btn btn_hover">예약취소</button>
+                      <input type="hidden" id="res_idx" value="<?php echo $array["res_idx"]; ?>">
+                      <button class="cancle_btn btn_hover">예약취소</button>
                     <?php }; ?>
                   </td>
               </tbody>

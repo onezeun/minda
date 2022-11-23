@@ -12,7 +12,7 @@ INSERT INTO users(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_
 
 
 -- 파트너
-INSERT INTO partner_user(u_idx, p_name, p_biznum, p_phone) VALUES(1, '관리자의 호텔', 0000, '0236669999');
+INSERT INTO partner_user(u_idx, p_name, p_biznum, p_phone) VALUES(2, '관리자의 호텔', 0000, '0236669999');
 INSERT INTO partner_user(u_idx, p_name, p_biznum, p_phone) VALUES(7, '테스트의 숙소', 9999, '023339999');
 INSERT INTO partner_user(u_idx, p_name, p_biznum, p_phone) VALUES(8, '테스트의 펜션', 1111, '0270707070');
 
@@ -39,7 +39,7 @@ INSERT INTO lodging(ldg_name,ldg_country,ldg_city,ldg_main_img,ldg_sub_img,ldg_i
 
 - 엘리베이터가 있어 케리어와 함께 편리한 이동이 가능합니다.
 
-- 주인 부부가 함께 거주하여 안전하고 빠른 피드백이 가능합니다. 그 외 런던꿀팁은 덤!',6,1,1,2);
+- 주인 부부가 함께 거주하여 안전하고 빠른 피드백이 가능합니다. 그 외 런던꿀팁은 덤!',6,1,1,3);
 
 INSERT INTO lodging(ldg_name,ldg_country,ldg_city,ldg_main_img,ldg_sub_img,ldg_info,ldg_maxnop,toilet,shower,p_idx) VALUES('세도나 해피하우스','미국','아리조나','ldg_newroom_img04.png','bestroom_image02.jpg,bestroom_image04.jpg','안녕하세요.
 “칵테일 사랑” 을 부른 가수 신윤미 입니다.
@@ -52,7 +52,7 @@ INSERT INTO lodging(ldg_name,ldg_country,ldg_city,ldg_main_img,ldg_sub_img,ldg_i
 특히 볼텍스 라고 해서 특별한 에너지가 있는 곳으로도 알려져 있는데요.
 해피하우스에 오시면 매일매일 손님들의 성향과 컨디션에 맞는 코스를 알려드리고 원하시는 분들께는 맞춤투어가이드 서비스도 해드리고 있습니다.
 오셔서 좋은 에너지도 받으시고 아름다운 자연환경과 예술작품을 즐기시며 잊지못할 행복한 여행이 되실수 있도록 최대한 노력하겠습니다.
-감사합니다.',12,3,3,1);
+감사합니다.',12,3,3,3);
 
 INSERT INTO lodging(ldg_name,ldg_country,ldg_city,ldg_main_img,ldg_sub_img,ldg_info,ldg_maxnop,toilet,shower,p_idx) VALUES('하이파리민박','프랑스','파리','ldg_recocity_img03.png','bestroom_image03.jpg,ldg_newroom_img02.png','안녕하세요^_^ 하이파리민박입니다 ! !
 
@@ -77,7 +77,7 @@ INSERT INTO lodging(ldg_name,ldg_country,ldg_city,ldg_main_img,ldg_sub_img,ldg_i
 
 [하이파리민박 서비스]
 1. 무선인터넷 무료 이용 가능.
-2. 헤어드라이기, 손세정제 무료 제공',13,2,1,1);
+2. 헤어드라이기, 손세정제 무료 제공',13,2,1,5);
 
 INSERT INTO lodging(ldg_name,ldg_country,ldg_city,ldg_main_img,ldg_sub_img,ldg_info,ldg_maxnop,toilet,shower,p_idx) VALUES('로마 골뱅이호텔','이탈리아','로마','bestroom_image04.jpg','ldg_newroom_img02.png','Ciao! 로마 골뱅이 호텔입니다
 
@@ -104,7 +104,7 @@ INSERT INTO lodging(ldg_name,ldg_country,ldg_city,ldg_main_img,ldg_sub_img,ldg_i
 -저희 로마 골뱅이호텔을 찾아주시는 모든 분들이 로마에서의 즐겁고 행복한 추억을 담아가실 수 있도록
 -변치않는 고객사랑을 실천하도록 항상 노력하겠습니다.
 
-',24,8,8,1);
+',24,8,8,5);
 
 INSERT INTO lodging(ldg_name,ldg_country,ldg_city,ldg_main_img,ldg_sub_img,ldg_info,ldg_maxnop,toilet,shower,p_idx) VALUES('앳홈스테이','미국','맨하탄','bestroom_image02.jpg','ldg_img03.jpg,ldg_img05.jpg,ldg_newroom_img02.png,ldg_newroom_img03.png','- 앳홈스테이는 뉴욕 최대 자유여행사 앳홈트립이 운영하는 숙소로 여행에 최적화된 편안한 숙소입니다.
 주인과 함께 사는 불편한 민박이 아니라 주인 없이 자율적으로 계시는 퍼니시드 렌탈 아파트먼트의 개념입니다.
@@ -126,14 +126,14 @@ INSERT INTO lodging(ldg_name,ldg_country,ldg_city,ldg_main_img,ldg_sub_img,ldg_i
 
 기다림 끝에 만난 뉴욕, 앳홈스테이와 함께하세요!
 다년간 숙소 운영으로 쌓은 노하우로 최고의 여행이 되실 수 있도록,
-떠나는 그 순간까지 특별하고 행복한 경험을 누리세요.',32,1,1,1);
+떠나는 그 순간까지 특별하고 행복한 경험을 누리세요.',32,1,1,4);
 
 -- 숙소 시설
 INSERT INTO lodging_facility(dormitory,privateroom,condo,womenonly,wifi,kitchen,elevator,locker,parking,breakfast,lunch,dinner,ldg_idx) VALUES(1,1,0,0,1,0,0,1,0,1,0,0,2);
-INSERT INTO lodging_facility(dormitory,privateroom,condo,womenonly,wifi,kitchen,elevator,locker,parking,breakfast,lunch,dinner,ldg_idx) VALUES(1,0,0,0,1,0,1,0,0,1,0,1,3);
-INSERT INTO lodging_facility(dormitory,privateroom,condo,womenonly,wifi,kitchen,elevator,locker,parking,breakfast,lunch,dinner,ldg_idx) VALUES(0,1,0,0,1,1,0,0,0,1,0,0,4);
-INSERT INTO lodging_facility(dormitory,privateroom,condo,womenonly,wifi,kitchen,elevator,locker,parking,breakfast,lunch,dinner,ldg_idx) VALUES(0,1,0,0,1,0,1,0,0,1,0,0,5);
-INSERT INTO lodging_facility(dormitory,privateroom,condo,womenonly,wifi,kitchen,elevator,locker,parking,breakfast,lunch,dinner,ldg_idx) VALUES(1,1,0,0,1,1,0,1,1,1,0,0,6);
+INSERT INTO lodging_facility(dormitory,privateroom,condo,womenonly,wifi,kitchen,elevator,locker,parking,breakfast,lunch,dinner,ldg_idx) VALUES(1,0,0,0,1,0,1,0,0,1,0,1,5);
+INSERT INTO lodging_facility(dormitory,privateroom,condo,womenonly,wifi,kitchen,elevator,locker,parking,breakfast,lunch,dinner,ldg_idx) VALUES(0,1,0,0,1,1,0,0,0,1,0,0,7);
+INSERT INTO lodging_facility(dormitory,privateroom,condo,womenonly,wifi,kitchen,elevator,locker,parking,breakfast,lunch,dinner,ldg_idx) VALUES(0,1,0,0,1,0,1,0,0,1,0,0,9);
+INSERT INTO lodging_facility(dormitory,privateroom,condo,womenonly,wifi,kitchen,elevator,locker,parking,breakfast,lunch,dinner,ldg_idx) VALUES(1,1,0,0,1,1,0,1,1,1,0,0,10);
 
 
 -- 객실

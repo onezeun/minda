@@ -1,3 +1,5 @@
+SELECT u.u_idx, p.p_idx, u.u_email, u.u_pwd, u.u_name, u.u_img, p.p_name FROM users u LEFT OUTER JOIN partner_user p ON u.u_idx = p.u_idx WHERE u_email='ts@ts.ts';
+
 SELECT * FROM lodging WHERE ldg_name LIKE '%런던%';
 
 SELECT * FROM lodging WHERE ldg_name LIKE '%런던%' OR ldg_city LIKE '%런던%' OR ldg_country LIKE '%런던%';

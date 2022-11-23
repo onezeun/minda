@@ -30,6 +30,21 @@
   <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
     crossorigin="anonymous"></script>
   <script type="text/javascript" src="../js/includ.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('.user_sub li').mouseover(function(){
+        $(this).addClass('menu_select_bar');
+        $('.user_sub li').not(this).removeClass('menu_select_bar');
+      });
+
+      $('.user_sub li').mouseout(function(){
+        $('.user_sub_wrap').addClass('menu_select');
+        $('.user_sub2').addClass('menu_select_bar');
+        $('.user_sub1').removeClass('menu_select_bar');
+        $('.user_sub3').removeClass('menu_select_bar');
+      });
+    });
+  </script>
 </head>
 
 <body>
@@ -37,6 +52,13 @@
     <!-- header -->
     <header>
       <div id="header-include"></div>
+      <div class="user_sub_wrap shadow menu_select">
+        <ul class="user_sub">
+          <li class="user_sub1"><a href="../user/user.html">마이민다</a></li>
+          <li class="user_sub2 menu_select_bar"><a href="user_reservation.php">예약내역</a></li>
+          <li class="user_sub3"><a href="#">위시리스트</a></li>
+        </ul>
+      </div>
     </header>
 
     <!-- content -->

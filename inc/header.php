@@ -58,9 +58,9 @@
           </li>
           <li class="top_bar"><a href="">고객센터</a></li>
           <li class="top_bar_search indent">
-            <form action="">
-              <input name="q" type="search" placeholder="검색어를 입력하세요" />
-              <button type="button" class="search-icon"></button>
+          <form name="search_form" action="http://localhost/KDT-1st-project-minda/lodging/lodging_search.php" method="post">
+              <input name="srch_txt" type="search" placeholder="검색어를 입력하세요" />
+              <button type="submit" class="search-icon"></button>
             </form>
           </li>
         </ul>
@@ -97,22 +97,14 @@
         <li class="menu7"><a href="http://localhost/KDT-1st-project-minda/community/community.html">커뮤니티</a>
           <div class="menu7_sub_wrap shadow">
             <ul class="menu7_sub">
-              <li class="menu7_sub1"><a href="#">구인·구직</a></li>
+              <li class="menu7_sub1"><a href="http://localhost/KDT-1st-project-minda/community/community.html">구인·구직</a></li>
               <li class="menu7_sub2"><a href="#">사고·팔고</a></li>
             </ul>
           </div>
         </li>
       </ul>
-      <div class="user_sub_wrap shadow">
-        <ul class="user_sub">
-          <li class="user_sub1"><a href="#">마이민다</a></li>
-          <li class="user_sub2"><a href="#">예약내역</a></li>
-          <li class="user_sub2"><a href="#">위시리스트</a></li>
-        </ul>
-      </div>
     </nav>
   </div>
-
 </body>
 
 </html>

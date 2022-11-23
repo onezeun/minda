@@ -1,4 +1,16 @@
 $(document).ready(function () {
+  $('.user_sub li').mouseover(function(){
+    $(this).addClass('menu_select_bar');
+    $('.user_sub li').not(this).removeClass('menu_select_bar');
+  });
+
+  $('.user_sub li').mouseout(function(){
+    $('.user_sub_wrap').addClass('menu_select');
+    $('.user_sub1').addClass('menu_select_bar');
+    $('.user_sub2').removeClass('menu_select_bar');
+    $('.user_sub3').removeClass('menu_select_bar');
+  });
+
   /* DB 조회 */
   $.ajax({
     url: '../user/user_read.php',

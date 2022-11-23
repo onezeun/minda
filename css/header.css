@@ -228,6 +228,7 @@ input[type=search]::-webkit-search-cancel-button {
   position: absolute;
   left: 0;
   display: none;
+  text-align: center;
 }
 
 .menu4_sub_wrap ul {
@@ -278,6 +279,7 @@ input[type=search]::-webkit-search-cancel-button {
   position: absolute;
   left: 0;
   display: none;
+  text-align: center;
 }
 
 .menu5_sub_wrap ul {
@@ -338,6 +340,7 @@ input[type=search]::-webkit-search-cancel-button {
   position: absolute;
   left: 0;
   display: none;
+  text-align: center;
 }
 
 .menu7_sub_wrap ul {
@@ -367,10 +370,10 @@ input[type=search]::-webkit-search-cancel-button {
   height: 60px;
   margin-top: 1px;
   background: #fff;
-  z-index: 1;
   position: absolute;
   left: 0;
   display: none;
+  text-align: center;
 }
 
 .user_sub_wrap ul {
@@ -397,6 +400,7 @@ input[type=search]::-webkit-search-cancel-button {
 .menu_select {
   display: block;
 }
+
 .menu_select_bar {
   border-bottom: 4px solid #eeb72e;
 }

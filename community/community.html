@@ -8,13 +8,25 @@
   <title>커뮤니티</title>
   <link rel="shortcut icon" href="../images/favicon.ico">
   <link rel="stylesheet" type="text/css" href="../css/reset.css">
-  <link rel="stylesheet" type="text/css" href="../css/header.css">
   <link rel="stylesheet" type="text/css" href="../css/footer.css">
   <link rel="stylesheet" type="text/css" href="../css/community.css">
   <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
-  crossorigin="anonymous">
-  </script>
+    crossorigin="anonymous">
+    </script>
   <script type="text/javascript" src="../js/includ.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('.menu7_sub_wrap2 li').mouseover(function () {
+        $(this).addClass('menu_select_bar');
+        $('.menu7_sub_wrap2 li').not(this).removeClass('menu_select_bar');
+      });
+
+      $('.menu7_sub_wrap2 li').mouseout(function () {
+        $('.menu7_sub1').addClass('menu_select_bar');
+        $('.menu7_sub2').removeClass('menu_select_bar');
+      });
+    });
+  </script>
 </head>
 
 <body>
@@ -22,6 +34,13 @@
     <!-- header -->
     <header>
       <div id="header-include"></div>
+      <div class="menu7_sub_wrap2 shadow">
+        <ul class="menu7_sub">
+          <li class="menu7_sub1 menu_select_bar"><a
+              href="http://localhost/KDT-1st-project-minda/community/community.html">구인·구직</a></li>
+          <li class="menu7_sub2"><a href="#">사고·팔고</a></li>
+        </ul>
+      </div>
     </header>
 
     <!-- content -->
@@ -149,7 +168,7 @@
 
     <!-- footer -->
     <footer>
-      <div  id="footer-include"></div>
+      <div id="footer-include"></div>
     </footer>
   </div>
 

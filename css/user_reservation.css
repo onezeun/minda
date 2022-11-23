@@ -139,6 +139,7 @@
   font-size: 15px;
   margin-bottom: 20px;
  }
+
  .search_btn {
   width: 130px;
   height: 40px;
@@ -149,6 +150,7 @@
   background: white;
   color: #eeb72f;;
  }
+
  .search_btn:hover {
   background: #eeb72f;
   color: white;
@@ -187,3 +189,157 @@
   color: #8c8c8c;
   font-size: 14px;
  }
+
+ /* modal */
+ .scrollLock { 
+  overflow: hidden; 
+}
+
+.review_pop_bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(0,0,0,0.6);
+  display: none;
+  z-index: 1;
+}
+
+.review_pop {
+  width: 800px;
+  height: 580px;
+  background-color: white;
+  border: 1px solid #b7b7b7;
+  border-radius: 5px;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  opacity: 1;
+  color: black;
+}
+
+.review_pop_cancel_btn {
+  width: 15px; 
+  height: 15px; 
+  background: url(../images/pop_cancelbtn.png) center center no-repeat;
+  cursor: pointer;
+  border: none;
+  position: absolute;
+  top:20px;
+  right: 20px;
+}
+.review_pop_title {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.rv_ldg_wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rv_img {
+  object-fit: cover;
+  width: 370px;
+  height: 220px;
+}
+
+.rv_txt_wrap {
+  width: 370px;
+  font-size: 16px;
+  text-align: left;
+}
+
+.rv_txt1 {
+  font-size: 20px;
+  font-weight: bold;
+}
+.rv_txt2 {
+  margin: 8px 0;
+}
+
+.rv_pop_line {
+  width: 370px;
+  height: 1px;
+  background: #d7d7d7;
+  margin: 20px auto 10px;
+}
+
+.rv_txt3 {
+  margin-bottom: 0;
+}
+  /* 별점 */
+  .star_wrap {
+    text-align: center;
+    height: 75px;
+  }
+
+  .star {
+    font-family: 'SDSamliphopangche_Basic' !important;
+    position: relative;
+    font-size: 2rem;
+    color: #d7d7d7;
+  }
+  
+  .star input {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .star span {
+    width: 0;
+    position: absolute; 
+    left: 0;
+    color: #ffde0d;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+
+.rv_content {
+  margin-top: 20px;
+  width: 760px;
+  height: 200px;
+  border: 1px solid #d7d7d7;
+  border-radius: 5px;
+  white-space: pre-wrap;
+  padding: 10px;
+  box-sizing: border-box;
+  resize: none;
+}
+
+.rv_pop_btn_wrap {
+  margin-top: 10px;
+  display: flex;
+  justify-content: right;
+}
+
+.rv_pop_btn {
+  width: 50px;
+  height: 25px;
+  border: none;
+  border-radius: 5px;
+  background: #eeb72f;
+  color: white;
+  margin-left: 10px;
+}
+
+.rv_pop_cancel_btn {
+  width: 50px;
+  height: 25px;
+  border: none;
+  border-radius: 5px;
+  background: #f2f5ef;
+  color: #8b8b8b;
+  border: 1px solid #f2f5ef;
+}

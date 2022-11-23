@@ -80,11 +80,17 @@ $total = mysqli_num_rows($result);
     $('#rv_pop_btn').on('click', function(){
       var rv_score = $(this).parent().siblings('div').find('input[name="rv_score"]').val();
       var rv_content = $(this).parent().siblings('textarea').val();
-      console.log(rv_score);
-      console.log(rv_content);
       if(!rv_score || !rv_content) {
         alert("내용을 입력해주세요");
       } else $('#review_form').submit();
+    })
+
+    $('#rv_pop_edit_btn').on('click', function(){
+      var rv_score = $(this).parent().siblings('div').find('input[name="rv_score"]').val();
+      var rv_content = $(this).parent().siblings('textarea').val();
+      if(!rv_score || !rv_content) {
+        alert("내용을 입력해주세요");
+      } else $('#review_edit_form').submit();
     })
   });
   </script>
@@ -221,8 +227,45 @@ $total = mysqli_num_rows($result);
                         </form>
                       </div>
                     </div>
-                    <?php } else { ?>
+                    <?php
+                     } else { 
+                      $rv_array = mysqli_fetch_array($rv_result)
+                    ?>
                       <button class="review_btn btn_hover">리뷰수정</button>
+                      <div class="review_pop_bg">
+                      <div class="review_pop">
+                        <p class="review_pop_title">리뷰 작성</p>
+                        <button type="button" class="review_pop_cancel_btn indent">닫기</button>
+                        <form name="review_edit_form" id="review_edit_form" action="review_edit.php" method="post">
+                          <div class="rv_ldg_wrap">
+                            <img src="../partner/room/images/<?php echo $array['ldg_main_img'];?>" alt="숙소대표이미지" class="rv_img">
+                            <div class="rv_txt_wrap">
+                              <p class="rv_txt1"><?php echo $array['ldg_name']; ?></p>
+                              <p class="rv_txt2"><?php echo $array['r_name']; ?></p>
+                              <p class="rv_txt2"><?php echo $array['res_checkin']; ?> ~ <?php echo $array['res_checkout']; ?></p>
+                              <div class="rv_pop_line"></div>
+                              <p class="rv_txt3">리뷰 점수</p>
+                              <p class="star_wrap">
+                                <span class="star">
+                                  ★★★★★
+                                  <span style="width : <?php echo ($rv_array['rv_score']*20)."%"; ?>">★★★★★</span>
+                                  <input type="range" name="rv_score" class="rv_score" value="<?php echo $rv_array['rv_score'];?>" step="0.5" min="0"
+                                    max="5">
+                                </span><br>
+                                <span class="star_score"><?php echo $rv_array['rv_score'];?></span>
+                              </p>
+                            </div>
+                          </div>
+                          <textarea name="rv_content" class="rv_content" placeholder="리뷰 내용을 작성해주세요"><?php echo $rv_array['rv_content'];?></textarea>
+                          <div class="rv_pop_btn_wrap">
+                            <input type="hidden" name="ldg_idx" value="<?php echo $ldg_idx; ?>">
+                            <input type="hidden" name="r_idx" value="<?php echo $r_idx; ?>">
+                            <button type="button" class="rv_pop_cancel_btn btn_hover_cancel">취소</button>
+                            <button type="button" id="rv_pop_edit_btn" class="rv_pop_edit_btn btn_hover">수정</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
                     <?php }; ?>
                   </td>
               </tbody>

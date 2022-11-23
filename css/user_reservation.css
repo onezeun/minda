@@ -324,7 +324,7 @@
   justify-content: right;
 }
 
-.rv_pop_btn {
+.rv_pop_btn, .rv_pop_edit_btn {
   width: 50px;
   height: 25px;
   border: none;

@@ -35,14 +35,14 @@ CREATE TABLE partner_user (
   p_biznum VARCHAR(50) NOT NULL,
   p_phone VARCHAR(30) NOT NULL,
   u_idx INT,
-  FOREIGN KEY (u_idx) REFERENCES user (u_idx) ON DELETE CASCADE
+  FOREIGN KEY (u_idx) REFERENCES users (u_idx) ON DELETE CASCADE
 );
 
 INSERT INTO partner_user(u_idx, p_name, p_biznum, p_phone) VALUES('$u_idx', '$p_name', '$p_biznum', '$p_phone');
 
 -- 일반 회원 중 파트너로 가입되어 있는 사람들
-SELECT partner_user.u_idx, partner_user.p_idx, user.u_email, user.u_name, user.u_img, partner_user.p_name FROM partner_user JOIN user ON user.u_idx = partner_user.u_idx;
-SELECT user.u_idx, partner_user.p_idx, user.u_email, user.u_pwd, user.u_name, user.u_img, partner_user.p_name FROM user LEFT OUTER JOIN partner_user ON user.u_idx = partner_user.u_idx where u_email='테스트3';
+SELECT p.u_idx, p.p_idx, u.u_email, u.u_name, u.u_img, p.p_name FROM partner_user p JOIN users u ON u.u_idx = p.u_idx;
+SELECT u.u_idx, p.p_idx, u.u_email, u.u_pwd, u.u_name, u.u_img, p.p_name FROM users u JOIN partner_user p ON u.u_idx = p.u_idx WHERE u_email='테스트3';
 
 -- 예약 RESERVATION
 create table reservation (
@@ -66,7 +66,7 @@ create table reservation (
   u_idx INT,
   FOREIGN KEY (ldg_idx) REFERENCES lodging (ldg_idx),
   FOREIGN KEY (r_idx) REFERENCES room (r_idx),
-  FOREIGN KEY (u_idx) REFERENCES user (u_idx)
+  FOREIGN KEY (u_idx) REFERENCES users (u_idx)
 );
 
 -- res_state 예약 상태 -> 1 : 결제 대기 (결제), 2 : 예약 완료 (예약취소), 3 : 예약취소(환불진행중, 환불완료), 4 : 숙박완료(리뷰쓰기)
@@ -88,7 +88,7 @@ create table like_table (
   ldg_idx INT,
   u_idx INT,
   FOREIGN KEY (ldg_idx) REFERENCES lodging (ldg_idx) ON DELETE CASCADE,
-  FOREIGN KEY (u_idx) REFERENCES user (u_idx)
+  FOREIGN KEY (u_idx) REFERENCES users (u_idx)
 );
 
 
@@ -188,7 +188,7 @@ create table review (
   u_idx INT,
   ldg_idx INT,
   FOREIGN KEY (ldg_idx) REFERENCES lodging (ldg_idx) ON DELETE CASCADE,
-  FOREIGN KEY (u_idx) REFERENCES user (u_idx)
+  FOREIGN KEY (u_idx) REFERENCES users (u_idx)
 );
 
 -- 커뮤니티 COMMUNITY
@@ -200,7 +200,7 @@ create table community (
   category VARCHAR(5) NOT NULL,
   view_cnt INT DEFAULT 0,
   u_idx INT,
-  FOREIGN KEY (u_idx) REFERENCES user (u_idx)
+  FOREIGN KEY (u_idx) REFERENCES users (u_idx)
 );
 
 -- 커뮤니티 댓글 COMMUNITY_COMMENT
@@ -210,6 +210,6 @@ create table community_comment (
   co_date DATE NOT NULL,
   u_idx INT,
   cmm_idx INT,
-  FOREIGN KEY (u_idx) REFERENCES user (u_idx),
+  FOREIGN KEY (u_idx) REFERENCES users (u_idx),
   FOREIGN KEY (cmm_idx) REFERENCES community (cmm_idx)
 );

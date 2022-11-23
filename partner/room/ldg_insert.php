@@ -15,6 +15,9 @@
   $toilet = $_POST["toilet"]; 
   $shower = $_POST["shower"]; 
 
+  // 시간 구하기 (숙소등록일)
+  $ldg_date = date("Y-m-d");
+
   // 숙소 첨부파일 
   // 대표 이미지 저장
   if($_FILES["ldg_mainimg"] != NULL){
@@ -69,7 +72,7 @@
   include "../inc/dbcon.php";
 
   /* 쿼리 작성 */
-  $ldg_sql ="INSERT INTO lodging (ldg_name, ldg_country, ldg_city, ldg_main_img, ldg_sub_img, ldg_info, ldg_maxnop, toilet, shower, p_idx) VALUES ( '$ldg_name', '$ldg_country', '$ldg_city', '$ldg_mainimg_name', '$sub_arr_str', '$ldg_info', $ldg_maxnop, $toilet, $shower, $sp_idx);";
+  $ldg_sql ="INSERT INTO lodging (ldg_name, ldg_country, ldg_city, ldg_main_img, ldg_sub_img, ldg_info, ldg_maxnop, ldg_date, toilet, shower, p_idx) VALUES ( '$ldg_name', '$ldg_country', '$ldg_city', '$ldg_mainimg_name', '$sub_arr_str', '$ldg_info', $ldg_maxnop, $ldg_date, $toilet, $shower, $sp_idx);";
 
   mysqli_query($dbcon, $ldg_sql);
 

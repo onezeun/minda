@@ -106,6 +106,7 @@ create table lodging (
   ldg_sub_img LONGBLOB,
   ldg_info TEXT,
   ldg_maxnop INT NOT NULL,
+  ldg_time DATE,
   toilet INT NOT NULL,
   shower INT NOT NULL,
   p_idx INT,

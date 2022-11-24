@@ -14,7 +14,9 @@ $result = mysqli_query($dbcon, $sql);
 
 // 전체 데이터 가져오기
 $total = mysqli_num_rows($result);
+
 ?>
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -52,6 +54,12 @@ $total = mysqli_num_rows($result);
       $("body").addClass("scrollLock");
     });
 
+    $(".review_edit_btn").on("click", function(e) {
+      e.preventDefault();
+      $(".review_pop_bg").fadeTo("fast", 1);
+      $("body").addClass("scrollLock");
+    });
+
     $(".review_pop_cancel_btn").on("click", function() {
       $(".review_pop_bg").hide();
       $("body").removeClass("scrollLock");
@@ -71,9 +79,7 @@ $total = mysqli_num_rows($result);
     });
 
     $('.rv_score').on('input', function() {
-      $('.star span').css({
-        width: `${$(this).val() * 20}%`
-      });
+      $('.star span').css({width: `${$(this).val() * 20}%`});
       $('.star_score').text($('.rv_score').val());
     });
 
@@ -91,6 +97,15 @@ $total = mysqli_num_rows($result);
       if(!rv_score || !rv_content) {
         alert("내용을 입력해주세요");
       } else $('#review_edit_form').submit();
+    })
+
+    $('.review_cancel_btn').on('click', function(){
+      var ldg_idx = $('#ldg_idx').val();
+      var r_idx = $('#r_idx').val();
+      var rtn_val = confirm('리뷰를 삭제하시겠습니까?');
+      if (rtn_val == true) {
+      location.href = `review_delete.php?ldg_idx=${ldg_idx}&r_idx=${r_idx}`;
+    }
     })
   });
   </script>
@@ -231,7 +246,10 @@ $total = mysqli_num_rows($result);
                      } else { 
                       $rv_array = mysqli_fetch_array($rv_result)
                     ?>
-                      <button class="review_btn btn_hover">리뷰수정</button>
+                      <input type="hidden" name="ldg_idx" id="ldg_idx" value="<?php echo $ldg_idx; ?>">
+                      <input type="hidden" name="r_idx" id="r_idx" value="<?php echo $r_idx; ?>">
+                      <button class="review_edit_btn btn_hover">수정</button>
+                      <button class="review_cancel_btn btn_hover_cancel">삭제</button>
                       <div class="review_pop_bg">
                       <div class="review_pop">
                         <p class="review_pop_title">리뷰 작성</p>

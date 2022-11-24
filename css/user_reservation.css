@@ -180,6 +180,27 @@
   color: white;
  }
 
+ .review_edit_btn {
+  width: 35px;
+  height: 25px;
+  border: none;
+  border-radius: 5px;
+  background: #eeb72f;
+  color: white;
+  margin: 5px 0;
+ }
+
+ .review_cancel_btn {
+  width: 35px;
+  height: 25px;
+  border: none;
+  border-radius: 5px;
+  background: #f2f5ef;
+  color: #8b8b8b;
+  border: 1px solid #f2f5ef;
+  margin: 5px 0;
+}
+
  .red {
   color: red;
   font-size: 14px;

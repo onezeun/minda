@@ -16,7 +16,7 @@
   $shower = $_POST["shower"]; 
 
   // 시간 구하기 (숙소등록일)
-  $ldg_date = date("Y-m-d");
+  $ldg_time = date("Y-m-d");
 
   // 숙소 첨부파일 
   // 대표 이미지 저장
@@ -72,7 +72,7 @@
   include "../inc/dbcon.php";
 
   /* 쿼리 작성 */
-  $ldg_sql ="INSERT INTO lodging (ldg_name, ldg_country, ldg_city, ldg_main_img, ldg_sub_img, ldg_info, ldg_maxnop, ldg_date, toilet, shower, p_idx) VALUES ( '$ldg_name', '$ldg_country', '$ldg_city', '$ldg_mainimg_name', '$sub_arr_str', '$ldg_info', $ldg_maxnop, $ldg_date, $toilet, $shower, $sp_idx);";
+  $ldg_sql ="INSERT INTO lodging (ldg_name, ldg_country, ldg_city, ldg_main_img, ldg_sub_img, ldg_info, ldg_maxnop, ldg_time, toilet, shower, p_idx) VALUES ( '$ldg_name', '$ldg_country', '$ldg_city', '$ldg_mainimg_name', '$sub_arr_str', '$ldg_info', $ldg_maxnop, '$ldg_time', $toilet, $shower, $sp_idx);";
 
   mysqli_query($dbcon, $ldg_sql);
 
@@ -99,7 +99,8 @@
   /* 페이지 이동 */
   echo "
     <script type=\"text/javascript\">
-      location.href = \"http://localhost/KDT-1st-project-minda/partner/room/list_page.php\";
+      alert(\"객실등록 페이지로 이동합니다.\");
+      location.href = \"http://localhost/KDT-1st-project-minda/partner/room/room_page.php?ldg_idx=$ldg_idx\";
     </script>
     ";
 ?>

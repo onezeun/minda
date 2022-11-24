@@ -1,14 +1,14 @@
 -- USER 회원가입
 
-INSERT INTO users(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, u_img, reg_date) VALUES('admin', '0000', '관리자', '관리자닉네임', '01000000000', 'Y','http://localhost/KDT-1st-project-minda/user/profilephoto/default_profile.png', now());
-INSERT INTO users(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, u_img, reg_date) VALUES('테스트1', '1234', '테스트1', '닉네임1', '01011111111', 'Y','http://localhost/KDT-1st-project-minda/user/profilephoto/default_profile.png', now());
-INSERT INTO users(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, u_img, reg_date) VALUES('테스트2', '1234', '테스트2', '닉네임2', '01022222222', 'N','http://localhost/KDT-1st-project-minda/user/profilephoto/default_profile.png', now());
-INSERT INTO users(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, u_img, reg_date) VALUES('테스트3', '1234', '테스트3', '닉네임3', '01033333333', 'Y','http://localhost/KDT-1st-project-minda/user/profilephoto/default_profile.png', now());
-INSERT INTO users(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, u_img, reg_date) VALUES('테스트4', '1234', '테스트4', '닉네임4', '01044444444', 'N','http://localhost/KDT-1st-project-minda/user/profilephoto/default_profile.png', now());
-INSERT INTO users(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, u_img, reg_date) VALUES('테스트5', '1234', '테스트5', '닉네임5', '01055555555', 'Y','http://localhost/KDT-1st-project-minda/user/profilephoto/default_profile.png', now());
-INSERT INTO users(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, u_img, reg_date) VALUES('테스트6', '1234', '테스트6', '닉네임6', '01066666666', 'N','http://localhost/KDT-1st-project-minda/user/profilephoto/default_profile.png', now());
-INSERT INTO users(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, u_img, reg_date) VALUES('테스트7', '1234', '테스트7', '닉네임7', '01077777777', 'Y','http://localhost/KDT-1st-project-minda/user/profilephoto/default_profile.png', now());
-INSERT INTO users(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, u_img, reg_date) VALUES('테스트8', '1234', '테스트8', '닉네임8', '01088888888', 'N','http://localhost/KDT-1st-project-minda/user/profilephoto/default_profile.png', now());
+INSERT INTO users(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, u_img, reg_date) VALUES('admin', '0000', '관리자', '관리자닉네임', '01000000000', 'Y','http://onezeun.dothome.co.kr/minda/user/profilephoto/default_profile.png', now());
+INSERT INTO users(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, u_img, reg_date) VALUES('테스트1', '1234', '테스트1', '닉네임1', '01011111111', 'Y','http://onezeun.dothome.co.kr/minda/user/profilephoto/default_profile.png', now());
+INSERT INTO users(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, u_img, reg_date) VALUES('테스트2', '1234', '테스트2', '닉네임2', '01022222222', 'N','http://onezeun.dothome.co.kr/minda/user/profilephoto/default_profile.png', now());
+INSERT INTO users(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, u_img, reg_date) VALUES('테스트3', '1234', '테스트3', '닉네임3', '01033333333', 'Y','http://onezeun.dothome.co.kr/minda/user/profilephoto/default_profile.png', now());
+INSERT INTO users(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, u_img, reg_date) VALUES('테스트4', '1234', '테스트4', '닉네임4', '01044444444', 'N','http://onezeun.dothome.co.kr/minda/user/profilephoto/default_profile.png', now());
+INSERT INTO users(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, u_img, reg_date) VALUES('테스트5', '1234', '테스트5', '닉네임5', '01055555555', 'Y','http://onezeun.dothome.co.kr/minda/user/profilephoto/default_profile.png', now());
+INSERT INTO users(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, u_img, reg_date) VALUES('테스트6', '1234', '테스트6', '닉네임6', '01066666666', 'N','http://onezeun.dothome.co.kr/minda/user/profilephoto/default_profile.png', now());
+INSERT INTO users(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, u_img, reg_date) VALUES('테스트7', '1234', '테스트7', '닉네임7', '01077777777', 'Y','http://onezeun.dothome.co.kr/minda/user/profilephoto/default_profile.png', now());
+INSERT INTO users(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, u_img, reg_date) VALUES('테스트8', '1234', '테스트8', '닉네임8', '01088888888', 'N','http://onezeun.dothome.co.kr/minda/user/profilephoto/default_profile.png', now());
 
 
 -- 파트너

@@ -1,4 +1,6 @@
 -- Active: 1668163239833@@127.0.0.1@3306@minda
+SELECT AVG(rv_score) rv_score FROM review WHERE ldg_idx=2;
+SELECT MIN(r.r_price) r_price, AVG(rv.rv_score) rv_score FROM room r LEFT OUTER JOIN review rv on r.ldg_idx = rv.ldg_idx WHERE r.ldg_idx=1;
 SELECT l.ldg_idx, l.ldg_name, l.ldg_main_img, l.ldg_country, l.ldg_city, MIN(r.r_price) r_price, AVG(rv.rv_score) rv_score FROM lodging l JOIN room r ON l.ldg_idx = r.ldg_idx LEFT OUTER JOIN review rv ON l.ldg_idx = rv.ldg_idx GROUP BY ldg_idx;
 SELECT u.u_name, rv.rv_score, rv.rv_content FROM review rv JOIN users u ON u.u_idx = rv.u_idx WHERE rv.ldg_idx = 1;
 SELECT AVG(rv_score) avg_score FROM review WHERE ldg_idx = 1;

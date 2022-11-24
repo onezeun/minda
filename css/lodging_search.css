@@ -503,6 +503,7 @@ margin-right: 20px;
   width: 32px;
   height: 32px;
   background: url(../images/page01.png) no-repeat;
+  margin:0 5px;
 }
 
 .page02 {
@@ -510,5 +511,19 @@ margin-right: 20px;
   width: 32px;
   height: 32px;
   background: url(../images/page02.png) no-repeat;
+  margin:0 5px;
+}
+
+.page_prev {
+  width: 32px;
+  height: 32px;
+  background: url(../images/page_prev.png) no-repeat;
+  margin:0 5px;
+}
+
+.page_next {
+  width: 32px;
+  height: 32px;
+  background: url(../images/page_next.png) no-repeat;
   margin:0 5px;
 }

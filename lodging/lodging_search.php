@@ -320,16 +320,33 @@
 
           <div class="pager_wrap">
             <p class="pager">
-              <?php
-                // pager : 페이지 번호 출력
-                for($print_page = $s_pageNum;  $print_page <= $e_pageNum; $print_page++){
-              ?>
+            <?php
+            // pager : 이전 페이지
+            if($page <= 1){
+            ?>
+            <a href="lodging_search.php?srch_txt=<?php echo $srch_txt;?>&page=1" class="page_prev indent">이전</a>
+            <?php } else{ ?>
+            <a href="lodging_search.php?srch_txt=<?php echo $srch_txt;?>&page=<?php echo ($page - 1); ?>" class="page_prev indent">이전</a>
+            <?php }; ?>
+
+            <?php
+            // pager : 페이지 번호 출력
+            for($print_page = $s_pageNum;  $print_page <= $e_pageNum; $print_page++){
+            ?>
               <?php if ($print_page == $page) { ?>
               <a href="lodging_search.php?srch_txt=<?php echo $srch_txt;?>&page=<?php echo $print_page;?>" class="page01"><?php echo $print_page; ?></a>
               <?php } else { ?>
               <a href="lodging_search.php?srch_txt=<?php echo $srch_txt;?>&page=<?php echo $print_page;?>" class="page02"><?php echo $print_page; ?></a>
               <?php }}; ?>
-            </p>
+            <?php
+            // pager : 다음 페이지
+            if($page >= $total_page){
+            ?>
+            <a href="lodging_search.php?srch_txt=<?php echo $srch_txt;?>&page=<?php echo $total_page; ?>" class="page_next indent" >다음</a>
+            <?php } else{ ?>
+            <a href="lodging_search.php?srch_txt=<?php echo $srch_txt;?>&page=<?php echo ($page + 1); ?>" class="page_next indent">다음</a>
+            <?php }; ?>
+          </p>
           </div>
         </div>
       </div>

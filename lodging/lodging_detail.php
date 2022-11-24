@@ -58,7 +58,7 @@
               $sub_arr = explode(",",$l_array['ldg_sub_img'] );
               for($i=0; $i<count($sub_arr); $i++){
                 echo "
-                  <li><img src=\"../images/{$sub_arr[$i]}\" alt=\"숙소대표이미지\"/></li>
+                  <li><img src=\"../partner/room/images/{$sub_arr[$i]}\" alt=\"숙소대표이미지\"/></li>
                   ";
                 }
             ?>
@@ -81,7 +81,7 @@
           </div>
         </div>
         <?php 
-          $rv_sql = "SELECT r.ldg_idx, MIN(r.r_price) r_price, AVG(rv.rv_score) rv_score FROM room r LEFT OUTER JOIN review rv ON r.ldg_idx = rv.ldg_idx GROUP BY ldg_idx;";
+          $rv_sql = "SELECT r.ldg_idx, MIN(r.r_price) r_price, AVG(rv.rv_score) rv_score FROM room r LEFT OUTER JOIN review rv ON r.ldg_idx = rv.ldg_idx WHERE r.ldg_idx = $ldg_idx GROUP BY ldg_idx;";
           $rv_result = mysqli_query($dbcon, $rv_sql);
           $rv_num = mysqli_num_rows($rv_result);
           $rv_array = mysqli_fetch_array($rv_result);
@@ -313,12 +313,12 @@
         ?>
         <div class="review">
           <?php 
-                $avg_sql = "SELECT AVG(rv_score) avg_score FROM review WHERE ldg_idx = $ldg_idx;";
-                $avg_result = mysqli_query($dbcon, $avg_sql);
-                $avg_array = mysqli_fetch_array($avg_result);
-                $avg =  $avg_array['avg_score'];
-                if(!$avg) {
-              ?>
+            $avg_sql = "SELECT AVG(rv_score) avg_score FROM review WHERE ldg_idx = $ldg_idx;";
+            $avg_result = mysqli_query($dbcon, $avg_sql);
+            $avg_array = mysqli_fetch_array($avg_result);
+            $avg =  $avg_array['avg_score'];
+            if(!$avg) {
+          ?>
           <div class="review_wrap01">
             <h3>리뷰</h3>
             <p class="review_txt">리뷰의 신뢰도를 위해 실제로 숙박하신 분들만 작성 가능합니다.</p>
@@ -341,11 +341,12 @@
                   <input type="range" name="rv_score" class="rv_score" value="<?php echo $avg;?>" step="0.5" min="0"
                     max="5">
                 </span>
-                <span class="star_gpa"><?php echo $avg_array['avg_score']?></span>
+                <span class="star_gpa"><?php echo $avg_array['avg_score'];?></span>
               </p>
-              <p class="review_cnt">전체리뷰 <?php echo $rv_total?>개</p>
+              <p class="review_cnt">전체리뷰 <?php echo $rv_total;?>개</p>
             </div>
           </div>
+          <?php }; ?>
           <ul>
             <?php 
               // DB에서 데이터 가져오기
@@ -380,9 +381,9 @@
             // pager : 이전 페이지
             if($page <= 1){
             ?>
-            <a href="lodging_detail.php?ldg_idx=<?php echo $ldg_idx?>&page=1" class="page_prev indent">이전</a>
+            <a href="lodging_detail.php?ldg_idx=<?php echo $ldg_idx;?>&page=1" class="page_prev indent">이전</a>
             <?php } else{ ?>
-            <a href="lodging_detail.php?ldg_idx=<?php echo $ldg_idx?>&page=<?php echo ($page - 1); ?>"
+            <a href="lodging_detail.php?ldg_idx=<?php echo $ldg_idx;?>&page=<?php echo ($page - 1); ?>"
               class="page_prev indent">이전</a>
             <?php }; ?>
 
@@ -391,27 +392,23 @@
             for($print_page = $s_pageNum;  $print_page <= $e_pageNum; $print_page++){
             ?>
             <?php if ($print_page == $page) { ?>
-            <a href="lodging_detail.php?ldg_idx=<?php echo $ldg_idx?>&page=<?php echo $print_page;?>"
+            <a href="lodging_detail.php?ldg_idx=<?php echo $ldg_idx;?>&page=<?php echo $print_page;?>"
               class="page01"><?php echo $print_page; ?></a>
             <?php } else { ?>
-            <a href="lodging_detail.php?ldg_idx=<?php echo $ldg_idx?>&page=<?php echo $print_page;?>"
+            <a href="lodging_detail.php?ldg_idx=<?php echo $ldg_idx;?>&page=<?php echo $print_page;?>"
               class="page02"><?php echo $print_page; ?></a>
             <?php }}; ?>
             <?php
             // pager : 다음 페이지
             if($page >= $total_page){
             ?>
-            <a href="lodging_detail.php?ldg_idx=<?php echo $ldg_idx?>&page=<?php echo $total_page; ?>"
+            <a href="lodging_detail.php?ldg_idx=<?php echo $ldg_idx;?>&page=<?php echo $total_page; ?>"
               class="page_next indent">다음</a>
-            <?php } else{ ?>
-            <a href="lodging_detail.php?ldg_idx=<?php echo $ldg_idx?>&page=<?php echo ($page + 1); ?>"
+            <?php } else { ?>
+            <a href="lodging_detail.php?ldg_idx=<?php echo $ldg_idx;?>&page=<?php echo ($page + 1); ?>"
               class="page_next indent">다음</a>
             <?php }; ?>
           </p>
-          <?php 
-
-            }; 
-          ?>
         </div>
       </div>
 

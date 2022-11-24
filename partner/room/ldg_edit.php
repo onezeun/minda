@@ -16,7 +16,9 @@
   $toilet = $_POST["toilet"]; 
   $shower = $_POST["shower"]; 
   $ldg_mainimg_err = $_FILES["ldg_mainimg"]["error"];
-  $ldg_subimg_err = $_FILES["ldg_mainimg"]["error"];
+
+  /* DB 연결 */
+  include "../inc/dbcon.php";
 
   // 숙소 첨부파일 
   // 대표 이미지 저장
@@ -26,7 +28,7 @@
     $upload_folder = "images/";
     move_uploaded_file( $ldg_mainimg_tmp, $upload_folder.$ldg_mainimg_name );
   }
-  
+
   // 서브이미지 저장
   if($_FILES["ldg_subimg"] != NULL){
     $ldg_subimg_tmp = $_FILES['ldg_subimg']['tmp_name'];
@@ -55,8 +57,6 @@
   $lunch = isset($_POST["lunch"]) ? "1" : "0";
   $dinner = isset($_POST["dinner"]) ? "1" : "0";
 
-  /* DB 연결 */
-  include "../inc/dbcon.php";
 
   /* 쿼리 작성 */
   $ldg_sql ="UPDATE lodging SET ldg_name='$ldg_name', ldg_country='$ldg_country', ldg_city='$ldg_city', ldg_info='$ldg_info', ldg_maxnop=$ldg_maxnop, toilet=$toilet, shower=$shower WHERE ldg_idx=$ldg_idx;";
@@ -70,10 +70,10 @@
     mysqli_query($dbcon, $mainimg_sql);
   } 
 
-  if($ldg_subimg_err == 0) {
+  if($sub_arr_str != ""){
     $subimg_sql = "UPDATE lodging SET ldg_sub_img='$sub_arr_str' WHERE ldg_idx=$ldg_idx;";
     mysqli_query($dbcon, $subimg_sql);
-  } 
+  }
 
   /* DB 접속 종료 */
   mysqli_close($dbcon);

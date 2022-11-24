@@ -1,3 +1,8 @@
+-- Active: 1668163239833@@127.0.0.1@3306@minda
+SELECT l.ldg_idx, l.ldg_name, l.ldg_main_img, l.ldg_country, l.ldg_city, MIN(r.r_price) r_price, AVG(rv.rv_score) rv_score FROM lodging l JOIN room r ON l.ldg_idx = r.ldg_idx LEFT OUTER JOIN review rv ON l.ldg_idx = rv.ldg_idx GROUP BY ldg_idx;
+SELECT u.u_name, rv.rv_score, rv.rv_content FROM review rv JOIN users u ON u.u_idx = rv.u_idx WHERE rv.ldg_idx = 1;
+SELECT AVG(rv_score) avg_score FROM review WHERE ldg_idx = 1;
+
 SELECT u.u_idx, p.p_idx, u.u_email, u.u_pwd, u.u_name, u.u_img, p.p_name FROM users u LEFT OUTER JOIN partner_user p ON u.u_idx = p.u_idx WHERE u_email='ts@ts.ts';
 
 SELECT * FROM lodging WHERE ldg_name LIKE '%런던%';

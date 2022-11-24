@@ -1,4 +1,7 @@
 $(document).ready(function () {
+
+  $('.star span').css({width: `${$('#rv_score').val() * 20}%` });
+
   // 날짜 계산
   const getDate = (d1, d2) => {
     var date1 = new Date(d1);

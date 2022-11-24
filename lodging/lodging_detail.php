@@ -65,7 +65,7 @@
           </ul>
           <div class="carousel">
             <ul class="slider-nav">
-              <li><img src="<?php echo "../images/".$l_array['ldg_main_img']?>" alt="숙소대표이미지" class="nav_img"/></li>
+              <li><img src="<?php echo "../images/".$l_array['ldg_main_img']?>" alt="숙소대표이미지" class="nav_img" /></li>
               <?php
                 $sub_arr = explode(",",$l_array['ldg_sub_img'] );
                 for($i=0; $i<count($sub_arr); $i++){
@@ -215,8 +215,6 @@
               } else {
                 $type = "콘도형";
               };
-
-
           ?>
           <div class="room">
             <div class="room_img_wrap">
@@ -228,20 +226,23 @@
               <p class="room_left_txt02">객실정원 <?php echo $r_array["r_min"]." ~ ".$r_array["r_max"]; ?></p>
             </div>
             <div class="room_right">
-            <form name="rv_room_form" id="rv_room_form" action="../reservation/reservation.php?s_idx=<?php echo $s_idx; ?>&ldg_idx=<?php echo $ldg_idx; ?>" method="post">
-              <input type="hidden" name="r_idx" id="r_idx" value="<?php echo $r_array['r_idx'];?>">
-              <div id="price_wrap" class="room_right_txt_wrap">
-                <p class="room_right_txt01"><span class="rv_nop">1</span>인 <span class="rv_date">1</span>박</p>
-                <input type="hidden" class="price" value="<?php echo $r_array['r_price']; ?>">
-                <input type="hidden" class="s_idx" value="<?php echo $s_idx ?>">
-                <p class="room_right_txt02"><span class="rv_price"><?php echo number_format($r_array['r_price']); ?></span>원</p>
+              <form name="rv_room_form" id="rv_room_form"
+                action="../reservation/reservation.php?s_idx=<?php echo $s_idx; ?>&ldg_idx=<?php echo $ldg_idx; ?>"
+                method="post">
+                <input type="hidden" name="r_idx" id="r_idx" value="<?php echo $r_array['r_idx'];?>">
+                <div id="price_wrap" class="room_right_txt_wrap">
+                  <p class="room_right_txt01"><span class="rv_nop">1</span>인 <span class="rv_date">1</span>박</p>
+                  <input type="hidden" class="price" value="<?php echo $r_array['r_price']; ?>">
+                  <input type="hidden" class="s_idx" value="<?php echo $s_idx ?>">
+                  <p class="room_right_txt02"><span
+                      class="rv_price"><?php echo number_format($r_array['r_price']); ?></span>원</p>
 
-                <input type="hidden" name="checkin_date" class="checkin_date">
-                <input type="hidden" name="checkout_date" class="checkout_date">
-                <input type="hidden" name="rv_price" id="rv_price">
-                <input type="hidden" name="rv_nop" id="rv_nop">
-                <input type="hidden" name="rv_date" id="rv_date">
-              </div>
+                  <input type="hidden" name="checkin_date" class="checkin_date">
+                  <input type="hidden" name="checkout_date" class="checkout_date">
+                  <input type="hidden" name="rv_price" id="rv_price">
+                  <input type="hidden" name="rv_nop" id="rv_nop">
+                  <input type="hidden" name="rv_date" id="rv_date">
+                </div>
                 <!-- <a href="../reservation/reservation.php?s_idx=<?php echo $s_idx; ?>&ldg_idx=<?php echo $ldg_idx; ?>&r_idx=<?php echo $r_array['r_idx']; ?>" class="room_right_btn btn_hover">예약</a> -->
                 <button type="button" class="room_right_btn btn_hover">예약</button>
               </form>
@@ -253,40 +254,142 @@
           <h3>숙소 소개</h3>
           <div class="intro_txt"><?php echo $ldg_info;?></div>
         </div>
+        <?php 
+          $rv_sql = "SELECT u.u_name, rv.rv_score, rv.rv_content FROM review rv JOIN users u ON u.u_idx = rv.u_idx WHERE rv.ldg_idx = $ldg_idx";
+          $rv_result = mysqli_query($dbcon, $rv_sql);
+          $rv_total = mysqli_num_rows($rv_result);
+          // paging : 한 페이지 당 보여질 목록 수
+          $list_num = 3;
+
+          // paging : 한 블럭 당 페이지 수
+          $page_num = 5;
+
+          // paging : 현재 페이지
+          $page = isset($_GET["page"]) ? $_GET["page"] : 1 ;
+
+          // paging : 전체 페이지 수 = 전체 데이터 / 페이지 당 목록 수,  ceil : 올림값, floor : 내림값, round : 반올림
+          $total_page = ceil($rv_total / $list_num);
+          // echo "전체 페이지수 : ".$total_page;
+          // exit;
+
+          // paging : 전체 블럭 수 = 전체 페이지 수 / 블럭 당 페이지 수
+          $total_block = ceil($total_page / $page_num);
+
+          // paging : 현재 블럭 번호 = 현재 페이지 번호 / 블럭 당 페이지 수
+          $now_block = ceil($page / $page_num);
+          
+          // paging : 블럭 당 시작 페이지 번호 = (해당 글의 블럭 번호 - 1) * 블럭 당 페이지 수 + 1
+          $s_pageNum = ($now_block - 1) * $page_num + 1;
+          if($s_pageNum <= 0){
+              $s_pageNum = 1;
+          };
+
+          // paging : 블럭 당 마지막 페이지 번호 = 현재 블럭 번호 * 블럭 당 페이지 수
+          $e_pageNum = $now_block * $page_num;
+          // 블럭 당 마지막 페이지 번호가 전체 페이지 수를 넘지 않도록
+          if($e_pageNum > $total_page){
+              $e_pageNum = $total_page;
+          };
+
+          // paging : 해당 페이지의 글 시작 번호 = (현재 페이지 번호 - 1) * 페이지 당 보여질 목록 수
+          $start = ($page - 1) * $list_num;
+        ?>
         <div class="review">
+          <?php 
+                $avg_sql = "SELECT AVG(rv_score) avg_score FROM review WHERE ldg_idx = $ldg_idx;";
+                $avg_result = mysqli_query($dbcon, $avg_sql);
+                $avg_array = mysqli_fetch_array($avg_result);
+                $avg =  $avg_array['avg_score'];
+                if(!$avg) {
+              ?>
+          <div class="review_wrap01">
+            <h3>리뷰</h3>
+            <p class="review_txt">리뷰의 신뢰도를 위해 실제로 숙박하신 분들만 작성 가능합니다.</p>
+            <div class="star_wrap">
+              <p class="ostar_title">등록된 리뷰가 없습니다.</p>
+            </div>
+          </div>
+          <?php
+            } else { 
+          ?>
           <div class="review_wrap01">
             <h3>리뷰</h3>
             <p class="review_txt">리뷰의 신뢰도를 위해 실제로 숙박하신 분들만 작성 가능합니다.</p>
             <div class="star_wrap">
               <p class="star_title">추천해요</p>
-              <p><span class="star_img indent">별이미지</span><span class="star_gpa">5.0</span></p>
-              <p class="review_cnt">전체리뷰 6개</p>
+              <p class="star_score_wrap">                
+                <span class="star">
+                  ★★★★★
+                  <span style="width : <?php echo ($avg*20)."%"; ?>">★★★★★</span>
+                  <input type="range" name="rv_score" class="rv_score" value="<?php echo $avg;?>" step="0.5" min="0"
+                    max="5">
+                </span>
+                <span class="star_gpa"><?php echo $avg_array['avg_score']?></span>
+              </p>
+              <p class="review_cnt">전체리뷰 <?php echo $rv_total?>개</p>
             </div>
           </div>
           <ul>
+            <?php 
+              // DB에서 데이터 가져오기
+              // pager : 글번호(역순)
+              // 전체데이터 - ((현재 페이지 번호 -1) * 페이지 당 목록 수)
+              $rv_list_sql = "SELECT u.u_name, rv.rv_score, rv.rv_content FROM review rv JOIN users u ON u.u_idx = rv.u_idx WHERE rv.ldg_idx = $ldg_idx LIMIT $start, $list_num;";
+              $rv_list_result = mysqli_query($dbcon, $rv_list_sql);
+
+              $i = $rv_total - (($page - 1) * $list_num);
+              while($rv_array = mysqli_fetch_array($rv_list_result)){ 
+            ?>
             <li>
-              <p class="comment_name">이름</p>
-              <p class="comment_star"><span class="comment_star_img indent">별이미지</span><span
-                  class="comment_star_gpa">5.0</span></p>
-              <p class="comment_txt">내용</p>
+              <p class="comment_name"><?php echo $rv_array['u_name'];?></p>
+              <p class="comment_star_wrap">                
+                <span class="comment_star">
+                  ★★★★★
+                  <span style="width : <?php echo ($rv_array['rv_score']*20)."%"; ?>">★★★★★</span>
+                  <input type="range" name="rv_score" class="rv_score" value="<?php echo $rv_array['rv_score'];?>" step="0.5" min="0"
+                    max="5">
+                </span>
+                <span class="comment_star_gpa"><?php echo $rv_array['rv_score'];?></span>
+              </p>
+              <p class="comment_txt"><?php echo $rv_array['rv_content'];?></p>
             </li>
-            <li>
-              <p class="comment_name">이름</p>
-              <p class="comment_star"><span class="comment_star_img indent">별이미지</span><span
-                  class="comment_star_gpa">5.0</span></p>
-              <p class="comment_txt">내용</p>
-            </li>
-            <li>
-              <p class="comment_name">이름</p>
-              <p class="comment_star"><span class="comment_star_img indent">별이미지</span><span
-                  class="comment_star_gpa">5.0</span></p>
-              <p class="comment_txt">내용</p>
-            </li>
+            <?php 
+                $i--;
+              };
+            ?>
           </ul>
-          <div class="pagenation indent">
-            <a href="#" class="pagenation_btn01">1페이지</a>
-            <a href="#" class="pagenation_btn02">2페이지</a>
-          </div>
+          <p class="pager">
+            <?php
+            // pager : 이전 페이지
+            if($page <= 1){
+            ?>
+            <a href="lodging_detail.php?ldg_idx=<?php echo $ldg_idx?>&page=1" class="page_prev indent">이전</a>
+            <?php } else{ ?>
+            <a href="lodging_detail.php?ldg_idx=<?php echo $ldg_idx?>&page=<?php echo ($page - 1); ?>" class="page_prev indent">이전</a>
+            <?php }; ?>
+
+            <?php
+            // pager : 페이지 번호 출력
+            for($print_page = $s_pageNum;  $print_page <= $e_pageNum; $print_page++){
+            ?>
+              <?php if ($print_page == $page) { ?>
+              <a href="lodging_detail.php?ldg_idx=<?php echo $ldg_idx?>&page=<?php echo $print_page;?>" class="page01"><?php echo $print_page; ?></a>
+              <?php } else { ?>
+              <a href="lodging_detail.php?ldg_idx=<?php echo $ldg_idx?>&page=<?php echo $print_page;?>" class="page02"><?php echo $print_page; ?></a>
+              <?php }}; ?>
+            <?php
+            // pager : 다음 페이지
+            if($page >= $total_page){
+            ?>
+            <a href="lodging_detail.php?ldg_idx=<?php echo $ldg_idx?>&page=<?php echo $total_page; ?>" class="page_next indent" >다음</a>
+            <?php } else{ ?>
+            <a href="lodging_detail.php?ldg_idx=<?php echo $ldg_idx?>&page=<?php echo ($page + 1); ?>" class="page_next indent">다음</a>
+            <?php }; ?>
+          </p>
+          <?php 
+
+            }; 
+          ?>
         </div>
       </div>
 

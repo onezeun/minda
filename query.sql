@@ -46,55 +46,8 @@ INSERT INTO partner_user(u_idx, p_name, p_biznum, p_phone) VALUES('$u_idx', '$p_
 SELECT p.u_idx, p.p_idx, u.u_email, u.u_name, u.u_img, p.p_name FROM partner_user p JOIN users u ON u.u_idx = p.u_idx;
 SELECT u.u_idx, p.p_idx, u.u_email, u.u_pwd, u.u_name, u.u_img, p.p_name FROM users u JOIN partner_user p ON u.u_idx = p.u_idx WHERE u_email='테스트3';
 
--- 예약 RESERVATION
-create table reservation (
-  res_idx INT AUTO_INCREMENT PRIMARY KEY,
-  res_name VARCHAR(30) NOT NULL,
-  res_phone VARCHAR(20) NOT NULL,
-  res_email VARCHAR(50) NOT NULL,
-  res_gender CHAR(1) NOT NULL,
-  res_checkin DATE NOT NULL,
-  res_checkout DATE NOT NULL,
-  res_time DATETIME NOT NULL,
-  res_nop INT NOT NULL,
-  res_nod INT NOT NULL,
-  res_date DATE NOT NULL,
-  res_state CHAR(1) NOT NULL,
-  total_price INT NOT NULL,
-  pay_date DATE NOT NULL,
-  pay_method VARCHAR(20) NOT NULL,
-  ldg_idx INT,
-  r_idx INT,
-  u_idx INT,
-  FOREIGN KEY (ldg_idx) REFERENCES lodging (ldg_idx),
-  FOREIGN KEY (r_idx) REFERENCES room (r_idx),
-  FOREIGN KEY (u_idx) REFERENCES users (u_idx)
-);
-
--- res_state 예약 상태 -> 1 : 결제 대기 (결제), 2 : 예약 완료 (예약취소), 3 : 예약취소(환불진행중, 환불완료), 4 : 숙박완료(리뷰쓰기)
-SELECT res.res_idx, l.ldg_idx, r.r_idx, r.r_name, res.res_checkin, res.res_checkout, res.total_price, res.res_state 
-FROM reservation res JOIN lodging l ON res.ldg_idx = l.ldg_idx JOIN room r ON res.r_idx = r.r_idx 
-WHERE res.u_idx=3 AND res.res_checkin < CURDATE();
-
--- 결제 PAYMENT
--- create table payment (
---   pay_idx INT AUTO_INCREMENT PRIMARY KEY,
---   pay_date DATE NOT NULL,
---   pay_method VARCHAR(20) NOT NULL,
---   res_idx INT,
---   FOREIGN KEY (res_idx) REFERENCES reservation (res_idx)
--- );
-
--- 좋아요 LIKE
-create table like_table (
-  ldg_idx INT,
-  u_idx INT,
-  FOREIGN KEY (ldg_idx) REFERENCES lodging (ldg_idx) ON DELETE CASCADE,
-  FOREIGN KEY (u_idx) REFERENCES users (u_idx)
-);
-
-
 SELECT l.ldg_idx, l.ldg_name, l.ldg_main_img, l.ldg_country, l.ldg_city, MIN(r.r_price) r_price FROM lodging l JOIN room r ON l.ldg_idx = r.ldg_idx GROUP BY ldg_idx;
+
 -- 숙소 LODGING
 create table lodging (
   ldg_idx INT AUTO_INCREMENT PRIMARY KEY,
@@ -182,6 +135,54 @@ create table room (
 );
 
 SELECT MIN(r_price) r_price FROM room WHERE ldg_idx=26;
+
+-- 예약 RESERVATION
+create table reservation (
+  res_idx INT AUTO_INCREMENT PRIMARY KEY,
+  res_name VARCHAR(30) NOT NULL,
+  res_phone VARCHAR(20) NOT NULL,
+  res_email VARCHAR(50) NOT NULL,
+  res_gender CHAR(1) NOT NULL,
+  res_checkin DATE NOT NULL,
+  res_checkout DATE NOT NULL,
+  res_time DATETIME NOT NULL,
+  res_nop INT NOT NULL,
+  res_nod INT NOT NULL,
+  res_date DATE NOT NULL,
+  res_state CHAR(1) NOT NULL,
+  total_price INT NOT NULL,
+  pay_date DATE NOT NULL,
+  pay_method VARCHAR(20) NOT NULL,
+  ldg_idx INT,
+  r_idx INT,
+  u_idx INT,
+  FOREIGN KEY (ldg_idx) REFERENCES lodging (ldg_idx),
+  FOREIGN KEY (r_idx) REFERENCES room (r_idx),
+  FOREIGN KEY (u_idx) REFERENCES users (u_idx)
+);
+
+-- res_state 예약 상태 -> 1 : 결제 대기 (결제), 2 : 예약 완료 (예약취소), 3 : 예약취소(환불진행중, 환불완료), 4 : 숙박완료(리뷰쓰기)
+SELECT res.res_idx, l.ldg_idx, r.r_idx, r.r_name, res.res_checkin, res.res_checkout, res.total_price, res.res_state 
+FROM reservation res JOIN lodging l ON res.ldg_idx = l.ldg_idx JOIN room r ON res.r_idx = r.r_idx 
+WHERE res.u_idx=3 AND res.res_checkin < CURDATE();
+
+-- 결제 PAYMENT
+-- create table payment (
+--   pay_idx INT AUTO_INCREMENT PRIMARY KEY,
+--   pay_date DATE NOT NULL,
+--   pay_method VARCHAR(20) NOT NULL,
+--   res_idx INT,
+--   FOREIGN KEY (res_idx) REFERENCES reservation (res_idx)
+-- );
+
+-- 좋아요 LIKE
+create table like_table (
+  ldg_idx INT,
+  u_idx INT,
+  FOREIGN KEY (ldg_idx) REFERENCES lodging (ldg_idx) ON DELETE CASCADE,
+  FOREIGN KEY (u_idx) REFERENCES users (u_idx)
+);
+
 
 -- 리뷰 REVIEW
 create table review (

@@ -1,4 +1,5 @@
 -- Active: 1668163239833@@127.0.0.1@3306@minda
+SELECT l.ldg_idx, l.ldg_name, l.ldg_main_img, l.ldg_sub_img, l.ldg_info, l.ldg_country, l.ldg_city, l.ldg_maxnop, l.toilet, l.shower, MIN(r.r_price) r_price, f.dormitory, f.dormitory, f.privateroom, f.condo, f.womenonly, f.wifi, f.kitchen, f.elevator, f.locker, f.parking, f.breakfast, f.lunch, f.dinner FROM lodging l JOIN room r ON l.ldg_idx = r.ldg_idx JOIN lodging_facility f ON l.ldg_idx = f.ldg_idx WHERE l.ldg_idx=1;
 SELECT AVG(rv_score) rv_score FROM review WHERE ldg_idx=2;
 SELECT MIN(r.r_price) r_price, AVG(rv.rv_score) rv_score FROM room r LEFT OUTER JOIN review rv on r.ldg_idx = rv.ldg_idx WHERE r.ldg_idx=1;
 SELECT l.ldg_idx, l.ldg_name, l.ldg_main_img, l.ldg_country, l.ldg_city, MIN(r.r_price) r_price, AVG(rv.rv_score) rv_score FROM lodging l JOIN room r ON l.ldg_idx = r.ldg_idx LEFT OUTER JOIN review rv ON l.ldg_idx = rv.ldg_idx GROUP BY ldg_idx;

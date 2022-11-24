@@ -22,7 +22,7 @@
   <link rel="stylesheet" type="text/css" href="css/daterangepicker.css" />
   <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
     crossorigin="anonymous">
-    </script>
+  </script>
   <script type="text/javascript" src="js/includ.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
@@ -38,7 +38,7 @@
     <header>
       <div id="header-include"></div>
     </header>
-    
+
     <!-- content -->
     <main id="content" class="content">
       <div class="mb_wrap">
@@ -115,12 +115,12 @@
         <h2 class="slide_title">베스트 한인민박</h2>
         <ul id="room_slide" class="card_slide">
           <?php 
-            $sql = "SELECT l.ldg_idx, l.ldg_name, l.ldg_main_img, l.ldg_country, l.ldg_city, MIN(r.r_price) r_price FROM lodging l JOIN room r ON l.ldg_idx = r.ldg_idx GROUP BY ldg_idx;";
+            $sql = "SELECT l.ldg_idx, l.ldg_name, l.ldg_main_img, l.ldg_country, l.ldg_city, MIN(r.r_price) r_price, AVG(rv.rv_score) rv_score FROM lodging l JOIN room r ON l.ldg_idx = r.ldg_idx LEFT OUTER JOIN review rv ON l.ldg_idx = rv.ldg_idx GROUP BY ldg_idx;";
             $result = mysqli_query($dbcon, $sql);
             $num = mysqli_num_rows($result);
             if(!$num) {
           ?>
-            <p class="room_txt">등록된 숙소가 없습니다.</p>
+          <p class="room_txt">등록된 숙소가 없습니다.</p>
           <?php  
             };
             while($array = mysqli_fetch_array($result)){ 
@@ -139,10 +139,23 @@
                   <h3 class="card_title"><?php echo $array['ldg_name']; ?></h3>
                   <div class="card_bot">
                     <div class="card_review">
-                      <span class="card_review_sign">리뷰5.0</span><span class="card_review_count">11</span>
+                      <?php 
+                        $avg = $array['rv_score'];
+                        if(!$avg) {
+                      ?>
+                      <span class="star_null">등록된 리뷰가 없습니다</span>
+                      </div>
+                      <?php }else {?>
+                      <span class="star">
+                        ★★★★★
+                        <span style="width :<?php echo ($avg*20-3) ."%"; ?> ">★★★★★</span>
+                      </span>
+                      <span class="star_gpa"><?php echo $avg?></span>
                     </div>
+                    <?php }; ?>
                     <div>
-                      <span class="card_price"><?php echo number_format($array['r_price']); ?> 원</span><span class="card_price_std">1박</span>
+                      <span class="card_price"><?php echo number_format($array['r_price']); ?> 원</span><span
+                        class="card_price_std">1박</span>
                     </div>
                   </div>
                 </div>
@@ -415,7 +428,7 @@
           </div>
 
           <div id="cunt_deal_list" class="cmnt_list displaynone">
-            <ul>
+          <ul>
               <li><a href="#"><span class="cmnt_list_date">2022-09-21</span> 내용을 길게 쓰자 머라쓰지 내용내용내용내용내용내용내용내용더써야되네</a></li>
               <li><a href="#"><span class="cmnt_list_date">2022-09-19</span> 내용을 길게 쓰자 머라쓰지 내용내용내용내용내용내용내용내용더써야되네</a></li>
               <li><a href="#"><span class="cmnt_list_date">2022-09-18</span> 내용을 길게 쓰자 머라쓰지 내용내용내용내용내용내용내용내용더써야되네</a></li>
@@ -490,7 +503,7 @@
 
     <!-- footer -->
     <footer>
-      <div  id="footer-include"></div>
+      <div id="footer-include"></div>
     </footer>
   </div>
 </body>

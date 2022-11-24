@@ -435,18 +435,42 @@ display: inline-block;
 margin-right: 20px;
 }
 
+.star {
+  font-family: 'SDSamliphopangche_Basic' !important;
+  position: relative;
+  font-size: 1rem;
+  color: #d7d7d7;
+  cursor: default;
+}
+
+.star span {
+  width: 0;
+  position: absolute; 
+  top: -3.5px;
+  left: 0px;
+  color: #ffde0d;
+  overflow: hidden;
+  pointer-events: none;
+  cursor: default;
+}
+
+.star_gpa {
+  color: black;
+  font-size: 16px;
+  margin-right: 5px;
+}
+
+.star_null {
+  color: #8c8c8c;
+  font-size: 12px;
+}
+
 .review_star {
   width: 77px;
   height: 14px;
   background: url(../images/star.png) no-repeat;
   text-indent: -9999px;
   display: inline-block;
-}
-
-.review_count {
-  color: black;
-  font-size: 16px;
-  margin-right: 5px;
 }
 
 .result_room_like {

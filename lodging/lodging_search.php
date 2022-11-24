@@ -261,6 +261,12 @@
               $r_result = mysqli_query($dbcon, $r_sql);
               $r_arr = mysqli_fetch_array($r_result);
 
+              $rv_sql = "SELECT AVG(rv_score) rv_score FROM review WHERE ldg_idx=$ldg_idx;";
+              $rv_result = mysqli_query($dbcon, $rv_sql);
+              $rv_arr = mysqli_fetch_array($rv_result);
+              $rv_num = mysqli_num_rows($rv_result);
+              $avg = $rv_arr['rv_score'];
+
               $dormitory = $array["dormitory"] == "1" ? "도미토리" : "";
               $privateroom = $array["privateroom"] == "1" ? "개인실" : "";
               $condo = $array["condo"] == "1" ? "콘도형" : "";
@@ -286,7 +292,7 @@
               $facility_arr2 = array_filter($facility_arr);
               $facility = trim(implode(" · ", $facility_arr2)," · ");
           ?>
-          <a href="#">
+          <a href="lodging_detail.php?ldg_idx=<?php echo $ldg_idx ?>">
             <div class="result_room">
               <img src="<?php echo '../partner/room/images/'.$array['ldg_main_img']; ?>" alt="검색된숙소이미지1">
               <div class="result_room_left">
@@ -297,9 +303,18 @@
                 <div class="result_room_bot">
                   <p class="room_service"><?php echo $meal." 제공, ".$facility; ?></p>
                   <div class="result_room_review">
-                    <span class="review_star">리뷰점수</span>
-                    <span class="review_count">5.0</span>
-                    <span class="review_comment">6개의 이용후기</span>
+                    <?php 
+                        if(!$avg) {
+                      ?>
+                      <span class="review_comment">등록된 후기가 없습니다</span>
+                    <?php }else { ?>
+                    <span class="star">
+                      ★★★★★
+                      <span style="width :<?php echo ($avg*20-3) ."%"; ?> ">★★★★★</span>
+                    </span>
+                    <span class="star_gpa"><?php echo $avg?></span>
+                    <span class="review_comment"><?php echo $rv_num; ?>개의 이용후기</span>
+                    <?php }; ?>
                   </div>
                   <div class="result_room_like">
                     <span class="like_sign">좋아요</span>
@@ -320,33 +335,38 @@
 
           <div class="pager_wrap">
             <p class="pager">
-            <?php
+              <?php
             // pager : 이전 페이지
             if($page <= 1){
             ?>
-            <a href="lodging_search.php?srch_txt=<?php echo $srch_txt;?>&page=1" class="page_prev indent">이전</a>
-            <?php } else{ ?>
-            <a href="lodging_search.php?srch_txt=<?php echo $srch_txt;?>&page=<?php echo ($page - 1); ?>" class="page_prev indent">이전</a>
-            <?php }; ?>
+              <a href="lodging_search.php?srch_txt=<?php echo $srch_txt;?>&page=1" class="page_prev indent">이전</a>
+              <?php } else{ ?>
+              <a href="lodging_search.php?srch_txt=<?php echo $srch_txt;?>&page=<?php echo ($page - 1); ?>"
+                class="page_prev indent">이전</a>
+              <?php }; ?>
 
-            <?php
+              <?php
             // pager : 페이지 번호 출력
             for($print_page = $s_pageNum;  $print_page <= $e_pageNum; $print_page++){
             ?>
               <?php if ($print_page == $page) { ?>
-              <a href="lodging_search.php?srch_txt=<?php echo $srch_txt;?>&page=<?php echo $print_page;?>" class="page01"><?php echo $print_page; ?></a>
+              <a href="lodging_search.php?srch_txt=<?php echo $srch_txt;?>&page=<?php echo $print_page;?>"
+                class="page01"><?php echo $print_page; ?></a>
               <?php } else { ?>
-              <a href="lodging_search.php?srch_txt=<?php echo $srch_txt;?>&page=<?php echo $print_page;?>" class="page02"><?php echo $print_page; ?></a>
+              <a href="lodging_search.php?srch_txt=<?php echo $srch_txt;?>&page=<?php echo $print_page;?>"
+                class="page02"><?php echo $print_page; ?></a>
               <?php }}; ?>
-            <?php
+              <?php
             // pager : 다음 페이지
             if($page >= $total_page){
             ?>
-            <a href="lodging_search.php?srch_txt=<?php echo $srch_txt;?>&page=<?php echo $total_page; ?>" class="page_next indent" >다음</a>
-            <?php } else{ ?>
-            <a href="lodging_search.php?srch_txt=<?php echo $srch_txt;?>&page=<?php echo ($page + 1); ?>" class="page_next indent">다음</a>
-            <?php }; ?>
-          </p>
+              <a href="lodging_search.php?srch_txt=<?php echo $srch_txt;?>&page=<?php echo $total_page; ?>"
+                class="page_next indent">다음</a>
+              <?php } else{ ?>
+              <a href="lodging_search.php?srch_txt=<?php echo $srch_txt;?>&page=<?php echo ($page + 1); ?>"
+                class="page_next indent">다음</a>
+              <?php }; ?>
+            </p>
           </div>
         </div>
       </div>

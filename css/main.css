@@ -347,6 +347,39 @@
   background: white;
 }
 
+.card_review {
+  display: inline-block;
+}
+
+.star {
+  font-family: 'SDSamliphopangche_Basic' !important;
+  position: relative;
+  font-size: 1rem;
+  color: #d7d7d7;
+  cursor: default;
+}
+
+.star span {
+  width: 0;
+  position: absolute; 
+  left: 0px;
+  color: #ffde0d;
+  overflow: hidden;
+  pointer-events: none;
+  cursor: default;
+}
+
+.star_gpa {
+  margin-left: 5px;
+  color: #8c8c8c;
+  font-size: 12px;
+}
+
+.star_null {
+  color: #8c8c8c;
+  font-size: 12px;
+}
+
 .card_review_sign {
   width: 77px;
   height: 14px;

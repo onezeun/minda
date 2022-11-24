@@ -44,7 +44,7 @@
     <!-- content -->
     <main id="content" class="content">
       <?php 
-      $l_sql = "SELECT l.ldg_idx, l.ldg_name, l.ldg_main_img, l.ldg_sub_img, l.ldg_info, l.ldg_country, l.ldg_city, l.ldg_maxnop, l.toilet, l.shower, MIN(r.r_price) r_price, f.dormitory, f.dormitory, f.privateroom, f.condo, f.womenonly, f.wifi, f.kitchen, f.elevator, f.locker, f.parking, f.breakfast, f.lunch, f.dinner FROM lodging l JOIN room r ON l.ldg_idx = r.ldg_idx JOIN lodging_facility f ON l.ldg_idx = f.ldg_idx WHERE l.ldg_idx=$ldg_idx;";
+      $l_sql = "SELECT l.ldg_idx, l.ldg_name, l.ldg_main_img, l.ldg_sub_img, l.ldg_info, l.ldg_country, l.ldg_city, l.ldg_maxnop, l.toilet, l.shower, f.dormitory, f.dormitory, f.privateroom, f.condo, f.womenonly, f.wifi, f.kitchen, f.elevator, f.locker, f.parking, f.breakfast, f.lunch, f.dinner FROM lodging l JOIN lodging_facility f ON l.ldg_idx = f.ldg_idx WHERE l.ldg_idx=$ldg_idx;";
       $l_result = mysqli_query($dbcon, $l_sql);
       $l_array = mysqli_fetch_array($l_result); 
       $ldg_info = $l_array['ldg_info'];
@@ -53,7 +53,7 @@
       <div class="main_cont">
         <div class="main_cont_left">
           <ul class="slider-for">
-            <li><img src="<?php echo "../images/".$l_array['ldg_main_img'] ?>" alt="숙소대표이미지" /></li>
+            <li><img src="<?php echo "../partner/room/images/".$l_array['ldg_main_img'] ?>" alt="숙소대표이미지" /></li>
             <?php
               $sub_arr = explode(",",$l_array['ldg_sub_img'] );
               for($i=0; $i<count($sub_arr); $i++){
@@ -65,12 +65,13 @@
           </ul>
           <div class="carousel">
             <ul class="slider-nav">
-              <li><img src="<?php echo "../images/".$l_array['ldg_main_img']?>" alt="숙소대표이미지" class="nav_img" /></li>
+              <li><img src="<?php echo "../partner/room/images/".$l_array['ldg_main_img']?>" alt="숙소대표이미지"
+                  class="nav_img" /></li>
               <?php
                 $sub_arr = explode(",",$l_array['ldg_sub_img'] );
                 for($i=0; $i<count($sub_arr); $i++){
                 echo "
-                  <li><img src=\"../images/{$sub_arr[$i]}\" alt=\"숙소대표이미지\" class=\"nav_img\"/></li>
+                  <li><img src=\"../partner/room/images/{$sub_arr[$i]}\" alt=\"숙소대표이미지\" class=\"nav_img\"/></li>
                   ";
                 }
               ?>
@@ -79,18 +80,34 @@
             <a href="#" id="ldg_next" class="ldg_next indent">다음</a>
           </div>
         </div>
+        <?php 
+          $rv_sql = "SELECT r.ldg_idx, MIN(r.r_price) r_price, AVG(rv.rv_score) rv_score FROM room r LEFT OUTER JOIN review rv ON r.ldg_idx = rv.ldg_idx GROUP BY ldg_idx;";
+          $rv_result = mysqli_query($dbcon, $rv_sql);
+          $rv_num = mysqli_num_rows($rv_result);
+          $rv_array = mysqli_fetch_array($rv_result);
+        ?>
         <div class="main_cont_right">
           <h3><?php echo $l_array['ldg_name'];?></h3>
-          <p class="ldg_price"><?php echo number_format($l_array['r_price']);?>원 ~</p>
+          <p class="ldg_price"><?php echo number_format($rv_array['r_price']);?>원 ~</p>
           <div class="ldg_btn">
             <a href="#" class="ldg_share indent">공유</a>
             <a href="#" class="ldg_like indent">좋아요</a>
           </div>
           <div class="relike_wrap">
+
             <div class="main_cont_review">
-              <span class="star_icon indent">별아이콘</span>
-              <span class="gpa">5.0</span>
-              <a href="#">리뷰보기</a>
+              <?php 
+                $avg = $rv_array['rv_score'];
+                if(!$avg) {
+              ?>
+              <span class="m_star_null">등록된 리뷰가 없습니다</span>
+              <?php }else {?>
+              <span class="m_star">
+                ★★★★★
+                <span style="width :<?php echo ($avg*20-3) ."%"; ?> ">★★★★★</span>
+              </span>
+              <span class="m_star_gpa"><?php echo $avg?></span>
+              <?php }; ?>
             </div>
             <div class="main_cont_like">
               <p>이 숙소를 좋아하는 <span class="like_color_txt">132</span>명</p>
@@ -317,7 +334,7 @@
             <p class="review_txt">리뷰의 신뢰도를 위해 실제로 숙박하신 분들만 작성 가능합니다.</p>
             <div class="star_wrap">
               <p class="star_title">추천해요</p>
-              <p class="star_score_wrap">                
+              <p class="star_score_wrap">
                 <span class="star">
                   ★★★★★
                   <span style="width : <?php echo ($avg*20)."%"; ?>">★★★★★</span>
@@ -342,12 +359,12 @@
             ?>
             <li>
               <p class="comment_name"><?php echo $rv_array['u_name'];?></p>
-              <p class="comment_star_wrap">                
+              <p class="comment_star_wrap">
                 <span class="comment_star">
                   ★★★★★
                   <span style="width : <?php echo ($rv_array['rv_score']*20)."%"; ?>">★★★★★</span>
-                  <input type="range" name="rv_score" class="rv_score" value="<?php echo $rv_array['rv_score'];?>" step="0.5" min="0"
-                    max="5">
+                  <input type="range" name="rv_score" class="rv_score" value="<?php echo $rv_array['rv_score'];?>"
+                    step="0.5" min="0" max="5">
                 </span>
                 <span class="comment_star_gpa"><?php echo $rv_array['rv_score'];?></span>
               </p>
@@ -365,25 +382,30 @@
             ?>
             <a href="lodging_detail.php?ldg_idx=<?php echo $ldg_idx?>&page=1" class="page_prev indent">이전</a>
             <?php } else{ ?>
-            <a href="lodging_detail.php?ldg_idx=<?php echo $ldg_idx?>&page=<?php echo ($page - 1); ?>" class="page_prev indent">이전</a>
+            <a href="lodging_detail.php?ldg_idx=<?php echo $ldg_idx?>&page=<?php echo ($page - 1); ?>"
+              class="page_prev indent">이전</a>
             <?php }; ?>
 
             <?php
             // pager : 페이지 번호 출력
             for($print_page = $s_pageNum;  $print_page <= $e_pageNum; $print_page++){
             ?>
-              <?php if ($print_page == $page) { ?>
-              <a href="lodging_detail.php?ldg_idx=<?php echo $ldg_idx?>&page=<?php echo $print_page;?>" class="page01"><?php echo $print_page; ?></a>
-              <?php } else { ?>
-              <a href="lodging_detail.php?ldg_idx=<?php echo $ldg_idx?>&page=<?php echo $print_page;?>" class="page02"><?php echo $print_page; ?></a>
-              <?php }}; ?>
+            <?php if ($print_page == $page) { ?>
+            <a href="lodging_detail.php?ldg_idx=<?php echo $ldg_idx?>&page=<?php echo $print_page;?>"
+              class="page01"><?php echo $print_page; ?></a>
+            <?php } else { ?>
+            <a href="lodging_detail.php?ldg_idx=<?php echo $ldg_idx?>&page=<?php echo $print_page;?>"
+              class="page02"><?php echo $print_page; ?></a>
+            <?php }}; ?>
             <?php
             // pager : 다음 페이지
             if($page >= $total_page){
             ?>
-            <a href="lodging_detail.php?ldg_idx=<?php echo $ldg_idx?>&page=<?php echo $total_page; ?>" class="page_next indent" >다음</a>
+            <a href="lodging_detail.php?ldg_idx=<?php echo $ldg_idx?>&page=<?php echo $total_page; ?>"
+              class="page_next indent">다음</a>
             <?php } else{ ?>
-            <a href="lodging_detail.php?ldg_idx=<?php echo $ldg_idx?>&page=<?php echo ($page + 1); ?>" class="page_next indent">다음</a>
+            <a href="lodging_detail.php?ldg_idx=<?php echo $ldg_idx?>&page=<?php echo ($page + 1); ?>"
+              class="page_next indent">다음</a>
             <?php }; ?>
           </p>
           <?php 

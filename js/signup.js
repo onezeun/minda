@@ -9,31 +9,36 @@ $(document).ready(function () {
   var idck = 0;
 
   const emailCheck = () => {
+    $('#email').removeClass('succ_email_input');
+    $('#err_email').removeClass('succ_txt');
+
     if (!$('#email').val()) {
       $('#email').addClass('err_email_input').focus();
       $('#email').removeClass('email_input');
-      $('#err_email').css({ display: 'block' }).text('이메일을 입력해주세요');
+      $('#err_email')
+      .css({ display: 'block' })
+      .addClass('err_txt')
+      .text('이메일을 입력해주세요');
       return false;
     } else if (!regEmail.test($('#email').val())) {
       $('#email').addClass('err_email_input').focus();
       $('#email').removeClass('email_input');
       $('#err_email')
         .css({ display: 'block' })
+        .addClass('err_txt')
         .text('올바른 이메일 형식이 아닙니다');
       return false;
     } else {
+      console.log("gd1");
       $('#email').addClass('email_input');
       $('#email').removeClass('err_email_input');
       $('#email').removeClass('succ_email_input');
+      $('#err_email').removeClass('succ_txt');
       $('#err_email').css({ display: 'none' });
+      console.log("g2d");
       return true;
     }
   };
-
-  $('#email').on('keyup', function () {
-    emailCheck();
-    idck = 0;
-  });
 
   // 이메일 중복검사
   $('#email_check').on('click', function () {
@@ -44,8 +49,8 @@ $(document).ready(function () {
       $('#email').removeClass('email_input');
       $('#err_email')
         .css({ display: 'block' })
-        .removeClass('succ_txt')
         .addClass('err_txt')
+        .removeClass('succ_txt')
         .text('이메일을 입력해주세요');
       return false;
     } else {
@@ -60,8 +65,8 @@ $(document).ready(function () {
             $('#email').removeClass('email_input');
             $('#err_email')
               .css({ display: 'block' })
-              .removeClass('succ_txt')
               .addClass('err_txt')
+              .removeClass('succ_txt')
               .text('사용중인 이메일입니다.');
             return false;
           } else if (!regEmail.test($('#email').val())) {
@@ -69,17 +74,16 @@ $(document).ready(function () {
             $('#email').removeClass('email_input');
             $('#err_email')
               .css({ display: 'block' })
-              .removeClass('succ_txt')
               .addClass('err_txt')
+              .removeClass('succ_txt')
               .text('올바른 이메일 형식이 아닙니다');
             return false;
           } else {
-            $('#email').addClass('succ_email_input');
-            $('#email').removeClass('email_input');
+            $('#email').addClass('succ_email_input').removeClass('email_input').removeClass('err_email_input');
             $('#err_email')
               .css({ display: 'block' })
-              .removeClass('err_txt')
               .addClass('succ_txt')
+              .removeClass('err_txt')
               .text('사용가능한 이메일입니다.');
             // 아이디 중복이 아니면
             idck = 1;
@@ -96,6 +100,11 @@ $(document).ready(function () {
       alert('아이디 중복확인을 해주세요');
     }
   };
+
+  $('#email').on('keyup', function () {
+    emailCheck();
+    idck = 0;
+  });
 
   const pwdCheck = () => {
     if (!$('#pwd').val()) {

@@ -14,19 +14,23 @@
   $res_nop = $_POST['res_nop'];
   $res_nod = $_POST['res_nod'];
   $total_price = $_POST['total_price'];
-  $pay_method = $_POST['pay_method'];
+  $pay_method_num = $_POST['pay_method'];
 
   // 현재 시간(예약 날짜)
   $res_date = date("Y-m-d H:i:s");
+  $pay_date = date("Y-m-d H:i:s");
 
   // 예약 상태
   // 1 : 결제 대기 (결제), 2 : 예약완료 (예약취소), 3 : 예약취소(환불진행중, 환불완료), 4 : 숙박완료(리뷰쓰기)
-  if($pay_method == "1") { // 신용카드
+  if($pay_method_num == "1") { // 신용카드
     $res_state = "2";
-  } else if($pay_method == "2") { // 카카오페이
+    $pay_method = "신용카드";
+  } else if($pay_method_num == "2") { // 카카오페이
     $res_state = "2";
+    $pay_method = "카카오페이";
   } else {  // 가상계좌(임시)
     $res_state = "2";
+    $pay_method = "가상계좌";
   };
 
   // echo "<p>이름 : ".$res_name."</p>";
@@ -43,7 +47,7 @@
   /* DB 연결 */
   include "../inc/dbcon.php";
 
-  $sql = "INSERT INTO reservation ( res_name, res_phone, res_email, res_gender, res_checkin, res_checkout, res_time, res_nop, res_nod, total_price, res_date, res_state, ldg_idx, r_idx, u_idx) VALUES ( '$res_name', '$res_phone', '$res_email', '$res_gender', '$res_checkin', '$res_checkout', '$res_time', '$res_nop', '$res_nod', '$total_price', '$res_date', '$res_state', '$ldg_idx', '$r_idx', '$s_idx');";
+  $sql = "INSERT INTO reservation ( res_name, res_phone, res_email, res_gender, res_checkin, res_checkout, res_time, res_nop, res_nod, total_price, res_date, res_state, pay_date, pay_method, ldg_idx, r_idx, u_idx) VALUES ( '$res_name', '$res_phone', '$res_email', '$res_gender', '$res_checkin', '$res_checkout', '$res_time', '$res_nop', '$res_nod', '$total_price', '$res_date', '$res_state', '$pay_date', '$pay_method', '$ldg_idx', '$r_idx', '$s_idx');";
 
   mysqli_query($dbcon, $sql);
 

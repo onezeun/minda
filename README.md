@@ -21,7 +21,7 @@ http://onezeun.dothome.co.kr/minda/index.php
 ## ⚙️ 개발환경
 
 ## 💻 주요기능
-![image](https://user-images.githubusercontent.com/78632052/204071945-b21dcb0e-0980-49ac-a38e-5b8d88f16fd8.png)
+![image](https://user-images.githubusercontent.com/78632052/204072080-0fe3e155-b404-406d-a203-f374ec3a1550.png)
 
 
 ## 🎯 향후 업데이트 계획

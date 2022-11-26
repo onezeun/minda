@@ -16,12 +16,17 @@ http://onezeun.dothome.co.kr/minda/index.php
 # 📝 프로젝트 소개
 - 개인프로젝트
 - 개발일정 : 22.08.30 ~ 22.11.25 (3개월)
+<br>
 
-
-## ⚙️ 개발환경
+## ⚙️ 사용기술
+- HTML5, CSS, Javascript
+- jQuery
+- php
+- Mysql
+<br>
 
 ## 💻 주요기능
 ![image](https://user-images.githubusercontent.com/78632052/204072080-0fe3e155-b404-406d-a203-f374ec3a1550.png)
-
+<br>
 
 ## 🎯 향후 업데이트 계획

@@ -29,13 +29,11 @@ $(document).ready(function () {
         .text('올바른 이메일 형식이 아닙니다');
       return false;
     } else {
-      console.log("gd1");
       $('#email').addClass('email_input');
       $('#email').removeClass('err_email_input');
       $('#email').removeClass('succ_email_input');
       $('#err_email').removeClass('succ_txt');
       $('#err_email').css({ display: 'none' });
-      console.log("g2d");
       return true;
     }
   };

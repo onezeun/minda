@@ -192,9 +192,11 @@ create table review (
   u_idx INT,
   ldg_idx INT,
   r_idx INT,
+  res_idx INT,
   FOREIGN KEY (ldg_idx) REFERENCES lodging (ldg_idx) ON DELETE CASCADE,
   FOREIGN KEY (r_idx) REFERENCES room (r_idx),
-  FOREIGN KEY (u_idx) REFERENCES users (u_idx)
+  FOREIGN KEY (u_idx) REFERENCES users (u_idx),
+  FOREIGN KEY (res_idx) REFERENCES reservation (res_idx)
 );
 
 -- 커뮤니티 COMMUNITY

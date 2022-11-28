@@ -3,6 +3,7 @@
 
   $ldg_idx = $_POST['ldg_idx'];
   $r_idx = $_POST['r_idx'];
+  $res_idx = $_POST['res_idx'];
   $rv_score = $_POST['rv_score'];
   $rv_content = $_POST['rv_content'];
   $rv_time = date("Y-m-d H:i");
@@ -10,7 +11,7 @@
   /* DB 연결 */
   include "../inc/dbcon.php";
 
-  $sql = "INSERT INTO review (rv_score, rv_content, rv_time, u_idx, ldg_idx, r_idx ) VALUES ('$rv_score', '$rv_content', '$rv_time', $s_idx, $ldg_idx, $r_idx);";
+  $sql = "INSERT INTO review (rv_score, rv_content, rv_time, u_idx, ldg_idx, r_idx ) VALUES ('$rv_score', '$rv_content', '$rv_time', $s_idx, $ldg_idx, $r_idx, $res_idx);";
   mysqli_query($dbcon, $sql);
 
   /* DB 접속 종료 */

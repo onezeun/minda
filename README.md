@@ -46,4 +46,4 @@
 - 구글맵 api
 <br>
 
-프로젝트 일정관리 : https://www.notion.so/onezeun/d830a20d4b6d4392930893c65951f139
+프로젝트 일정관리 : https://onezeun.notion.site/d830a20d4b6d4392930893c65951f139

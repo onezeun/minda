@@ -17,6 +17,10 @@
 - 개인프로젝트
 - 개발일정 : 22.08.30 ~ 22.11.25 (3개월)
 
+<div align="center">
+  <img width="80%" src="https://user-images.githubusercontent.com/78632052/204292540-5a55879a-3897-4ee0-bf40-a0149cab9320.png">
+  <br>
+</div>
 <br>
 
 ## ⚙️ 사용기술

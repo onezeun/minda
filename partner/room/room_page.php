@@ -108,7 +108,7 @@
                       <p>객실정원 <?php echo $list_arr["r_min"]." ~ ".$list_arr["r_max"]; ?></p>
                     </div>
                     <div class="room_price_wrap">
-                      <span class="room_price_txt">1박 금액</span><span class="room_price"><?php echo number_format($list_arr["r_price"]); ?> 원</span>
+                      <span class="room_cont_txt">1박 금액</span><span class="room_price_txt2"><?php echo number_format($list_arr["r_price"]); ?> 원</span>
                     </div>
                   </a>
                 </div>

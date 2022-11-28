@@ -527,7 +527,7 @@
 .star span {
   width: 0;
   position: absolute; 
-  left: -4px;
+  left: 0px;
   color: #ffde0d;
   overflow: hidden;
   pointer-events: none;

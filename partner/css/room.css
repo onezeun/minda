@@ -249,6 +249,7 @@ td {
   height: 140px;
   padding: 0 10px;
   margin-top: 5px;
+  position: relative;
 }
 
 .card_prev {
@@ -281,20 +282,20 @@ td {
 }
 
 .room_price_wrap {
-  margin-top: 37px;
-  display: flex;
-  justify-content: space-between;
+  width: 210px;
+  position: absolute;
+  bottom: 3px;
 }
 
 .room_cont_txt {
-  margin-top: 10px;
   font-size: 14px;
   color: #8c8c8c;
 }
 
-.room_price_txt {
+.room_price_txt2 {
+  position: absolute;
   font-size: 14px;
-  color: #8c8c8c;
+  right: 0;
 }
 
 .new_room_btn {

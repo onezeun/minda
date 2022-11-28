@@ -294,7 +294,7 @@
           ?>
           <a href="lodging_detail.php?ldg_idx=<?php echo $ldg_idx ?>">
             <div class="result_room">
-              <img src="<?php echo '../partner/room/images/'.$array['ldg_main_img']; ?>" alt="검색된숙소이미지1">
+              <img src="<?php echo '../partner/room/images/'.$array['ldg_main_img']; ?>" alt="검색된숙소이미지" class="result_room_img">
               <div class="result_room_left">
                 <div class="result_room_top">
                   <p class="lodging_name"><?php echo $array["ldg_name"]; ?></p>

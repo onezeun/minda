@@ -70,7 +70,7 @@
             <fieldset class="room_info">
               <legend class="room_info_title">예약 정보</legend>
               <div class="room_info_cont">
-                <img src="../images/<?php echo $array['ldg_main_img']; ?>" alt="숙소 대표 사진" class="reservation_roomphoto">
+                <img src="<?php echo "../partner/room/images/".$array['ldg_main_img']; ?>" alt="숙소 대표 사진" class="reservation_roomphoto">
                 <p class="room_info_country"><?php echo $array["ldg_country"]." · ".$array["ldg_city"];?></p>
                 <p class="room_info_name"><?php echo $array['ldg_name']; ?></p>
                 <p class="room_info_type"><?php echo $array['r_name']; ?></p>

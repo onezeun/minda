@@ -34,7 +34,7 @@
 
 ## 💻 주요기능
 <div align="center">
-  <img width="80%" src="https://user-images.githubusercontent.com/78632052/204072080-0fe3e155-b404-406d-a203-f374ec3a1550.png">
+  <img width="80%" src="https://user-images.githubusercontent.com/78632052/204294681-5bc30014-c234-4632-a86a-7c4604f64194.png">
   <br>
 </div>
 <br>

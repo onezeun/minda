@@ -5,10 +5,10 @@
 <div align="center">
 <br/>
   <h2> 웹사이트 리뉴얼 프로젝트 </h2>
+  
+  📌 http://onezeun.dothome.co.kr/minda/index.php
 </div>
 
-### 📌배포주소
-http://onezeun.dothome.co.kr/minda/index.php
 
 <br/>
 

@@ -337,7 +337,7 @@
               <p class="star_score_wrap">
                 <span class="star">
                   ★★★★★
-                  <span style="width : <?php echo ($avg*20)."%"; ?>">★★★★★</span>
+                  <span style="width : <?php echo ($avg*20-3)."%"; ?>">★★★★★</span>
                   <input type="range" name="rv_score" class="rv_score" value="<?php echo $avg;?>" step="0.5" min="0"
                     max="5">
                 </span>
@@ -363,7 +363,7 @@
               <p class="comment_star_wrap">
                 <span class="comment_star">
                   ★★★★★
-                  <span style="width : <?php echo ($rv_array['rv_score']*20)."%"; ?>">★★★★★</span>
+                  <span style="width : <?php echo ($rv_array['rv_score']*20-3)."%"; ?>">★★★★★</span>
                   <input type="range" name="rv_score" class="rv_score" value="<?php echo $rv_array['rv_score'];?>"
                     step="0.5" min="0" max="5">
                 </span>

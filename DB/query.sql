@@ -32,7 +32,7 @@ CREATE TABLE users (
 INSERT INTO users(u_email, u_pwd, u_name, u_nickname, u_phone, u_marketing, reg_date) VALUES('$u_email', '$u_pwd', '$u_name', '$u_nickname', '$u_phone', '$u_marketing', '$reg_date');
 
 
--- 파트너회원
+-- 파트너회원 PARTNER
 CREATE TABLE partner_user (
   p_idx INT AUTO_INCREMENT PRIMARY KEY,
   p_name VARCHAR(30) NOT NULL,

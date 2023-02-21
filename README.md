@@ -38,5 +38,3 @@
   <br>
 </div>
 <br>
-
-프로젝트 일정관리 : https://onezeun.notion.site/d830a20d4b6d4392930893c65951f139
